@@ -441,7 +441,6 @@ module Ionoscloud
       end
 
       while true
-        param = { :request_id => request_id }
         request = Ionoscloud::RequestApi.new(self).requests_status_get(
           request_id,
           { :debug_auth_names => ['Basic Authentication'] },
@@ -473,6 +472,47 @@ module Ionoscloud
         if @config.debugging
           @config.logger.info "Request #{request_id} is in state #{request.metadata.status}."\
                               "Sleeping for #{wait_period} seconds..."
+        end
+        sleep(wait_period)
+      end
+    end
+
+    # Execute block until it returns true
+    # @param [Block] _block Block to the executed.
+    # @param [Integer] timeout Maximum waiting time in seconds. nil means infinite waiting time.
+    # @param [Integer] initial_wait Initial polling interval in seconds.
+    # @param [Integer] scaleup Double polling interval every scaleup steps, which will be doubled.
+    def wait_for(timeout = 3600, initial_wait = 5, scaleup = 10, &_block)
+      if _block.nil?
+        return nil
+      end
+    
+      wait_period = initial_wait
+      next_increase = Time.now.to_i + wait_period * scaleup
+      unless timeout.nil?
+        timeout = Time.now.to_i + timeout
+      end
+
+      while true
+        if yield
+          break
+        end
+
+        current_time = Time.now.to_i
+        if timeout && current_time > timeout
+          raise Ionoscloud::ApiError.new(
+            'Timed out waiting for request {0}.'.format(request_id),
+          )
+        end
+
+        if current_time > next_increase
+          wait_period *= 2
+          next_increase = Time.now.to_i + wait_period * scaleup
+          scaleup *= 2
+        end
+
+        if @config.debugging
+          @config.logger.info "Sleeping for #{wait_period} seconds..."
         end
         sleep(wait_period)
       end
