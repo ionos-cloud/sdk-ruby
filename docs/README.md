@@ -74,16 +74,20 @@ end
 
 ```
 
-## Feature Reference 
-The IONOS Cloud SDK for Ruby aims to offer access to all resources in the IONOS Cloud API and also offers some additional features that make the integration easier: 
-- authentication for API calls
-- handling of asynchronous requests 
+## Feature Reference
 
-## FAQ 
+The IONOS Cloud SDK for Ruby aims to offer access to all resources in the IONOS Cloud API and also offers some additional features that make the integration easier:
+
+* authentication for API calls
+* handling of asynchronous requests 
+
+## FAQ
+
 1. How can I open a bug/feature request? 
 
-Bugs & feature requests can be open on the repository issues: https://github.com/ionos-cloud/sdk-ruby/issues/new/choose 
+Bugs & feature requests can be open on the repository issues: [https://github.com/ionos-cloud/sdk-ruby/issues/new/choose](https://github.com/ionos-cloud/sdk-ruby/issues/new/choose)
 
-2. Can I contribute to the Ruby SDK?
+1. Can I contribute to the Ruby SDK?
 
-Pure SDKs are automatically generated using OpenAPI Generator and don’t support manual changes. If you need changes please open an issue and we’ll try to take care of it. 
+Pure SDKs are automatically generated using OpenAPI Generator and don’t support manual changes. If you need changes please open an issue and we’ll try to take care of it.
+
