@@ -441,10 +441,7 @@ module Ionoscloud
       end
 
       while true
-        request = Ionoscloud::RequestApi.new(self).requests_status_get(
-          request_id,
-          { :debug_auth_names => ['Basic Authentication'] },
-        )
+        request = Ionoscloud::RequestApi.new(self).requests_status_get(request_id)
 
         if request.metadata.status == 'DONE'
           break

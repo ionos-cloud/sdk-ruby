@@ -24,28 +24,6 @@ module Ionoscloud
     # Indicates if the loadbalancer will reserve an IP using DHCP
     attr_accessor :dhcp
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -107,24 +85,29 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      if !@ip.nil? && @ip !~ pattern
+        invalid_properties.push("invalid value for \"ip\", must conform to the pattern #{pattern}.")
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      ip_validator = EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      return false unless ip_validator.valid?(@ip)
+      return false if !@ip.nil? && @ip !~ Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
       true
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] ip Object to be assigned
+    # Custom attribute writer method with validation
+    # @param [Object] ip Value to be assigned
     def ip=(ip)
-      validator = EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      unless validator.valid?(ip)
-        fail ArgumentError, "invalid value for \"ip\", must be one of #{validator.allowable_values}."
+      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      if !ip.nil? && ip !~ pattern
+        fail ArgumentError, "invalid value for \"ip\", must conform to the pattern #{pattern}."
       end
+
       @ip = ip
     end
 

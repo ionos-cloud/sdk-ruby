@@ -165,6 +165,21 @@ module Ionoscloud
         invalid_properties.push('invalid value for "protocol", protocol cannot be nil.')
       end
 
+      pattern = Regexp.new(/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/)
+      if !@source_mac.nil? && @source_mac !~ pattern
+        invalid_properties.push("invalid value for \"source_mac\", must conform to the pattern #{pattern}.")
+      end
+
+      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      if !@source_ip.nil? && @source_ip !~ pattern
+        invalid_properties.push("invalid value for \"source_ip\", must conform to the pattern #{pattern}.")
+      end
+
+      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      if !@target_ip.nil? && @target_ip !~ pattern
+        invalid_properties.push("invalid value for \"target_ip\", must conform to the pattern #{pattern}.")
+      end
+
       if !@icmp_code.nil? && @icmp_code > 254
         invalid_properties.push('invalid value for "icmp_code", must be smaller than or equal to 254.')
       end
@@ -206,12 +221,9 @@ module Ionoscloud
       return false if @protocol.nil?
       protocol_validator = EnumAttributeValidator.new('String', ["TCP", "UDP", "ICMP", "ANY"])
       return false unless protocol_validator.valid?(@protocol)
-      source_mac_validator = EnumAttributeValidator.new('String', ["@Valid MAC address@", "null"])
-      return false unless source_mac_validator.valid?(@source_mac)
-      source_ip_validator = EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      return false unless source_ip_validator.valid?(@source_ip)
-      target_ip_validator = EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      return false unless target_ip_validator.valid?(@target_ip)
+      return false if !@source_mac.nil? && @source_mac !~ Regexp.new(/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/)
+      return false if !@source_ip.nil? && @source_ip !~ Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      return false if !@target_ip.nil? && @target_ip !~ Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
       return false if !@icmp_code.nil? && @icmp_code > 254
       return false if !@icmp_code.nil? && @icmp_code < 0
       return false if !@icmp_type.nil? && @icmp_type > 254
@@ -233,33 +245,36 @@ module Ionoscloud
       @protocol = protocol
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] source_mac Object to be assigned
+    # Custom attribute writer method with validation
+    # @param [Object] source_mac Value to be assigned
     def source_mac=(source_mac)
-      validator = EnumAttributeValidator.new('String', ["@Valid MAC address@", "null"])
-      unless validator.valid?(source_mac)
-        fail ArgumentError, "invalid value for \"source_mac\", must be one of #{validator.allowable_values}."
+      pattern = Regexp.new(/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/)
+      if !source_mac.nil? && source_mac !~ pattern
+        fail ArgumentError, "invalid value for \"source_mac\", must conform to the pattern #{pattern}."
       end
+
       @source_mac = source_mac
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] source_ip Object to be assigned
+    # Custom attribute writer method with validation
+    # @param [Object] source_ip Value to be assigned
     def source_ip=(source_ip)
-      validator = EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      unless validator.valid?(source_ip)
-        fail ArgumentError, "invalid value for \"source_ip\", must be one of #{validator.allowable_values}."
+      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      if !source_ip.nil? && source_ip !~ pattern
+        fail ArgumentError, "invalid value for \"source_ip\", must conform to the pattern #{pattern}."
       end
+
       @source_ip = source_ip
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] target_ip Object to be assigned
+    # Custom attribute writer method with validation
+    # @param [Object] target_ip Value to be assigned
     def target_ip=(target_ip)
-      validator = EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      unless validator.valid?(target_ip)
-        fail ArgumentError, "invalid value for \"target_ip\", must be one of #{validator.allowable_values}."
+      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      if !target_ip.nil? && target_ip !~ pattern
+        fail ArgumentError, "invalid value for \"target_ip\", must conform to the pattern #{pattern}."
       end
+
       @target_ip = target_ip
     end
 
