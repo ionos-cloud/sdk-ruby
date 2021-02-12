@@ -57,6 +57,18 @@ Just add this to the Gemfile:
 # Load the gem
 require 'ionoscloud'
 
+# Setup authorization
+Ionoscloud.configure do |config|
+  # Configure HTTP basic authorization: Basic Authentication
+  config.username = 'YOUR_USERNAME'
+  config.password = 'YOUR_PASSWORD'
+
+  # Configure API key authorization: Token Authentication
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
 api_instance = Ionoscloud::DefaultApi.new
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
