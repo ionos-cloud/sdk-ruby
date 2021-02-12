@@ -19,16 +19,16 @@ gem build ionoscloud.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./ionoscloud-1.0.0.gem
+gem install ./ionoscloud-<gem-version>.gem
 ```
 
-(for development, run `gem install --dev ./ionoscloud-1.0.0.gem` to install the development dependencies)
+(for development, run `gem install --dev ./ionoscloud-<gem-version>.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'ionoscloud', '~> 1.0.0'
+    gem 'ionoscloud', '~> <gem-version>'
 
 ### 2. Install from Git
 
@@ -46,9 +46,9 @@ ruby -Ilib script.rb
 
 ### 4. Install from RubyGems
 
-```shell
-    gem install ionoscloud
-```
+Just add this to the Gemfile:
+
+    gem 'ionoscloud', '~> <gem-version>'
 
 
 ### After installing please run the following code:
