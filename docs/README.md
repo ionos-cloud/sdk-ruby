@@ -2,7 +2,7 @@
 ![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
 
 ![Gem Version](https://rubygems.org/gems/ionoscloud)
-![CI](hhttps://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
+![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
 
 https://badge.fury.io/rb/ionoscloud.png
 ## Overview
