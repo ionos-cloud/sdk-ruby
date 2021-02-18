@@ -1,4 +1,6 @@
 # Introduction
+![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
+
 ![Gem Version](https://rubygems.org/gems/ionoscloud)
 ![CI](hhttps://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
 
