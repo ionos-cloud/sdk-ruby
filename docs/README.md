@@ -1,8 +1,9 @@
 # Introduction
-![Gem Version](https://badge.fury.io/rb/ionoscloud.png)(https://rubygems.org/gems/ionoscloud)
-![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
 
-https://badge.fury.io/rb/ionoscloud.png
+<!-- [![Gem Version][GV img]][Gem Version] -->
+<!-- [Gem Version]: https://rubygems.org/gems/ionoscloud -->
+<!-- [GV img]: https://badge.fury.io/rb/ionoscloud.png -->
+
 ## Overview
 
 The IONOS Cloud SDK for Ruby provides you with access to the IONOS Cloud API. The client library supports both simple and complex requests. It is designed for developers who are building applications in Ruby. The SDK for Ruby wraps the IONOS Cloud API. All API operations are performed over SSL and authenticated using your IONOS Cloud portal credentials. The API can be accessed within an instance running in IONOS Cloud or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
