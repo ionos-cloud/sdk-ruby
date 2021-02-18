@@ -1,7 +1,9 @@
 # Introduction
 
 [![Gem Version][GV img]][Gem Version]
+
 [Gem Version]: https://rubygems.org/gems/ionoscloud
+
 [GV img]: https://badge.fury.io/rb/ionoscloud.png
 
 ## Overview
