@@ -1,23 +1,9 @@
 # Introduction
-[![Gem Version][GV img]][Gem Version]
-[![Build Status][BS img]][Build Status]
+[![Gem Version][https://badge.fury.io/rb/ionoscloud.png]][https://rubygems.org/gems/ionoscloud]
+![CI](hhttps://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
 [![Dependency Status][DS img]][Dependency Status]
 [![Code Climate][CC img]][Code Climate]
 [![Coverage Status][CS img]][Coverage Status]
-
-[Gem Version]: https://rubygems.org/gems/ionoscloud
-[Build Status]: https://travis-ci.org/elgalu/ionoscloud
-[travis pull requests]: https://travis-ci.org/elgalu/ionoscloud/pull_requests
-[Dependency Status]: https://gemnasium.com/elgalu/ionoscloud
-[Code Climate]: https://codeclimate.com/github/elgalu/ionoscloud
-[Coverage Status]: https://coveralls.io/r/elgalu/ionoscloud
-
-[GV img]: https://badge.fury.io/rb/ionoscloud.png
-[BS img]: https://travis-ci.org/elgalu/ionoscloud.png
-[DS img]: https://gemnasium.com/elgalu/ionoscloud.png
-[CC img]: https://codeclimate.com/github/elgalu/ionoscloud.png
-[CS img]: https://coveralls.io/repos/elgalu/ionoscloud/badge.png?branch=master
-
 
 ## Overview
 
