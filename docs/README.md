@@ -1,7 +1,5 @@
 # Introduction
-![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
-
-![Gem Version](https://rubygems.org/gems/ionoscloud)
+![Gem Version](https://badge.fury.io/rb/ionoscloud.png)(https://rubygems.org/gems/ionoscloud)
 ![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
 
 https://badge.fury.io/rb/ionoscloud.png
