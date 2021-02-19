@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/ionoscloud.svg)](https://badge.fury.io/rb/ionoscloud)
-[![Gitter](https://img.shields.io/gitter/room/ionos-cloud/sdk-general)](https://gitter.im/ionos-cloud/sdk-general)
+[![Gitter](https://badges.gitter.im/ionos-cloud/sdk-general.png)](https://gitter.im/ionos-cloud/sdk-general)
 
 ## Overview
 
