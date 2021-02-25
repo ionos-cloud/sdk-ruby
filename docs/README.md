@@ -1,8 +1,6 @@
 # Introduction
 
-![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
-[![Gem Version](https://badge.fury.io/rb/ionoscloud.svg)](https://badge.fury.io/rb/ionoscloud)
-[![Gitter](https://badges.gitter.im/ionos-cloud/sdk-general.png)](https://gitter.im/ionos-cloud/sdk-general)
+![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg) [![Gem Version](https://badge.fury.io/rb/ionoscloud.svg)](https://badge.fury.io/rb/ionoscloud) [![Gitter](https://badges.gitter.im/ionos-cloud/sdk-general.png)](https://gitter.im/ionos-cloud/sdk-general)
 
 ## Overview
 
@@ -16,35 +14,39 @@ The IONOS Cloud SDK for Ruby provides you with access to the IONOS Cloud API. Th
 
 To build the Ruby code into a gem:
 
-```shell
+```text
 gem build ionoscloud.gemspec
 ```
 
 Then either install the gem locally:
 
-```shell
+```text
 gem install ./ionoscloud-<gem-version>.gem
 ```
 
-(for development, run `gem install --dev ./ionoscloud-<gem-version>.gem` to install the development dependencies)
+\(for development, run `gem install --dev ./ionoscloud-<gem-version>.gem` to install the development dependencies\)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'ionoscloud', '~> <gem-version>'
+```text
+gem 'ionoscloud', '~> <gem-version>'
+```
 
 ### 2. Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/ionos-cloud/sdk-ruby, then add the following in the Gemfile:
+If the Ruby gem is hosted at a git repository: [https://github.com/ionos-cloud/sdk-ruby](https://github.com/ionos-cloud/sdk-ruby), then add the following in the Gemfile:
 
-    gem 'ionoscloud', :git => 'https://github.com/ionos-cloud/sdk-ruby.git'
+```text
+gem 'ionoscloud', :git => 'https://github.com/ionos-cloud/sdk-ruby.git'
+```
 
 ### 3. Include the Ruby code directly
 
 Include the Ruby code directly using `-I` as follows:
 
-```shell
+```text
 ruby -Ilib script.rb
 ```
 
@@ -52,8 +54,9 @@ ruby -Ilib script.rb
 
 Just add this to the Gemfile:
 
-    gem 'ionoscloud', '~> <gem-version>'
-
+```text
+gem 'ionoscloud', '~> <gem-version>'
+```
 
 ### After installing please run the following code:
 
@@ -87,7 +90,6 @@ begin
 rescue Ionoscloud::ApiError => e
   puts "Exception when calling DefaultApi->api_info_get: #{e}"
 end
-
 ```
 
 ## Feature Reference
@@ -103,7 +105,7 @@ The IONOS Cloud SDK for Ruby aims to offer access to all resources in the IONOS 
 
 Bugs & feature requests can be open on the repository issues: [https://github.com/ionos-cloud/sdk-ruby/issues/new/choose](https://github.com/ionos-cloud/sdk-ruby/issues/new/choose)
 
-2. Can I contribute to the Ruby SDK?
+1. Can I contribute to the Ruby SDK?
 
 Pure SDKs are automatically generated using OpenAPI Generator and don’t support manual changes. If you need changes please open an issue and we’ll try to take care of it.
 
