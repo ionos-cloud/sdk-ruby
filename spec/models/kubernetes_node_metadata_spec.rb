@@ -46,7 +46,7 @@ describe Ionoscloud::KubernetesNodeMetadata do
   describe 'test attribute "state"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["PROVISIONING", "PROVISIONED", "READY", "TERMINATING", "REBUILDING", "BUSY"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["PROVISIONING", "PROVISIONED", "READY", "TERMINATING", "REBUILDING", "BUSY", "UNKNOWN"])
       # validator.allowable_values.each do |value|
       #   expect { instance.state = value }.not_to raise_error
       # end

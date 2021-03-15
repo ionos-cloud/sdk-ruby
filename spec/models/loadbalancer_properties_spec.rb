@@ -34,10 +34,6 @@ describe Ionoscloud::LoadbalancerProperties do
   describe 'test attribute "ip"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.ip = value }.not_to raise_error
-      # end
     end
   end
 

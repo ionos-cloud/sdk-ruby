@@ -70,7 +70,7 @@ describe Ionoscloud::DatacenterElementMetadata do
   describe 'test attribute "state"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["AVAILABLE", "INACTIVE", "BUSY", "DEPLOYING", "ACTIVE", "FAILED", "SUSPENDED", "FAILED_SUSPENDED", "UPDATING", "FAILED_UPDATING", "DESTROYING", "FAILED_DESTROYING", "TERMINATED"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["AVAILABLE", "INACTIVE", "BUSY", "DEPLOYING", "ACTIVE", "FAILED", "SUSPENDED", "FAILED_SUSPENDED", "UPDATING", "FAILED_UPDATING", "DESTROYING", "FAILED_DESTROYING", "TERMINATED", "UNKNOWN"])
       # validator.allowable_values.each do |value|
       #   expect { instance.state = value }.not_to raise_error
       # end

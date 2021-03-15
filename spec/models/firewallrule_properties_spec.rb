@@ -44,30 +44,18 @@ describe Ionoscloud::FirewallruleProperties do
   describe 'test attribute "source_mac"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["@Valid MAC address@", "null"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.source_mac = value }.not_to raise_error
-      # end
     end
   end
 
   describe 'test attribute "source_ip"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.source_ip = value }.not_to raise_error
-      # end
     end
   end
 
   describe 'test attribute "target_ip"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["@Valid IP address@", "null"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.target_ip = value }.not_to raise_error
-      # end
     end
   end
 

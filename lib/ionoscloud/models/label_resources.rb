@@ -150,7 +150,7 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      type_validator = EnumAttributeValidator.new('String', ["label"])
+      type_validator = EnumAttributeValidator.new('String', ["collection"])
       return false unless type_validator.valid?(@type)
       true
     end
@@ -158,7 +158,7 @@ module Ionoscloud
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["label"])
+      validator = EnumAttributeValidator.new('String', ["collection"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

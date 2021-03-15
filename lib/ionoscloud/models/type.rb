@@ -39,6 +39,7 @@ module Ionoscloud
     LABEL = "label".freeze
     K8S = "k8s".freeze
     NODEPOOL = "nodepool".freeze
+    NODE = "node".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

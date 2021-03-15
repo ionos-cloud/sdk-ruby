@@ -68,6 +68,9 @@ module Ionoscloud
     # The uuid of the Backup Unit that user has access to. The property is immutable and is only allowed to be set on a new volume creation. It is mandatory to provied either public image or imageAlias in conjunction with this property.
     attr_accessor :backupunit_id
 
+    # The cloud-init configuration for the volume as base64 encoded string. The property is immutable and is only allowed to be set on a new volume creation. It is mandatory to provide either 'public image' or 'imageAlias' that has cloud-init compatibility in conjunction with this property.
+    attr_accessor :user_data
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -110,7 +113,8 @@ module Ionoscloud
         :'disc_virtio_hot_plug' => :'discVirtioHotPlug',
         :'disc_virtio_hot_unplug' => :'discVirtioHotUnplug',
         :'device_number' => :'deviceNumber',
-        :'backupunit_id' => :'backupunitId'
+        :'backupunit_id' => :'backupunitId',
+        :'user_data' => :'userData'
       }
     end
 
@@ -139,7 +143,8 @@ module Ionoscloud
         :'disc_virtio_hot_plug' => :'Boolean',
         :'disc_virtio_hot_unplug' => :'Boolean',
         :'device_number' => :'Integer',
-        :'backupunit_id' => :'String'
+        :'backupunit_id' => :'String',
+        :'user_data' => :'String'
       }
     end
 
@@ -237,6 +242,10 @@ module Ionoscloud
       if attributes.key?(:'backupunit_id')
         self.backupunit_id = attributes[:'backupunit_id']
       end
+
+      if attributes.key?(:'user_data')
+        self.user_data = attributes[:'user_data']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -327,7 +336,8 @@ module Ionoscloud
           disc_virtio_hot_plug == o.disc_virtio_hot_plug &&
           disc_virtio_hot_unplug == o.disc_virtio_hot_unplug &&
           device_number == o.device_number &&
-          backupunit_id == o.backupunit_id
+          backupunit_id == o.backupunit_id &&
+          user_data == o.user_data
     end
 
     # @see the `==` method
@@ -339,7 +349,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, type, size, availability_zone, image, image_password, image_alias, ssh_keys, bus, licence_type, cpu_hot_plug, ram_hot_plug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, device_number, backupunit_id].hash
+      [name, type, size, availability_zone, image, image_password, image_alias, ssh_keys, bus, licence_type, cpu_hot_plug, ram_hot_plug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, device_number, backupunit_id, user_data].hash
     end
 
     # Builds the object from hash
