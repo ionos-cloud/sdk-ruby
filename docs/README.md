@@ -8,7 +8,9 @@ The IONOS Cloud SDK for Ruby provides you with access to the IONOS Cloud API. Th
 
 ## Getting Started
 
-### Instalation
+An IONOS account is required for access to the Cloud API; credentials from your registration are used to authenticate against the IONOS Cloud API.
+
+### Installation
 
 ### 1. Build a gem
 
