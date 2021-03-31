@@ -9,6 +9,9 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=security_rating)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
 
+![Alt text](.github/IONOS.CLOUD.BLU.svg?raw=true "Title")
+
+
 # Ruby API Client For IONOS Cloud
 
 An enterprise-grade Infrastructure is provided as a Service (IaaS) solution that can be managed through a browser-based \"Data Center Designer\" (DCD) tool or via an easy to use API. 
