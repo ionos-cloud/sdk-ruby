@@ -97,4 +97,10 @@ describe Ionoscloud::GroupProperties do
     end
   end
 
+  describe 'test attribute "access_and_manage_certificates"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

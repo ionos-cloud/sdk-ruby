@@ -29,6 +29,10 @@ module Ionoscloud
 
     attr_accessor :datacenter_name
 
+    attr_accessor :k8s_node_pool_uuid
+
+    attr_accessor :k8s_cluster_uuid
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -38,7 +42,9 @@ module Ionoscloud
         :'server_id' => :'serverId',
         :'server_name' => :'serverName',
         :'datacenter_id' => :'datacenterId',
-        :'datacenter_name' => :'datacenterName'
+        :'datacenter_name' => :'datacenterName',
+        :'k8s_node_pool_uuid' => :'k8sNodePoolUuid',
+        :'k8s_cluster_uuid' => :'k8sClusterUuid'
       }
     end
 
@@ -56,7 +62,9 @@ module Ionoscloud
         :'server_id' => :'String',
         :'server_name' => :'String',
         :'datacenter_id' => :'String',
-        :'datacenter_name' => :'String'
+        :'datacenter_name' => :'String',
+        :'k8s_node_pool_uuid' => :'String',
+        :'k8s_cluster_uuid' => :'String'
       }
     end
 
@@ -108,6 +116,14 @@ module Ionoscloud
       if attributes.key?(:'datacenter_name')
         self.datacenter_name = attributes[:'datacenter_name']
       end
+
+      if attributes.key?(:'k8s_node_pool_uuid')
+        self.k8s_node_pool_uuid = attributes[:'k8s_node_pool_uuid']
+      end
+
+      if attributes.key?(:'k8s_cluster_uuid')
+        self.k8s_cluster_uuid = attributes[:'k8s_cluster_uuid']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -134,7 +150,9 @@ module Ionoscloud
           server_id == o.server_id &&
           server_name == o.server_name &&
           datacenter_id == o.datacenter_id &&
-          datacenter_name == o.datacenter_name
+          datacenter_name == o.datacenter_name &&
+          k8s_node_pool_uuid == o.k8s_node_pool_uuid &&
+          k8s_cluster_uuid == o.k8s_cluster_uuid
     end
 
     # @see the `==` method
@@ -146,7 +164,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ip, mac, nic_id, server_id, server_name, datacenter_id, datacenter_name].hash
+      [ip, mac, nic_id, server_id, server_name, datacenter_id, datacenter_name, k8s_node_pool_uuid, k8s_cluster_uuid].hash
     end
 
     # Builds the object from hash

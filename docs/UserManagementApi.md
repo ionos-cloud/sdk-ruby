@@ -1870,7 +1870,7 @@ Basic Authentication, Token Authentication
 
 ## um_users_post
 
-> <UserPost> um_users_post(user, opts)
+> <User> um_users_post(user, opts)
 
 Create a user
 
@@ -1914,7 +1914,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UserPost>, Integer, Hash)> um_users_post_with_http_info(user, opts)
+> <Array(<User>, Integer, Hash)> um_users_post_with_http_info(user, opts)
 
 ```ruby
 begin
@@ -1922,7 +1922,7 @@ begin
   data, status_code, headers = api_instance.um_users_post_with_http_info(user, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <UserPost>
+  p data # => <User>
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_users_post_with_http_info: #{e}"
 end
@@ -1939,7 +1939,7 @@ end
 
 ### Return type
 
-[**UserPost**](UserPost.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -1953,7 +1953,7 @@ Basic Authentication, Token Authentication
 
 ## um_users_put
 
-> <UserPut> um_users_put(user_id, user, opts)
+> <User> um_users_put(user_id, user, opts)
 
 Modify a user
 
@@ -1998,7 +1998,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UserPut>, Integer, Hash)> um_users_put_with_http_info(user_id, user, opts)
+> <Array(<User>, Integer, Hash)> um_users_put_with_http_info(user_id, user, opts)
 
 ```ruby
 begin
@@ -2006,7 +2006,7 @@ begin
   data, status_code, headers = api_instance.um_users_put_with_http_info(user_id, user, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <UserPut>
+  p data # => <User>
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_users_put_with_http_info: #{e}"
 end
@@ -2024,7 +2024,7 @@ end
 
 ### Return type
 
-[**UserPut**](UserPut.md)
+[**User**](User.md)
 
 ### Authorization
 

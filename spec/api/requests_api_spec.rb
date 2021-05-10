@@ -54,9 +54,17 @@ describe 'RequestsApi' do
   # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
   # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
   # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-  # @option opts [String] :filter_status Request status filter to fetch all the request based on a particular status [QUEUED, RUNNING, DONE, FAILED]
-  # @option opts [String] :filter_created_after Filter all the requests after the created date
-  # @option opts [String] :filter_created_before Filter all the requests before the created date
+  # @option opts [String] :filter_status Request filter to fetch all requests based on a particular status [QUEUED, RUNNING, DONE, FAILED]. It doesn&#39;t depend on depth query parameter
+  # @option opts [String] :filter_created_after Request filter to fetch all requests created after the specified date. It doesn&#39;t depend on depth query parameter. Date format e.g. 2021-01-01+00:00:00
+  # @option opts [String] :filter_created_before Request filter to fetch all requests created before the specified date. It doesn&#39;t depend on depth query parameter. Date format e.g. 2021-01-01+00:00:00
+  # @option opts [String] :filter_created_date Response filter to select and display only the requests that contains the specified createdDate. The value is case insensitive and it  depends on depth query parameter that should have a value greater than 0. Date format e.g. 2020-11-16T17:42:59Z
+  # @option opts [String] :filter_created_by Response filter to select and display only the requests that contains the specified createdBy. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
+  # @option opts [String] :filter_etag Response filter to select and display only the requests that contains the specified etag. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
+  # @option opts [String] :filter_request_status Response filter to select and display only the requests that contains the specified requestStatus. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
+  # @option opts [String] :filter_method Response filter to select and display only the requests that contains the specified method. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
+  # @option opts [String] :filter_headers Response filter to select and display only the requests that contains the specified headers. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
+  # @option opts [String] :filter_body Response filter to select and display only the requests that contains the specified body. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
+  # @option opts [String] :filter_url Response filter to select and display only the requests that contains the specified url. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
   # @option opts [Integer] :offset the first element (of the total list of elements) to include in the response (use together with limit for pagination)
   # @option opts [Integer] :limit the maximum number of elements to return (use together with offset for pagination)
   # @return [Requests]

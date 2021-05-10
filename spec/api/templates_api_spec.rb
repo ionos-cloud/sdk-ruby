@@ -33,7 +33,7 @@ describe 'TemplatesApi' do
   end
 
   # unit tests for templates_find_by_id
-  # Retrieve a Template
+  # Retrieve an available template
   # Retrieves the attributes of a given template.
   # @param template_id 
   # @param [Hash] opts the optional parameters

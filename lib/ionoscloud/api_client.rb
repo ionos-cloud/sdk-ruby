@@ -13,11 +13,16 @@ OpenAPI Generator version: 5.0.1-SNAPSHOT
 require 'date'
 require 'json'
 require 'logger'
-require 'net/http'
-require 'set'
 require 'tempfile'
 require 'time'
 require 'typhoeus'
+
+
+TooManyRequests = 429
+BadGateway = 502
+ServiceUnavailable = 503
+GatewayTimeout = 504
+
 
 module Ionoscloud
   class ApiClient
@@ -60,10 +65,10 @@ module Ionoscloud
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
 
-        case Net::HTTPResponse::CODE_TO_OBJ[response.code.to_s]
-        when Set[Net::HTTPBadGateway, Net::HTTPServiceUnavailable, Net::HTTPGatewayTimeout]
+        case response.code
+        when BadGateway, ServiceUnavailable, GatewayTimeout
           backoff_time = @config.wait_time
-        when Set[Net::HTTPTooManyRequests]
+        when TooManyRequests
           backoff_time = @config.wait_time
           begin
             backoff_time = Integer(response.headers['Retry-After'])
@@ -447,17 +452,13 @@ module Ionoscloud
           break
         else
           if request.metadata.status == 'FAILED'
-            raise Ionoscloud::ApiError.new(
-              'Request {0} failed to complete: {1}'.format(request_id, request.metadata.message),
-            )
+            raise Ionoscloud::ApiError.new(message: "Request #{request_id} failed to complete: #{request.metadata.message}")
           end
         end
 
         current_time = Time.now.to_i
         if timeout && current_time > timeout
-          raise Ionoscloud::ApiError.new(
-            'Timed out waiting for request {0}.'.format(request_id),
-          )
+          raise Ionoscloud::ApiError.new(message: "Timed out waiting for request #{request_id}.")
         end
 
         if current_time > next_increase
@@ -497,9 +498,7 @@ module Ionoscloud
 
         current_time = Time.now.to_i
         if timeout && current_time > timeout
-          raise Ionoscloud::ApiError.new(
-            'Timed out waiting for request {0}.'.format(request_id),
-          )
+          raise Ionoscloud::ApiError.new(message: "Timed out waiting for request #{request_id}.")
         end
 
         if current_time > next_increase

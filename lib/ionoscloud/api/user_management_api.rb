@@ -1834,7 +1834,7 @@ module Ionoscloud
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
     # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-    # @return [UserPost]
+    # @return [User]
     def um_users_post(user, opts = {})
       data, _status_code, _headers = um_users_post_with_http_info(user, opts)
       data
@@ -1847,7 +1847,7 @@ module Ionoscloud
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
     # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-    # @return [Array<(UserPost, Integer, Hash)>] UserPost data, response status code and response headers
+    # @return [Array<(User, Integer, Hash)>] User data, response status code and response headers
     def um_users_post_with_http_info(user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserManagementApi.um_users_post ...'
@@ -1887,7 +1887,7 @@ module Ionoscloud
       post_body = opts[:debug_body] || @api_client.object_to_http_body(user)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'UserPost'
+      return_type = opts[:debug_return_type] || 'User'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['Basic Authentication', 'Token Authentication']
@@ -1917,7 +1917,7 @@ module Ionoscloud
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
     # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-    # @return [UserPut]
+    # @return [User]
     def um_users_put(user_id, user, opts = {})
       data, _status_code, _headers = um_users_put_with_http_info(user_id, user, opts)
       data
@@ -1931,7 +1931,7 @@ module Ionoscloud
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
     # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-    # @return [Array<(UserPut, Integer, Hash)>] UserPut data, response status code and response headers
+    # @return [Array<(User, Integer, Hash)>] User data, response status code and response headers
     def um_users_put_with_http_info(user_id, user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserManagementApi.um_users_put ...'
@@ -1975,7 +1975,7 @@ module Ionoscloud
       post_body = opts[:debug_body] || @api_client.object_to_http_body(user)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'UserPut'
+      return_type = opts[:debug_return_type] || 'User'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['Basic Authentication', 'Token Authentication']

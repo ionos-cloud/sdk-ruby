@@ -19,7 +19,7 @@ module Ionoscloud
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieve a Template
+    # Retrieve an available template
     # Retrieves the attributes of a given template.
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
@@ -30,7 +30,7 @@ module Ionoscloud
       data
     end
 
-    # Retrieve a Template
+    # Retrieve an available template
     # Retrieves the attributes of a given template.
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters

@@ -51,6 +51,9 @@ module Ionoscloud
     # Privilege for a group to access and manage monitoring related functionality (access metrics, CRUD on alarms, alarm-actions etc) using Monotoring-as-a-Service (MaaS).
     attr_accessor :access_and_manage_monitoring
 
+    # Privilege for a group to access and manage certificates.
+    attr_accessor :access_and_manage_certificates
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -65,7 +68,8 @@ module Ionoscloud
         :'create_internet_access' => :'createInternetAccess',
         :'create_k8s_cluster' => :'createK8sCluster',
         :'create_flow_log' => :'createFlowLog',
-        :'access_and_manage_monitoring' => :'accessAndManageMonitoring'
+        :'access_and_manage_monitoring' => :'accessAndManageMonitoring',
+        :'access_and_manage_certificates' => :'accessAndManageCertificates'
       }
     end
 
@@ -88,7 +92,8 @@ module Ionoscloud
         :'create_internet_access' => :'Boolean',
         :'create_k8s_cluster' => :'Boolean',
         :'create_flow_log' => :'Boolean',
-        :'access_and_manage_monitoring' => :'Boolean'
+        :'access_and_manage_monitoring' => :'Boolean',
+        :'access_and_manage_certificates' => :'Boolean'
       }
     end
 
@@ -160,6 +165,10 @@ module Ionoscloud
       if attributes.key?(:'access_and_manage_monitoring')
         self.access_and_manage_monitoring = attributes[:'access_and_manage_monitoring']
       end
+
+      if attributes.key?(:'access_and_manage_certificates')
+        self.access_and_manage_certificates = attributes[:'access_and_manage_certificates']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -191,7 +200,8 @@ module Ionoscloud
           create_internet_access == o.create_internet_access &&
           create_k8s_cluster == o.create_k8s_cluster &&
           create_flow_log == o.create_flow_log &&
-          access_and_manage_monitoring == o.access_and_manage_monitoring
+          access_and_manage_monitoring == o.access_and_manage_monitoring &&
+          access_and_manage_certificates == o.access_and_manage_certificates
     end
 
     # @see the `==` method
@@ -203,7 +213,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, create_data_center, create_snapshot, reserve_ip, access_activity_log, create_pcc, s3_privilege, create_backup_unit, create_internet_access, create_k8s_cluster, create_flow_log, access_and_manage_monitoring].hash
+      [name, create_data_center, create_snapshot, reserve_ip, access_activity_log, create_pcc, s3_privilege, create_backup_unit, create_internet_access, create_k8s_cluster, create_flow_log, access_and_manage_monitoring, access_and_manage_certificates].hash
     end
 
     # Builds the object from hash

@@ -4,7 +4,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**templates_find_by_id**](TemplatesApi.md#templates_find_by_id) | **GET** /templates/{templateId} | Retrieve a Template |
+| [**templates_find_by_id**](TemplatesApi.md#templates_find_by_id) | **GET** /templates/{templateId} | Retrieve an available template |
 | [**templates_get**](TemplatesApi.md#templates_get) | **GET** /templates | List Templates |
 
 
@@ -12,7 +12,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 > <Template> templates_find_by_id(template_id, opts)
 
-Retrieve a Template
+Retrieve an available template
 
 Retrieves the attributes of a given template.
 
@@ -40,7 +40,7 @@ opts = {
 }
 
 begin
-  # Retrieve a Template
+  # Retrieve an available template
   result = api_instance.templates_find_by_id(template_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -56,7 +56,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a Template
+  # Retrieve an available template
   data, status_code, headers = api_instance.templates_find_by_id_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
