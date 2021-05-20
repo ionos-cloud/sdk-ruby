@@ -25,6 +25,11 @@ Ionoscloud.configure do |config|
   # Configure HTTP basic authorization: Basic Authentication
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
+
+  # Configure API key authorization: Token Authentication
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = Ionoscloud::DefaultApi.new
@@ -75,7 +80,7 @@ end
 
 ### Authorization
 
-Basic Authentication
+Basic Authentication, Token Authentication
 
 ### HTTP request headers
 

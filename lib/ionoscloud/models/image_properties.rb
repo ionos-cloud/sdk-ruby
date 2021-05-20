@@ -66,6 +66,12 @@ module Ionoscloud
     # Indicates if the image is part of the public repository or not
     attr_accessor :public
 
+    # List of image aliases mapped for this Image
+    attr_accessor :image_aliases
+
+    # Cloud init compatibility
+    attr_accessor :cloud_init
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -107,7 +113,9 @@ module Ionoscloud
         :'disc_scsi_hot_unplug' => :'discScsiHotUnplug',
         :'licence_type' => :'licenceType',
         :'image_type' => :'imageType',
-        :'public' => :'public'
+        :'public' => :'public',
+        :'image_aliases' => :'imageAliases',
+        :'cloud_init' => :'cloudInit'
       }
     end
 
@@ -135,7 +143,9 @@ module Ionoscloud
         :'disc_scsi_hot_unplug' => :'Boolean',
         :'licence_type' => :'String',
         :'image_type' => :'String',
-        :'public' => :'Boolean'
+        :'public' => :'Boolean',
+        :'image_aliases' => :'Array<String>',
+        :'cloud_init' => :'String'
       }
     end
 
@@ -227,6 +237,16 @@ module Ionoscloud
       if attributes.key?(:'public')
         self.public = attributes[:'public']
       end
+
+      if attributes.key?(:'image_aliases')
+        if (value = attributes[:'image_aliases']).is_a?(Array)
+          self.image_aliases = value
+        end
+      end
+
+      if attributes.key?(:'cloud_init')
+        self.cloud_init = attributes[:'cloud_init']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -248,6 +268,8 @@ module Ionoscloud
       return false unless licence_type_validator.valid?(@licence_type)
       image_type_validator = EnumAttributeValidator.new('String', ["HDD", "CDROM"])
       return false unless image_type_validator.valid?(@image_type)
+      cloud_init_validator = EnumAttributeValidator.new('String', ["NONE", "V1"])
+      return false unless cloud_init_validator.valid?(@cloud_init)
       true
     end
 
@@ -271,6 +293,16 @@ module Ionoscloud
       @image_type = image_type
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] cloud_init Object to be assigned
+    def cloud_init=(cloud_init)
+      validator = EnumAttributeValidator.new('String', ["NONE", "V1"])
+      unless validator.valid?(cloud_init)
+        fail ArgumentError, "invalid value for \"cloud_init\", must be one of #{validator.allowable_values}."
+      end
+      @cloud_init = cloud_init
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -292,7 +324,9 @@ module Ionoscloud
           disc_scsi_hot_unplug == o.disc_scsi_hot_unplug &&
           licence_type == o.licence_type &&
           image_type == o.image_type &&
-          public == o.public
+          public == o.public &&
+          image_aliases == o.image_aliases &&
+          cloud_init == o.cloud_init
     end
 
     # @see the `==` method
@@ -304,7 +338,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, location, size, cpu_hot_plug, cpu_hot_unplug, ram_hot_plug, ram_hot_unplug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, disc_scsi_hot_plug, disc_scsi_hot_unplug, licence_type, image_type, public].hash
+      [name, description, location, size, cpu_hot_plug, cpu_hot_unplug, ram_hot_plug, ram_hot_unplug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, disc_scsi_hot_plug, disc_scsi_hot_unplug, licence_type, image_type, public, image_aliases, cloud_init].hash
     end
 
     # Builds the object from hash

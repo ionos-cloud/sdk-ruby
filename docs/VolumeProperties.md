@@ -21,7 +21,7 @@
 | **disc_virtio_hot_plug** | **Boolean** | Is capable of Virt-IO drive hot plug (no reboot required) | [optional] |
 | **disc_virtio_hot_unplug** | **Boolean** | Is capable of Virt-IO drive hot unplug (no reboot required). This works only for non-Windows virtual Machines. | [optional] |
 | **device_number** | **Integer** | The LUN ID of the storage volume. Null for volumes not mounted to any VM | [optional][readonly] |
-| **backupunit_id** | **String** | The uuid of the Backup Unit that user has access to. The property is immutable and is only allowed to be set on a new volume creation. It is mandatory to provied either public image or imageAlias in conjunction with this property. | [optional] |
+| **backupunit_id** | **String** | The uuid of the Backup Unit that user has access to. The property is immutable and is only allowed to be set on a new volume creation. It is mandatory to provide either &#39;public image&#39; or &#39;imageAlias&#39; in conjunction with this property. | [optional] |
 | **user_data** | **String** | The cloud-init configuration for the volume as base64 encoded string. The property is immutable and is only allowed to be set on a new volume creation. It is mandatory to provide either &#39;public image&#39; or &#39;imageAlias&#39; that has cloud-init compatibility in conjunction with this property. | [optional] |
 
 ## Example

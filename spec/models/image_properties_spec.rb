@@ -135,4 +135,20 @@ describe Ionoscloud::ImageProperties do
     end
   end
 
+  describe 'test attribute "image_aliases"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "cloud_init"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NONE", "V1"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.cloud_init = value }.not_to raise_error
+      # end
+    end
+  end
+
 end

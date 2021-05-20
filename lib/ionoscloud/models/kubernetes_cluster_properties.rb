@@ -29,6 +29,12 @@ module Ionoscloud
     # List of versions that may be used for node pools under this cluster
     attr_accessor :viable_node_pool_versions
 
+    # The indicator if the cluster is public or private. Be aware that setting it to false is currently in beta phase.
+    attr_accessor :public
+
+    # The IP address of the gateway used by the cluster. This is mandatory when `public` is set to `false` and should not be provided otherwise.
+    attr_accessor :gateway_ip
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -36,7 +42,9 @@ module Ionoscloud
         :'k8s_version' => :'k8sVersion',
         :'maintenance_window' => :'maintenanceWindow',
         :'available_upgrade_versions' => :'availableUpgradeVersions',
-        :'viable_node_pool_versions' => :'viableNodePoolVersions'
+        :'viable_node_pool_versions' => :'viableNodePoolVersions',
+        :'public' => :'public',
+        :'gateway_ip' => :'gatewayIp'
       }
     end
 
@@ -52,7 +60,9 @@ module Ionoscloud
         :'k8s_version' => :'String',
         :'maintenance_window' => :'KubernetesMaintenanceWindow',
         :'available_upgrade_versions' => :'Array<String>',
-        :'viable_node_pool_versions' => :'Array<String>'
+        :'viable_node_pool_versions' => :'Array<String>',
+        :'public' => :'Boolean',
+        :'gateway_ip' => :'String'
       }
     end
 
@@ -100,6 +110,16 @@ module Ionoscloud
           self.viable_node_pool_versions = value
         end
       end
+
+      if attributes.key?(:'public')
+        self.public = attributes[:'public']
+      else
+        self.public = true
+      end
+
+      if attributes.key?(:'gateway_ip')
+        self.gateway_ip = attributes[:'gateway_ip']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -129,7 +149,9 @@ module Ionoscloud
           k8s_version == o.k8s_version &&
           maintenance_window == o.maintenance_window &&
           available_upgrade_versions == o.available_upgrade_versions &&
-          viable_node_pool_versions == o.viable_node_pool_versions
+          viable_node_pool_versions == o.viable_node_pool_versions &&
+          public == o.public &&
+          gateway_ip == o.gateway_ip
     end
 
     # @see the `==` method
@@ -141,7 +163,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, k8s_version, maintenance_window, available_upgrade_versions, viable_node_pool_versions].hash
+      [name, k8s_version, maintenance_window, available_upgrade_versions, viable_node_pool_versions, public, gateway_ip].hash
     end
 
     # Builds the object from hash

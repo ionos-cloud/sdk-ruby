@@ -67,4 +67,16 @@ describe Ionoscloud::IpConsumer do
     end
   end
 
+  describe 'test attribute "k8s_node_pool_uuid"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "k8s_cluster_uuid"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

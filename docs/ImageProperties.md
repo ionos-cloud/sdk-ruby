@@ -21,6 +21,8 @@
 | **licence_type** | **String** | OS type of this Image |  |
 | **image_type** | **String** | This indicates the type of image | [optional][readonly] |
 | **public** | **Boolean** | Indicates if the image is part of the public repository or not | [optional][readonly] |
+| **image_aliases** | **Array&lt;String&gt;** | List of image aliases mapped for this Image | [optional][readonly] |
+| **cloud_init** | **String** | Cloud init compatibility | [optional] |
 
 ## Example
 
@@ -44,7 +46,9 @@ instance = Ionoscloud::ImageProperties.new(
   disc_scsi_hot_unplug: true,
   licence_type: LINUX,
   image_type: HDD,
-  public: true
+  public: true,
+  image_aliases: null,
+  cloud_init: V1
 )
 ```
 

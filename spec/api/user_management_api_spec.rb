@@ -463,10 +463,10 @@ describe 'UserManagementApi' do
 
   # unit tests for um_users_s3keys_put
   # Modify a S3 key having the given key id
-  # You can enable or disable a given S3 key
+  # You can enable or disable a given S3 key.
   # @param user_id 
   # @param key_id The unique access key ID of the S3 key
-  # @param s3_key Modified s3 key
+  # @param s3_key Modified S3 key
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
   # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on

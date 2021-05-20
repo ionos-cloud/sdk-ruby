@@ -1829,7 +1829,7 @@ module Ionoscloud
 
     # Create a user
     # You can use this POST method to create a user
-    # @param user [User] User to be created
+    # @param user [UserPost] User to be created
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
@@ -1842,7 +1842,7 @@ module Ionoscloud
 
     # Create a user
     # You can use this POST method to create a user
-    # @param user [User] User to be created
+    # @param user [UserPost] User to be created
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
@@ -1912,7 +1912,7 @@ module Ionoscloud
     # Modify a user
     # You can use update attributes of a User
     # @param user_id [String] 
-    # @param user [User] Modified user
+    # @param user [UserPut] Modified user
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
@@ -1926,7 +1926,7 @@ module Ionoscloud
     # Modify a user
     # You can use update attributes of a User
     # @param user_id [String] 
-    # @param user [User] Modified user
+    # @param user [UserPut] Modified user
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
@@ -2330,10 +2330,10 @@ module Ionoscloud
     end
 
     # Modify a S3 key having the given key id
-    # You can enable or disable a given S3 key
+    # You can enable or disable a given S3 key.
     # @param user_id [String] 
     # @param key_id [String] The unique access key ID of the S3 key
-    # @param s3_key [S3Key] Modified s3 key
+    # @param s3_key [S3Key] Modified S3 key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
@@ -2345,10 +2345,10 @@ module Ionoscloud
     end
 
     # Modify a S3 key having the given key id
-    # You can enable or disable a given S3 key
+    # You can enable or disable a given S3 key.
     # @param user_id [String] 
     # @param key_id [String] The unique access key ID of the S3 key
-    # @param s3_key [S3Key] Modified s3 key
+    # @param s3_key [S3Key] Modified S3 key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on

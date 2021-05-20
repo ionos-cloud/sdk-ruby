@@ -980,7 +980,7 @@ end
 
 api_instance = Ionoscloud::KubernetesApi.new
 k8s_cluster_id = 'k8s_cluster_id_example' # String | The unique ID of the Kubernetes Cluster
-kubernetes_node_pool = Ionoscloud::KubernetesNodePool.new({properties: Ionoscloud::KubernetesNodePoolProperties.new({name: 'k8s-node-pool', datacenter_id: '1e072e52-2ed3-492f-b6b6-c6b116907521', node_count: 2, cpu_family: 'AMD_OPTERON', cores_count: 4, ram_size: 2048, availability_zone: 'AUTO', storage_type: 'HDD', storage_size: 100})}) # KubernetesNodePool | Details of Kubernetes Node Pool
+kubernetes_node_pool = Ionoscloud::KubernetesNodePoolForPost.new({properties: Ionoscloud::KubernetesNodePoolPropertiesForPost.new({name: 'k8s-node-pool', datacenter_id: '1e072e52-2ed3-492f-b6b6-c6b116907521', node_count: 2, cpu_family: 'AMD_OPTERON', cores_count: 4, ram_size: 2048, availability_zone: 'AUTO', storage_type: 'HDD', storage_size: 100})}) # KubernetesNodePoolForPost | Details of the Kubernetes Node Pool
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
   depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
@@ -1019,7 +1019,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **k8s_cluster_id** | **String** | The unique ID of the Kubernetes Cluster |  |
-| **kubernetes_node_pool** | [**KubernetesNodePool**](KubernetesNodePool.md) | Details of Kubernetes Node Pool |  |
+| **kubernetes_node_pool** | [**KubernetesNodePoolForPost**](KubernetesNodePoolForPost.md) | Details of the Kubernetes Node Pool |  |
 | **pretty** | **Boolean** | Controls whether response is pretty-printed (with indentation and new lines) | [optional][default to true] |
 | **depth** | **Integer** | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users having more than 1 contract need to provide contract number, against which all API requests should be executed | [optional] |
@@ -1040,7 +1040,7 @@ Basic Authentication, Token Authentication
 
 ## k8s_nodepools_put
 
-> <KubernetesNodePoolForPut> k8s_nodepools_put(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts)
+> <KubernetesNodePool> k8s_nodepools_put(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts)
 
 Modify Kubernetes Node Pool
 
@@ -1066,7 +1066,7 @@ end
 api_instance = Ionoscloud::KubernetesApi.new
 k8s_cluster_id = 'k8s_cluster_id_example' # String | The unique ID of the Kubernetes Cluster
 nodepool_id = 'nodepool_id_example' # String | The unique ID of the Kubernetes Node Pool
-kubernetes_node_pool = Ionoscloud::KubernetesNodePool.new({properties: Ionoscloud::KubernetesNodePoolProperties.new({name: 'k8s-node-pool', datacenter_id: '1e072e52-2ed3-492f-b6b6-c6b116907521', node_count: 2, cpu_family: 'AMD_OPTERON', cores_count: 4, ram_size: 2048, availability_zone: 'AUTO', storage_type: 'HDD', storage_size: 100})}) # KubernetesNodePool | Details of the Kubernetes Node Pool
+kubernetes_node_pool = Ionoscloud::KubernetesNodePoolForPut.new({properties: Ionoscloud::KubernetesNodePoolPropertiesForPut.new({name: 'k8s-node-pool', node_count: 2})}) # KubernetesNodePoolForPut | Details of the Kubernetes Node Pool
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
   depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
@@ -1086,7 +1086,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<KubernetesNodePoolForPut>, Integer, Hash)> k8s_nodepools_put_with_http_info(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts)
+> <Array(<KubernetesNodePool>, Integer, Hash)> k8s_nodepools_put_with_http_info(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts)
 
 ```ruby
 begin
@@ -1094,7 +1094,7 @@ begin
   data, status_code, headers = api_instance.k8s_nodepools_put_with_http_info(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <KubernetesNodePoolForPut>
+  p data # => <KubernetesNodePool>
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_nodepools_put_with_http_info: #{e}"
 end
@@ -1106,14 +1106,14 @@ end
 | ---- | ---- | ----------- | ----- |
 | **k8s_cluster_id** | **String** | The unique ID of the Kubernetes Cluster |  |
 | **nodepool_id** | **String** | The unique ID of the Kubernetes Node Pool |  |
-| **kubernetes_node_pool** | [**KubernetesNodePool**](KubernetesNodePool.md) | Details of the Kubernetes Node Pool |  |
+| **kubernetes_node_pool** | [**KubernetesNodePoolForPut**](KubernetesNodePoolForPut.md) | Details of the Kubernetes Node Pool |  |
 | **pretty** | **Boolean** | Controls whether response is pretty-printed (with indentation and new lines) | [optional][default to true] |
 | **depth** | **Integer** | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users having more than 1 contract need to provide contract number, against which all API requests should be executed | [optional] |
 
 ### Return type
 
-[**KubernetesNodePoolForPut**](KubernetesNodePoolForPut.md)
+[**KubernetesNodePool**](KubernetesNodePool.md)
 
 ### Authorization
 
@@ -1151,7 +1151,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::KubernetesApi.new
-kubernetes_cluster = Ionoscloud::KubernetesCluster.new({properties: Ionoscloud::KubernetesClusterProperties.new({name: 'k8s'})}) # KubernetesCluster | Properties of the Kubernetes Cluster
+kubernetes_cluster = Ionoscloud::KubernetesClusterForPost.new({properties: Ionoscloud::KubernetesClusterPropertiesForPost.new({name: 'k8s'})}) # KubernetesClusterForPost | Details of the Kubernetes Cluster
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
   depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
@@ -1189,7 +1189,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **kubernetes_cluster** | [**KubernetesCluster**](KubernetesCluster.md) | Properties of the Kubernetes Cluster |  |
+| **kubernetes_cluster** | [**KubernetesClusterForPost**](KubernetesClusterForPost.md) | Details of the Kubernetes Cluster |  |
 | **pretty** | **Boolean** | Controls whether response is pretty-printed (with indentation and new lines) | [optional][default to true] |
 | **depth** | **Integer** | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users having more than 1 contract need to provide contract number, against which all API requests should be executed | [optional] |
@@ -1235,7 +1235,7 @@ end
 
 api_instance = Ionoscloud::KubernetesApi.new
 k8s_cluster_id = 'k8s_cluster_id_example' # String | The unique ID of the Kubernetes Cluster
-kubernetes_cluster = Ionoscloud::KubernetesCluster.new({properties: Ionoscloud::KubernetesClusterProperties.new({name: 'k8s'})}) # KubernetesCluster | Properties of the Kubernetes Cluster
+kubernetes_cluster = Ionoscloud::KubernetesClusterForPut.new({properties: Ionoscloud::KubernetesClusterPropertiesForPut.new({name: 'k8s'})}) # KubernetesClusterForPut | Details of the Kubernetes Cluster
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
   depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
@@ -1274,7 +1274,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **k8s_cluster_id** | **String** | The unique ID of the Kubernetes Cluster |  |
-| **kubernetes_cluster** | [**KubernetesCluster**](KubernetesCluster.md) | Properties of the Kubernetes Cluster |  |
+| **kubernetes_cluster** | [**KubernetesClusterForPut**](KubernetesClusterForPut.md) | Details of the Kubernetes Cluster |  |
 | **pretty** | **Boolean** | Controls whether response is pretty-printed (with indentation and new lines) | [optional][default to true] |
 | **depth** | **Integer** | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users having more than 1 contract need to provide contract number, against which all API requests should be executed | [optional] |

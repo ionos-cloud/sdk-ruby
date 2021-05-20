@@ -30,7 +30,7 @@ module Ionoscloud
     # Number of cores for node
     attr_accessor :cores_count
 
-    # RAM size for node, minimum size 2048MB is recommended. Ram size must be set to multiple of 1024MB.
+    # RAM size for node, minimum size is 2048MB. Ram size must be set to multiple of 1024MB.
     attr_accessor :ram_size
 
     # The availability zone in which the target VM should exist

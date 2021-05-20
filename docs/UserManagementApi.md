@@ -1900,7 +1900,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::UserManagementApi.new
-user = Ionoscloud::User.new({properties: Ionoscloud::UserProperties.new}) # User | User to be created
+user = Ionoscloud::UserPost.new({properties: Ionoscloud::UserPropertiesPost.new}) # UserPost | User to be created
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
   depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
@@ -1938,7 +1938,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user** | [**User**](User.md) | User to be created |  |
+| **user** | [**UserPost**](UserPost.md) | User to be created |  |
 | **pretty** | **Boolean** | Controls whether response is pretty-printed (with indentation and new lines) | [optional][default to true] |
 | **depth** | **Integer** | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users having more than 1 contract need to provide contract number, against which all API requests should be executed | [optional] |
@@ -1984,7 +1984,7 @@ end
 
 api_instance = Ionoscloud::UserManagementApi.new
 user_id = 'user_id_example' # String | 
-user = Ionoscloud::User.new({properties: Ionoscloud::UserProperties.new}) # User | Modified user
+user = Ionoscloud::UserPut.new({properties: Ionoscloud::UserPropertiesPut.new}) # UserPut | Modified user
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
   depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
@@ -2023,7 +2023,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** |  |  |
-| **user** | [**User**](User.md) | Modified user |  |
+| **user** | [**UserPut**](UserPut.md) | Modified user |  |
 | **pretty** | **Boolean** | Controls whether response is pretty-printed (with indentation and new lines) | [optional][default to true] |
 | **depth** | **Integer** | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users having more than 1 contract need to provide contract number, against which all API requests should be executed | [optional] |
@@ -2384,7 +2384,7 @@ Basic Authentication, Token Authentication
 
 Modify a S3 key having the given key id
 
-You can enable or disable a given S3 key
+You can enable or disable a given S3 key.
 
 ### Examples
 
@@ -2406,7 +2406,7 @@ end
 api_instance = Ionoscloud::UserManagementApi.new
 user_id = 'user_id_example' # String | 
 key_id = 'key_id_example' # String | The unique access key ID of the S3 key
-s3_key = Ionoscloud::S3Key.new({properties: Ionoscloud::S3KeyProperties.new}) # S3Key | Modified s3 key
+s3_key = Ionoscloud::S3Key.new({properties: Ionoscloud::S3KeyProperties.new}) # S3Key | Modified S3 key
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
   depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
@@ -2446,7 +2446,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** |  |  |
 | **key_id** | **String** | The unique access key ID of the S3 key |  |
-| **s3_key** | [**S3Key**](S3Key.md) | Modified s3 key |  |
+| **s3_key** | [**S3Key**](S3Key.md) | Modified S3 key |  |
 | **pretty** | **Boolean** | Controls whether response is pretty-printed (with indentation and new lines) | [optional][default to true] |
 | **depth** | **Integer** | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users having more than 1 contract need to provide contract number, against which all API requests should be executed | [optional] |

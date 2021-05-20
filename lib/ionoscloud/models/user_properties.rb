@@ -36,9 +36,6 @@ module Ionoscloud
     # Canonical (S3) id of the user for a given identity
     attr_accessor :s3_canonical_user_id
 
-    # User password
-    attr_accessor :password
-
     # indicates if the user is active
     attr_accessor :active
 
@@ -52,7 +49,6 @@ module Ionoscloud
         :'force_sec_auth' => :'forceSecAuth',
         :'sec_auth_active' => :'secAuthActive',
         :'s3_canonical_user_id' => :'s3CanonicalUserId',
-        :'password' => :'password',
         :'active' => :'active'
       }
     end
@@ -72,7 +68,6 @@ module Ionoscloud
         :'force_sec_auth' => :'Boolean',
         :'sec_auth_active' => :'Boolean',
         :'s3_canonical_user_id' => :'String',
-        :'password' => :'String',
         :'active' => :'Boolean'
       }
     end
@@ -126,10 +121,6 @@ module Ionoscloud
         self.s3_canonical_user_id = attributes[:'s3_canonical_user_id']
       end
 
-      if attributes.key?(:'password')
-        self.password = attributes[:'password']
-      end
-
       if attributes.key?(:'active')
         self.active = attributes[:'active']
       end
@@ -160,7 +151,6 @@ module Ionoscloud
           force_sec_auth == o.force_sec_auth &&
           sec_auth_active == o.sec_auth_active &&
           s3_canonical_user_id == o.s3_canonical_user_id &&
-          password == o.password &&
           active == o.active
     end
 
@@ -173,7 +163,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [firstname, lastname, email, administrator, force_sec_auth, sec_auth_active, s3_canonical_user_id, password, active].hash
+      [firstname, lastname, email, administrator, force_sec_auth, sec_auth_active, s3_canonical_user_id, active].hash
     end
 
     # Builds the object from hash

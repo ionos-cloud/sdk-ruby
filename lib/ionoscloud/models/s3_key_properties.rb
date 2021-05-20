@@ -15,10 +15,10 @@ require 'time'
 
 module Ionoscloud
   class S3KeyProperties
-    # secret of the s3 key
+    # secret of the S3 key
     attr_accessor :secret_key
 
-    # denotes if the s3 key is active or not
+    # denotes if the S3 key is active or not
     attr_accessor :active
 
     # Attribute mapping from ruby-style variable name to JSON key.

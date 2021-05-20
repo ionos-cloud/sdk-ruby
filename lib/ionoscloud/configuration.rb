@@ -165,8 +165,8 @@ module Ionoscloud
       @force_ending_format = false
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
       @max_retries = 3
-      @wait_time = 100
-      @max_wait_time = 2000
+      @wait_time = 0.1
+      @max_wait_time = 2
 
       yield(self) if block_given?
     end

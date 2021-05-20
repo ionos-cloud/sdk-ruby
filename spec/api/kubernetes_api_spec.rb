@@ -209,7 +209,7 @@ describe 'KubernetesApi' do
   # Create a Kubernetes Node Pool
   # This will create a new Kubernetes Node Pool inside a Kubernetes Cluster.
   # @param k8s_cluster_id The unique ID of the Kubernetes Cluster
-  # @param kubernetes_node_pool Details of Kubernetes Node Pool
+  # @param kubernetes_node_pool Details of the Kubernetes Node Pool
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
   # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
@@ -231,7 +231,7 @@ describe 'KubernetesApi' do
   # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
   # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
   # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-  # @return [KubernetesNodePoolForPut]
+  # @return [KubernetesNodePool]
   describe 'k8s_nodepools_put test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -241,7 +241,7 @@ describe 'KubernetesApi' do
   # unit tests for k8s_post
   # Create Kubernetes Cluster
   # This will create a new Kubernetes Cluster.
-  # @param kubernetes_cluster Properties of the Kubernetes Cluster
+  # @param kubernetes_cluster Details of the Kubernetes Cluster
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
   # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
@@ -257,7 +257,7 @@ describe 'KubernetesApi' do
   # Modify Kubernetes Cluster
   # This will modify the Kubernetes Cluster.
   # @param k8s_cluster_id The unique ID of the Kubernetes Cluster
-  # @param kubernetes_cluster Properties of the Kubernetes Cluster
+  # @param kubernetes_cluster Details of the Kubernetes Cluster
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
   # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on

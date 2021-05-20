@@ -74,7 +74,7 @@ module Ionoscloud
       return_type = opts[:debug_return_type] || 'Info'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['Basic Authentication']
+      auth_names = opts[:debug_auth_names] || ['Basic Authentication', 'Token Authentication']
 
       new_options = opts.merge(
         :operation => :"DefaultApi.api_info_get",

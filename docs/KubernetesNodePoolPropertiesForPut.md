@@ -5,14 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | A Kubernetes Node Pool Name. Valid Kubernetes Node Pool name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between. |  |
-| **datacenter_id** | **String** | A valid uuid of the datacenter on which user has access |  |
 | **node_count** | **Integer** | Number of nodes part of the Node Pool |  |
-| **cpu_family** | **String** | A valid cpu family name |  |
-| **cores_count** | **Integer** | Number of cores for node |  |
-| **ram_size** | **Integer** | RAM size for node, minimum size 2048MB is recommended. Ram size must be set to multiple of 1024MB. |  |
-| **availability_zone** | **String** | The availability zone in which the target VM should exist |  |
-| **storage_type** | **String** | Hardware type of the volume |  |
-| **storage_size** | **Integer** | The size of the volume in GB. The size should be greater than 10GB. |  |
 | **k8s_version** | **String** | The kubernetes version in which a nodepool is running. This imposes restrictions on what kubernetes versions can be run in a cluster&#39;s nodepools. Additionally, not all kubernetes versions are viable upgrade targets for all prior versions. | [optional] |
 | **maintenance_window** | [**KubernetesMaintenanceWindow**](KubernetesMaintenanceWindow.md) |  | [optional] |
 | **auto_scaling** | [**KubernetesAutoScaling**](KubernetesAutoScaling.md) |  | [optional] |
@@ -28,14 +21,7 @@ require 'ionoscloud'
 
 instance = Ionoscloud::KubernetesNodePoolPropertiesForPut.new(
   name: k8s-node-pool,
-  datacenter_id: 1e072e52-2ed3-492f-b6b6-c6b116907521,
   node_count: 2,
-  cpu_family: AMD_OPTERON,
-  cores_count: 4,
-  ram_size: 2048,
-  availability_zone: AUTO,
-  storage_type: HDD,
-  storage_size: 100,
   k8s_version: 1.15.4,
   maintenance_window: null,
   auto_scaling: null,

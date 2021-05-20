@@ -11,7 +11,6 @@
 | **force_sec_auth** | **Boolean** | indicates if secure authentication should be forced on the user or not | [optional] |
 | **sec_auth_active** | **Boolean** | indicates if secure authentication is active for the user or not | [optional] |
 | **s3_canonical_user_id** | **String** | Canonical (S3) id of the user for a given identity | [optional] |
-| **password** | **String** | User password | [optional] |
 | **active** | **Boolean** | indicates if the user is active | [optional] |
 
 ## Example
@@ -27,7 +26,6 @@ instance = Ionoscloud::UserProperties.new(
   force_sec_auth: null,
   sec_auth_active: null,
   s3_canonical_user_id: null,
-  password: null,
   active: null
 )
 ```

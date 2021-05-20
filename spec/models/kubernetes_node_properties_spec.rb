@@ -37,6 +37,12 @@ describe Ionoscloud::KubernetesNodeProperties do
     end
   end
 
+  describe 'test attribute "private_ip"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "k8s_version"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

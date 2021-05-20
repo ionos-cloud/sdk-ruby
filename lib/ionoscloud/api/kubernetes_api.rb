@@ -950,7 +950,7 @@ module Ionoscloud
     # Create a Kubernetes Node Pool
     # This will create a new Kubernetes Node Pool inside a Kubernetes Cluster.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes Cluster
-    # @param kubernetes_node_pool [KubernetesNodePool] Details of Kubernetes Node Pool
+    # @param kubernetes_node_pool [KubernetesNodePoolForPost] Details of the Kubernetes Node Pool
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
@@ -964,7 +964,7 @@ module Ionoscloud
     # Create a Kubernetes Node Pool
     # This will create a new Kubernetes Node Pool inside a Kubernetes Cluster.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes Cluster
-    # @param kubernetes_node_pool [KubernetesNodePool] Details of Kubernetes Node Pool
+    # @param kubernetes_node_pool [KubernetesNodePoolForPost] Details of the Kubernetes Node Pool
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
@@ -1039,12 +1039,12 @@ module Ionoscloud
     # This will modify the Kubernetes Node Pool.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes Cluster
     # @param nodepool_id [String] The unique ID of the Kubernetes Node Pool
-    # @param kubernetes_node_pool [KubernetesNodePool] Details of the Kubernetes Node Pool
+    # @param kubernetes_node_pool [KubernetesNodePoolForPut] Details of the Kubernetes Node Pool
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
     # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-    # @return [KubernetesNodePoolForPut]
+    # @return [KubernetesNodePool]
     def k8s_nodepools_put(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts = {})
       data, _status_code, _headers = k8s_nodepools_put_with_http_info(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts)
       data
@@ -1054,12 +1054,12 @@ module Ionoscloud
     # This will modify the Kubernetes Node Pool.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes Cluster
     # @param nodepool_id [String] The unique ID of the Kubernetes Node Pool
-    # @param kubernetes_node_pool [KubernetesNodePool] Details of the Kubernetes Node Pool
+    # @param kubernetes_node_pool [KubernetesNodePoolForPut] Details of the Kubernetes Node Pool
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
     # @option opts [Integer] :x_contract_number Users having more than 1 contract need to provide contract number, against which all API requests should be executed
-    # @return [Array<(KubernetesNodePoolForPut, Integer, Hash)>] KubernetesNodePoolForPut data, response status code and response headers
+    # @return [Array<(KubernetesNodePool, Integer, Hash)>] KubernetesNodePool data, response status code and response headers
     def k8s_nodepools_put_with_http_info(k8s_cluster_id, nodepool_id, kubernetes_node_pool, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KubernetesApi.k8s_nodepools_put ...'
@@ -1107,7 +1107,7 @@ module Ionoscloud
       post_body = opts[:debug_body] || @api_client.object_to_http_body(kubernetes_node_pool)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'KubernetesNodePoolForPut'
+      return_type = opts[:debug_return_type] || 'KubernetesNodePool'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['Basic Authentication', 'Token Authentication']
@@ -1131,7 +1131,7 @@ module Ionoscloud
 
     # Create Kubernetes Cluster
     # This will create a new Kubernetes Cluster.
-    # @param kubernetes_cluster [KubernetesCluster] Properties of the Kubernetes Cluster
+    # @param kubernetes_cluster [KubernetesClusterForPost] Details of the Kubernetes Cluster
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
@@ -1144,7 +1144,7 @@ module Ionoscloud
 
     # Create Kubernetes Cluster
     # This will create a new Kubernetes Cluster.
-    # @param kubernetes_cluster [KubernetesCluster] Properties of the Kubernetes Cluster
+    # @param kubernetes_cluster [KubernetesClusterForPost] Details of the Kubernetes Cluster
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on
@@ -1214,7 +1214,7 @@ module Ionoscloud
     # Modify Kubernetes Cluster
     # This will modify the Kubernetes Cluster.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes Cluster
-    # @param kubernetes_cluster [KubernetesCluster] Properties of the Kubernetes Cluster
+    # @param kubernetes_cluster [KubernetesClusterForPut] Details of the Kubernetes Cluster
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines) (default to true)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on (default to 0)
@@ -1228,7 +1228,7 @@ module Ionoscloud
     # Modify Kubernetes Cluster
     # This will modify the Kubernetes Cluster.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes Cluster
-    # @param kubernetes_cluster [KubernetesCluster] Properties of the Kubernetes Cluster
+    # @param kubernetes_cluster [KubernetesClusterForPut] Details of the Kubernetes Cluster
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether response is pretty-printed (with indentation and new lines)
     # @option opts [Integer] :depth Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth&#x3D;0: only direct properties are included. Children (servers etc.) are not included  - depth&#x3D;1: direct properties and children references are included  - depth&#x3D;2: direct properties and children properties are included  - depth&#x3D;3: direct properties and children properties and children&#39;s children are included  - depth&#x3D;... and so on

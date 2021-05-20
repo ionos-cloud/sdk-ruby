@@ -9,7 +9,7 @@
 | **node_count** | **Integer** | Number of nodes part of the Node Pool |  |
 | **cpu_family** | **String** | A valid cpu family name |  |
 | **cores_count** | **Integer** | Number of cores for node |  |
-| **ram_size** | **Integer** | RAM size for node, minimum size 2048MB is recommended. Ram size must be set to multiple of 1024MB. |  |
+| **ram_size** | **Integer** | RAM size for node, minimum size is 2048MB. Ram size must be set to multiple of 1024MB. |  |
 | **availability_zone** | **String** | The availability zone in which the target VM should exist |  |
 | **storage_type** | **String** | Hardware type of the volume |  |
 | **storage_size** | **Integer** | The size of the volume in GB. The size should be greater than 10GB. |  |

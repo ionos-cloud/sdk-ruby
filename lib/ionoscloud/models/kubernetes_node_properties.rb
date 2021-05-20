@@ -21,6 +21,9 @@ module Ionoscloud
     # A valid public IP.
     attr_accessor :public_ip
 
+    # A valid private IP.
+    attr_accessor :private_ip
+
     # The kubernetes version in which a nodepool is running. This imposes restrictions on what kubernetes versions can be run in a cluster's nodepools. Additionally, not all kubernetes versions are viable upgrade targets for all prior versions.
     attr_accessor :k8s_version
 
@@ -29,6 +32,7 @@ module Ionoscloud
       {
         :'name' => :'name',
         :'public_ip' => :'publicIP',
+        :'private_ip' => :'privateIP',
         :'k8s_version' => :'k8sVersion'
       }
     end
@@ -43,6 +47,7 @@ module Ionoscloud
       {
         :'name' => :'String',
         :'public_ip' => :'String',
+        :'private_ip' => :'String',
         :'k8s_version' => :'String'
       }
     end
@@ -76,6 +81,10 @@ module Ionoscloud
         self.public_ip = attributes[:'public_ip']
       end
 
+      if attributes.key?(:'private_ip')
+        self.private_ip = attributes[:'private_ip']
+      end
+
       if attributes.key?(:'k8s_version')
         self.k8s_version = attributes[:'k8s_version']
       end
@@ -89,10 +98,6 @@ module Ionoscloud
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @public_ip.nil?
-        invalid_properties.push('invalid value for "public_ip", public_ip cannot be nil.')
-      end
-
       if @k8s_version.nil?
         invalid_properties.push('invalid value for "k8s_version", k8s_version cannot be nil.')
       end
@@ -104,7 +109,6 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @public_ip.nil?
       return false if @k8s_version.nil?
       true
     end
@@ -116,6 +120,7 @@ module Ionoscloud
       self.class == o.class &&
           name == o.name &&
           public_ip == o.public_ip &&
+          private_ip == o.private_ip &&
           k8s_version == o.k8s_version
     end
 
@@ -128,7 +133,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, public_ip, k8s_version].hash
+      [name, public_ip, private_ip, k8s_version].hash
     end
 
     # Builds the object from hash
