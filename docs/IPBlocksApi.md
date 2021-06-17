@@ -14,7 +14,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## ipblocks_delete
 
-> Object ipblocks_delete(ipblock_id, opts)
+> ipblocks_delete(ipblock_id, opts)
 
 Delete IP Block
 
@@ -47,8 +47,7 @@ opts = {
 
 begin
   # Delete IP Block
-  result = api_instance.ipblocks_delete(ipblock_id, opts)
-  p result
+  api_instance.ipblocks_delete(ipblock_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling IPBlocksApi->ipblocks_delete: #{e}"
 end
@@ -56,9 +55,9 @@ end
 
 #### Using the ipblocks_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> ipblocks_delete_with_http_info(ipblock_id, opts)
+> <Array(nil, Integer, Hash)> ipblocks_delete_with_http_info(ipblock_id, opts)
 
 ```ruby
 begin
@@ -66,7 +65,7 @@ begin
   data, status_code, headers = api_instance.ipblocks_delete_with_http_info(ipblock_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling IPBlocksApi->ipblocks_delete_with_http_info: #{e}"
 end
@@ -83,7 +82,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

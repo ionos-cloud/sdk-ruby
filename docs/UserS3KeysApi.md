@@ -14,7 +14,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## um_users_s3keys_delete
 
-> Object um_users_s3keys_delete(user_id, key_id, opts)
+> um_users_s3keys_delete(user_id, key_id, opts)
 
 Delete an S3 Key
 
@@ -48,8 +48,7 @@ opts = {
 
 begin
   # Delete an S3 Key
-  result = api_instance.um_users_s3keys_delete(user_id, key_id, opts)
-  p result
+  api_instance.um_users_s3keys_delete(user_id, key_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserS3KeysApi->um_users_s3keys_delete: #{e}"
 end
@@ -57,9 +56,9 @@ end
 
 #### Using the um_users_s3keys_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> um_users_s3keys_delete_with_http_info(user_id, key_id, opts)
+> <Array(nil, Integer, Hash)> um_users_s3keys_delete_with_http_info(user_id, key_id, opts)
 
 ```ruby
 begin
@@ -67,7 +66,7 @@ begin
   data, status_code, headers = api_instance.um_users_s3keys_delete_with_http_info(user_id, key_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserS3KeysApi->um_users_s3keys_delete_with_http_info: #{e}"
 end
@@ -85,7 +84,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

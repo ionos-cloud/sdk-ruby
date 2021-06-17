@@ -109,7 +109,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_volumes_delete
 
-> Object datacenters_volumes_delete(datacenter_id, volume_id, opts)
+> datacenters_volumes_delete(datacenter_id, volume_id, opts)
 
 Delete a Volume
 
@@ -143,8 +143,7 @@ opts = {
 
 begin
   # Delete a Volume
-  result = api_instance.datacenters_volumes_delete(datacenter_id, volume_id, opts)
-  p result
+  api_instance.datacenters_volumes_delete(datacenter_id, volume_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling VolumesApi->datacenters_volumes_delete: #{e}"
 end
@@ -152,9 +151,9 @@ end
 
 #### Using the datacenters_volumes_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_volumes_delete_with_http_info(datacenter_id, volume_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_volumes_delete_with_http_info(datacenter_id, volume_id, opts)
 
 ```ruby
 begin
@@ -162,7 +161,7 @@ begin
   data, status_code, headers = api_instance.datacenters_volumes_delete_with_http_info(datacenter_id, volume_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling VolumesApi->datacenters_volumes_delete_with_http_info: #{e}"
 end
@@ -180,7 +179,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -625,7 +624,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_volumes_restore_snapshot_post
 
-> Object datacenters_volumes_restore_snapshot_post(datacenter_id, volume_id, opts)
+> datacenters_volumes_restore_snapshot_post(datacenter_id, volume_id, opts)
 
 Restore Volume Snapshot
 
@@ -660,8 +659,7 @@ opts = {
 
 begin
   # Restore Volume Snapshot
-  result = api_instance.datacenters_volumes_restore_snapshot_post(datacenter_id, volume_id, opts)
-  p result
+  api_instance.datacenters_volumes_restore_snapshot_post(datacenter_id, volume_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling VolumesApi->datacenters_volumes_restore_snapshot_post: #{e}"
 end
@@ -669,9 +667,9 @@ end
 
 #### Using the datacenters_volumes_restore_snapshot_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_volumes_restore_snapshot_post_with_http_info(datacenter_id, volume_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_volumes_restore_snapshot_post_with_http_info(datacenter_id, volume_id, opts)
 
 ```ruby
 begin
@@ -679,7 +677,7 @@ begin
   data, status_code, headers = api_instance.datacenters_volumes_restore_snapshot_post_with_http_info(datacenter_id, volume_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling VolumesApi->datacenters_volumes_restore_snapshot_post_with_http_info: #{e}"
 end
@@ -698,7 +696,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

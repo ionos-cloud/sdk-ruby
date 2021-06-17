@@ -14,7 +14,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## datacenters_delete
 
-> Object datacenters_delete(datacenter_id, opts)
+> datacenters_delete(datacenter_id, opts)
 
 Delete a Data Center
 
@@ -47,8 +47,7 @@ opts = {
 
 begin
   # Delete a Data Center
-  result = api_instance.datacenters_delete(datacenter_id, opts)
-  p result
+  api_instance.datacenters_delete(datacenter_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling DataCentersApi->datacenters_delete: #{e}"
 end
@@ -56,9 +55,9 @@ end
 
 #### Using the datacenters_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_delete_with_http_info(datacenter_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_delete_with_http_info(datacenter_id, opts)
 
 ```ruby
 begin
@@ -66,7 +65,7 @@ begin
   data, status_code, headers = api_instance.datacenters_delete_with_http_info(datacenter_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling DataCentersApi->datacenters_delete_with_http_info: #{e}"
 end
@@ -83,7 +82,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

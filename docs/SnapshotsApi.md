@@ -13,7 +13,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## snapshots_delete
 
-> Object snapshots_delete(snapshot_id, opts)
+> snapshots_delete(snapshot_id, opts)
 
 Delete a Snapshot
 
@@ -46,8 +46,7 @@ opts = {
 
 begin
   # Delete a Snapshot
-  result = api_instance.snapshots_delete(snapshot_id, opts)
-  p result
+  api_instance.snapshots_delete(snapshot_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling SnapshotsApi->snapshots_delete: #{e}"
 end
@@ -55,9 +54,9 @@ end
 
 #### Using the snapshots_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> snapshots_delete_with_http_info(snapshot_id, opts)
+> <Array(nil, Integer, Hash)> snapshots_delete_with_http_info(snapshot_id, opts)
 
 ```ruby
 begin
@@ -65,7 +64,7 @@ begin
   data, status_code, headers = api_instance.snapshots_delete_with_http_info(snapshot_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling SnapshotsApi->snapshots_delete_with_http_info: #{e}"
 end
@@ -82,7 +81,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

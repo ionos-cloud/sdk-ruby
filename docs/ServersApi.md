@@ -30,7 +30,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## datacenters_servers_cdroms_delete
 
-> Object datacenters_servers_cdroms_delete(datacenter_id, server_id, cdrom_id, opts)
+> datacenters_servers_cdroms_delete(datacenter_id, server_id, cdrom_id, opts)
 
 Detach a CD-ROM
 
@@ -65,8 +65,7 @@ opts = {
 
 begin
   # Detach a CD-ROM
-  result = api_instance.datacenters_servers_cdroms_delete(datacenter_id, server_id, cdrom_id, opts)
-  p result
+  api_instance.datacenters_servers_cdroms_delete(datacenter_id, server_id, cdrom_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_cdroms_delete: #{e}"
 end
@@ -74,9 +73,9 @@ end
 
 #### Using the datacenters_servers_cdroms_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_cdroms_delete_with_http_info(datacenter_id, server_id, cdrom_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_cdroms_delete_with_http_info(datacenter_id, server_id, cdrom_id, opts)
 
 ```ruby
 begin
@@ -84,7 +83,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_cdroms_delete_with_http_info(datacenter_id, server_id, cdrom_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_cdroms_delete_with_http_info: #{e}"
 end
@@ -103,7 +102,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -380,7 +379,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_delete
 
-> Object datacenters_servers_delete(datacenter_id, server_id, opts)
+> datacenters_servers_delete(datacenter_id, server_id, opts)
 
 Delete a Server
 
@@ -414,8 +413,7 @@ opts = {
 
 begin
   # Delete a Server
-  result = api_instance.datacenters_servers_delete(datacenter_id, server_id, opts)
-  p result
+  api_instance.datacenters_servers_delete(datacenter_id, server_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_delete: #{e}"
 end
@@ -423,9 +421,9 @@ end
 
 #### Using the datacenters_servers_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_delete_with_http_info(datacenter_id, server_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_delete_with_http_info(datacenter_id, server_id, opts)
 
 ```ruby
 begin
@@ -433,7 +431,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_delete_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_delete_with_http_info: #{e}"
 end
@@ -451,7 +449,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -898,7 +896,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_reboot_post
 
-> Object datacenters_servers_reboot_post(datacenter_id, server_id, opts)
+> datacenters_servers_reboot_post(datacenter_id, server_id, opts)
 
 Reboot a Server
 
@@ -932,8 +930,7 @@ opts = {
 
 begin
   # Reboot a Server
-  result = api_instance.datacenters_servers_reboot_post(datacenter_id, server_id, opts)
-  p result
+  api_instance.datacenters_servers_reboot_post(datacenter_id, server_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_reboot_post: #{e}"
 end
@@ -941,9 +938,9 @@ end
 
 #### Using the datacenters_servers_reboot_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_reboot_post_with_http_info(datacenter_id, server_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_reboot_post_with_http_info(datacenter_id, server_id, opts)
 
 ```ruby
 begin
@@ -951,7 +948,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_reboot_post_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_reboot_post_with_http_info: #{e}"
 end
@@ -969,7 +966,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1068,7 +1065,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_resume_post
 
-> Object datacenters_servers_resume_post(datacenter_id, server_id, opts)
+> datacenters_servers_resume_post(datacenter_id, server_id, opts)
 
 Resume a Cube Server
 
@@ -1102,8 +1099,7 @@ opts = {
 
 begin
   # Resume a Cube Server
-  result = api_instance.datacenters_servers_resume_post(datacenter_id, server_id, opts)
-  p result
+  api_instance.datacenters_servers_resume_post(datacenter_id, server_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_resume_post: #{e}"
 end
@@ -1111,9 +1107,9 @@ end
 
 #### Using the datacenters_servers_resume_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_resume_post_with_http_info(datacenter_id, server_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_resume_post_with_http_info(datacenter_id, server_id, opts)
 
 ```ruby
 begin
@@ -1121,7 +1117,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_resume_post_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_resume_post_with_http_info: #{e}"
 end
@@ -1139,7 +1135,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1153,7 +1149,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_start_post
 
-> Object datacenters_servers_start_post(datacenter_id, server_id, opts)
+> datacenters_servers_start_post(datacenter_id, server_id, opts)
 
 Start a Server
 
@@ -1187,8 +1183,7 @@ opts = {
 
 begin
   # Start a Server
-  result = api_instance.datacenters_servers_start_post(datacenter_id, server_id, opts)
-  p result
+  api_instance.datacenters_servers_start_post(datacenter_id, server_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_start_post: #{e}"
 end
@@ -1196,9 +1191,9 @@ end
 
 #### Using the datacenters_servers_start_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_start_post_with_http_info(datacenter_id, server_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_start_post_with_http_info(datacenter_id, server_id, opts)
 
 ```ruby
 begin
@@ -1206,7 +1201,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_start_post_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_start_post_with_http_info: #{e}"
 end
@@ -1224,7 +1219,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1238,7 +1233,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_stop_post
 
-> Object datacenters_servers_stop_post(datacenter_id, server_id, opts)
+> datacenters_servers_stop_post(datacenter_id, server_id, opts)
 
 Stop a Server
 
@@ -1272,8 +1267,7 @@ opts = {
 
 begin
   # Stop a Server
-  result = api_instance.datacenters_servers_stop_post(datacenter_id, server_id, opts)
-  p result
+  api_instance.datacenters_servers_stop_post(datacenter_id, server_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_stop_post: #{e}"
 end
@@ -1281,9 +1275,9 @@ end
 
 #### Using the datacenters_servers_stop_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_stop_post_with_http_info(datacenter_id, server_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_stop_post_with_http_info(datacenter_id, server_id, opts)
 
 ```ruby
 begin
@@ -1291,7 +1285,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_stop_post_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_stop_post_with_http_info: #{e}"
 end
@@ -1309,7 +1303,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1323,7 +1317,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_suspend_post
 
-> Object datacenters_servers_suspend_post(datacenter_id, server_id, opts)
+> datacenters_servers_suspend_post(datacenter_id, server_id, opts)
 
 Suspend a Cube Server
 
@@ -1357,8 +1351,7 @@ opts = {
 
 begin
   # Suspend a Cube Server
-  result = api_instance.datacenters_servers_suspend_post(datacenter_id, server_id, opts)
-  p result
+  api_instance.datacenters_servers_suspend_post(datacenter_id, server_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_suspend_post: #{e}"
 end
@@ -1366,9 +1359,9 @@ end
 
 #### Using the datacenters_servers_suspend_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_suspend_post_with_http_info(datacenter_id, server_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_suspend_post_with_http_info(datacenter_id, server_id, opts)
 
 ```ruby
 begin
@@ -1376,7 +1369,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_suspend_post_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_suspend_post_with_http_info: #{e}"
 end
@@ -1394,7 +1387,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1493,7 +1486,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_upgrade_post
 
-> Object datacenters_servers_upgrade_post(datacenter_id, server_id, opts)
+> datacenters_servers_upgrade_post(datacenter_id, server_id, opts)
 
 Upgrade a Server
 
@@ -1527,8 +1520,7 @@ opts = {
 
 begin
   # Upgrade a Server
-  result = api_instance.datacenters_servers_upgrade_post(datacenter_id, server_id, opts)
-  p result
+  api_instance.datacenters_servers_upgrade_post(datacenter_id, server_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_upgrade_post: #{e}"
 end
@@ -1536,9 +1528,9 @@ end
 
 #### Using the datacenters_servers_upgrade_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_upgrade_post_with_http_info(datacenter_id, server_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_upgrade_post_with_http_info(datacenter_id, server_id, opts)
 
 ```ruby
 begin
@@ -1546,7 +1538,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_upgrade_post_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_upgrade_post_with_http_info: #{e}"
 end
@@ -1564,7 +1556,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1578,7 +1570,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_volumes_delete
 
-> Object datacenters_servers_volumes_delete(datacenter_id, server_id, volume_id, opts)
+> datacenters_servers_volumes_delete(datacenter_id, server_id, volume_id, opts)
 
 Detach a volume
 
@@ -1613,8 +1605,7 @@ opts = {
 
 begin
   # Detach a volume
-  result = api_instance.datacenters_servers_volumes_delete(datacenter_id, server_id, volume_id, opts)
-  p result
+  api_instance.datacenters_servers_volumes_delete(datacenter_id, server_id, volume_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_volumes_delete: #{e}"
 end
@@ -1622,9 +1613,9 @@ end
 
 #### Using the datacenters_servers_volumes_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_volumes_delete_with_http_info(datacenter_id, server_id, volume_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_volumes_delete_with_http_info(datacenter_id, server_id, volume_id, opts)
 
 ```ruby
 begin
@@ -1632,7 +1623,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_volumes_delete_with_http_info(datacenter_id, server_id, volume_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ServersApi->datacenters_servers_volumes_delete_with_http_info: #{e}"
 end
@@ -1651,7 +1642,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

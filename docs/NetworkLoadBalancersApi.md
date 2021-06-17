@@ -26,7 +26,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## datacenters_networkloadbalancers_delete
 
-> Object datacenters_networkloadbalancers_delete(datacenter_id, network_load_balancer_id, opts)
+> datacenters_networkloadbalancers_delete(datacenter_id, network_load_balancer_id, opts)
 
 Remove an Network Load Balancer
 
@@ -60,8 +60,7 @@ opts = {
 
 begin
   # Remove an Network Load Balancer
-  result = api_instance.datacenters_networkloadbalancers_delete(datacenter_id, network_load_balancer_id, opts)
-  p result
+  api_instance.datacenters_networkloadbalancers_delete(datacenter_id, network_load_balancer_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NetworkLoadBalancersApi->datacenters_networkloadbalancers_delete: #{e}"
 end
@@ -69,9 +68,9 @@ end
 
 #### Using the datacenters_networkloadbalancers_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_networkloadbalancers_delete_with_http_info(datacenter_id, network_load_balancer_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_networkloadbalancers_delete_with_http_info(datacenter_id, network_load_balancer_id, opts)
 
 ```ruby
 begin
@@ -79,7 +78,7 @@ begin
   data, status_code, headers = api_instance.datacenters_networkloadbalancers_delete_with_http_info(datacenter_id, network_load_balancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NetworkLoadBalancersApi->datacenters_networkloadbalancers_delete_with_http_info: #{e}"
 end
@@ -97,7 +96,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -196,7 +195,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_networkloadbalancers_flowlogs_delete
 
-> Object datacenters_networkloadbalancers_flowlogs_delete(datacenter_id, network_load_balancer_id, flow_log_id, opts)
+> datacenters_networkloadbalancers_flowlogs_delete(datacenter_id, network_load_balancer_id, flow_log_id, opts)
 
 Remove Flow Log from Network Load Balancer
 
@@ -231,8 +230,7 @@ opts = {
 
 begin
   # Remove Flow Log from Network Load Balancer
-  result = api_instance.datacenters_networkloadbalancers_flowlogs_delete(datacenter_id, network_load_balancer_id, flow_log_id, opts)
-  p result
+  api_instance.datacenters_networkloadbalancers_flowlogs_delete(datacenter_id, network_load_balancer_id, flow_log_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NetworkLoadBalancersApi->datacenters_networkloadbalancers_flowlogs_delete: #{e}"
 end
@@ -240,9 +238,9 @@ end
 
 #### Using the datacenters_networkloadbalancers_flowlogs_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_networkloadbalancers_flowlogs_delete_with_http_info(datacenter_id, network_load_balancer_id, flow_log_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_networkloadbalancers_flowlogs_delete_with_http_info(datacenter_id, network_load_balancer_id, flow_log_id, opts)
 
 ```ruby
 begin
@@ -250,7 +248,7 @@ begin
   data, status_code, headers = api_instance.datacenters_networkloadbalancers_flowlogs_delete_with_http_info(datacenter_id, network_load_balancer_id, flow_log_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NetworkLoadBalancersApi->datacenters_networkloadbalancers_flowlogs_delete_with_http_info: #{e}"
 end
@@ -269,7 +267,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -720,7 +718,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_networkloadbalancers_forwardingrules_delete
 
-> Object datacenters_networkloadbalancers_forwardingrules_delete(datacenter_id, network_load_balancer_id, forwarding_rule_id, opts)
+> datacenters_networkloadbalancers_forwardingrules_delete(datacenter_id, network_load_balancer_id, forwarding_rule_id, opts)
 
 Remove Forwarding Rule from Network Load Balancer
 
@@ -755,8 +753,7 @@ opts = {
 
 begin
   # Remove Forwarding Rule from Network Load Balancer
-  result = api_instance.datacenters_networkloadbalancers_forwardingrules_delete(datacenter_id, network_load_balancer_id, forwarding_rule_id, opts)
-  p result
+  api_instance.datacenters_networkloadbalancers_forwardingrules_delete(datacenter_id, network_load_balancer_id, forwarding_rule_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NetworkLoadBalancersApi->datacenters_networkloadbalancers_forwardingrules_delete: #{e}"
 end
@@ -764,9 +761,9 @@ end
 
 #### Using the datacenters_networkloadbalancers_forwardingrules_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_networkloadbalancers_forwardingrules_delete_with_http_info(datacenter_id, network_load_balancer_id, forwarding_rule_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_networkloadbalancers_forwardingrules_delete_with_http_info(datacenter_id, network_load_balancer_id, forwarding_rule_id, opts)
 
 ```ruby
 begin
@@ -774,7 +771,7 @@ begin
   data, status_code, headers = api_instance.datacenters_networkloadbalancers_forwardingrules_delete_with_http_info(datacenter_id, network_load_balancer_id, forwarding_rule_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NetworkLoadBalancersApi->datacenters_networkloadbalancers_forwardingrules_delete_with_http_info: #{e}"
 end
@@ -793,7 +790,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

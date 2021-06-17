@@ -35,7 +35,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## datacenters_labels_delete
 
-> Object datacenters_labels_delete(datacenter_id, key, opts)
+> datacenters_labels_delete(datacenter_id, key, opts)
 
 Delete a Label from Data Center
 
@@ -69,8 +69,7 @@ opts = {
 
 begin
   # Delete a Label from Data Center
-  result = api_instance.datacenters_labels_delete(datacenter_id, key, opts)
-  p result
+  api_instance.datacenters_labels_delete(datacenter_id, key, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->datacenters_labels_delete: #{e}"
 end
@@ -78,9 +77,9 @@ end
 
 #### Using the datacenters_labels_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_labels_delete_with_http_info(datacenter_id, key, opts)
+> <Array(nil, Integer, Hash)> datacenters_labels_delete_with_http_info(datacenter_id, key, opts)
 
 ```ruby
 begin
@@ -88,7 +87,7 @@ begin
   data, status_code, headers = api_instance.datacenters_labels_delete_with_http_info(datacenter_id, key, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->datacenters_labels_delete_with_http_info: #{e}"
 end
@@ -106,7 +105,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -464,7 +463,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_servers_labels_delete
 
-> Object datacenters_servers_labels_delete(datacenter_id, server_id, key, opts)
+> datacenters_servers_labels_delete(datacenter_id, server_id, key, opts)
 
 Delete a Label from Server
 
@@ -499,8 +498,7 @@ opts = {
 
 begin
   # Delete a Label from Server
-  result = api_instance.datacenters_servers_labels_delete(datacenter_id, server_id, key, opts)
-  p result
+  api_instance.datacenters_servers_labels_delete(datacenter_id, server_id, key, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->datacenters_servers_labels_delete: #{e}"
 end
@@ -508,9 +506,9 @@ end
 
 #### Using the datacenters_servers_labels_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_servers_labels_delete_with_http_info(datacenter_id, server_id, key, opts)
+> <Array(nil, Integer, Hash)> datacenters_servers_labels_delete_with_http_info(datacenter_id, server_id, key, opts)
 
 ```ruby
 begin
@@ -518,7 +516,7 @@ begin
   data, status_code, headers = api_instance.datacenters_servers_labels_delete_with_http_info(datacenter_id, server_id, key, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->datacenters_servers_labels_delete_with_http_info: #{e}"
 end
@@ -537,7 +535,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -903,7 +901,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_volumes_labels_delete
 
-> Object datacenters_volumes_labels_delete(datacenter_id, volume_id, key, opts)
+> datacenters_volumes_labels_delete(datacenter_id, volume_id, key, opts)
 
 Delete a Label from Volume
 
@@ -938,8 +936,7 @@ opts = {
 
 begin
   # Delete a Label from Volume
-  result = api_instance.datacenters_volumes_labels_delete(datacenter_id, volume_id, key, opts)
-  p result
+  api_instance.datacenters_volumes_labels_delete(datacenter_id, volume_id, key, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->datacenters_volumes_labels_delete: #{e}"
 end
@@ -947,9 +944,9 @@ end
 
 #### Using the datacenters_volumes_labels_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_volumes_labels_delete_with_http_info(datacenter_id, volume_id, key, opts)
+> <Array(nil, Integer, Hash)> datacenters_volumes_labels_delete_with_http_info(datacenter_id, volume_id, key, opts)
 
 ```ruby
 begin
@@ -957,7 +954,7 @@ begin
   data, status_code, headers = api_instance.datacenters_volumes_labels_delete_with_http_info(datacenter_id, volume_id, key, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->datacenters_volumes_labels_delete_with_http_info: #{e}"
 end
@@ -976,7 +973,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1338,7 +1335,7 @@ Basic Authentication, Token Authentication
 
 ## ipblocks_labels_delete
 
-> Object ipblocks_labels_delete(ipblock_id, key, opts)
+> ipblocks_labels_delete(ipblock_id, key, opts)
 
 Delete a Label from IP Block
 
@@ -1372,8 +1369,7 @@ opts = {
 
 begin
   # Delete a Label from IP Block
-  result = api_instance.ipblocks_labels_delete(ipblock_id, key, opts)
-  p result
+  api_instance.ipblocks_labels_delete(ipblock_id, key, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->ipblocks_labels_delete: #{e}"
 end
@@ -1381,9 +1377,9 @@ end
 
 #### Using the ipblocks_labels_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> ipblocks_labels_delete_with_http_info(ipblock_id, key, opts)
+> <Array(nil, Integer, Hash)> ipblocks_labels_delete_with_http_info(ipblock_id, key, opts)
 
 ```ruby
 begin
@@ -1391,7 +1387,7 @@ begin
   data, status_code, headers = api_instance.ipblocks_labels_delete_with_http_info(ipblock_id, key, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->ipblocks_labels_delete_with_http_info: #{e}"
 end
@@ -1409,7 +1405,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1927,7 +1923,7 @@ Basic Authentication, Token Authentication
 
 ## snapshots_labels_delete
 
-> Object snapshots_labels_delete(snapshot_id, key, opts)
+> snapshots_labels_delete(snapshot_id, key, opts)
 
 Delete a Label from Snapshot
 
@@ -1961,8 +1957,7 @@ opts = {
 
 begin
   # Delete a Label from Snapshot
-  result = api_instance.snapshots_labels_delete(snapshot_id, key, opts)
-  p result
+  api_instance.snapshots_labels_delete(snapshot_id, key, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->snapshots_labels_delete: #{e}"
 end
@@ -1970,9 +1965,9 @@ end
 
 #### Using the snapshots_labels_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> snapshots_labels_delete_with_http_info(snapshot_id, key, opts)
+> <Array(nil, Integer, Hash)> snapshots_labels_delete_with_http_info(snapshot_id, key, opts)
 
 ```ruby
 begin
@@ -1980,7 +1975,7 @@ begin
   data, status_code, headers = api_instance.snapshots_labels_delete_with_http_info(snapshot_id, key, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LabelsApi->snapshots_labels_delete_with_http_info: #{e}"
 end
@@ -1998,7 +1993,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

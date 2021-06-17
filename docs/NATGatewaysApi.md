@@ -26,7 +26,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## datacenters_natgateways_delete
 
-> Object datacenters_natgateways_delete(datacenter_id, nat_gateway_id, opts)
+> datacenters_natgateways_delete(datacenter_id, nat_gateway_id, opts)
 
 Remove a NAT gateway
 
@@ -60,8 +60,7 @@ opts = {
 
 begin
   # Remove a NAT gateway
-  result = api_instance.datacenters_natgateways_delete(datacenter_id, nat_gateway_id, opts)
-  p result
+  api_instance.datacenters_natgateways_delete(datacenter_id, nat_gateway_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NATGatewaysApi->datacenters_natgateways_delete: #{e}"
 end
@@ -69,9 +68,9 @@ end
 
 #### Using the datacenters_natgateways_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_natgateways_delete_with_http_info(datacenter_id, nat_gateway_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_natgateways_delete_with_http_info(datacenter_id, nat_gateway_id, opts)
 
 ```ruby
 begin
@@ -79,7 +78,7 @@ begin
   data, status_code, headers = api_instance.datacenters_natgateways_delete_with_http_info(datacenter_id, nat_gateway_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NATGatewaysApi->datacenters_natgateways_delete_with_http_info: #{e}"
 end
@@ -97,7 +96,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -196,7 +195,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_natgateways_flowlogs_delete
 
-> Object datacenters_natgateways_flowlogs_delete(datacenter_id, nat_gateway_id, flow_log_id, opts)
+> datacenters_natgateways_flowlogs_delete(datacenter_id, nat_gateway_id, flow_log_id, opts)
 
 Remove Flow Log from NAT Gateway
 
@@ -230,8 +229,7 @@ opts = {
 
 begin
   # Remove Flow Log from NAT Gateway
-  result = api_instance.datacenters_natgateways_flowlogs_delete(datacenter_id, nat_gateway_id, flow_log_id, opts)
-  p result
+  api_instance.datacenters_natgateways_flowlogs_delete(datacenter_id, nat_gateway_id, flow_log_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NATGatewaysApi->datacenters_natgateways_flowlogs_delete: #{e}"
 end
@@ -239,9 +237,9 @@ end
 
 #### Using the datacenters_natgateways_flowlogs_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_natgateways_flowlogs_delete_with_http_info(datacenter_id, nat_gateway_id, flow_log_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_natgateways_flowlogs_delete_with_http_info(datacenter_id, nat_gateway_id, flow_log_id, opts)
 
 ```ruby
 begin
@@ -249,7 +247,7 @@ begin
   data, status_code, headers = api_instance.datacenters_natgateways_flowlogs_delete_with_http_info(datacenter_id, nat_gateway_id, flow_log_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NATGatewaysApi->datacenters_natgateways_flowlogs_delete_with_http_info: #{e}"
 end
@@ -267,7 +265,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1058,7 +1056,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_natgateways_rules_delete
 
-> Object datacenters_natgateways_rules_delete(datacenter_id, nat_gateway_id, nat_gateway_rule_id, opts)
+> datacenters_natgateways_rules_delete(datacenter_id, nat_gateway_id, nat_gateway_rule_id, opts)
 
 Remove rule from NAT Gateway
 
@@ -1093,8 +1091,7 @@ opts = {
 
 begin
   # Remove rule from NAT Gateway
-  result = api_instance.datacenters_natgateways_rules_delete(datacenter_id, nat_gateway_id, nat_gateway_rule_id, opts)
-  p result
+  api_instance.datacenters_natgateways_rules_delete(datacenter_id, nat_gateway_id, nat_gateway_rule_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NATGatewaysApi->datacenters_natgateways_rules_delete: #{e}"
 end
@@ -1102,9 +1099,9 @@ end
 
 #### Using the datacenters_natgateways_rules_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_natgateways_rules_delete_with_http_info(datacenter_id, nat_gateway_id, nat_gateway_rule_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_natgateways_rules_delete_with_http_info(datacenter_id, nat_gateway_id, nat_gateway_rule_id, opts)
 
 ```ruby
 begin
@@ -1112,7 +1109,7 @@ begin
   data, status_code, headers = api_instance.datacenters_natgateways_rules_delete_with_http_info(datacenter_id, nat_gateway_id, nat_gateway_rule_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NATGatewaysApi->datacenters_natgateways_rules_delete_with_http_info: #{e}"
 end
@@ -1131,7 +1128,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

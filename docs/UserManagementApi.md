@@ -32,7 +32,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## um_groups_delete
 
-> Object um_groups_delete(group_id, opts)
+> um_groups_delete(group_id, opts)
 
 Delete a Group
 
@@ -65,8 +65,7 @@ opts = {
 
 begin
   # Delete a Group
-  result = api_instance.um_groups_delete(group_id, opts)
-  p result
+  api_instance.um_groups_delete(group_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_groups_delete: #{e}"
 end
@@ -74,9 +73,9 @@ end
 
 #### Using the um_groups_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> um_groups_delete_with_http_info(group_id, opts)
+> <Array(nil, Integer, Hash)> um_groups_delete_with_http_info(group_id, opts)
 
 ```ruby
 begin
@@ -84,7 +83,7 @@ begin
   data, status_code, headers = api_instance.um_groups_delete_with_http_info(group_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_groups_delete_with_http_info: #{e}"
 end
@@ -101,7 +100,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -528,7 +527,7 @@ Basic Authentication, Token Authentication
 
 ## um_groups_shares_delete
 
-> Object um_groups_shares_delete(group_id, resource_id, opts)
+> um_groups_shares_delete(group_id, resource_id, opts)
 
 Remove a resource from a group
 
@@ -562,8 +561,7 @@ opts = {
 
 begin
   # Remove a resource from a group
-  result = api_instance.um_groups_shares_delete(group_id, resource_id, opts)
-  p result
+  api_instance.um_groups_shares_delete(group_id, resource_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_groups_shares_delete: #{e}"
 end
@@ -571,9 +569,9 @@ end
 
 #### Using the um_groups_shares_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> um_groups_shares_delete_with_http_info(group_id, resource_id, opts)
+> <Array(nil, Integer, Hash)> um_groups_shares_delete_with_http_info(group_id, resource_id, opts)
 
 ```ruby
 begin
@@ -581,7 +579,7 @@ begin
   data, status_code, headers = api_instance.um_groups_shares_delete_with_http_info(group_id, resource_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_groups_shares_delete_with_http_info: #{e}"
 end
@@ -599,7 +597,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -955,7 +953,7 @@ Basic Authentication, Token Authentication
 
 ## um_groups_users_delete
 
-> Object um_groups_users_delete(group_id, user_id, opts)
+> um_groups_users_delete(group_id, user_id, opts)
 
 Remove a user from a group
 
@@ -989,8 +987,7 @@ opts = {
 
 begin
   # Remove a user from a group
-  result = api_instance.um_groups_users_delete(group_id, user_id, opts)
-  p result
+  api_instance.um_groups_users_delete(group_id, user_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_groups_users_delete: #{e}"
 end
@@ -998,9 +995,9 @@ end
 
 #### Using the um_groups_users_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> um_groups_users_delete_with_http_info(group_id, user_id, opts)
+> <Array(nil, Integer, Hash)> um_groups_users_delete_with_http_info(group_id, user_id, opts)
 
 ```ruby
 begin
@@ -1008,7 +1005,7 @@ begin
   data, status_code, headers = api_instance.um_groups_users_delete_with_http_info(group_id, user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_groups_users_delete_with_http_info: #{e}"
 end
@@ -1026,7 +1023,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -1457,7 +1454,7 @@ Basic Authentication, Token Authentication
 
 ## um_users_delete
 
-> Object um_users_delete(user_id, opts)
+> um_users_delete(user_id, opts)
 
 Delete a User
 
@@ -1490,8 +1487,7 @@ opts = {
 
 begin
   # Delete a User
-  result = api_instance.um_users_delete(user_id, opts)
-  p result
+  api_instance.um_users_delete(user_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_users_delete: #{e}"
 end
@@ -1499,9 +1495,9 @@ end
 
 #### Using the um_users_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> um_users_delete_with_http_info(user_id, opts)
+> <Array(nil, Integer, Hash)> um_users_delete_with_http_info(user_id, opts)
 
 ```ruby
 begin
@@ -1509,7 +1505,7 @@ begin
   data, status_code, headers = api_instance.um_users_delete_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserManagementApi->um_users_delete_with_http_info: #{e}"
 end
@@ -1526,7 +1522,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

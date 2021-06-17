@@ -18,7 +18,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## datacenters_loadbalancers_balancednics_delete
 
-> Object datacenters_loadbalancers_balancednics_delete(datacenter_id, loadbalancer_id, nic_id, opts)
+> datacenters_loadbalancers_balancednics_delete(datacenter_id, loadbalancer_id, nic_id, opts)
 
 Detach a nic from loadbalancer
 
@@ -53,8 +53,7 @@ opts = {
 
 begin
   # Detach a nic from loadbalancer
-  result = api_instance.datacenters_loadbalancers_balancednics_delete(datacenter_id, loadbalancer_id, nic_id, opts)
-  p result
+  api_instance.datacenters_loadbalancers_balancednics_delete(datacenter_id, loadbalancer_id, nic_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LoadBalancersApi->datacenters_loadbalancers_balancednics_delete: #{e}"
 end
@@ -62,9 +61,9 @@ end
 
 #### Using the datacenters_loadbalancers_balancednics_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_loadbalancers_balancednics_delete_with_http_info(datacenter_id, loadbalancer_id, nic_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_loadbalancers_balancednics_delete_with_http_info(datacenter_id, loadbalancer_id, nic_id, opts)
 
 ```ruby
 begin
@@ -72,7 +71,7 @@ begin
   data, status_code, headers = api_instance.datacenters_loadbalancers_balancednics_delete_with_http_info(datacenter_id, loadbalancer_id, nic_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LoadBalancersApi->datacenters_loadbalancers_balancednics_delete_with_http_info: #{e}"
 end
@@ -91,7 +90,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -368,7 +367,7 @@ Basic Authentication, Token Authentication
 
 ## datacenters_loadbalancers_delete
 
-> Object datacenters_loadbalancers_delete(datacenter_id, loadbalancer_id, opts)
+> datacenters_loadbalancers_delete(datacenter_id, loadbalancer_id, opts)
 
 Delete a Loadbalancer.
 
@@ -404,8 +403,7 @@ opts = {
 
 begin
   # Delete a Loadbalancer.
-  result = api_instance.datacenters_loadbalancers_delete(datacenter_id, loadbalancer_id, opts)
-  p result
+  api_instance.datacenters_loadbalancers_delete(datacenter_id, loadbalancer_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LoadBalancersApi->datacenters_loadbalancers_delete: #{e}"
 end
@@ -413,9 +411,9 @@ end
 
 #### Using the datacenters_loadbalancers_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> datacenters_loadbalancers_delete_with_http_info(datacenter_id, loadbalancer_id, opts)
+> <Array(nil, Integer, Hash)> datacenters_loadbalancers_delete_with_http_info(datacenter_id, loadbalancer_id, opts)
 
 ```ruby
 begin
@@ -423,7 +421,7 @@ begin
   data, status_code, headers = api_instance.datacenters_loadbalancers_delete_with_http_info(datacenter_id, loadbalancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LoadBalancersApi->datacenters_loadbalancers_delete_with_http_info: #{e}"
 end
@@ -443,7 +441,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 

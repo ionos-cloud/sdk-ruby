@@ -25,7 +25,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 ## k8s_delete
 
-> Object k8s_delete(k8s_cluster_id, opts)
+> k8s_delete(k8s_cluster_id, opts)
 
 Delete Kubernetes Cluster
 
@@ -58,8 +58,7 @@ opts = {
 
 begin
   # Delete Kubernetes Cluster
-  result = api_instance.k8s_delete(k8s_cluster_id, opts)
-  p result
+  api_instance.k8s_delete(k8s_cluster_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_delete: #{e}"
 end
@@ -67,9 +66,9 @@ end
 
 #### Using the k8s_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> k8s_delete_with_http_info(k8s_cluster_id, opts)
+> <Array(nil, Integer, Hash)> k8s_delete_with_http_info(k8s_cluster_id, opts)
 
 ```ruby
 begin
@@ -77,7 +76,7 @@ begin
   data, status_code, headers = api_instance.k8s_delete_with_http_info(k8s_cluster_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_delete_with_http_info: #{e}"
 end
@@ -94,7 +93,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -355,7 +354,7 @@ Basic Authentication, Token Authentication
 
 ## k8s_nodepools_delete
 
-> Object k8s_nodepools_delete(k8s_cluster_id, nodepool_id, opts)
+> k8s_nodepools_delete(k8s_cluster_id, nodepool_id, opts)
 
 Delete Kubernetes Node Pool
 
@@ -389,8 +388,7 @@ opts = {
 
 begin
   # Delete Kubernetes Node Pool
-  result = api_instance.k8s_nodepools_delete(k8s_cluster_id, nodepool_id, opts)
-  p result
+  api_instance.k8s_nodepools_delete(k8s_cluster_id, nodepool_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_nodepools_delete: #{e}"
 end
@@ -398,9 +396,9 @@ end
 
 #### Using the k8s_nodepools_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> k8s_nodepools_delete_with_http_info(k8s_cluster_id, nodepool_id, opts)
+> <Array(nil, Integer, Hash)> k8s_nodepools_delete_with_http_info(k8s_cluster_id, nodepool_id, opts)
 
 ```ruby
 begin
@@ -408,7 +406,7 @@ begin
   data, status_code, headers = api_instance.k8s_nodepools_delete_with_http_info(k8s_cluster_id, nodepool_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_nodepools_delete_with_http_info: #{e}"
 end
@@ -426,7 +424,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -608,7 +606,7 @@ Basic Authentication, Token Authentication
 
 ## k8s_nodepools_nodes_delete
 
-> Object k8s_nodepools_nodes_delete(k8s_cluster_id, nodepool_id, node_id, opts)
+> k8s_nodepools_nodes_delete(k8s_cluster_id, nodepool_id, node_id, opts)
 
 Delete Kubernetes node
 
@@ -643,8 +641,7 @@ opts = {
 
 begin
   # Delete Kubernetes node
-  result = api_instance.k8s_nodepools_nodes_delete(k8s_cluster_id, nodepool_id, node_id, opts)
-  p result
+  api_instance.k8s_nodepools_nodes_delete(k8s_cluster_id, nodepool_id, node_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_nodepools_nodes_delete: #{e}"
 end
@@ -652,9 +649,9 @@ end
 
 #### Using the k8s_nodepools_nodes_delete_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> k8s_nodepools_nodes_delete_with_http_info(k8s_cluster_id, nodepool_id, node_id, opts)
+> <Array(nil, Integer, Hash)> k8s_nodepools_nodes_delete_with_http_info(k8s_cluster_id, nodepool_id, node_id, opts)
 
 ```ruby
 begin
@@ -662,7 +659,7 @@ begin
   data, status_code, headers = api_instance.k8s_nodepools_nodes_delete_with_http_info(k8s_cluster_id, nodepool_id, node_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_nodepools_nodes_delete_with_http_info: #{e}"
 end
@@ -681,7 +678,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
@@ -867,7 +864,7 @@ Basic Authentication, Token Authentication
 
 ## k8s_nodepools_nodes_replace_post
 
-> Object k8s_nodepools_nodes_replace_post(k8s_cluster_id, nodepool_id, node_id, opts)
+> k8s_nodepools_nodes_replace_post(k8s_cluster_id, nodepool_id, node_id, opts)
 
 Recreate the Kubernetes node
 
@@ -902,8 +899,7 @@ opts = {
 
 begin
   # Recreate the Kubernetes node
-  result = api_instance.k8s_nodepools_nodes_replace_post(k8s_cluster_id, nodepool_id, node_id, opts)
-  p result
+  api_instance.k8s_nodepools_nodes_replace_post(k8s_cluster_id, nodepool_id, node_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_nodepools_nodes_replace_post: #{e}"
 end
@@ -911,9 +907,9 @@ end
 
 #### Using the k8s_nodepools_nodes_replace_post_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(Object, Integer, Hash)> k8s_nodepools_nodes_replace_post_with_http_info(k8s_cluster_id, nodepool_id, node_id, opts)
+> <Array(nil, Integer, Hash)> k8s_nodepools_nodes_replace_post_with_http_info(k8s_cluster_id, nodepool_id, node_id, opts)
 
 ```ruby
 begin
@@ -921,7 +917,7 @@ begin
   data, status_code, headers = api_instance.k8s_nodepools_nodes_replace_post_with_http_info(k8s_cluster_id, nodepool_id, node_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => nil
 rescue Ionoscloud::ApiError => e
   puts "Error when calling KubernetesApi->k8s_nodepools_nodes_replace_post_with_http_info: #{e}"
 end
@@ -940,7 +936,7 @@ end
 
 ### Return type
 
-**Object**
+nil (empty response body)
 
 ### Authorization
 
