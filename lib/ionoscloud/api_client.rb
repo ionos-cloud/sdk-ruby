@@ -74,6 +74,7 @@ module Ionoscloud
           begin
             backoff_time = Integer(response.headers['Retry-After'])
           rescue *[ArgumentError, TypeError]
+            # using default value
           end
         else
           break
