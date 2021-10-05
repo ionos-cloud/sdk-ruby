@@ -1,5 +1,5 @@
 
-![CI](https://github.com/ionos-cloud/sdk-resources/workflows/CI/badge.svg)
+![CI](https://github.com/ionos-cloud/sdk-resources/workflows/%5B%20CI%20%5D%20CloudApi%20V5%20/%20Ruby/badge.svg)
 [![Gem Version](https://img.shields.io/gem/v/ionoscloud)](https://rubygems.org/gems/ionoscloud) 
 [![Gitter](https://badges.gitter.im/ionos-cloud/sdk-general.png)](https://gitter.im/ionos-cloud/sdk-general)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=alert_status)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
