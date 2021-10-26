@@ -15,12 +15,14 @@ require 'time'
 
 module Ionoscloud
   class KubernetesConfigProperties
+  
     # A Kubernetes Config file data
     attr_accessor :kubeconfig
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'kubeconfig' => :'kubeconfig'
       }
     end
@@ -33,6 +35,7 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'kubeconfig' => :'String'
       }
     end
@@ -40,6 +43,7 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
       ])
     end
 
@@ -57,6 +61,7 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'kubeconfig')
         self.kubeconfig = attributes[:'kubeconfig']
@@ -67,21 +72,24 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
       true
     end
 
+    
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          kubeconfig == o.kubeconfig
+        kubeconfig == o.kubeconfig
     end
 
     # @see the `==` method

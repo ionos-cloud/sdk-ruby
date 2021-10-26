@@ -16,29 +16,41 @@ require 'time'
 module Ionoscloud
   # datacenter resource representation
   class Resource
+  
     # The resource's unique identifier
     attr_accessor :id
+
 
     # The type of the resource
     attr_accessor :type
 
+
     # URL to the object representation (absolute path)
     attr_accessor :href
 
+
     attr_accessor :metadata
 
+
     attr_accessor :properties
+
 
     attr_accessor :entities
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'id' => :'id',
+
         :'type' => :'type',
+
         :'href' => :'href',
+
         :'metadata' => :'metadata',
+
         :'properties' => :'properties',
+
         :'entities' => :'entities'
       }
     end
@@ -51,11 +63,17 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'id' => :'String',
+
         :'type' => :'Type',
+
         :'href' => :'String',
+
         :'metadata' => :'DatacenterElementMetadata',
+
         :'properties' => :'ResourceProperties',
+
         :'entities' => :'ResourceEntities'
       }
     end
@@ -63,6 +81,12 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
       ])
     end
 
@@ -80,26 +104,32 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
 
       if attributes.key?(:'href')
         self.href = attributes[:'href']
       end
 
+
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
       end
 
+
       if attributes.key?(:'properties')
         self.properties = attributes[:'properties']
       end
+
 
       if attributes.key?(:'entities')
         self.entities = attributes[:'entities']
@@ -110,26 +140,44 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
+
+
       true
     end
+
+    
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type &&
-          href == o.href &&
-          metadata == o.metadata &&
-          properties == o.properties &&
-          entities == o.entities
+        id == o.id &&
+        type == o.type &&
+        href == o.href &&
+        metadata == o.metadata &&
+        properties == o.properties &&
+        entities == o.entities
     end
 
     # @see the `==` method

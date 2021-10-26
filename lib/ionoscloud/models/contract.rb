@@ -15,15 +15,19 @@ require 'time'
 
 module Ionoscloud
   class Contract
+  
     # The type of the resource
     attr_accessor :type
+
 
     attr_accessor :properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'type' => :'type',
+
         :'properties' => :'properties'
       }
     end
@@ -36,7 +40,9 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'type' => :'Type',
+
         :'properties' => :'ContractProperties'
       }
     end
@@ -44,6 +50,8 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
       ])
     end
 
@@ -61,10 +69,12 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
 
       if attributes.key?(:'properties')
         self.properties = attributes[:'properties']
@@ -75,6 +85,8 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       if @properties.nil?
         invalid_properties.push('invalid value for "properties", properties cannot be nil.')
       end
@@ -85,17 +97,21 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       return false if @properties.nil?
       true
     end
+
+    
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          properties == o.properties
+        type == o.type &&
+        properties == o.properties
     end
 
     # @see the `==` method

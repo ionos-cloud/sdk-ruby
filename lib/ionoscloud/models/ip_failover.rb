@@ -15,14 +15,18 @@ require 'time'
 
 module Ionoscloud
   class IPFailover
+  
     attr_accessor :ip
+
 
     attr_accessor :nic_uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'ip' => :'ip',
+
         :'nic_uuid' => :'nicUuid'
       }
     end
@@ -35,7 +39,9 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'ip' => :'String',
+
         :'nic_uuid' => :'String'
       }
     end
@@ -43,6 +49,8 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
       ])
     end
 
@@ -60,10 +68,12 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'ip')
         self.ip = attributes[:'ip']
       end
+
 
       if attributes.key?(:'nic_uuid')
         self.nic_uuid = attributes[:'nic_uuid']
@@ -74,22 +84,28 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       true
     end
+
+    
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ip == o.ip &&
-          nic_uuid == o.nic_uuid
+        ip == o.ip &&
+        nic_uuid == o.nic_uuid
     end
 
     # @see the `==` method

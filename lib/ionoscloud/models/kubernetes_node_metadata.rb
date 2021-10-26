@@ -15,17 +15,22 @@ require 'time'
 
 module Ionoscloud
   class KubernetesNodeMetadata
+  
     # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11 . Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
     attr_accessor :etag
+
 
     # The last time the resource was created
     attr_accessor :created_date
 
+
     # The last time the resource has been modified
     attr_accessor :last_modified_date
 
+
     # State of the resource.
     attr_accessor :state
+
 
     # The last time the software updated on node.
     attr_accessor :last_software_updated_date
@@ -55,10 +60,15 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'etag' => :'etag',
+
         :'created_date' => :'createdDate',
+
         :'last_modified_date' => :'lastModifiedDate',
+
         :'state' => :'state',
+
         :'last_software_updated_date' => :'lastSoftwareUpdatedDate'
       }
     end
@@ -71,10 +81,15 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'etag' => :'String',
+
         :'created_date' => :'Time',
+
         :'last_modified_date' => :'Time',
+
         :'state' => :'String',
+
         :'last_software_updated_date' => :'Time'
       }
     end
@@ -82,6 +97,11 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
       ])
     end
 
@@ -99,22 +119,27 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'etag')
         self.etag = attributes[:'etag']
       end
 
+
       if attributes.key?(:'created_date')
         self.created_date = attributes[:'created_date']
       end
+
 
       if attributes.key?(:'last_modified_date')
         self.last_modified_date = attributes[:'last_modified_date']
       end
 
+
       if attributes.key?(:'state')
         self.state = attributes[:'state']
       end
+
 
       if attributes.key?(:'last_software_updated_date')
         self.last_software_updated_date = attributes[:'last_software_updated_date']
@@ -125,16 +150,30 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
       state_validator = EnumAttributeValidator.new('String', ["PROVISIONING", "PROVISIONED", "READY", "TERMINATING", "REBUILDING", "BUSY", "UNKNOWN"])
       return false unless state_validator.valid?(@state)
+
       true
     end
+
+    
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
@@ -146,16 +185,17 @@ module Ionoscloud
       @state = state
     end
 
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          etag == o.etag &&
-          created_date == o.created_date &&
-          last_modified_date == o.last_modified_date &&
-          state == o.state &&
-          last_software_updated_date == o.last_software_updated_date
+        etag == o.etag &&
+        created_date == o.created_date &&
+        last_modified_date == o.last_modified_date &&
+        state == o.state &&
+        last_software_updated_date == o.last_software_updated_date
     end
 
     # @see the `==` method

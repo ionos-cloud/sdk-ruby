@@ -15,58 +15,77 @@ require 'time'
 
 module Ionoscloud
   class VolumeProperties
+  
     # A name of that resource
     attr_accessor :name
+
 
     # Hardware type of the volume.
     attr_accessor :type
 
+
     # The size of the volume in GB
     attr_accessor :size
+
 
     # The availability zone in which the volume should exist. The storage volume will be provisioned on as less physical storages as possible but cannot guarantee upfront
     attr_accessor :availability_zone
 
+
     # Image or snapshot ID to be used as template for this volume
     attr_accessor :image
+
 
     # Initial password to be set for installed OS. Works with public images only. Not modifiable, forbidden in update requests. Password rules allows all characters from a-z, A-Z, 0-9
     attr_accessor :image_password
 
+
     attr_accessor :image_alias
+
 
     # Public SSH keys are set on the image as authorized keys for appropriate SSH login to the instance using the corresponding private key. This field may only be set in creation requests. When reading, it always returns null. SSH keys are only supported if a public Linux image is used for the volume creation.
     attr_accessor :ssh_keys
 
+
     # The bus type of the volume. Default is VIRTIO
     attr_accessor :bus
+
 
     # OS type of this volume
     attr_accessor :licence_type
 
+
     # Is capable of CPU hot plug (no reboot required)
     attr_accessor :cpu_hot_plug
+
 
     # Is capable of memory hot plug (no reboot required)
     attr_accessor :ram_hot_plug
 
+
     # Is capable of nic hot plug (no reboot required)
     attr_accessor :nic_hot_plug
+
 
     # Is capable of nic hot unplug (no reboot required)
     attr_accessor :nic_hot_unplug
 
+
     # Is capable of Virt-IO drive hot plug (no reboot required)
     attr_accessor :disc_virtio_hot_plug
+
 
     # Is capable of Virt-IO drive hot unplug (no reboot required). This works only for non-Windows virtual Machines.
     attr_accessor :disc_virtio_hot_unplug
 
+
     # The LUN ID of the storage volume. Null for volumes not mounted to any VM
     attr_accessor :device_number
 
+
     # The uuid of the Backup Unit that user has access to. The property is immutable and is only allowed to be set on a new volume creation. It is mandatory to provide either 'public image' or 'imageAlias' in conjunction with this property.
     attr_accessor :backupunit_id
+
 
     # The cloud-init configuration for the volume as base64 encoded string. The property is immutable and is only allowed to be set on a new volume creation. It is mandatory to provide either 'public image' or 'imageAlias' that has cloud-init compatibility in conjunction with this property.
     attr_accessor :user_data
@@ -96,24 +115,43 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'type' => :'type',
+
         :'size' => :'size',
+
         :'availability_zone' => :'availabilityZone',
+
         :'image' => :'image',
+
         :'image_password' => :'imagePassword',
+
         :'image_alias' => :'imageAlias',
+
         :'ssh_keys' => :'sshKeys',
+
         :'bus' => :'bus',
+
         :'licence_type' => :'licenceType',
+
         :'cpu_hot_plug' => :'cpuHotPlug',
+
         :'ram_hot_plug' => :'ramHotPlug',
+
         :'nic_hot_plug' => :'nicHotPlug',
+
         :'nic_hot_unplug' => :'nicHotUnplug',
+
         :'disc_virtio_hot_plug' => :'discVirtioHotPlug',
+
         :'disc_virtio_hot_unplug' => :'discVirtioHotUnplug',
+
         :'device_number' => :'deviceNumber',
+
         :'backupunit_id' => :'backupunitId',
+
         :'user_data' => :'userData'
       }
     end
@@ -126,24 +164,43 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'type' => :'String',
+
         :'size' => :'Float',
+
         :'availability_zone' => :'String',
+
         :'image' => :'String',
+
         :'image_password' => :'String',
+
         :'image_alias' => :'String',
+
         :'ssh_keys' => :'Array<String>',
+
         :'bus' => :'String',
+
         :'licence_type' => :'String',
+
         :'cpu_hot_plug' => :'Boolean',
+
         :'ram_hot_plug' => :'Boolean',
+
         :'nic_hot_plug' => :'Boolean',
+
         :'nic_hot_unplug' => :'Boolean',
+
         :'disc_virtio_hot_plug' => :'Boolean',
+
         :'disc_virtio_hot_unplug' => :'Boolean',
+
         :'device_number' => :'Integer',
+
         :'backupunit_id' => :'String',
+
         :'user_data' => :'String'
       }
     end
@@ -151,6 +208,25 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       ])
     end
 
@@ -168,80 +244,97 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
 
       if attributes.key?(:'size')
         self.size = attributes[:'size']
       end
 
+
       if attributes.key?(:'availability_zone')
         self.availability_zone = attributes[:'availability_zone']
       end
+
 
       if attributes.key?(:'image')
         self.image = attributes[:'image']
       end
 
+
       if attributes.key?(:'image_password')
         self.image_password = attributes[:'image_password']
       end
+
 
       if attributes.key?(:'image_alias')
         self.image_alias = attributes[:'image_alias']
       end
 
-      if attributes.key?(:'ssh_keys')
-        if (value = attributes[:'ssh_keys']).is_a?(Array)
-          self.ssh_keys = value
-        end
+
+      if attributes.key?(:'ssh_keys') && (value = attributes[:'ssh_keys']).is_a?(Array)
+        self.ssh_keys = value
       end
+
 
       if attributes.key?(:'bus')
         self.bus = attributes[:'bus']
       end
 
+
       if attributes.key?(:'licence_type')
         self.licence_type = attributes[:'licence_type']
       end
+
 
       if attributes.key?(:'cpu_hot_plug')
         self.cpu_hot_plug = attributes[:'cpu_hot_plug']
       end
 
+
       if attributes.key?(:'ram_hot_plug')
         self.ram_hot_plug = attributes[:'ram_hot_plug']
       end
+
 
       if attributes.key?(:'nic_hot_plug')
         self.nic_hot_plug = attributes[:'nic_hot_plug']
       end
 
+
       if attributes.key?(:'nic_hot_unplug')
         self.nic_hot_unplug = attributes[:'nic_hot_unplug']
       end
+
 
       if attributes.key?(:'disc_virtio_hot_plug')
         self.disc_virtio_hot_plug = attributes[:'disc_virtio_hot_plug']
       end
 
+
       if attributes.key?(:'disc_virtio_hot_unplug')
         self.disc_virtio_hot_unplug = attributes[:'disc_virtio_hot_unplug']
       end
+
 
       if attributes.key?(:'device_number')
         self.device_number = attributes[:'device_number']
       end
 
+
       if attributes.key?(:'backupunit_id')
         self.backupunit_id = attributes[:'backupunit_id']
       end
+
 
       if attributes.key?(:'user_data')
         self.user_data = attributes[:'user_data']
@@ -252,9 +345,28 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
       if @size.nil?
         invalid_properties.push('invalid value for "size", size cannot be nil.')
       end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       invalid_properties
     end
@@ -262,17 +374,38 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       type_validator = EnumAttributeValidator.new('String', ["HDD", "SSD", "SSD Standard", "SSD Premium", "DAS", "ISO"])
       return false unless type_validator.valid?(@type)
+
       return false if @size.nil?
+
       availability_zone_validator = EnumAttributeValidator.new('String', ["AUTO", "ZONE_1", "ZONE_2", "ZONE_3"])
       return false unless availability_zone_validator.valid?(@availability_zone)
+
+
+
+
+
       bus_validator = EnumAttributeValidator.new('String', ["VIRTIO", "IDE", "UNKNOWN"])
       return false unless bus_validator.valid?(@bus)
+
       licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "LINUX", "OTHER"])
       return false unless licence_type_validator.valid?(@licence_type)
+
+
+
+
+
+
+
+
+
       true
     end
+
+    
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
@@ -284,6 +417,8 @@ module Ionoscloud
       @type = type
     end
 
+
+
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] availability_zone Object to be assigned
     def availability_zone=(availability_zone)
@@ -293,6 +428,11 @@ module Ionoscloud
       end
       @availability_zone = availability_zone
     end
+
+
+
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] bus Object to be assigned
@@ -304,6 +444,7 @@ module Ionoscloud
       @bus = bus
     end
 
+
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] licence_type Object to be assigned
     def licence_type=(licence_type)
@@ -314,30 +455,39 @@ module Ionoscloud
       @licence_type = licence_type
     end
 
+
+
+
+
+
+
+
+
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          type == o.type &&
-          size == o.size &&
-          availability_zone == o.availability_zone &&
-          image == o.image &&
-          image_password == o.image_password &&
-          image_alias == o.image_alias &&
-          ssh_keys == o.ssh_keys &&
-          bus == o.bus &&
-          licence_type == o.licence_type &&
-          cpu_hot_plug == o.cpu_hot_plug &&
-          ram_hot_plug == o.ram_hot_plug &&
-          nic_hot_plug == o.nic_hot_plug &&
-          nic_hot_unplug == o.nic_hot_unplug &&
-          disc_virtio_hot_plug == o.disc_virtio_hot_plug &&
-          disc_virtio_hot_unplug == o.disc_virtio_hot_unplug &&
-          device_number == o.device_number &&
-          backupunit_id == o.backupunit_id &&
-          user_data == o.user_data
+        name == o.name &&
+        type == o.type &&
+        size == o.size &&
+        availability_zone == o.availability_zone &&
+        image == o.image &&
+        image_password == o.image_password &&
+        image_alias == o.image_alias &&
+        ssh_keys == o.ssh_keys &&
+        bus == o.bus &&
+        licence_type == o.licence_type &&
+        cpu_hot_plug == o.cpu_hot_plug &&
+        ram_hot_plug == o.ram_hot_plug &&
+        nic_hot_plug == o.nic_hot_plug &&
+        nic_hot_unplug == o.nic_hot_unplug &&
+        disc_virtio_hot_plug == o.disc_virtio_hot_plug &&
+        disc_virtio_hot_unplug == o.disc_virtio_hot_unplug &&
+        device_number == o.device_number &&
+        backupunit_id == o.backupunit_id &&
+        user_data == o.user_data
     end
 
     # @see the `==` method

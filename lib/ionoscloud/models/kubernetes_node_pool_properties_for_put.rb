@@ -15,27 +15,36 @@ require 'time'
 
 module Ionoscloud
   class KubernetesNodePoolPropertiesForPut
+  
     # A Kubernetes Node Pool Name. Valid Kubernetes Node Pool name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
     attr_accessor :name
+
 
     # Number of nodes part of the Node Pool
     attr_accessor :node_count
 
+
     # The kubernetes version in which a nodepool is running. This imposes restrictions on what kubernetes versions can be run in a cluster's nodepools. Additionally, not all kubernetes versions are viable upgrade targets for all prior versions.
     attr_accessor :k8s_version
 
+
     attr_accessor :maintenance_window
 
+
     attr_accessor :auto_scaling
+
 
     # array of additional LANs attached to worker nodes
     attr_accessor :lans
 
+
     # map of labels attached to node pool
     attr_accessor :labels
 
+
     # map of annotations attached to node pool
     attr_accessor :annotations
+
 
     # Optional array of reserved public IP addresses to be used by the nodes. IPs must be from same location as the data center used for the node pool. The array must contain one extra IP than maximum number of nodes could be. (nodeCount+1 if fixed node amount or maxNodeCount+1 if auto scaling is used) The extra provided IP Will be used during rebuilding of nodes.
     attr_accessor :public_ips
@@ -43,14 +52,23 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'node_count' => :'nodeCount',
+
         :'k8s_version' => :'k8sVersion',
+
         :'maintenance_window' => :'maintenanceWindow',
+
         :'auto_scaling' => :'autoScaling',
+
         :'lans' => :'lans',
+
         :'labels' => :'labels',
+
         :'annotations' => :'annotations',
+
         :'public_ips' => :'publicIps'
       }
     end
@@ -63,14 +81,23 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'node_count' => :'Integer',
+
         :'k8s_version' => :'String',
+
         :'maintenance_window' => :'KubernetesMaintenanceWindow',
+
         :'auto_scaling' => :'KubernetesAutoScaling',
+
         :'lans' => :'Array<KubernetesNodePoolLan>',
+
         :'labels' => :'Hash<String, String>',
+
         :'annotations' => :'Hash<String, String>',
+
         :'public_ips' => :'Array<String>'
       }
     end
@@ -78,6 +105,15 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
+
       ])
     end
 
@@ -95,49 +131,50 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'node_count')
         self.node_count = attributes[:'node_count']
       end
+
 
       if attributes.key?(:'k8s_version')
         self.k8s_version = attributes[:'k8s_version']
       end
 
+
       if attributes.key?(:'maintenance_window')
         self.maintenance_window = attributes[:'maintenance_window']
       end
+
 
       if attributes.key?(:'auto_scaling')
         self.auto_scaling = attributes[:'auto_scaling']
       end
 
-      if attributes.key?(:'lans')
-        if (value = attributes[:'lans']).is_a?(Array)
-          self.lans = value
-        end
+
+      if attributes.key?(:'lans') && (value = attributes[:'lans']).is_a?(Array)
+        self.lans = value
       end
 
-      if attributes.key?(:'labels')
-        if (value = attributes[:'labels']).is_a?(Hash)
-          self.labels = value
-        end
+
+      if attributes.key?(:'labels') && (value = attributes[:'labels']).is_a?(Hash)
+        self.labels = value
       end
 
-      if attributes.key?(:'annotations')
-        if (value = attributes[:'annotations']).is_a?(Hash)
-          self.annotations = value
-        end
+
+      if attributes.key?(:'annotations') && (value = attributes[:'annotations']).is_a?(Hash)
+        self.annotations = value
       end
 
-      if attributes.key?(:'public_ips')
-        if (value = attributes[:'public_ips']).is_a?(Array)
-          self.public_ips = value
-        end
+
+      if attributes.key?(:'public_ips') && (value = attributes[:'public_ips']).is_a?(Array)
+        self.public_ips = value
       end
     end
 
@@ -145,13 +182,22 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+
       if @node_count.nil?
         invalid_properties.push('invalid value for "node_count", node_count cannot be nil.')
       end
+
+
+
+
+
+
+
 
       invalid_properties
     end
@@ -159,25 +205,43 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
       return false if @name.nil?
+
       return false if @node_count.nil?
+
+
+
+
+
+
+
       true
     end
+
+    
+
+
+
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          node_count == o.node_count &&
-          k8s_version == o.k8s_version &&
-          maintenance_window == o.maintenance_window &&
-          auto_scaling == o.auto_scaling &&
-          lans == o.lans &&
-          labels == o.labels &&
-          annotations == o.annotations &&
-          public_ips == o.public_ips
+        name == o.name &&
+        node_count == o.node_count &&
+        k8s_version == o.k8s_version &&
+        maintenance_window == o.maintenance_window &&
+        auto_scaling == o.auto_scaling &&
+        lans == o.lans &&
+        labels == o.labels &&
+        annotations == o.annotations &&
+        public_ips == o.public_ips
     end
 
     # @see the `==` method

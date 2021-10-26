@@ -15,11 +15,14 @@ require 'time'
 
 module Ionoscloud
   class LocationProperties
+  
     # A name of that resource
     attr_accessor :name
 
+
     # List of features supported by the location
     attr_accessor :features
+
 
     # List of image aliases available for the location
     attr_accessor :image_aliases
@@ -27,8 +30,11 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'features' => :'features',
+
         :'image_aliases' => :'imageAliases'
       }
     end
@@ -41,8 +47,11 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'features' => :'Array<String>',
+
         :'image_aliases' => :'Array<String>'
       }
     end
@@ -50,6 +59,9 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
       ])
     end
 
@@ -67,21 +79,20 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'features')
-        if (value = attributes[:'features']).is_a?(Array)
-          self.features = value
-        end
+
+      if attributes.key?(:'features') && (value = attributes[:'features']).is_a?(Array)
+        self.features = value
       end
 
-      if attributes.key?(:'image_aliases')
-        if (value = attributes[:'image_aliases']).is_a?(Array)
-          self.image_aliases = value
-        end
+
+      if attributes.key?(:'image_aliases') && (value = attributes[:'image_aliases']).is_a?(Array)
+        self.image_aliases = value
       end
     end
 
@@ -89,23 +100,32 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
       true
     end
+
+    
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          features == o.features &&
-          image_aliases == o.image_aliases
+        name == o.name &&
+        features == o.features &&
+        image_aliases == o.image_aliases
     end
 
     # @see the `==` method

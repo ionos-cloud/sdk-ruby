@@ -15,16 +15,21 @@ require 'time'
 
 module Ionoscloud
   class KubernetesClusterPropertiesForPut
+  
     # A Kubernetes Cluster Name. Valid Kubernetes Cluster name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
     attr_accessor :name
+
 
     # The kubernetes version in which a cluster is running. This imposes restrictions on what kubernetes versions can be run in a cluster's nodepools. Additionally, not all kubernetes versions are viable upgrade targets for all prior versions.
     attr_accessor :k8s_version
 
+
     attr_accessor :maintenance_window
+
 
     # Access to the K8s API server is restricted to these CIDRs. Cluster-internal traffic is not affected by this restriction. If no allowlist is specified, access is not restricted. If an IP without subnet mask is provided, the default value will be used: 32 for IPv4 and 128 for IPv6.
     attr_accessor :api_subnet_allow_list
+
 
     # List of S3 bucket configured for K8s usage. For now it contains only one S3 bucket used to store K8s API audit logs
     attr_accessor :s3_buckets
@@ -32,10 +37,15 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'k8s_version' => :'k8sVersion',
+
         :'maintenance_window' => :'maintenanceWindow',
+
         :'api_subnet_allow_list' => :'apiSubnetAllowList',
+
         :'s3_buckets' => :'s3Buckets'
       }
     end
@@ -48,10 +58,15 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'k8s_version' => :'String',
+
         :'maintenance_window' => :'KubernetesMaintenanceWindow',
+
         :'api_subnet_allow_list' => :'Array<String>',
+
         :'s3_buckets' => :'Array<S3Bucket>'
       }
     end
@@ -59,6 +74,11 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
       ])
     end
 
@@ -76,29 +96,30 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'k8s_version')
         self.k8s_version = attributes[:'k8s_version']
       end
+
 
       if attributes.key?(:'maintenance_window')
         self.maintenance_window = attributes[:'maintenance_window']
       end
 
-      if attributes.key?(:'api_subnet_allow_list')
-        if (value = attributes[:'api_subnet_allow_list']).is_a?(Array)
-          self.api_subnet_allow_list = value
-        end
+
+      if attributes.key?(:'api_subnet_allow_list') && (value = attributes[:'api_subnet_allow_list']).is_a?(Array)
+        self.api_subnet_allow_list = value
       end
 
-      if attributes.key?(:'s3_buckets')
-        if (value = attributes[:'s3_buckets']).is_a?(Array)
-          self.s3_buckets = value
-        end
+
+      if attributes.key?(:'s3_buckets') && (value = attributes[:'s3_buckets']).is_a?(Array)
+        self.s3_buckets = value
       end
     end
 
@@ -106,9 +127,14 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
+
+
+
+
 
       invalid_properties
     end
@@ -116,20 +142,30 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
       return false if @name.nil?
+
+
+
+
       true
     end
+
+    
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          k8s_version == o.k8s_version &&
-          maintenance_window == o.maintenance_window &&
-          api_subnet_allow_list == o.api_subnet_allow_list &&
-          s3_buckets == o.s3_buckets
+        name == o.name &&
+        k8s_version == o.k8s_version &&
+        maintenance_window == o.maintenance_window &&
+        api_subnet_allow_list == o.api_subnet_allow_list &&
+        s3_buckets == o.s3_buckets
     end
 
     # @see the `==` method

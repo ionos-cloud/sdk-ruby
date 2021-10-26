@@ -15,53 +15,70 @@ require 'time'
 
 module Ionoscloud
   class ResourceLimits
+  
     # maximum number of cores per server
     attr_accessor :cores_per_server
+
 
     # maximum cores per contract
     attr_accessor :cores_per_contract
 
+
     # number of cores provisioned
     attr_accessor :cores_provisioned
+
 
     # maximum ram per server
     attr_accessor :ram_per_server
 
+
     # maximum ram per contract
     attr_accessor :ram_per_contract
+
 
     # ram provisioned
     attr_accessor :ram_provisioned
 
+
     # hdd limit per volume
     attr_accessor :hdd_limit_per_volume
+
 
     # hdd limit per contract
     attr_accessor :hdd_limit_per_contract
 
+
     # hdd volume provisioned
     attr_accessor :hdd_volume_provisioned
+
 
     # ssd limit per volume
     attr_accessor :ssd_limit_per_volume
 
+
     # ssd limit per contract
     attr_accessor :ssd_limit_per_contract
+
 
     # ssd volume provisioned
     attr_accessor :ssd_volume_provisioned
 
+
     # total reservable ip limit of the customer
     attr_accessor :reservable_ips
+
 
     # reserved ips on a contract
     attr_accessor :reserved_ips_on_contract
 
+
     # reserved ips in use
     attr_accessor :reserved_ips_in_use
 
+
     # k8s clusters total limit
     attr_accessor :k8s_cluster_limit_total
+
 
     # k8s clusters provisioned
     attr_accessor :k8s_clusters_provisioned
@@ -69,22 +86,39 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'cores_per_server' => :'coresPerServer',
+
         :'cores_per_contract' => :'coresPerContract',
+
         :'cores_provisioned' => :'coresProvisioned',
+
         :'ram_per_server' => :'ramPerServer',
+
         :'ram_per_contract' => :'ramPerContract',
+
         :'ram_provisioned' => :'ramProvisioned',
+
         :'hdd_limit_per_volume' => :'hddLimitPerVolume',
+
         :'hdd_limit_per_contract' => :'hddLimitPerContract',
+
         :'hdd_volume_provisioned' => :'hddVolumeProvisioned',
+
         :'ssd_limit_per_volume' => :'ssdLimitPerVolume',
+
         :'ssd_limit_per_contract' => :'ssdLimitPerContract',
+
         :'ssd_volume_provisioned' => :'ssdVolumeProvisioned',
+
         :'reservable_ips' => :'reservableIps',
+
         :'reserved_ips_on_contract' => :'reservedIpsOnContract',
+
         :'reserved_ips_in_use' => :'reservedIpsInUse',
+
         :'k8s_cluster_limit_total' => :'k8sClusterLimitTotal',
+
         :'k8s_clusters_provisioned' => :'k8sClustersProvisioned'
       }
     end
@@ -97,22 +131,39 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'cores_per_server' => :'Integer',
+
         :'cores_per_contract' => :'Integer',
+
         :'cores_provisioned' => :'Integer',
+
         :'ram_per_server' => :'Integer',
+
         :'ram_per_contract' => :'Integer',
+
         :'ram_provisioned' => :'Integer',
+
         :'hdd_limit_per_volume' => :'Integer',
+
         :'hdd_limit_per_contract' => :'Integer',
+
         :'hdd_volume_provisioned' => :'Integer',
+
         :'ssd_limit_per_volume' => :'Integer',
+
         :'ssd_limit_per_contract' => :'Integer',
+
         :'ssd_volume_provisioned' => :'Integer',
+
         :'reservable_ips' => :'Integer',
+
         :'reserved_ips_on_contract' => :'Integer',
+
         :'reserved_ips_in_use' => :'Integer',
+
         :'k8s_cluster_limit_total' => :'Integer',
+
         :'k8s_clusters_provisioned' => :'Integer'
       }
     end
@@ -120,6 +171,23 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       ])
     end
 
@@ -137,70 +205,87 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'cores_per_server')
         self.cores_per_server = attributes[:'cores_per_server']
       end
 
+
       if attributes.key?(:'cores_per_contract')
         self.cores_per_contract = attributes[:'cores_per_contract']
       end
+
 
       if attributes.key?(:'cores_provisioned')
         self.cores_provisioned = attributes[:'cores_provisioned']
       end
 
+
       if attributes.key?(:'ram_per_server')
         self.ram_per_server = attributes[:'ram_per_server']
       end
+
 
       if attributes.key?(:'ram_per_contract')
         self.ram_per_contract = attributes[:'ram_per_contract']
       end
 
+
       if attributes.key?(:'ram_provisioned')
         self.ram_provisioned = attributes[:'ram_provisioned']
       end
+
 
       if attributes.key?(:'hdd_limit_per_volume')
         self.hdd_limit_per_volume = attributes[:'hdd_limit_per_volume']
       end
 
+
       if attributes.key?(:'hdd_limit_per_contract')
         self.hdd_limit_per_contract = attributes[:'hdd_limit_per_contract']
       end
+
 
       if attributes.key?(:'hdd_volume_provisioned')
         self.hdd_volume_provisioned = attributes[:'hdd_volume_provisioned']
       end
 
+
       if attributes.key?(:'ssd_limit_per_volume')
         self.ssd_limit_per_volume = attributes[:'ssd_limit_per_volume']
       end
+
 
       if attributes.key?(:'ssd_limit_per_contract')
         self.ssd_limit_per_contract = attributes[:'ssd_limit_per_contract']
       end
 
+
       if attributes.key?(:'ssd_volume_provisioned')
         self.ssd_volume_provisioned = attributes[:'ssd_volume_provisioned']
       end
+
 
       if attributes.key?(:'reservable_ips')
         self.reservable_ips = attributes[:'reservable_ips']
       end
 
+
       if attributes.key?(:'reserved_ips_on_contract')
         self.reserved_ips_on_contract = attributes[:'reserved_ips_on_contract']
       end
+
 
       if attributes.key?(:'reserved_ips_in_use')
         self.reserved_ips_in_use = attributes[:'reserved_ips_in_use']
       end
 
+
       if attributes.key?(:'k8s_cluster_limit_total')
         self.k8s_cluster_limit_total = attributes[:'k8s_cluster_limit_total']
       end
+
 
       if attributes.key?(:'k8s_clusters_provisioned')
         self.k8s_clusters_provisioned = attributes[:'k8s_clusters_provisioned']
@@ -211,69 +296,86 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
       if @cores_per_server.nil?
         invalid_properties.push('invalid value for "cores_per_server", cores_per_server cannot be nil.')
       end
+
 
       if @cores_per_contract.nil?
         invalid_properties.push('invalid value for "cores_per_contract", cores_per_contract cannot be nil.')
       end
 
+
       if @cores_provisioned.nil?
         invalid_properties.push('invalid value for "cores_provisioned", cores_provisioned cannot be nil.')
       end
+
 
       if @ram_per_server.nil?
         invalid_properties.push('invalid value for "ram_per_server", ram_per_server cannot be nil.')
       end
 
+
       if @ram_per_contract.nil?
         invalid_properties.push('invalid value for "ram_per_contract", ram_per_contract cannot be nil.')
       end
+
 
       if @ram_provisioned.nil?
         invalid_properties.push('invalid value for "ram_provisioned", ram_provisioned cannot be nil.')
       end
 
+
       if @hdd_limit_per_volume.nil?
         invalid_properties.push('invalid value for "hdd_limit_per_volume", hdd_limit_per_volume cannot be nil.')
       end
+
 
       if @hdd_limit_per_contract.nil?
         invalid_properties.push('invalid value for "hdd_limit_per_contract", hdd_limit_per_contract cannot be nil.')
       end
 
+
       if @hdd_volume_provisioned.nil?
         invalid_properties.push('invalid value for "hdd_volume_provisioned", hdd_volume_provisioned cannot be nil.')
       end
+
 
       if @ssd_limit_per_volume.nil?
         invalid_properties.push('invalid value for "ssd_limit_per_volume", ssd_limit_per_volume cannot be nil.')
       end
 
+
       if @ssd_limit_per_contract.nil?
         invalid_properties.push('invalid value for "ssd_limit_per_contract", ssd_limit_per_contract cannot be nil.')
       end
+
 
       if @ssd_volume_provisioned.nil?
         invalid_properties.push('invalid value for "ssd_volume_provisioned", ssd_volume_provisioned cannot be nil.')
       end
 
+
       if @reservable_ips.nil?
         invalid_properties.push('invalid value for "reservable_ips", reservable_ips cannot be nil.')
       end
+
 
       if @reserved_ips_on_contract.nil?
         invalid_properties.push('invalid value for "reserved_ips_on_contract", reserved_ips_on_contract cannot be nil.')
       end
 
+
       if @reserved_ips_in_use.nil?
         invalid_properties.push('invalid value for "reserved_ips_in_use", reserved_ips_in_use cannot be nil.')
       end
 
+
       if @k8s_cluster_limit_total.nil?
         invalid_properties.push('invalid value for "k8s_cluster_limit_total", k8s_cluster_limit_total cannot be nil.')
       end
+
 
       if @k8s_clusters_provisioned.nil?
         invalid_properties.push('invalid value for "k8s_clusters_provisioned", k8s_clusters_provisioned cannot be nil.')
@@ -285,48 +387,82 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
       return false if @cores_per_server.nil?
+
       return false if @cores_per_contract.nil?
+
       return false if @cores_provisioned.nil?
+
       return false if @ram_per_server.nil?
+
       return false if @ram_per_contract.nil?
+
       return false if @ram_provisioned.nil?
+
       return false if @hdd_limit_per_volume.nil?
+
       return false if @hdd_limit_per_contract.nil?
+
       return false if @hdd_volume_provisioned.nil?
+
       return false if @ssd_limit_per_volume.nil?
+
       return false if @ssd_limit_per_contract.nil?
+
       return false if @ssd_volume_provisioned.nil?
+
       return false if @reservable_ips.nil?
+
       return false if @reserved_ips_on_contract.nil?
+
       return false if @reserved_ips_in_use.nil?
+
       return false if @k8s_cluster_limit_total.nil?
+
       return false if @k8s_clusters_provisioned.nil?
       true
     end
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cores_per_server == o.cores_per_server &&
-          cores_per_contract == o.cores_per_contract &&
-          cores_provisioned == o.cores_provisioned &&
-          ram_per_server == o.ram_per_server &&
-          ram_per_contract == o.ram_per_contract &&
-          ram_provisioned == o.ram_provisioned &&
-          hdd_limit_per_volume == o.hdd_limit_per_volume &&
-          hdd_limit_per_contract == o.hdd_limit_per_contract &&
-          hdd_volume_provisioned == o.hdd_volume_provisioned &&
-          ssd_limit_per_volume == o.ssd_limit_per_volume &&
-          ssd_limit_per_contract == o.ssd_limit_per_contract &&
-          ssd_volume_provisioned == o.ssd_volume_provisioned &&
-          reservable_ips == o.reservable_ips &&
-          reserved_ips_on_contract == o.reserved_ips_on_contract &&
-          reserved_ips_in_use == o.reserved_ips_in_use &&
-          k8s_cluster_limit_total == o.k8s_cluster_limit_total &&
-          k8s_clusters_provisioned == o.k8s_clusters_provisioned
+        cores_per_server == o.cores_per_server &&
+        cores_per_contract == o.cores_per_contract &&
+        cores_provisioned == o.cores_provisioned &&
+        ram_per_server == o.ram_per_server &&
+        ram_per_contract == o.ram_per_contract &&
+        ram_provisioned == o.ram_provisioned &&
+        hdd_limit_per_volume == o.hdd_limit_per_volume &&
+        hdd_limit_per_contract == o.hdd_limit_per_contract &&
+        hdd_volume_provisioned == o.hdd_volume_provisioned &&
+        ssd_limit_per_volume == o.ssd_limit_per_volume &&
+        ssd_limit_per_contract == o.ssd_limit_per_contract &&
+        ssd_volume_provisioned == o.ssd_volume_provisioned &&
+        reservable_ips == o.reservable_ips &&
+        reserved_ips_on_contract == o.reserved_ips_on_contract &&
+        reserved_ips_in_use == o.reserved_ips_in_use &&
+        k8s_cluster_limit_total == o.k8s_cluster_limit_total &&
+        k8s_clusters_provisioned == o.k8s_clusters_provisioned
     end
 
     # @see the `==` method

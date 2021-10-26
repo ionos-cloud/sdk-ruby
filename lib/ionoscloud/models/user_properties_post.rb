@@ -15,26 +15,34 @@ require 'time'
 
 module Ionoscloud
   class UserPropertiesPost
+  
     # first name of the user
     attr_accessor :firstname
+
 
     # last name of the user
     attr_accessor :lastname
 
+
     # email address of the user
     attr_accessor :email
+
 
     # indicates if the user has admin rights or not
     attr_accessor :administrator
 
+
     # indicates if secure authentication should be forced on the user or not
     attr_accessor :force_sec_auth
+
 
     # indicates if secure authentication is active for the user or not
     attr_accessor :sec_auth_active
 
+
     # User password
     attr_accessor :password
+
 
     # indicates if the user is active
     attr_accessor :active
@@ -42,13 +50,21 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'firstname' => :'firstname',
+
         :'lastname' => :'lastname',
+
         :'email' => :'email',
+
         :'administrator' => :'administrator',
+
         :'force_sec_auth' => :'forceSecAuth',
+
         :'sec_auth_active' => :'secAuthActive',
+
         :'password' => :'password',
+
         :'active' => :'active'
       }
     end
@@ -61,13 +77,21 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'firstname' => :'String',
+
         :'lastname' => :'String',
+
         :'email' => :'String',
+
         :'administrator' => :'Boolean',
+
         :'force_sec_auth' => :'Boolean',
+
         :'sec_auth_active' => :'Boolean',
+
         :'password' => :'String',
+
         :'active' => :'Boolean'
       }
     end
@@ -75,6 +99,14 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
       ])
     end
 
@@ -92,34 +124,42 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'firstname')
         self.firstname = attributes[:'firstname']
       end
 
+
       if attributes.key?(:'lastname')
         self.lastname = attributes[:'lastname']
       end
+
 
       if attributes.key?(:'email')
         self.email = attributes[:'email']
       end
 
+
       if attributes.key?(:'administrator')
         self.administrator = attributes[:'administrator']
       end
+
 
       if attributes.key?(:'force_sec_auth')
         self.force_sec_auth = attributes[:'force_sec_auth']
       end
 
+
       if attributes.key?(:'sec_auth_active')
         self.sec_auth_active = attributes[:'sec_auth_active']
       end
 
+
       if attributes.key?(:'password')
         self.password = attributes[:'password']
       end
+
 
       if attributes.key?(:'active')
         self.active = attributes[:'active']
@@ -130,28 +170,52 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
+
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
+
+
+
+
       true
     end
+
+    
+
+
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          firstname == o.firstname &&
-          lastname == o.lastname &&
-          email == o.email &&
-          administrator == o.administrator &&
-          force_sec_auth == o.force_sec_auth &&
-          sec_auth_active == o.sec_auth_active &&
-          password == o.password &&
-          active == o.active
+        firstname == o.firstname &&
+        lastname == o.lastname &&
+        email == o.email &&
+        administrator == o.administrator &&
+        force_sec_auth == o.force_sec_auth &&
+        sec_auth_active == o.sec_auth_active &&
+        password == o.password &&
+        active == o.active
     end
 
     # @see the `==` method

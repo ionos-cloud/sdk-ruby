@@ -15,15 +15,19 @@ require 'time'
 
 module Ionoscloud
   class Error
+  
     # HTTP status code of the operation
     attr_accessor :http_status
+
 
     attr_accessor :messages
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'http_status' => :'httpStatus',
+
         :'messages' => :'messages'
       }
     end
@@ -36,7 +40,9 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'http_status' => :'Integer',
+
         :'messages' => :'Array<ErrorMessage>'
       }
     end
@@ -44,6 +50,8 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
       ])
     end
 
@@ -61,15 +69,15 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'http_status')
         self.http_status = attributes[:'http_status']
       end
 
-      if attributes.key?(:'messages')
-        if (value = attributes[:'messages']).is_a?(Array)
-          self.messages = value
-        end
+
+      if attributes.key?(:'messages') && (value = attributes[:'messages']).is_a?(Array)
+        self.messages = value
       end
     end
 
@@ -77,22 +85,28 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       true
     end
+
+    
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          http_status == o.http_status &&
-          messages == o.messages
+        http_status == o.http_status &&
+        messages == o.messages
     end
 
     # @see the `==` method

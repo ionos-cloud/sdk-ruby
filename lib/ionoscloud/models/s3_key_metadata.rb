@@ -15,8 +15,10 @@ require 'time'
 
 module Ionoscloud
   class S3KeyMetadata
+  
     # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11 . Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
     attr_accessor :etag
+
 
     # The time the S3 key was created
     attr_accessor :created_date
@@ -24,7 +26,9 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'etag' => :'etag',
+
         :'created_date' => :'createdDate'
       }
     end
@@ -37,7 +41,9 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'etag' => :'String',
+
         :'created_date' => :'Time'
       }
     end
@@ -45,6 +51,8 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
       ])
     end
 
@@ -62,10 +70,12 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'etag')
         self.etag = attributes[:'etag']
       end
+
 
       if attributes.key?(:'created_date')
         self.created_date = attributes[:'created_date']
@@ -76,22 +86,28 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       true
     end
+
+    
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          etag == o.etag &&
-          created_date == o.created_date
+        etag == o.etag &&
+        created_date == o.created_date
     end
 
     # @see the `==` method

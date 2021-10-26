@@ -15,23 +15,30 @@ require 'time'
 
 module Ionoscloud
   class NicProperties
+  
     # A name of that resource
     attr_accessor :name
+
 
     # The MAC address of the NIC
     attr_accessor :mac
 
+
     # Collection of IP addresses assigned to a nic. Explicitly assigned public IPs need to come from reserved IP blocks, Passing value null or empty array will assign an IP address automatically.
     attr_accessor :ips
+
 
     # Indicates if the nic will reserve an IP using DHCP
     attr_accessor :dhcp
 
+
     # The LAN ID the NIC will sit on. If the LAN ID does not exist it will be implicitly created
     attr_accessor :lan
 
+
     # Activate or deactivate the firewall. By default an active firewall without any defined rules will block all incoming network traffic except for the firewall rules that explicitly allows certain protocols, ip addresses and ports.
     attr_accessor :firewall_active
+
 
     # Indicates if NAT is enabled on this NIC. This is now deprecated.
     attr_accessor :nat
@@ -39,12 +46,19 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'mac' => :'mac',
+
         :'ips' => :'ips',
+
         :'dhcp' => :'dhcp',
+
         :'lan' => :'lan',
+
         :'firewall_active' => :'firewallActive',
+
         :'nat' => :'nat'
       }
     end
@@ -57,12 +71,19 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'mac' => :'String',
+
         :'ips' => :'Array<String>',
+
         :'dhcp' => :'Boolean',
+
         :'lan' => :'Integer',
+
         :'firewall_active' => :'Boolean',
+
         :'nat' => :'Boolean'
       }
     end
@@ -70,6 +91,13 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
       ])
     end
 
@@ -87,32 +115,37 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'mac')
         self.mac = attributes[:'mac']
       end
 
-      if attributes.key?(:'ips')
-        if (value = attributes[:'ips']).is_a?(Array)
-          self.ips = value
-        end
+
+      if attributes.key?(:'ips') && (value = attributes[:'ips']).is_a?(Array)
+        self.ips = value
       end
+
 
       if attributes.key?(:'dhcp')
         self.dhcp = attributes[:'dhcp']
       end
 
+
       if attributes.key?(:'lan')
         self.lan = attributes[:'lan']
       end
 
+
       if attributes.key?(:'firewall_active')
         self.firewall_active = attributes[:'firewall_active']
       end
+
 
       if attributes.key?(:'nat')
         self.nat = attributes[:'nat']
@@ -123,9 +156,16 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
+
       if @lan.nil?
         invalid_properties.push('invalid value for "lan", lan cannot be nil.')
       end
+
+
 
       invalid_properties
     end
@@ -133,22 +173,36 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
+
       return false if @lan.nil?
+
+
       true
     end
+
+    
+
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          mac == o.mac &&
-          ips == o.ips &&
-          dhcp == o.dhcp &&
-          lan == o.lan &&
-          firewall_active == o.firewall_active &&
-          nat == o.nat
+        name == o.name &&
+        mac == o.mac &&
+        ips == o.ips &&
+        dhcp == o.dhcp &&
+        lan == o.lan &&
+        firewall_active == o.firewall_active &&
+        nat == o.nat
     end
 
     # @see the `==` method

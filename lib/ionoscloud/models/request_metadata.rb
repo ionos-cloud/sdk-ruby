@@ -15,23 +15,31 @@ require 'time'
 
 module Ionoscloud
   class RequestMetadata
+  
     # The last time the resource was created
     attr_accessor :created_date
+
 
     # The user who created the resource.
     attr_accessor :created_by
 
+
     # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11 . Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
     attr_accessor :etag
+
 
     attr_accessor :request_status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'created_date' => :'createdDate',
+
         :'created_by' => :'createdBy',
+
         :'etag' => :'etag',
+
         :'request_status' => :'requestStatus'
       }
     end
@@ -44,9 +52,13 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'created_date' => :'Time',
+
         :'created_by' => :'String',
+
         :'etag' => :'String',
+
         :'request_status' => :'RequestStatus'
       }
     end
@@ -54,6 +66,10 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
       ])
     end
 
@@ -71,18 +87,22 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'created_date')
         self.created_date = attributes[:'created_date']
       end
 
+
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
       end
 
+
       if attributes.key?(:'etag')
         self.etag = attributes[:'etag']
       end
+
 
       if attributes.key?(:'request_status')
         self.request_status = attributes[:'request_status']
@@ -93,24 +113,36 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
       true
     end
+
+    
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created_date == o.created_date &&
-          created_by == o.created_by &&
-          etag == o.etag &&
-          request_status == o.request_status
+        created_date == o.created_date &&
+        created_by == o.created_by &&
+        etag == o.etag &&
+        request_status == o.request_status
     end
 
     # @see the `==` method

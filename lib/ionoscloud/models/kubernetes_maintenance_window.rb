@@ -15,8 +15,10 @@ require 'time'
 
 module Ionoscloud
   class KubernetesMaintenanceWindow
+  
     # The day of the week for a maintenance window.
     attr_accessor :day_of_the_week
+
 
     # The time to use for a maintenance window. Accepted formats are: HH:mm:ss; HH:mm:ss\"Z\"; HH:mm:ssZ. This time may varies by 15 minutes.
     attr_accessor :time
@@ -46,7 +48,9 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'day_of_the_week' => :'dayOfTheWeek',
+
         :'time' => :'time'
       }
     end
@@ -59,7 +63,9 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'day_of_the_week' => :'String',
+
         :'time' => :'String'
       }
     end
@@ -67,6 +73,8 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
       ])
     end
 
@@ -84,10 +92,12 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'day_of_the_week')
         self.day_of_the_week = attributes[:'day_of_the_week']
       end
+
 
       if attributes.key?(:'time')
         self.time = attributes[:'time']
@@ -98,17 +108,22 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
       day_of_the_week_validator = EnumAttributeValidator.new('String', ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
       return false unless day_of_the_week_validator.valid?(@day_of_the_week)
+
       true
     end
 
+    
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] day_of_the_week Object to be assigned
     def day_of_the_week=(day_of_the_week)
@@ -119,13 +134,14 @@ module Ionoscloud
       @day_of_the_week = day_of_the_week
     end
 
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          day_of_the_week == o.day_of_the_week &&
-          time == o.time
+        day_of_the_week == o.day_of_the_week &&
+        time == o.time
     end
 
     # @see the `==` method

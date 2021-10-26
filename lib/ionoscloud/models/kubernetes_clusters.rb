@@ -15,14 +15,18 @@ require 'time'
 
 module Ionoscloud
   class KubernetesClusters
+  
     # Unique representation for Kubernetes Cluster as a collection on a resource.
     attr_accessor :id
+
 
     # The type of object that has been created
     attr_accessor :type
 
+
     # URL to the collection representation (absolute path)
     attr_accessor :href
+
 
     # Array of items in that collection
     attr_accessor :items
@@ -52,9 +56,13 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'id' => :'id',
+
         :'type' => :'type',
+
         :'href' => :'href',
+
         :'items' => :'items'
       }
     end
@@ -67,9 +75,13 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'id' => :'String',
+
         :'type' => :'String',
+
         :'href' => :'String',
+
         :'items' => :'Array<KubernetesCluster>'
       }
     end
@@ -77,6 +89,10 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
       ])
     end
 
@@ -94,23 +110,25 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
 
       if attributes.key?(:'href')
         self.href = attributes[:'href']
       end
 
-      if attributes.key?(:'items')
-        if (value = attributes[:'items']).is_a?(Array)
-          self.items = value
-        end
+
+      if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
+        self.items = value
       end
     end
 
@@ -118,16 +136,26 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       type_validator = EnumAttributeValidator.new('String', ["collection"])
       return false unless type_validator.valid?(@type)
+
+
       true
     end
+
+    
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
@@ -139,15 +167,17 @@ module Ionoscloud
       @type = type
     end
 
+
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type &&
-          href == o.href &&
-          items == o.items
+        id == o.id &&
+        type == o.type &&
+        href == o.href &&
+        items == o.items
     end
 
     # @see the `==` method

@@ -15,20 +15,28 @@ require 'time'
 
 module Ionoscloud
   class DataCenterEntities
+  
     attr_accessor :servers
+
 
     attr_accessor :volumes
 
+
     attr_accessor :loadbalancers
+
 
     attr_accessor :lans
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'servers' => :'servers',
+
         :'volumes' => :'volumes',
+
         :'loadbalancers' => :'loadbalancers',
+
         :'lans' => :'lans'
       }
     end
@@ -41,9 +49,13 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'servers' => :'Servers',
+
         :'volumes' => :'Volumes',
+
         :'loadbalancers' => :'Loadbalancers',
+
         :'lans' => :'Lans'
       }
     end
@@ -51,6 +63,10 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
       ])
     end
 
@@ -68,18 +84,22 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'servers')
         self.servers = attributes[:'servers']
       end
 
+
       if attributes.key?(:'volumes')
         self.volumes = attributes[:'volumes']
       end
 
+
       if attributes.key?(:'loadbalancers')
         self.loadbalancers = attributes[:'loadbalancers']
       end
+
 
       if attributes.key?(:'lans')
         self.lans = attributes[:'lans']
@@ -90,24 +110,36 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
       true
     end
+
+    
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          servers == o.servers &&
-          volumes == o.volumes &&
-          loadbalancers == o.loadbalancers &&
-          lans == o.lans
+        servers == o.servers &&
+        volumes == o.volumes &&
+        loadbalancers == o.loadbalancers &&
+        lans == o.lans
     end
 
     # @see the `==` method

@@ -15,20 +15,26 @@ require 'time'
 
 module Ionoscloud
   class DatacenterProperties
+  
     # A name of that resource
     attr_accessor :name
+
 
     # A description for the datacenter, e.g. staging, production
     attr_accessor :description
 
+
     # The physical location where the datacenter will be created. This will be where all of your servers live. Property cannot be modified after datacenter creation (disallowed in update requests)
     attr_accessor :location
+
 
     # The version of that Data Center. Gets incremented with every change
     attr_accessor :version
 
+
     # List of features supported by the location this data center is part of
     attr_accessor :features
+
 
     # Boolean value representing if the data center requires extra protection e.g. two factor protection
     attr_accessor :sec_auth_protection
@@ -36,11 +42,17 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'description' => :'description',
+
         :'location' => :'location',
+
         :'version' => :'version',
+
         :'features' => :'features',
+
         :'sec_auth_protection' => :'secAuthProtection'
       }
     end
@@ -53,11 +65,17 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'description' => :'String',
+
         :'location' => :'String',
+
         :'version' => :'Integer',
+
         :'features' => :'Array<String>',
+
         :'sec_auth_protection' => :'Boolean'
       }
     end
@@ -65,6 +83,12 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
       ])
     end
 
@@ -82,28 +106,32 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
+
 
       if attributes.key?(:'location')
         self.location = attributes[:'location']
       end
 
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
 
-      if attributes.key?(:'features')
-        if (value = attributes[:'features']).is_a?(Array)
-          self.features = value
-        end
+
+      if attributes.key?(:'features') && (value = attributes[:'features']).is_a?(Array)
+        self.features = value
       end
+
 
       if attributes.key?(:'sec_auth_protection')
         self.sec_auth_protection = attributes[:'sec_auth_protection']
@@ -114,9 +142,15 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
       if @location.nil?
         invalid_properties.push('invalid value for "location", location cannot be nil.')
       end
+
+
+
 
       invalid_properties
     end
@@ -124,21 +158,33 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
       return false if @location.nil?
+
+
+
       true
     end
+
+    
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          description == o.description &&
-          location == o.location &&
-          version == o.version &&
-          features == o.features &&
-          sec_auth_protection == o.sec_auth_protection
+        name == o.name &&
+        description == o.description &&
+        location == o.location &&
+        version == o.version &&
+        features == o.features &&
+        sec_auth_protection == o.sec_auth_protection
     end
 
     # @see the `==` method

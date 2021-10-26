@@ -15,50 +15,66 @@ require 'time'
 
 module Ionoscloud
   class SnapshotProperties
+  
     # A name of that resource
     attr_accessor :name
+
 
     # Human readable description
     attr_accessor :description
 
+
     # Location of that image/snapshot. 
     attr_accessor :location
+
 
     # The size of the image in GB
     attr_accessor :size
 
+
     # Boolean value representing if the snapshot requires extra protection e.g. two factor protection
     attr_accessor :sec_auth_protection
+
 
     # Is capable of CPU hot plug (no reboot required)
     attr_accessor :cpu_hot_plug
 
+
     # Is capable of CPU hot unplug (no reboot required)
     attr_accessor :cpu_hot_unplug
+
 
     # Is capable of memory hot plug (no reboot required)
     attr_accessor :ram_hot_plug
 
+
     # Is capable of memory hot unplug (no reboot required)
     attr_accessor :ram_hot_unplug
+
 
     # Is capable of nic hot plug (no reboot required)
     attr_accessor :nic_hot_plug
 
+
     # Is capable of nic hot unplug (no reboot required)
     attr_accessor :nic_hot_unplug
+
 
     # Is capable of Virt-IO drive hot plug (no reboot required)
     attr_accessor :disc_virtio_hot_plug
 
+
     # Is capable of Virt-IO drive hot unplug (no reboot required). This works only for non-Windows virtual Machines.
     attr_accessor :disc_virtio_hot_unplug
+
 
     # Is capable of SCSI drive hot plug (no reboot required)
     attr_accessor :disc_scsi_hot_plug
 
+
     # Is capable of SCSI drive hot unplug (no reboot required). This works only for non-Windows virtual Machines.
     attr_accessor :disc_scsi_hot_unplug
+
 
     # OS type of this Snapshot
     attr_accessor :licence_type
@@ -88,21 +104,37 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'description' => :'description',
+
         :'location' => :'location',
+
         :'size' => :'size',
+
         :'sec_auth_protection' => :'secAuthProtection',
+
         :'cpu_hot_plug' => :'cpuHotPlug',
+
         :'cpu_hot_unplug' => :'cpuHotUnplug',
+
         :'ram_hot_plug' => :'ramHotPlug',
+
         :'ram_hot_unplug' => :'ramHotUnplug',
+
         :'nic_hot_plug' => :'nicHotPlug',
+
         :'nic_hot_unplug' => :'nicHotUnplug',
+
         :'disc_virtio_hot_plug' => :'discVirtioHotPlug',
+
         :'disc_virtio_hot_unplug' => :'discVirtioHotUnplug',
+
         :'disc_scsi_hot_plug' => :'discScsiHotPlug',
+
         :'disc_scsi_hot_unplug' => :'discScsiHotUnplug',
+
         :'licence_type' => :'licenceType'
       }
     end
@@ -115,21 +147,37 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'description' => :'String',
+
         :'location' => :'String',
+
         :'size' => :'Float',
+
         :'sec_auth_protection' => :'Boolean',
+
         :'cpu_hot_plug' => :'Boolean',
+
         :'cpu_hot_unplug' => :'Boolean',
+
         :'ram_hot_plug' => :'Boolean',
+
         :'ram_hot_unplug' => :'Boolean',
+
         :'nic_hot_plug' => :'Boolean',
+
         :'nic_hot_unplug' => :'Boolean',
+
         :'disc_virtio_hot_plug' => :'Boolean',
+
         :'disc_virtio_hot_unplug' => :'Boolean',
+
         :'disc_scsi_hot_plug' => :'Boolean',
+
         :'disc_scsi_hot_unplug' => :'Boolean',
+
         :'licence_type' => :'String'
       }
     end
@@ -137,6 +185,22 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       ])
     end
 
@@ -154,66 +218,82 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
+
 
       if attributes.key?(:'location')
         self.location = attributes[:'location']
       end
 
+
       if attributes.key?(:'size')
         self.size = attributes[:'size']
       end
+
 
       if attributes.key?(:'sec_auth_protection')
         self.sec_auth_protection = attributes[:'sec_auth_protection']
       end
 
+
       if attributes.key?(:'cpu_hot_plug')
         self.cpu_hot_plug = attributes[:'cpu_hot_plug']
       end
+
 
       if attributes.key?(:'cpu_hot_unplug')
         self.cpu_hot_unplug = attributes[:'cpu_hot_unplug']
       end
 
+
       if attributes.key?(:'ram_hot_plug')
         self.ram_hot_plug = attributes[:'ram_hot_plug']
       end
+
 
       if attributes.key?(:'ram_hot_unplug')
         self.ram_hot_unplug = attributes[:'ram_hot_unplug']
       end
 
+
       if attributes.key?(:'nic_hot_plug')
         self.nic_hot_plug = attributes[:'nic_hot_plug']
       end
+
 
       if attributes.key?(:'nic_hot_unplug')
         self.nic_hot_unplug = attributes[:'nic_hot_unplug']
       end
 
+
       if attributes.key?(:'disc_virtio_hot_plug')
         self.disc_virtio_hot_plug = attributes[:'disc_virtio_hot_plug']
       end
+
 
       if attributes.key?(:'disc_virtio_hot_unplug')
         self.disc_virtio_hot_unplug = attributes[:'disc_virtio_hot_unplug']
       end
 
+
       if attributes.key?(:'disc_scsi_hot_plug')
         self.disc_scsi_hot_plug = attributes[:'disc_scsi_hot_plug']
       end
 
+
       if attributes.key?(:'disc_scsi_hot_unplug')
         self.disc_scsi_hot_unplug = attributes[:'disc_scsi_hot_unplug']
       end
+
 
       if attributes.key?(:'licence_type')
         self.licence_type = attributes[:'licence_type']
@@ -224,16 +304,64 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "LINUX", "OTHER"])
       return false unless licence_type_validator.valid?(@licence_type)
       true
     end
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] licence_type Object to be assigned
@@ -250,22 +378,22 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          description == o.description &&
-          location == o.location &&
-          size == o.size &&
-          sec_auth_protection == o.sec_auth_protection &&
-          cpu_hot_plug == o.cpu_hot_plug &&
-          cpu_hot_unplug == o.cpu_hot_unplug &&
-          ram_hot_plug == o.ram_hot_plug &&
-          ram_hot_unplug == o.ram_hot_unplug &&
-          nic_hot_plug == o.nic_hot_plug &&
-          nic_hot_unplug == o.nic_hot_unplug &&
-          disc_virtio_hot_plug == o.disc_virtio_hot_plug &&
-          disc_virtio_hot_unplug == o.disc_virtio_hot_unplug &&
-          disc_scsi_hot_plug == o.disc_scsi_hot_plug &&
-          disc_scsi_hot_unplug == o.disc_scsi_hot_unplug &&
-          licence_type == o.licence_type
+        name == o.name &&
+        description == o.description &&
+        location == o.location &&
+        size == o.size &&
+        sec_auth_protection == o.sec_auth_protection &&
+        cpu_hot_plug == o.cpu_hot_plug &&
+        cpu_hot_unplug == o.cpu_hot_unplug &&
+        ram_hot_plug == o.ram_hot_plug &&
+        ram_hot_unplug == o.ram_hot_unplug &&
+        nic_hot_plug == o.nic_hot_plug &&
+        nic_hot_unplug == o.nic_hot_unplug &&
+        disc_virtio_hot_plug == o.disc_virtio_hot_plug &&
+        disc_virtio_hot_unplug == o.disc_virtio_hot_unplug &&
+        disc_scsi_hot_plug == o.disc_scsi_hot_plug &&
+        disc_scsi_hot_unplug == o.disc_scsi_hot_unplug &&
+        licence_type == o.licence_type
     end
 
     # @see the `==` method

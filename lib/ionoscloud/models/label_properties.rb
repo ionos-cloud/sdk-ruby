@@ -15,17 +15,22 @@ require 'time'
 
 module Ionoscloud
   class LabelProperties
+  
     # A Label Key
     attr_accessor :key
+
 
     # A Label Value
     attr_accessor :value
 
+
     # The id of the resource
     attr_accessor :resource_id
 
+
     # The type of the resource on which the label is applied.
     attr_accessor :resource_type
+
 
     # URL to the Resource (absolute path) on which the label is applied.
     attr_accessor :resource_href
@@ -33,10 +38,15 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'key' => :'key',
+
         :'value' => :'value',
+
         :'resource_id' => :'resourceId',
+
         :'resource_type' => :'resourceType',
+
         :'resource_href' => :'resourceHref'
       }
     end
@@ -49,10 +59,15 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'key' => :'String',
+
         :'value' => :'String',
+
         :'resource_id' => :'String',
+
         :'resource_type' => :'String',
+
         :'resource_href' => :'String'
       }
     end
@@ -60,6 +75,11 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
       ])
     end
 
@@ -77,22 +97,27 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'key')
         self.key = attributes[:'key']
       end
 
+
       if attributes.key?(:'value')
         self.value = attributes[:'value']
       end
+
 
       if attributes.key?(:'resource_id')
         self.resource_id = attributes[:'resource_id']
       end
 
+
       if attributes.key?(:'resource_type')
         self.resource_type = attributes[:'resource_type']
       end
+
 
       if attributes.key?(:'resource_href')
         self.resource_href = attributes[:'resource_href']
@@ -103,25 +128,40 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
+
       true
     end
+
+    
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          key == o.key &&
-          value == o.value &&
-          resource_id == o.resource_id &&
-          resource_type == o.resource_type &&
-          resource_href == o.resource_href
+        key == o.key &&
+        value == o.value &&
+        resource_id == o.resource_id &&
+        resource_type == o.resource_type &&
+        resource_href == o.resource_href
     end
 
     # @see the `==` method

@@ -15,7 +15,9 @@ require 'time'
 
 module Ionoscloud
   class RequestTarget
+  
     attr_accessor :target
+
 
     attr_accessor :status
 
@@ -44,7 +46,9 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'target' => :'target',
+
         :'status' => :'status'
       }
     end
@@ -57,7 +61,9 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'target' => :'ResourceReference',
+
         :'status' => :'String'
       }
     end
@@ -65,6 +71,8 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
       ])
     end
 
@@ -82,10 +90,12 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'target')
         self.target = attributes[:'target']
       end
+
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
@@ -96,16 +106,22 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       status_validator = EnumAttributeValidator.new('String', ["QUEUED", "RUNNING", "DONE", "FAILED"])
       return false unless status_validator.valid?(@status)
       true
     end
+
+    
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
@@ -122,8 +138,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          target == o.target &&
-          status == o.status
+        target == o.target &&
+        status == o.status
     end
 
     # @see the `==` method

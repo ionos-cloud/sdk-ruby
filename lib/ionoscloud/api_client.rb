@@ -38,7 +38,7 @@ module Ionoscloud
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "ionos-cloud-sdk-ruby/5.1.1"
+      @user_agent = "ionos-cloud-sdk-ruby/5.1.2"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
@@ -74,7 +74,6 @@ module Ionoscloud
           begin
             backoff_time = Integer(response.headers['Retry-After'])
           rescue *[ArgumentError, TypeError]
-            # using default value
           end
         else
           break
@@ -500,7 +499,7 @@ module Ionoscloud
 
         current_time = Time.now.to_i
         if timeout && current_time > timeout
-          raise Ionoscloud::ApiError.new(message: "Timed out waiting for request #{request_id}.")
+          raise Ionoscloud::ApiError.new(message: "Timed out.")
         end
 
         if current_time > next_increase

@@ -15,14 +15,18 @@ require 'time'
 
 module Ionoscloud
   class S3Keys
+  
     # The resource's unique identifier
     attr_accessor :id
+
 
     # The type of the resource
     attr_accessor :type
 
+
     # URL to the object representation (absolute path)
     attr_accessor :href
+
 
     # Array of items in that collection
     attr_accessor :items
@@ -30,9 +34,13 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'id' => :'id',
+
         :'type' => :'type',
+
         :'href' => :'href',
+
         :'items' => :'items'
       }
     end
@@ -45,9 +53,13 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'id' => :'String',
+
         :'type' => :'Type',
+
         :'href' => :'String',
+
         :'items' => :'Array<S3Key>'
       }
     end
@@ -55,6 +67,10 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
       ])
     end
 
@@ -72,23 +88,25 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
 
       if attributes.key?(:'href')
         self.href = attributes[:'href']
       end
 
-      if attributes.key?(:'items')
-        if (value = attributes[:'items']).is_a?(Array)
-          self.items = value
-        end
+
+      if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
+        self.items = value
       end
     end
 
@@ -96,24 +114,36 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
       true
     end
+
+    
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type &&
-          href == o.href &&
-          items == o.items
+        id == o.id &&
+        type == o.type &&
+        href == o.href &&
+        items == o.items
     end
 
     # @see the `==` method

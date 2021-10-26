@@ -15,11 +15,14 @@ require 'time'
 
 module Ionoscloud
   class PaginationLinks
+  
     # URL (with offset and limit parameters) of the previous page; only present if offset is greater than 0
     attr_accessor :prev
 
+
     # URL (with offset and limit parameters) of the current page
     attr_accessor :_self
+
 
     # URL (with offset and limit parameters) of the next page; only present if offset + limit is less than the total number of elements
     attr_accessor :_next
@@ -27,8 +30,11 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'prev' => :'prev',
+
         :'_self' => :'self',
+
         :'_next' => :'next'
       }
     end
@@ -41,8 +47,11 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'prev' => :'String',
+
         :'_self' => :'String',
+
         :'_next' => :'String'
       }
     end
@@ -50,6 +59,9 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
       ])
     end
 
@@ -67,14 +79,17 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'prev')
         self.prev = attributes[:'prev']
       end
 
+
       if attributes.key?(:'_self')
         self._self = attributes[:'_self']
       end
+
 
       if attributes.key?(:'_next')
         self._next = attributes[:'_next']
@@ -85,23 +100,32 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
       true
     end
+
+    
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          prev == o.prev &&
-          _self == o._self &&
-          _next == o._next
+        prev == o.prev &&
+        _self == o._self &&
+        _next == o._next
     end
 
     # @see the `==` method

@@ -15,20 +15,28 @@ require 'time'
 
 module Ionoscloud
   class RequestProperties
+  
     attr_accessor :method
+
 
     attr_accessor :headers
 
+
     attr_accessor :body
+
 
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'method' => :'method',
+
         :'headers' => :'headers',
+
         :'body' => :'body',
+
         :'url' => :'url'
       }
     end
@@ -41,9 +49,13 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'method' => :'String',
+
         :'headers' => :'Hash<String, String>',
+
         :'body' => :'String',
+
         :'url' => :'String'
       }
     end
@@ -51,6 +63,10 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
       ])
     end
 
@@ -68,20 +84,22 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'method')
         self.method = attributes[:'method']
       end
 
-      if attributes.key?(:'headers')
-        if (value = attributes[:'headers']).is_a?(Hash)
-          self.headers = value
-        end
+
+      if attributes.key?(:'headers') && (value = attributes[:'headers']).is_a?(Hash)
+        self.headers = value
       end
+
 
       if attributes.key?(:'body')
         self.body = attributes[:'body']
       end
+
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
@@ -92,24 +110,36 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
       true
     end
+
+    
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          method == o.method &&
-          headers == o.headers &&
-          body == o.body &&
-          url == o.url
+        method == o.method &&
+        headers == o.headers &&
+        body == o.body &&
+        url == o.url
     end
 
     # @see the `==` method

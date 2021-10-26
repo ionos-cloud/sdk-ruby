@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.2.1-SNAPSHOT
 =end
 
 module Ionoscloud
-  VERSION = '5.1.1'
+  VERSION = '5.1.2'
 end

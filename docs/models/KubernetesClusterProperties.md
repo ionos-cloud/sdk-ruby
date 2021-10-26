@@ -9,7 +9,6 @@
 | **maintenance_window** | [**KubernetesMaintenanceWindow**](KubernetesMaintenanceWindow.md) |  | [optional] |
 | **available_upgrade_versions** | **Array&lt;String&gt;** | List of available versions for upgrading the cluster | [optional] |
 | **viable_node_pool_versions** | **Array&lt;String&gt;** | List of versions that may be used for node pools under this cluster | [optional] |
-| **public** | **Boolean** | The indicator if the cluster is public or private. Be aware that setting it to false is currently in beta phase. | [optional][default to true] |
 | **api_subnet_allow_list** | **Array&lt;String&gt;** | Access to the K8s API server is restricted to these CIDRs. Cluster-internal traffic is not affected by this restriction. If no allowlist is specified, access is not restricted. If an IP without subnet mask is provided, the default value will be used: 32 for IPv4 and 128 for IPv6. | [optional] |
 | **s3_buckets** | [**Array&lt;S3Bucket&gt;**](S3Bucket.md) | List of S3 bucket configured for K8s usage. For now it contains only one S3 bucket used to store K8s API audit logs | [optional] |
 
@@ -24,7 +23,6 @@ instance = Ionoscloud::KubernetesClusterProperties.new(
   maintenance_window: null,
   available_upgrade_versions: [1.16.4, 1.17.7],
   viable_node_pool_versions: [1.17.7, 1.18.2],
-  public: null,
   api_subnet_allow_list: [1.2.3.4/32, 2002::1234:abcd:ffff:c0a8:101/64, 1.2.3.4, 2002::1234:abcd:ffff:c0a8:101],
   s3_buckets: null
 )

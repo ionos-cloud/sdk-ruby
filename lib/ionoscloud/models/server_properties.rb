@@ -15,24 +15,32 @@ require 'time'
 
 module Ionoscloud
   class ServerProperties
+  
     # A name of that resource
     attr_accessor :name
+
 
     # The total number of cores for the server
     attr_accessor :cores
 
+
     # The amount of memory for the server in MB, e.g. 2048. Size must be specified in multiples of 256 MB with a minimum of 256 MB; however, if you set ramHotPlug to TRUE then you must use a minimum of 1024 MB. If you set the RAM size more than 240GB, then ramHotPlug will be set to FALSE and can not be set to TRUE unless RAM size not set to less than 240GB.
     attr_accessor :ram
+
 
     # The availability zone in which the server should exist
     attr_accessor :availability_zone
 
+
     # Status of the virtual Machine
     attr_accessor :vm_state
 
+
     attr_accessor :boot_cdrom
 
+
     attr_accessor :boot_volume
+
 
     # Cpu family of pserver
     attr_accessor :cpu_family
@@ -62,13 +70,21 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'cores' => :'cores',
+
         :'ram' => :'ram',
+
         :'availability_zone' => :'availabilityZone',
+
         :'vm_state' => :'vmState',
+
         :'boot_cdrom' => :'bootCdrom',
+
         :'boot_volume' => :'bootVolume',
+
         :'cpu_family' => :'cpuFamily'
       }
     end
@@ -81,13 +97,21 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'cores' => :'Integer',
+
         :'ram' => :'Integer',
+
         :'availability_zone' => :'String',
+
         :'vm_state' => :'String',
+
         :'boot_cdrom' => :'ResourceReference',
+
         :'boot_volume' => :'ResourceReference',
+
         :'cpu_family' => :'String'
       }
     end
@@ -95,6 +119,14 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
       ])
     end
 
@@ -112,34 +144,42 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'cores')
         self.cores = attributes[:'cores']
       end
+
 
       if attributes.key?(:'ram')
         self.ram = attributes[:'ram']
       end
 
+
       if attributes.key?(:'availability_zone')
         self.availability_zone = attributes[:'availability_zone']
       end
+
 
       if attributes.key?(:'vm_state')
         self.vm_state = attributes[:'vm_state']
       end
 
+
       if attributes.key?(:'boot_cdrom')
         self.boot_cdrom = attributes[:'boot_cdrom']
       end
 
+
       if attributes.key?(:'boot_volume')
         self.boot_volume = attributes[:'boot_volume']
       end
+
 
       if attributes.key?(:'cpu_family')
         self.cpu_family = attributes[:'cpu_family']
@@ -150,13 +190,21 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       if @cores.nil?
         invalid_properties.push('invalid value for "cores", cores cannot be nil.')
       end
 
+
       if @ram.nil?
         invalid_properties.push('invalid value for "ram", ram cannot be nil.')
       end
+
+
+
+
+
 
       invalid_properties
     end
@@ -164,14 +212,26 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       return false if @cores.nil?
+
       return false if @ram.nil?
+
       availability_zone_validator = EnumAttributeValidator.new('String', ["AUTO", "ZONE_1", "ZONE_2"])
       return false unless availability_zone_validator.valid?(@availability_zone)
+
       vm_state_validator = EnumAttributeValidator.new('String', ["NOSTATE", "RUNNING", "BLOCKED", "PAUSED", "SHUTDOWN", "SHUTOFF", "CRASHED", "SUSPENDED"])
       return false unless vm_state_validator.valid?(@vm_state)
+
+
+
       true
     end
+
+    
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] availability_zone Object to be assigned
@@ -183,6 +243,7 @@ module Ionoscloud
       @availability_zone = availability_zone
     end
 
+
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] vm_state Object to be assigned
     def vm_state=(vm_state)
@@ -193,19 +254,22 @@ module Ionoscloud
       @vm_state = vm_state
     end
 
+
+
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          cores == o.cores &&
-          ram == o.ram &&
-          availability_zone == o.availability_zone &&
-          vm_state == o.vm_state &&
-          boot_cdrom == o.boot_cdrom &&
-          boot_volume == o.boot_volume &&
-          cpu_family == o.cpu_family
+        name == o.name &&
+        cores == o.cores &&
+        ram == o.ram &&
+        availability_zone == o.availability_zone &&
+        vm_state == o.vm_state &&
+        boot_cdrom == o.boot_cdrom &&
+        boot_volume == o.boot_volume &&
+        cpu_family == o.cpu_family
     end
 
     # @see the `==` method

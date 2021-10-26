@@ -15,8 +15,10 @@ require 'time'
 
 module Ionoscloud
   class ResourceProperties
+  
     # name of the resource
     attr_accessor :name
+
 
     # Boolean value representing if the resource is multi factor protected or not e.g. using two factor protection. Currently only Data Centers and Snapshots are allowed to be multi factor protected, The value of attribute if null is intentional and it means that the resource doesn't support multi factor protection at all.
     attr_accessor :sec_auth_protection
@@ -24,7 +26,9 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'sec_auth_protection' => :'secAuthProtection'
       }
     end
@@ -37,7 +41,9 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'sec_auth_protection' => :'Boolean'
       }
     end
@@ -45,6 +51,8 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
       ])
     end
 
@@ -62,10 +70,12 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
 
       if attributes.key?(:'sec_auth_protection')
         self.sec_auth_protection = attributes[:'sec_auth_protection']
@@ -76,22 +86,28 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       true
     end
+
+    
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          sec_auth_protection == o.sec_auth_protection
+        name == o.name &&
+        sec_auth_protection == o.sec_auth_protection
     end
 
     # @see the `==` method

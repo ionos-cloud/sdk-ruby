@@ -15,29 +15,38 @@ require 'time'
 
 module Ionoscloud
   class FirewallruleProperties
+  
     # A name of that resource
     attr_accessor :name
+
 
     # The protocol for the rule. Property cannot be modified after creation (disallowed in update requests)
     attr_accessor :protocol
 
+
     # Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. Value null allows all source MAC address
     attr_accessor :source_mac
+
 
     # Only traffic originating from the respective IPv4 address is allowed. Value null allows all source IPs
     attr_accessor :source_ip
 
+
     # In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Value null allows all target IPs
     attr_accessor :target_ip
+
 
     # Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. Value null allows all codes
     attr_accessor :icmp_code
 
+
     # Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types
     attr_accessor :icmp_type
 
+
     # Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports
     attr_accessor :port_range_start
+
 
     # Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd null to allow all ports
     attr_accessor :port_range_end
@@ -67,14 +76,23 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'protocol' => :'protocol',
+
         :'source_mac' => :'sourceMac',
+
         :'source_ip' => :'sourceIp',
+
         :'target_ip' => :'targetIp',
+
         :'icmp_code' => :'icmpCode',
+
         :'icmp_type' => :'icmpType',
+
         :'port_range_start' => :'portRangeStart',
+
         :'port_range_end' => :'portRangeEnd'
       }
     end
@@ -87,14 +105,23 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'protocol' => :'String',
+
         :'source_mac' => :'String',
+
         :'source_ip' => :'String',
+
         :'target_ip' => :'String',
+
         :'icmp_code' => :'Integer',
+
         :'icmp_type' => :'Integer',
+
         :'port_range_start' => :'Integer',
+
         :'port_range_end' => :'Integer'
       }
     end
@@ -102,6 +129,15 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
+
       ])
     end
 
@@ -119,38 +155,47 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'protocol')
         self.protocol = attributes[:'protocol']
       end
+
 
       if attributes.key?(:'source_mac')
         self.source_mac = attributes[:'source_mac']
       end
 
+
       if attributes.key?(:'source_ip')
         self.source_ip = attributes[:'source_ip']
       end
+
 
       if attributes.key?(:'target_ip')
         self.target_ip = attributes[:'target_ip']
       end
 
+
       if attributes.key?(:'icmp_code')
         self.icmp_code = attributes[:'icmp_code']
       end
+
 
       if attributes.key?(:'icmp_type')
         self.icmp_type = attributes[:'icmp_type']
       end
 
+
       if attributes.key?(:'port_range_start')
         self.port_range_start = attributes[:'port_range_start']
       end
+
 
       if attributes.key?(:'port_range_end')
         self.port_range_end = attributes[:'port_range_end']
@@ -161,24 +206,30 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
       if @protocol.nil?
         invalid_properties.push('invalid value for "protocol", protocol cannot be nil.')
       end
+
 
       pattern = Regexp.new(/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/)
       if !@source_mac.nil? && @source_mac !~ pattern
         invalid_properties.push("invalid value for \"source_mac\", must conform to the pattern #{pattern}.")
       end
 
+
       pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
       if !@source_ip.nil? && @source_ip !~ pattern
         invalid_properties.push("invalid value for \"source_ip\", must conform to the pattern #{pattern}.")
       end
 
+
       pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
       if !@target_ip.nil? && @target_ip !~ pattern
         invalid_properties.push("invalid value for \"target_ip\", must conform to the pattern #{pattern}.")
       end
+
 
       if !@icmp_code.nil? && @icmp_code > 254
         invalid_properties.push('invalid value for "icmp_code", must be smaller than or equal to 254.')
@@ -188,6 +239,7 @@ module Ionoscloud
         invalid_properties.push('invalid value for "icmp_code", must be greater than or equal to 0.')
       end
 
+
       if !@icmp_type.nil? && @icmp_type > 254
         invalid_properties.push('invalid value for "icmp_type", must be smaller than or equal to 254.')
       end
@@ -196,6 +248,7 @@ module Ionoscloud
         invalid_properties.push('invalid value for "icmp_type", must be greater than or equal to 0.')
       end
 
+
       if !@port_range_start.nil? && @port_range_start > 65534
         invalid_properties.push('invalid value for "port_range_start", must be smaller than or equal to 65534.')
       end
@@ -203,6 +256,7 @@ module Ionoscloud
       if !@port_range_start.nil? && @port_range_start < 1
         invalid_properties.push('invalid value for "port_range_start", must be greater than or equal to 1.')
       end
+
 
       if !@port_range_end.nil? && @port_range_end > 65534
         invalid_properties.push('invalid value for "port_range_end", must be smaller than or equal to 65534.')
@@ -218,22 +272,33 @@ module Ionoscloud
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
       return false if @protocol.nil?
       protocol_validator = EnumAttributeValidator.new('String', ["TCP", "UDP", "ICMP", "ANY"])
       return false unless protocol_validator.valid?(@protocol)
+
       return false if !@source_mac.nil? && @source_mac !~ Regexp.new(/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/)
+
       return false if !@source_ip.nil? && @source_ip !~ Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+
       return false if !@target_ip.nil? && @target_ip !~ Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+
       return false if !@icmp_code.nil? && @icmp_code > 254
       return false if !@icmp_code.nil? && @icmp_code < 0
+
       return false if !@icmp_type.nil? && @icmp_type > 254
       return false if !@icmp_type.nil? && @icmp_type < 0
+
       return false if !@port_range_start.nil? && @port_range_start > 65534
       return false if !@port_range_start.nil? && @port_range_start < 1
+
       return false if !@port_range_end.nil? && @port_range_end > 65534
       return false if !@port_range_end.nil? && @port_range_end < 1
       true
     end
+
+    
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] protocol Object to be assigned
@@ -244,6 +309,7 @@ module Ionoscloud
       end
       @protocol = protocol
     end
+
 
     # Custom attribute writer method with validation
     # @param [Object] source_mac Value to be assigned
@@ -256,6 +322,7 @@ module Ionoscloud
       @source_mac = source_mac
     end
 
+
     # Custom attribute writer method with validation
     # @param [Object] source_ip Value to be assigned
     def source_ip=(source_ip)
@@ -267,6 +334,7 @@ module Ionoscloud
       @source_ip = source_ip
     end
 
+
     # Custom attribute writer method with validation
     # @param [Object] target_ip Value to be assigned
     def target_ip=(target_ip)
@@ -277,6 +345,7 @@ module Ionoscloud
 
       @target_ip = target_ip
     end
+
 
     # Custom attribute writer method with validation
     # @param [Object] icmp_code Value to be assigned
@@ -292,6 +361,7 @@ module Ionoscloud
       @icmp_code = icmp_code
     end
 
+
     # Custom attribute writer method with validation
     # @param [Object] icmp_type Value to be assigned
     def icmp_type=(icmp_type)
@@ -306,6 +376,7 @@ module Ionoscloud
       @icmp_type = icmp_type
     end
 
+
     # Custom attribute writer method with validation
     # @param [Object] port_range_start Value to be assigned
     def port_range_start=(port_range_start)
@@ -319,6 +390,7 @@ module Ionoscloud
 
       @port_range_start = port_range_start
     end
+
 
     # Custom attribute writer method with validation
     # @param [Object] port_range_end Value to be assigned
@@ -339,15 +411,15 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          protocol == o.protocol &&
-          source_mac == o.source_mac &&
-          source_ip == o.source_ip &&
-          target_ip == o.target_ip &&
-          icmp_code == o.icmp_code &&
-          icmp_type == o.icmp_type &&
-          port_range_start == o.port_range_start &&
-          port_range_end == o.port_range_end
+        name == o.name &&
+        protocol == o.protocol &&
+        source_mac == o.source_mac &&
+        source_ip == o.source_ip &&
+        target_ip == o.target_ip &&
+        icmp_code == o.icmp_code &&
+        icmp_type == o.icmp_type &&
+        port_range_start == o.port_range_start &&
+        port_range_end == o.port_range_end
     end
 
     # @see the `==` method

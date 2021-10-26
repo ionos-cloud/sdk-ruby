@@ -15,32 +15,42 @@ require 'time'
 
 module Ionoscloud
   class GroupProperties
+  
     # A name of that resource
     attr_accessor :name
+
 
     # create data center privilege
     attr_accessor :create_data_center
 
+
     # create snapshot privilege
     attr_accessor :create_snapshot
+
 
     # reserve ip block privilege
     attr_accessor :reserve_ip
 
+
     # activity log access privilege
     attr_accessor :access_activity_log
+
 
     # create pcc privilege
     attr_accessor :create_pcc
 
+
     # S3 privilege
     attr_accessor :s3_privilege
+
 
     # create backup unit privilege
     attr_accessor :create_backup_unit
 
+
     # create internet access privilege
     attr_accessor :create_internet_access
+
 
     # create kubernetes cluster privilege
     attr_accessor :create_k8s_cluster
@@ -48,15 +58,25 @@ module Ionoscloud
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
         :'name' => :'name',
+
         :'create_data_center' => :'createDataCenter',
+
         :'create_snapshot' => :'createSnapshot',
+
         :'reserve_ip' => :'reserveIp',
+
         :'access_activity_log' => :'accessActivityLog',
+
         :'create_pcc' => :'createPcc',
+
         :'s3_privilege' => :'s3Privilege',
+
         :'create_backup_unit' => :'createBackupUnit',
+
         :'create_internet_access' => :'createInternetAccess',
+
         :'create_k8s_cluster' => :'createK8sCluster'
       }
     end
@@ -69,15 +89,25 @@ module Ionoscloud
     # Attribute type mapping.
     def self.openapi_types
       {
+        
         :'name' => :'String',
+
         :'create_data_center' => :'Boolean',
+
         :'create_snapshot' => :'Boolean',
+
         :'reserve_ip' => :'Boolean',
+
         :'access_activity_log' => :'Boolean',
+
         :'create_pcc' => :'Boolean',
+
         :'s3_privilege' => :'Boolean',
+
         :'create_backup_unit' => :'Boolean',
+
         :'create_internet_access' => :'Boolean',
+
         :'create_k8s_cluster' => :'Boolean'
       }
     end
@@ -85,6 +115,16 @@ module Ionoscloud
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        
+
+
+
+
+
+
+
+
+
       ])
     end
 
@@ -102,42 +142,52 @@ module Ionoscloud
         end
         h[k.to_sym] = v
       }
+      
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+
       if attributes.key?(:'create_data_center')
         self.create_data_center = attributes[:'create_data_center']
       end
+
 
       if attributes.key?(:'create_snapshot')
         self.create_snapshot = attributes[:'create_snapshot']
       end
 
+
       if attributes.key?(:'reserve_ip')
         self.reserve_ip = attributes[:'reserve_ip']
       end
+
 
       if attributes.key?(:'access_activity_log')
         self.access_activity_log = attributes[:'access_activity_log']
       end
 
+
       if attributes.key?(:'create_pcc')
         self.create_pcc = attributes[:'create_pcc']
       end
+
 
       if attributes.key?(:'s3_privilege')
         self.s3_privilege = attributes[:'s3_privilege']
       end
 
+
       if attributes.key?(:'create_backup_unit')
         self.create_backup_unit = attributes[:'create_backup_unit']
       end
 
+
       if attributes.key?(:'create_internet_access')
         self.create_internet_access = attributes[:'create_internet_access']
       end
+
 
       if attributes.key?(:'create_k8s_cluster')
         self.create_k8s_cluster = attributes[:'create_k8s_cluster']
@@ -148,30 +198,60 @@ module Ionoscloud
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      
+
+
+
+
+
+
+
+
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      
+
+
+
+
+
+
+
+
+
       true
     end
+
+    
+
+
+
+
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          create_data_center == o.create_data_center &&
-          create_snapshot == o.create_snapshot &&
-          reserve_ip == o.reserve_ip &&
-          access_activity_log == o.access_activity_log &&
-          create_pcc == o.create_pcc &&
-          s3_privilege == o.s3_privilege &&
-          create_backup_unit == o.create_backup_unit &&
-          create_internet_access == o.create_internet_access &&
-          create_k8s_cluster == o.create_k8s_cluster
+        name == o.name &&
+        create_data_center == o.create_data_center &&
+        create_snapshot == o.create_snapshot &&
+        reserve_ip == o.reserve_ip &&
+        access_activity_log == o.access_activity_log &&
+        create_pcc == o.create_pcc &&
+        s3_privilege == o.s3_privilege &&
+        create_backup_unit == o.create_backup_unit &&
+        create_internet_access == o.create_internet_access &&
+        create_k8s_cluster == o.create_k8s_cluster
     end
 
     # @see the `==` method
