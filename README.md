@@ -1,5 +1,7 @@
 [![Gitter](https://badges.gitter.im/ionos-cloud/sdk-general.png)](https://gitter.im/ionos-cloud/sdk-general)
 
+![Alt text](.github/IONOS.CLOUD.BLU.svg?raw=true "Title")
+
 # ionoscloud
 
 Ionoscloud - the Ruby gem for the CLOUD API
