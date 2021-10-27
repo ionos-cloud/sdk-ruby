@@ -1,6 +1,7 @@
 ![CI](https://github.com/ionos-cloud/sdk-resources/workflows/%5B%20CI%20%5D%20CloudApi%20V6%20/%20Ruby/badge.svg)
 [![Gitter](https://badges.gitter.im/ionos-cloud/sdk-general.png)](https://gitter.im/ionos-cloud/sdk-general)
 
+
 # Ionoscloud
 
 Ionoscloud - the Ruby gem for the CLOUD API
