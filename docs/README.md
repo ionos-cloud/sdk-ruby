@@ -79,8 +79,8 @@ end
 api_instance = Ionoscloud::DefaultApi.new
 opts = {
   pretty: true, # Boolean | Controls whether response is pretty-printed (with indentation and new lines)
-  depth: 56, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
-  x_contract_number: 56 # Integer | Users having more than 1 contract need to provide contract number, against which all API requests should be executed
+  depth: 0, # Integer | Controls the details depth of response objects.  Eg. GET /datacenters/[ID]  - depth=0: only direct properties are included. Children (servers etc.) are not included  - depth=1: direct properties and children references are included  - depth=2: direct properties and children properties are included  - depth=3: direct properties and children properties and children's children are included  - depth=... and so on
+  x_contract_number: 1 # Integer | Users having more than 1 contract need to provide contract number, against which all API requests should be executed
 }
 
 begin
@@ -89,6 +89,70 @@ begin
   p result
 rescue Ionoscloud::ApiError => e
   puts "Exception when calling DefaultApi->api_info_get: #{e}"
+end
+```
+
+### Authentication
+
+The username and password or the authentication token can be manually specified when initializing the SDK client:
+
+```ruby
+Ionoscloud.configure do |config|
+  # Configure HTTP basic authorization: Basic Authentication
+  config.username = 'YOUR_USERNAME'
+  config.password = 'YOUR_PASSWORD'
+
+  # Configure API key authorization: Token Authentication
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+```
+
+Environment variables can also be used for initialization. For example:
+
+```ruby
+Ionoscloud.configure do |config|
+  config.username = ENV['IONOS_USERNAME']
+  config.password = ENV['IONOS_PASSWORD']
+  config.api_key['Authorization'] = ENV['IONOS_TOKEN']
+end
+```
+
+{% hint style="danger" %}
+**Warning**: Make sure to follow the Information Security Best Practices when using credentials within your code or storing them in a file.
+{% endhint %}
+
+### Depth
+
+Many of the _List_ or _Get_ operations will accept an optional _depth_ argument. Setting this to a value between 0 and 5 affects the amount of data that is returned. The details returned vary depending on the resource being queried, but it generally follows this pattern.
+
+| Depth | Description |
+| :--- | :--- |
+| 0 | Only direct properties are included. Children are not included. |
+| 1 | Direct properties and children's references are returned. |
+| 2 | Direct properties and children's properties are returned. |
+| 3 | Direct properties, children's properties, and descendants' references are returned. |
+| 4 | Direct properties, children's properties, and descendants' properties are returned. |
+| 5 | Returns all available properties. |
+
+### Pretty
+
+The operations will also accept an optional _pretty_ argument. Setting this to a value of `true` or `false` controls whether the response is pretty-printed \(with indentation and new lines\). By default, the SDK sets the _pretty_ argument to `true`.
+
+### Changing the base URL
+
+Base URL for the HTTP operation can be changed in the following way:
+
+```ruby
+Ionoscloud.configure do |config|
+  config.username = ENV['IONOS_USERNAME']
+  config.password = ENV['IONOS_PASSWORD']
+
+  # Configure the url used by the SDK
+  config.host = 'https://api.ionos.com/cloudapi/v5'
+  # This must be set as well because of the way the API works, otherwise the set url will not be used
+  condif.server_index = nil
 end
 ```
 
