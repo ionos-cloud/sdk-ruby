@@ -92,6 +92,70 @@ rescue Ionoscloud::ApiError => e
 end
 ```
 
+### Authentication
+
+The username and password or the authentication token can be manually specified when initializing the SDK client:
+
+```ruby
+Ionoscloud.configure do |config|
+  # Configure HTTP basic authorization: Basic Authentication
+  config.username = 'YOUR_USERNAME'
+  config.password = 'YOUR_PASSWORD'
+
+  # Configure API key authorization: Token Authentication
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+```
+
+Environment variables can also be used for initialization. For example:
+
+```ruby
+Ionoscloud.configure do |config|
+  config.username = ENV['IONOS_USERNAME']
+  config.password = ENV['IONOS_PASSWORD']
+  config.api_key['Authorization'] = ENV['IONOS_TOKEN']
+end
+```
+
+{% hint style="danger" %}
+**Warning**: Make sure to follow the Information Security Best Practices when using credentials within your code or storing them in a file.
+{% endhint %}
+
+### Depth
+
+Many of the _List_ or _Get_ operations will accept an optional _depth_ argument. Setting this to a value between 0 and 5 affects the amount of data that is returned. The details returned vary depending on the resource being queried, but it generally follows this pattern.
+
+| Depth | Description |
+| :--- | :--- |
+| 0 | Only direct properties are included. Children are not included. |
+| 1 | Direct properties and children's references are returned. |
+| 2 | Direct properties and children's properties are returned. |
+| 3 | Direct properties, children's properties, and descendants' references are returned. |
+| 4 | Direct properties, children's properties, and descendants' properties are returned. |
+| 5 | Returns all available properties. |
+
+### Pretty
+
+The operations will also accept an optional _pretty_ argument. Setting this to a value of `true` or `false` controls whether the response is pretty-printed \(with indentation and new lines\). By default, the SDK sets the _pretty_ argument to `true`.
+
+### Changing the base URL
+
+Base URL for the HTTP operation can be changed in the following way:
+
+```ruby
+Ionoscloud.configure do |config|
+  config.username = ENV['IONOS_USERNAME']
+  config.password = ENV['IONOS_PASSWORD']
+
+  # Configure the url used by the SDK
+  config.host = 'https://api.ionos.com/cloudapi/v6'
+  # This must be set as well because of the way the API works, otherwise the set url will not be used
+  condif.server_index = nil
+end
+```
+
 ## Feature Reference
 
 The IONOS Cloud SDK for Ruby aims to offer access to all resources in the IONOS Cloud API and also offers some additional features that make the integration easier:
