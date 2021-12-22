@@ -65,7 +65,7 @@ end
 
 ### Return type
 
-[**Info**](Info.md)
+[**Info**](../models/Info.md)
 
 ### Authorization
 

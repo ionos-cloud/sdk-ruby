@@ -4,25 +4,25 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**datacenters_loadbalancers_balancednics_delete**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_delete) | **DELETE** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics/{nicId} | Detach a nic from loadbalancer |
-| [**datacenters_loadbalancers_balancednics_find_by_nic_id**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_find_by_nic_id) | **GET** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics/{nicId} | Retrieve a network interface attached to Load Balancer |
-| [**datacenters_loadbalancers_balancednics_get**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_get) | **GET** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics | List Load Balancer balaced NICs |
-| [**datacenters_loadbalancers_balancednics_post**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_post) | **POST** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics | Attach a nic to Load Balancer |
-| [**datacenters_loadbalancers_delete**](LoadBalancersApi.md#datacenters_loadbalancers_delete) | **DELETE** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Delete a Loadbalancer. |
-| [**datacenters_loadbalancers_find_by_id**](LoadBalancersApi.md#datacenters_loadbalancers_find_by_id) | **GET** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Retrieve a loadbalancer |
+| [**datacenters_loadbalancers_balancednics_delete**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_delete) | **DELETE** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics/{nicId} | Detach balanced NICs |
+| [**datacenters_loadbalancers_balancednics_find_by_nic_id**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_find_by_nic_id) | **GET** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics/{nicId} | Retrieve balanced NICs |
+| [**datacenters_loadbalancers_balancednics_get**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_get) | **GET** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics | List balanced NICs |
+| [**datacenters_loadbalancers_balancednics_post**](LoadBalancersApi.md#datacenters_loadbalancers_balancednics_post) | **POST** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics | Attach balanced NICs |
+| [**datacenters_loadbalancers_delete**](LoadBalancersApi.md#datacenters_loadbalancers_delete) | **DELETE** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Delete Load Balancers |
+| [**datacenters_loadbalancers_find_by_id**](LoadBalancersApi.md#datacenters_loadbalancers_find_by_id) | **GET** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Retrieve Load Balancers |
 | [**datacenters_loadbalancers_get**](LoadBalancersApi.md#datacenters_loadbalancers_get) | **GET** /datacenters/{datacenterId}/loadbalancers | List Load Balancers |
-| [**datacenters_loadbalancers_patch**](LoadBalancersApi.md#datacenters_loadbalancers_patch) | **PATCH** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Partially modify a Loadbalancer |
-| [**datacenters_loadbalancers_post**](LoadBalancersApi.md#datacenters_loadbalancers_post) | **POST** /datacenters/{datacenterId}/loadbalancers | Create a Load Balancer |
-| [**datacenters_loadbalancers_put**](LoadBalancersApi.md#datacenters_loadbalancers_put) | **PUT** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Modify a Load Balancer |
+| [**datacenters_loadbalancers_patch**](LoadBalancersApi.md#datacenters_loadbalancers_patch) | **PATCH** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Partially modify Load Balancers |
+| [**datacenters_loadbalancers_post**](LoadBalancersApi.md#datacenters_loadbalancers_post) | **POST** /datacenters/{datacenterId}/loadbalancers | Create Load Balancers |
+| [**datacenters_loadbalancers_put**](LoadBalancersApi.md#datacenters_loadbalancers_put) | **PUT** /datacenters/{datacenterId}/loadbalancers/{loadbalancerId} | Modify Load Balancers |
 
 
 ## datacenters_loadbalancers_balancednics_delete
 
 > datacenters_loadbalancers_balancednics_delete(datacenter_id, loadbalancer_id, nic_id, opts)
 
-Detach a nic from loadbalancer
+Detach balanced NICs
 
-This will remove a network interface from load balancer.
+Detach the specified NIC from the Load Balancer.
 
 ### Examples
 
@@ -43,8 +43,8 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
-nic_id = 'nic_id_example' # String | The unique ID of the NIC
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
+nic_id = 'nic_id_example' # String | The unique ID of the NIC.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -52,7 +52,7 @@ opts = {
 }
 
 begin
-  # Detach a nic from loadbalancer
+  # Detach balanced NICs
   api_instance.datacenters_loadbalancers_balancednics_delete(datacenter_id, loadbalancer_id, nic_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LoadBalancersApi->datacenters_loadbalancers_balancednics_delete: #{e}"
@@ -67,7 +67,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Detach a nic from loadbalancer
+  # Detach balanced NICs
   data, status_code, headers = api_instance.datacenters_loadbalancers_balancednics_delete_with_http_info(datacenter_id, loadbalancer_id, nic_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -82,8 +82,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
-| **nic_id** | **String** | The unique ID of the NIC |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
+| **nic_id** | **String** | The unique ID of the NIC. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -106,9 +106,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_loadbalancers_balancednics_find_by_nic_id(datacenter_id, loadbalancer_id, nic_id, opts)
 
-Retrieve a network interface attached to Load Balancer
+Retrieve balanced NICs
 
-This will retrieve the properties of an attached network interface.
+Retrieve the properties of the specified NIC, attached to the Load Balancer.
 
 ### Examples
 
@@ -129,8 +129,8 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
-nic_id = 'nic_id_example' # String | The unique ID of the NIC
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
+nic_id = 'nic_id_example' # String | The unique ID of the NIC.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -138,7 +138,7 @@ opts = {
 }
 
 begin
-  # Retrieve a network interface attached to Load Balancer
+  # Retrieve balanced NICs
   result = api_instance.datacenters_loadbalancers_balancednics_find_by_nic_id(datacenter_id, loadbalancer_id, nic_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -154,7 +154,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a network interface attached to Load Balancer
+  # Retrieve balanced NICs
   data, status_code, headers = api_instance.datacenters_loadbalancers_balancednics_find_by_nic_id_with_http_info(datacenter_id, loadbalancer_id, nic_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -169,15 +169,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
-| **nic_id** | **String** | The unique ID of the NIC |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
+| **nic_id** | **String** | The unique ID of the NIC. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 
@@ -193,9 +193,9 @@ Basic Authentication, Token Authentication
 
 > <BalancedNics> datacenters_loadbalancers_balancednics_get(datacenter_id, loadbalancer_id, opts)
 
-List Load Balancer balaced NICs
+List balanced NICs
 
-You can retrieve a list of nics attached to a load balancer.
+List all NICs, attached to the specified Load Balancer.
 
 ### Examples
 
@@ -216,7 +216,7 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -224,7 +224,7 @@ opts = {
 }
 
 begin
-  # List Load Balancer balaced NICs
+  # List balanced NICs
   result = api_instance.datacenters_loadbalancers_balancednics_get(datacenter_id, loadbalancer_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -240,7 +240,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Load Balancer balaced NICs
+  # List balanced NICs
   data, status_code, headers = api_instance.datacenters_loadbalancers_balancednics_get_with_http_info(datacenter_id, loadbalancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -255,14 +255,14 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**BalancedNics**](BalancedNics.md)
+[**BalancedNics**](../models/BalancedNics.md)
 
 ### Authorization
 
@@ -278,9 +278,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_loadbalancers_balancednics_post(datacenter_id, loadbalancer_id, nic, opts)
 
-Attach a nic to Load Balancer
+Attach balanced NICs
 
-This will attach a pre-existing nic to a load balancer.
+Attach an existing NIC to the specified Load Balancer.
 
 ### Examples
 
@@ -301,8 +301,8 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
-nic = Ionoscloud::Nic.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # Nic | Nic id to be attached
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
+nic = Ionoscloud::Nic.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # Nic | The NIC to be attached.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -310,7 +310,7 @@ opts = {
 }
 
 begin
-  # Attach a nic to Load Balancer
+  # Attach balanced NICs
   result = api_instance.datacenters_loadbalancers_balancednics_post(datacenter_id, loadbalancer_id, nic, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -326,7 +326,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Attach a nic to Load Balancer
+  # Attach balanced NICs
   data, status_code, headers = api_instance.datacenters_loadbalancers_balancednics_post_with_http_info(datacenter_id, loadbalancer_id, nic, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -341,15 +341,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
-| **nic** | [**Nic**](Nic.md) | Nic id to be attached |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
+| **nic** | [**Nic**](Nic.md) | The NIC to be attached. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 
@@ -365,9 +365,9 @@ Basic Authentication, Token Authentication
 
 > datacenters_loadbalancers_delete(datacenter_id, loadbalancer_id, opts)
 
-Delete a Loadbalancer.
+Delete Load Balancers
 
-Removes the specified load balancer.
+Remove the specified Load Balancer from the data center.
 
 ### Examples
 
@@ -388,7 +388,7 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -396,7 +396,7 @@ opts = {
 }
 
 begin
-  # Delete a Loadbalancer.
+  # Delete Load Balancers
   api_instance.datacenters_loadbalancers_delete(datacenter_id, loadbalancer_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling LoadBalancersApi->datacenters_loadbalancers_delete: #{e}"
@@ -411,7 +411,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete a Loadbalancer.
+  # Delete Load Balancers
   data, status_code, headers = api_instance.datacenters_loadbalancers_delete_with_http_info(datacenter_id, loadbalancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -426,7 +426,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -449,9 +449,9 @@ Basic Authentication, Token Authentication
 
 > <Loadbalancer> datacenters_loadbalancers_find_by_id(datacenter_id, loadbalancer_id, opts)
 
-Retrieve a loadbalancer
+Retrieve Load Balancers
 
-Retrieves the attributes of a given load balancer.
+Retrieve the properties of the specified Load Balancer within the data center.
 
 ### Examples
 
@@ -472,7 +472,7 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -480,7 +480,7 @@ opts = {
 }
 
 begin
-  # Retrieve a loadbalancer
+  # Retrieve Load Balancers
   result = api_instance.datacenters_loadbalancers_find_by_id(datacenter_id, loadbalancer_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -496,7 +496,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a loadbalancer
+  # Retrieve Load Balancers
   data, status_code, headers = api_instance.datacenters_loadbalancers_find_by_id_with_http_info(datacenter_id, loadbalancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -511,14 +511,14 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Loadbalancer**](Loadbalancer.md)
+[**Loadbalancer**](../models/Loadbalancer.md)
 
 ### Authorization
 
@@ -536,7 +536,7 @@ Basic Authentication, Token Authentication
 
 List Load Balancers
 
-Retrieve a list of Load Balancers within the datacenter.
+List all the Load Balancers within the data center.
 
 ### Examples
 
@@ -605,7 +605,7 @@ end
 
 ### Return type
 
-[**Loadbalancers**](Loadbalancers.md)
+[**Loadbalancers**](../models/Loadbalancers.md)
 
 ### Authorization
 
@@ -621,9 +621,9 @@ Basic Authentication, Token Authentication
 
 > <Loadbalancer> datacenters_loadbalancers_patch(datacenter_id, loadbalancer_id, loadbalancer, opts)
 
-Partially modify a Loadbalancer
+Partially modify Load Balancers
 
-You can use update attributes of a resource.
+Update the properties of the specified Load Balancer within the data center.
 
 ### Examples
 
@@ -644,8 +644,8 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
-loadbalancer = Ionoscloud::LoadbalancerProperties.new # LoadbalancerProperties | Modified Loadbalancer
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
+loadbalancer = Ionoscloud::LoadbalancerProperties.new # LoadbalancerProperties | The properties of the Load Balancer to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -653,7 +653,7 @@ opts = {
 }
 
 begin
-  # Partially modify a Loadbalancer
+  # Partially modify Load Balancers
   result = api_instance.datacenters_loadbalancers_patch(datacenter_id, loadbalancer_id, loadbalancer, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -669,7 +669,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify a Loadbalancer
+  # Partially modify Load Balancers
   data, status_code, headers = api_instance.datacenters_loadbalancers_patch_with_http_info(datacenter_id, loadbalancer_id, loadbalancer, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -684,15 +684,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
-| **loadbalancer** | [**LoadbalancerProperties**](LoadbalancerProperties.md) | Modified Loadbalancer |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
+| **loadbalancer** | [**LoadbalancerProperties**](LoadbalancerProperties.md) | The properties of the Load Balancer to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Loadbalancer**](Loadbalancer.md)
+[**Loadbalancer**](../models/Loadbalancer.md)
 
 ### Authorization
 
@@ -708,9 +708,9 @@ Basic Authentication, Token Authentication
 
 > <Loadbalancer> datacenters_loadbalancers_post(datacenter_id, loadbalancer, opts)
 
-Create a Load Balancer
+Create Load Balancers
 
-Creates a Loadbalancer within the datacenter.
+Create a Load Balancer within the data center.
 
 ### Examples
 
@@ -731,7 +731,7 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer = Ionoscloud::Loadbalancer.new({properties: Ionoscloud::LoadbalancerProperties.new}) # Loadbalancer | Loadbalancer to be created
+loadbalancer = Ionoscloud::Loadbalancer.new({properties: Ionoscloud::LoadbalancerProperties.new}) # Loadbalancer | The Load Balancer to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -739,7 +739,7 @@ opts = {
 }
 
 begin
-  # Create a Load Balancer
+  # Create Load Balancers
   result = api_instance.datacenters_loadbalancers_post(datacenter_id, loadbalancer, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -755,7 +755,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a Load Balancer
+  # Create Load Balancers
   data, status_code, headers = api_instance.datacenters_loadbalancers_post_with_http_info(datacenter_id, loadbalancer, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -770,14 +770,14 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer** | [**Loadbalancer**](Loadbalancer.md) | Loadbalancer to be created |  |
+| **loadbalancer** | [**Loadbalancer**](Loadbalancer.md) | The Load Balancer to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Loadbalancer**](Loadbalancer.md)
+[**Loadbalancer**](../models/Loadbalancer.md)
 
 ### Authorization
 
@@ -793,9 +793,9 @@ Basic Authentication, Token Authentication
 
 > <Loadbalancer> datacenters_loadbalancers_put(datacenter_id, loadbalancer_id, loadbalancer, opts)
 
-Modify a Load Balancer
+Modify Load Balancers
 
-You can use update attributes of a resource.
+Modify the properties of the specified Load Balancer within the data center.
 
 ### Examples
 
@@ -816,8 +816,8 @@ end
 
 api_instance = Ionoscloud::LoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer
-loadbalancer = Ionoscloud::Loadbalancer.new({properties: Ionoscloud::LoadbalancerProperties.new}) # Loadbalancer | Modified Loadbalancer
+loadbalancer_id = 'loadbalancer_id_example' # String | The unique ID of the Load Balancer.
+loadbalancer = Ionoscloud::Loadbalancer.new({properties: Ionoscloud::LoadbalancerProperties.new}) # Loadbalancer | The modified Load Balancer.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -825,7 +825,7 @@ opts = {
 }
 
 begin
-  # Modify a Load Balancer
+  # Modify Load Balancers
   result = api_instance.datacenters_loadbalancers_put(datacenter_id, loadbalancer_id, loadbalancer, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -841,7 +841,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify a Load Balancer
+  # Modify Load Balancers
   data, status_code, headers = api_instance.datacenters_loadbalancers_put_with_http_info(datacenter_id, loadbalancer_id, loadbalancer, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -856,15 +856,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **loadbalancer_id** | **String** | The unique ID of the Load Balancer |  |
-| **loadbalancer** | [**Loadbalancer**](Loadbalancer.md) | Modified Loadbalancer |  |
+| **loadbalancer_id** | **String** | The unique ID of the Load Balancer. |  |
+| **loadbalancer** | [**Loadbalancer**](Loadbalancer.md) | The modified Load Balancer. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Loadbalancer**](Loadbalancer.md)
+[**Loadbalancer**](../models/Loadbalancer.md)
 
 ### Authorization
 

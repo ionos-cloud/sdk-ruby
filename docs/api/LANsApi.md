@@ -1,27 +1,27 @@
-# LansApi
+# LANsApi
 
 All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**datacenters_lans_delete**](LansApi.md#datacenters_lans_delete) | **DELETE** /datacenters/{datacenterId}/lans/{lanId} | Delete a Lan. |
-| [**datacenters_lans_find_by_id**](LansApi.md#datacenters_lans_find_by_id) | **GET** /datacenters/{datacenterId}/lans/{lanId} | Retrieve a Lan |
-| [**datacenters_lans_get**](LansApi.md#datacenters_lans_get) | **GET** /datacenters/{datacenterId}/lans | List Lans |
-| [**datacenters_lans_nics_find_by_id**](LansApi.md#datacenters_lans_nics_find_by_id) | **GET** /datacenters/{datacenterId}/lans/{lanId}/nics/{nicId} | Retrieve a nic attached to lan |
-| [**datacenters_lans_nics_get**](LansApi.md#datacenters_lans_nics_get) | **GET** /datacenters/{datacenterId}/lans/{lanId}/nics | List Lan Members  |
-| [**datacenters_lans_nics_post**](LansApi.md#datacenters_lans_nics_post) | **POST** /datacenters/{datacenterId}/lans/{lanId}/nics | Attach a nic |
-| [**datacenters_lans_patch**](LansApi.md#datacenters_lans_patch) | **PATCH** /datacenters/{datacenterId}/lans/{lanId} | Partially modify a Lan |
-| [**datacenters_lans_post**](LansApi.md#datacenters_lans_post) | **POST** /datacenters/{datacenterId}/lans | Create a Lan |
-| [**datacenters_lans_put**](LansApi.md#datacenters_lans_put) | **PUT** /datacenters/{datacenterId}/lans/{lanId} | Modify a Lan |
+| [**datacenters_lans_delete**](LANsApi.md#datacenters_lans_delete) | **DELETE** /datacenters/{datacenterId}/lans/{lanId} | Delete LANs |
+| [**datacenters_lans_find_by_id**](LANsApi.md#datacenters_lans_find_by_id) | **GET** /datacenters/{datacenterId}/lans/{lanId} | Retrieve LANs |
+| [**datacenters_lans_get**](LANsApi.md#datacenters_lans_get) | **GET** /datacenters/{datacenterId}/lans | List LANs |
+| [**datacenters_lans_nics_find_by_id**](LANsApi.md#datacenters_lans_nics_find_by_id) | **GET** /datacenters/{datacenterId}/lans/{lanId}/nics/{nicId} | Retrieve attached NICs |
+| [**datacenters_lans_nics_get**](LANsApi.md#datacenters_lans_nics_get) | **GET** /datacenters/{datacenterId}/lans/{lanId}/nics | List LAN members |
+| [**datacenters_lans_nics_post**](LANsApi.md#datacenters_lans_nics_post) | **POST** /datacenters/{datacenterId}/lans/{lanId}/nics | Attach NICs |
+| [**datacenters_lans_patch**](LANsApi.md#datacenters_lans_patch) | **PATCH** /datacenters/{datacenterId}/lans/{lanId} | Partially modify LANs |
+| [**datacenters_lans_post**](LANsApi.md#datacenters_lans_post) | **POST** /datacenters/{datacenterId}/lans | Create LANs |
+| [**datacenters_lans_put**](LANsApi.md#datacenters_lans_put) | **PUT** /datacenters/{datacenterId}/lans/{lanId} | Modify LANs |
 
 
 ## datacenters_lans_delete
 
 > datacenters_lans_delete(datacenter_id, lan_id, opts)
 
-Delete a Lan.
+Delete LANs
 
-Removes the specific LAN.
+Delete the specified LAN within the data center.
 
 ### Examples
 
@@ -40,9 +40,9 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan_id = 'lan_id_example' # String | The unique ID of the LAN
+lan_id = 'lan_id_example' # String | The unique ID of the LAN.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -50,10 +50,10 @@ opts = {
 }
 
 begin
-  # Delete a Lan.
+  # Delete LANs
   api_instance.datacenters_lans_delete(datacenter_id, lan_id, opts)
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_delete: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_delete: #{e}"
 end
 ```
 
@@ -65,13 +65,13 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete a Lan.
+  # Delete LANs
   data, status_code, headers = api_instance.datacenters_lans_delete_with_http_info(datacenter_id, lan_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_delete_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_delete_with_http_info: #{e}"
 end
 ```
 
@@ -80,7 +80,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan_id** | **String** | The unique ID of the LAN |  |
+| **lan_id** | **String** | The unique ID of the LAN. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -103,9 +103,9 @@ Basic Authentication, Token Authentication
 
 > <Lan> datacenters_lans_find_by_id(datacenter_id, lan_id, opts)
 
-Retrieve a Lan
+Retrieve LANs
 
-Retrieves the attributes of a given LAN.
+Retrieve the properties of the specified LAN within the data center.
 
 ### Examples
 
@@ -124,9 +124,9 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan_id = 'lan_id_example' # String | The unique ID of the LAN
+lan_id = 'lan_id_example' # String | The unique ID of the LAN.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -134,11 +134,11 @@ opts = {
 }
 
 begin
-  # Retrieve a Lan
+  # Retrieve LANs
   result = api_instance.datacenters_lans_find_by_id(datacenter_id, lan_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_find_by_id: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_find_by_id: #{e}"
 end
 ```
 
@@ -150,13 +150,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a Lan
+  # Retrieve LANs
   data, status_code, headers = api_instance.datacenters_lans_find_by_id_with_http_info(datacenter_id, lan_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Lan>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_find_by_id_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_find_by_id_with_http_info: #{e}"
 end
 ```
 
@@ -165,14 +165,14 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan_id** | **String** | The unique ID of the LAN |  |
+| **lan_id** | **String** | The unique ID of the LAN. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Lan**](Lan.md)
+[**Lan**](../models/Lan.md)
 
 ### Authorization
 
@@ -188,9 +188,9 @@ Basic Authentication, Token Authentication
 
 > <Lans> datacenters_lans_get(datacenter_id, opts)
 
-List Lans
+List LANs
 
-Retrieve a list of LANs within the datacenter.
+List all LANs within the data center.
 
 ### Examples
 
@@ -209,7 +209,7 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
@@ -220,11 +220,11 @@ opts = {
 }
 
 begin
-  # List Lans
+  # List LANs
   result = api_instance.datacenters_lans_get(datacenter_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_get: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_get: #{e}"
 end
 ```
 
@@ -236,13 +236,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Lans
+  # List LANs
   data, status_code, headers = api_instance.datacenters_lans_get_with_http_info(datacenter_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Lans>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_get_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_get_with_http_info: #{e}"
 end
 ```
 
@@ -259,7 +259,7 @@ end
 
 ### Return type
 
-[**Lans**](Lans.md)
+[**Lans**](../models/Lans.md)
 
 ### Authorization
 
@@ -275,9 +275,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_lans_nics_find_by_id(datacenter_id, lan_id, nic_id, opts)
 
-Retrieve a nic attached to lan
+Retrieve attached NICs
 
-This will retrieve the properties of an attached network interface.
+Retrieve the properties of the NIC, attached to the specified LAN.
 
 ### Examples
 
@@ -296,10 +296,10 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan_id = 'lan_id_example' # String | The unique ID of the LAN
-nic_id = 'nic_id_example' # String | The unique ID of the NIC
+lan_id = 'lan_id_example' # String | The unique ID of the LAN.
+nic_id = 'nic_id_example' # String | The unique ID of the NIC.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -307,11 +307,11 @@ opts = {
 }
 
 begin
-  # Retrieve a nic attached to lan
+  # Retrieve attached NICs
   result = api_instance.datacenters_lans_nics_find_by_id(datacenter_id, lan_id, nic_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_nics_find_by_id: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_nics_find_by_id: #{e}"
 end
 ```
 
@@ -323,13 +323,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a nic attached to lan
+  # Retrieve attached NICs
   data, status_code, headers = api_instance.datacenters_lans_nics_find_by_id_with_http_info(datacenter_id, lan_id, nic_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Nic>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_nics_find_by_id_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_nics_find_by_id_with_http_info: #{e}"
 end
 ```
 
@@ -338,15 +338,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan_id** | **String** | The unique ID of the LAN |  |
-| **nic_id** | **String** | The unique ID of the NIC |  |
+| **lan_id** | **String** | The unique ID of the LAN. |  |
+| **nic_id** | **String** | The unique ID of the NIC. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 
@@ -362,9 +362,9 @@ Basic Authentication, Token Authentication
 
 > <LanNics> datacenters_lans_nics_get(datacenter_id, lan_id, opts)
 
-List Lan Members 
+List LAN members
 
-You can retrieve a list of nics attached to a LAN.
+List all NICs, attached to the specified LAN.
 
 ### Examples
 
@@ -383,9 +383,9 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan_id = 'lan_id_example' # String | The unique ID of the LAN
+lan_id = 'lan_id_example' # String | The unique ID of the LAN.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -395,11 +395,11 @@ opts = {
 }
 
 begin
-  # List Lan Members 
+  # List LAN members
   result = api_instance.datacenters_lans_nics_get(datacenter_id, lan_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_nics_get: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_nics_get: #{e}"
 end
 ```
 
@@ -411,13 +411,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Lan Members 
+  # List LAN members
   data, status_code, headers = api_instance.datacenters_lans_nics_get_with_http_info(datacenter_id, lan_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <LanNics>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_nics_get_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_nics_get_with_http_info: #{e}"
 end
 ```
 
@@ -426,7 +426,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan_id** | **String** | The unique ID of the LAN |  |
+| **lan_id** | **String** | The unique ID of the LAN. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -435,7 +435,7 @@ end
 
 ### Return type
 
-[**LanNics**](LanNics.md)
+[**LanNics**](../models/LanNics.md)
 
 ### Authorization
 
@@ -451,9 +451,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_lans_nics_post(datacenter_id, lan_id, nic, opts)
 
-Attach a nic
+Attach NICs
 
-This will attach a pre-existing nic to a LAN.
+Attach an existing NIC to the specified LAN.
 
 ### Examples
 
@@ -472,10 +472,10 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan_id = 'lan_id_example' # String | The unique ID of the LAN
-nic = Ionoscloud::Nic.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # Nic | Nic to be attached
+lan_id = 'lan_id_example' # String | The unique ID of the LAN.
+nic = Ionoscloud::Nic.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # Nic | The NIC to be attached.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -483,11 +483,11 @@ opts = {
 }
 
 begin
-  # Attach a nic
+  # Attach NICs
   result = api_instance.datacenters_lans_nics_post(datacenter_id, lan_id, nic, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_nics_post: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_nics_post: #{e}"
 end
 ```
 
@@ -499,13 +499,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Attach a nic
+  # Attach NICs
   data, status_code, headers = api_instance.datacenters_lans_nics_post_with_http_info(datacenter_id, lan_id, nic, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Nic>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_nics_post_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_nics_post_with_http_info: #{e}"
 end
 ```
 
@@ -514,15 +514,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan_id** | **String** | The unique ID of the LAN |  |
-| **nic** | [**Nic**](Nic.md) | Nic to be attached |  |
+| **lan_id** | **String** | The unique ID of the LAN. |  |
+| **nic** | [**Nic**](Nic.md) | The NIC to be attached. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 
@@ -538,9 +538,9 @@ Basic Authentication, Token Authentication
 
 > <Lan> datacenters_lans_patch(datacenter_id, lan_id, lan, opts)
 
-Partially modify a Lan
+Partially modify LANs
 
-You can use update attributes of a resource.
+Update the properties of the specified LAN within the data center.
 
 ### Examples
 
@@ -559,10 +559,10 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan_id = 'lan_id_example' # String | The unique ID of the LAN
-lan = Ionoscloud::LanProperties.new # LanProperties | Modified Lan
+lan_id = 'lan_id_example' # String | The unique ID of the LAN.
+lan = Ionoscloud::LanProperties.new # LanProperties | The properties of the LAN to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -570,11 +570,11 @@ opts = {
 }
 
 begin
-  # Partially modify a Lan
+  # Partially modify LANs
   result = api_instance.datacenters_lans_patch(datacenter_id, lan_id, lan, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_patch: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_patch: #{e}"
 end
 ```
 
@@ -586,13 +586,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify a Lan
+  # Partially modify LANs
   data, status_code, headers = api_instance.datacenters_lans_patch_with_http_info(datacenter_id, lan_id, lan, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Lan>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_patch_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_patch_with_http_info: #{e}"
 end
 ```
 
@@ -601,15 +601,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan_id** | **String** | The unique ID of the LAN |  |
-| **lan** | [**LanProperties**](LanProperties.md) | Modified Lan |  |
+| **lan_id** | **String** | The unique ID of the LAN. |  |
+| **lan** | [**LanProperties**](LanProperties.md) | The properties of the LAN to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Lan**](Lan.md)
+[**Lan**](../models/Lan.md)
 
 ### Authorization
 
@@ -625,9 +625,9 @@ Basic Authentication, Token Authentication
 
 > <LanPost> datacenters_lans_post(datacenter_id, lan, opts)
 
-Create a Lan
+Create LANs
 
-Creates a LAN within the datacenter.
+Create a LAN within the data center.
 
 ### Examples
 
@@ -646,9 +646,9 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan = Ionoscloud::LanPost.new({properties: Ionoscloud::LanPropertiesPost.new}) # LanPost | Lan to be created
+lan = Ionoscloud::LanPost.new({properties: Ionoscloud::LanPropertiesPost.new}) # LanPost | The LAN to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -656,11 +656,11 @@ opts = {
 }
 
 begin
-  # Create a Lan
+  # Create LANs
   result = api_instance.datacenters_lans_post(datacenter_id, lan, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_post: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_post: #{e}"
 end
 ```
 
@@ -672,13 +672,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a Lan
+  # Create LANs
   data, status_code, headers = api_instance.datacenters_lans_post_with_http_info(datacenter_id, lan, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <LanPost>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_post_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_post_with_http_info: #{e}"
 end
 ```
 
@@ -687,14 +687,14 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan** | [**LanPost**](LanPost.md) | Lan to be created |  |
+| **lan** | [**LanPost**](LanPost.md) | The LAN to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**LanPost**](LanPost.md)
+[**LanPost**](../models/LanPost.md)
 
 ### Authorization
 
@@ -710,9 +710,9 @@ Basic Authentication, Token Authentication
 
 > <Lan> datacenters_lans_put(datacenter_id, lan_id, lan, opts)
 
-Modify a Lan
+Modify LANs
 
-You can use update attributes of a resource.
+Modify the properties of the specified LAN within the data center.
 
 ### Examples
 
@@ -731,10 +731,10 @@ Ionoscloud.configure do |config|
   # config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = Ionoscloud::LansApi.new
+api_instance = Ionoscloud::LANsApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-lan_id = 'lan_id_example' # String | The unique ID of the LAN
-lan = Ionoscloud::Lan.new({properties: Ionoscloud::LanProperties.new}) # Lan | Modified Lan
+lan_id = 'lan_id_example' # String | The unique ID of the LAN.
+lan = Ionoscloud::Lan.new({properties: Ionoscloud::LanProperties.new}) # Lan | The modified LAN
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -742,11 +742,11 @@ opts = {
 }
 
 begin
-  # Modify a Lan
+  # Modify LANs
   result = api_instance.datacenters_lans_put(datacenter_id, lan_id, lan, opts)
   p result
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_put: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_put: #{e}"
 end
 ```
 
@@ -758,13 +758,13 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify a Lan
+  # Modify LANs
   data, status_code, headers = api_instance.datacenters_lans_put_with_http_info(datacenter_id, lan_id, lan, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Lan>
 rescue Ionoscloud::ApiError => e
-  puts "Error when calling LansApi->datacenters_lans_put_with_http_info: #{e}"
+  puts "Error when calling LANsApi->datacenters_lans_put_with_http_info: #{e}"
 end
 ```
 
@@ -773,15 +773,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **lan_id** | **String** | The unique ID of the LAN |  |
-| **lan** | [**Lan**](Lan.md) | Modified Lan |  |
+| **lan_id** | **String** | The unique ID of the LAN. |  |
+| **lan** | [**Lan**](Lan.md) | The modified LAN |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Lan**](Lan.md)
+[**Lan**](../models/Lan.md)
 
 ### Authorization
 

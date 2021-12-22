@@ -4,25 +4,25 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** | A name of that resource | [optional] |
-| **description** | **String** | Human readable description | [optional] |
+| **name** | **String** | The name of the  resource. | [optional] |
+| **description** | **String** | Human-readable description. | [optional] |
 | **location** | **String** | Location of that image/snapshot.  | [optional][readonly] |
-| **size** | **Float** | The size of the image in GB | [optional][readonly] |
-| **cpu_hot_plug** | **Boolean** | Is capable of CPU hot plug (no reboot required) | [optional] |
-| **cpu_hot_unplug** | **Boolean** | Is capable of CPU hot unplug (no reboot required) | [optional] |
-| **ram_hot_plug** | **Boolean** | Is capable of memory hot plug (no reboot required) | [optional] |
-| **ram_hot_unplug** | **Boolean** | Is capable of memory hot unplug (no reboot required) | [optional] |
-| **nic_hot_plug** | **Boolean** | Is capable of nic hot plug (no reboot required) | [optional] |
-| **nic_hot_unplug** | **Boolean** | Is capable of nic hot unplug (no reboot required) | [optional] |
-| **disc_virtio_hot_plug** | **Boolean** | Is capable of Virt-IO drive hot plug (no reboot required) | [optional] |
-| **disc_virtio_hot_unplug** | **Boolean** | Is capable of Virt-IO drive hot unplug (no reboot required). This works only for non-Windows virtual Machines. | [optional] |
-| **disc_scsi_hot_plug** | **Boolean** | Is capable of SCSI drive hot plug (no reboot required) | [optional] |
-| **disc_scsi_hot_unplug** | **Boolean** | Is capable of SCSI drive hot unplug (no reboot required). This works only for non-Windows virtual Machines. | [optional] |
-| **licence_type** | **String** | OS type of this Image |  |
-| **image_type** | **String** | This indicates the type of image | [optional][readonly] |
-| **public** | **Boolean** | Indicates if the image is part of the public repository or not | [optional][readonly] |
+| **size** | **Float** | The size of the image in GB. | [optional][readonly] |
+| **cpu_hot_plug** | **Boolean** | Hot-plug capable CPU (no reboot required). | [optional] |
+| **cpu_hot_unplug** | **Boolean** | Hot-unplug capable CPU (no reboot required). | [optional] |
+| **ram_hot_plug** | **Boolean** | Hot-plug capable RAM (no reboot required). | [optional] |
+| **ram_hot_unplug** | **Boolean** | Hot-unplug capable RAM (no reboot required). | [optional] |
+| **nic_hot_plug** | **Boolean** | Hot-plug capable NIC (no reboot required). | [optional] |
+| **nic_hot_unplug** | **Boolean** | Hot-unplug capable NIC (no reboot required). | [optional] |
+| **disc_virtio_hot_plug** | **Boolean** | Hot-plug capable Virt-IO drive (no reboot required). | [optional] |
+| **disc_virtio_hot_unplug** | **Boolean** | Hot-unplug capable Virt-IO drive (no reboot required). Not supported with Windows VMs. | [optional] |
+| **disc_scsi_hot_plug** | **Boolean** | Hot-plug capable SCSI drive (no reboot required). | [optional] |
+| **disc_scsi_hot_unplug** | **Boolean** | Hot-unplug capable SCSI drive (no reboot required). Not supported with Windows VMs. | [optional] |
+| **licence_type** | **String** | OS type for this image. |  |
+| **image_type** | **String** | The image type. | [optional][readonly] |
+| **public** | **Boolean** | Indicates whether the image is part of a public repository. | [optional][readonly] |
 | **image_aliases** | **Array&lt;String&gt;** | List of image aliases mapped for this Image | [optional][readonly] |
-| **cloud_init** | **String** | Cloud init compatibility | [optional] |
+| **cloud_init** | **String** | Cloud init compatibility. | [optional] |
 
 ## Example
 

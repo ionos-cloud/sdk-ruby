@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** | A name of that resource | [optional] |
+| **name** | **String** | The name of the  resource. | [optional] |
 | **ip_failover** | [**Array&lt;IPFailover&gt;**](IPFailover.md) | IP failover configurations for lan | [optional] |
-| **pcc** | **String** | Unique identifier of the private cross connect the given LAN is connected to if any | [optional] |
-| **public** | **Boolean** | Does this LAN faces the public Internet or not | [optional] |
+| **pcc** | **String** | The unique identifier of the private Cross-Connect the LAN is connected to, if any. | [optional] |
+| **public** | **Boolean** | This LAN faces the public Internet. | [optional] |
 
 ## Example
 

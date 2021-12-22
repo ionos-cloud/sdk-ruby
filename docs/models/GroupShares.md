@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The resource&#39;s unique identifier | [optional][readonly] |
+| **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
 | **type** | [**Type**](Type.md) | Share representing groups and resource relationship | [optional] |
-| **href** | **String** | URL to the object representation (absolute path) | [optional][readonly] |
-| **items** | [**Array&lt;GroupShare&gt;**](GroupShare.md) | Array of items in that collection | [optional][readonly] |
+| **href** | **String** | URL to the object representation (absolute path). | [optional][readonly] |
+| **items** | [**Array&lt;GroupShare&gt;**](GroupShare.md) | Array of items in that collection. | [optional][readonly] |
 
 ## Example
 

@@ -4,16 +4,16 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**contracts_get**](ContractResourcesApi.md#contracts_get) | **GET** /contracts | Retrieve a Contract |
+| [**contracts_get**](ContractResourcesApi.md#contracts_get) | **GET** /contracts | Retrieve contracts |
 
 
 ## contracts_get
 
 > <Contracts> contracts_get(opts)
 
-Retrieve a Contract
+Retrieve contracts
 
-Retrieves the attributes of user's contract. In this version, the resource became a collection.
+Retrieve the properties of the user's contract. In this version, the resource became a collection.
 
 ### Examples
 
@@ -40,7 +40,7 @@ opts = {
 }
 
 begin
-  # Retrieve a Contract
+  # Retrieve contracts
   result = api_instance.contracts_get(opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -56,7 +56,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a Contract
+  # Retrieve contracts
   data, status_code, headers = api_instance.contracts_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -76,7 +76,7 @@ end
 
 ### Return type
 
-[**Contracts**](Contracts.md)
+[**Contracts**](../models/Contracts.md)
 
 ### Authorization
 

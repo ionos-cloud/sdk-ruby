@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The resource&#39;s unique identifier | [optional][readonly] |
-| **type** | [**Type**](Type.md) | The type of object that has been created | [optional] |
-| **href** | **String** | URL to the object representation (absolute path) | [optional][readonly] |
-| **items** | [**Array&lt;FirewallRule&gt;**](FirewallRule.md) | Array of items in that collection | [optional][readonly] |
-| **offset** | **Float** | the offset (if specified in the request) | [optional] |
-| **limit** | **Float** | the limit (if specified in the request) | [optional] |
+| **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
+| **type** | [**Type**](Type.md) | The type of object that has been created. | [optional] |
+| **href** | **String** | URL to the object representation (absolute path). | [optional][readonly] |
+| **items** | [**Array&lt;FirewallRule&gt;**](FirewallRule.md) | Array of items in that collection. | [optional][readonly] |
+| **offset** | **Float** | The offset (if specified in the request). | [optional] |
+| **limit** | **Float** | The limit (if specified in the request). | [optional] |
 | **_links** | [**PaginationLinks**](PaginationLinks.md) |  | [optional] |
 
 ## Example

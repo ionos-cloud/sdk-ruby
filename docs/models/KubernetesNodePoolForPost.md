@@ -5,8 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
-| **type** | **String** | The type of object | [optional][readonly] |
-| **href** | **String** | URL to the object representation (absolute path) | [optional][readonly] |
+| **type** | **String** | The type of object. | [optional][readonly] |
+| **href** | **String** | URL to the object representation (absolute path). | [optional][readonly] |
 | **metadata** | [**DatacenterElementMetadata**](DatacenterElementMetadata.md) |  | [optional] |
 | **properties** | [**KubernetesNodePoolPropertiesForPost**](KubernetesNodePoolPropertiesForPost.md) |  |  |
 

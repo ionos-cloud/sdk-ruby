@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **token** | **String** | The jwToken for the server | [optional][readonly] |
+| **token** | **String** | The jwToken for the server. | [optional][readonly] |
 
 ## Example
 

@@ -4,28 +4,28 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cores_per_server** | **Integer** | maximum number of cores per server |  |
-| **cores_per_contract** | **Integer** | maximum cores per contract |  |
-| **cores_provisioned** | **Integer** | number of cores provisioned |  |
-| **ram_per_server** | **Integer** | maximum ram per server |  |
-| **ram_per_contract** | **Integer** | maximum ram per contract |  |
-| **ram_provisioned** | **Integer** | ram provisioned |  |
-| **hdd_limit_per_volume** | **Integer** | hdd limit per volume |  |
-| **hdd_limit_per_contract** | **Integer** | hdd limit per contract |  |
-| **hdd_volume_provisioned** | **Integer** | hdd volume provisioned |  |
-| **ssd_limit_per_volume** | **Integer** | ssd limit per volume |  |
-| **ssd_limit_per_contract** | **Integer** | ssd limit per contract |  |
-| **ssd_volume_provisioned** | **Integer** | ssd volume provisioned |  |
-| **das_volume_provisioned** | **Integer** | DAS (Direct Attached Storage) volume provisioned |  |
-| **reservable_ips** | **Integer** | total reservable ip limit of the customer |  |
-| **reserved_ips_on_contract** | **Integer** | reserved ips on a contract |  |
-| **reserved_ips_in_use** | **Integer** | reserved ips in use |  |
-| **k8s_cluster_limit_total** | **Integer** | k8s clusters total limit |  |
-| **k8s_clusters_provisioned** | **Integer** | k8s clusters provisioned |  |
-| **nlb_limit_total** | **Integer** | NLB total limit |  |
-| **nlb_provisioned** | **Integer** | NLBs provisioned |  |
-| **nat_gateway_limit_total** | **Integer** | NAT gateway total limit |  |
-| **nat_gateway_provisioned** | **Integer** | NAT gateways provisioned |  |
+| **cores_per_server** | **Integer** | The maximum number of cores per server. |  |
+| **cores_per_contract** | **Integer** | The maximum number of cores per contract. |  |
+| **cores_provisioned** | **Integer** | The number of cores provisioned. |  |
+| **ram_per_server** | **Integer** | The maximum RAM per server. |  |
+| **ram_per_contract** | **Integer** | The maximum RAM per contract. |  |
+| **ram_provisioned** | **Integer** | RAM provisioned. |  |
+| **hdd_limit_per_volume** | **Integer** | HDD limit per volume. |  |
+| **hdd_limit_per_contract** | **Integer** | HDD limit per contract. |  |
+| **hdd_volume_provisioned** | **Integer** | HDD volume provisioned. |  |
+| **ssd_limit_per_volume** | **Integer** | SSD limit per volume. |  |
+| **ssd_limit_per_contract** | **Integer** | SSD limit per contract. |  |
+| **ssd_volume_provisioned** | **Integer** | SSD volume provisioned. |  |
+| **das_volume_provisioned** | **Integer** | DAS (Direct Attached Storage) volume provisioned. |  |
+| **reservable_ips** | **Integer** | Total reservable IP limit for the customer. |  |
+| **reserved_ips_on_contract** | **Integer** | Reserved ips for the contract. |  |
+| **reserved_ips_in_use** | **Integer** | Reserved ips in use. |  |
+| **k8s_cluster_limit_total** | **Integer** | K8s clusters total limit. |  |
+| **k8s_clusters_provisioned** | **Integer** | K8s clusters provisioned. |  |
+| **nlb_limit_total** | **Integer** | NLB total limit. |  |
+| **nlb_provisioned** | **Integer** | NLBs provisioned. |  |
+| **nat_gateway_limit_total** | **Integer** | NAT Gateway total limit. |  |
+| **nat_gateway_provisioned** | **Integer** | NAT Gateways provisioned. |  |
 
 ## Example
 

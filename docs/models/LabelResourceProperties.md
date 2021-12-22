@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **key** | **String** | A Label Key | [optional] |
-| **value** | **String** | A Label Value | [optional] |
+| **key** | **String** | A label key | [optional] |
+| **value** | **String** | A label value | [optional] |
 
 ## Example
 

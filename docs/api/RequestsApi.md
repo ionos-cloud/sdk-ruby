@@ -4,18 +4,18 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**requests_find_by_id**](RequestsApi.md#requests_find_by_id) | **GET** /requests/{requestId} | Retrieve a Request |
-| [**requests_get**](RequestsApi.md#requests_get) | **GET** /requests | List Requests |
-| [**requests_status_get**](RequestsApi.md#requests_status_get) | **GET** /requests/{requestId}/status | Retrieve Request Status |
+| [**requests_find_by_id**](RequestsApi.md#requests_find_by_id) | **GET** /requests/{requestId} | Retrieve requests |
+| [**requests_get**](RequestsApi.md#requests_get) | **GET** /requests | List requests |
+| [**requests_status_get**](RequestsApi.md#requests_status_get) | **GET** /requests/{requestId}/status | Retrieve request status |
 
 
 ## requests_find_by_id
 
 > <Request> requests_find_by_id(request_id, opts)
 
-Retrieve a Request
+Retrieve requests
 
-Retrieves the attributes of a given request.
+Retrieve the properties of the specified request.
 
 ### Examples
 
@@ -35,7 +35,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::RequestsApi.new
-request_id = 'request_id_example' # String | 
+request_id = 'request_id_example' # String | The unique ID of the request.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -43,7 +43,7 @@ opts = {
 }
 
 begin
-  # Retrieve a Request
+  # Retrieve requests
   result = api_instance.requests_find_by_id(request_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -59,7 +59,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a Request
+  # Retrieve requests
   data, status_code, headers = api_instance.requests_find_by_id_with_http_info(request_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -73,14 +73,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **request_id** | **String** |  |  |
+| **request_id** | **String** | The unique ID of the request. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Request**](Request.md)
+[**Request**](../models/Request.md)
 
 ### Authorization
 
@@ -96,9 +96,9 @@ Basic Authentication, Token Authentication
 
 > <Requests> requests_get(opts)
 
-List Requests
+List requests
 
-Retrieve a list of API requests.
+List all API requests.
 
 ### Examples
 
@@ -122,23 +122,23 @@ opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
   x_contract_number: 56, # Integer | Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
-  filter_status: 'filter_status_example', # String | Request filter to fetch all requests based on a particular status [QUEUED, RUNNING, DONE, FAILED]. It doesn't depend on depth query parameter
-  filter_created_after: 'filter_created_after_example', # String | Request filter to fetch all requests created after the specified date. It doesn't depend on depth query parameter. Date format e.g. 2021-01-01+00:00:00
-  filter_created_before: 'filter_created_before_example', # String | Request filter to fetch all requests created before the specified date. It doesn't depend on depth query parameter. Date format e.g. 2021-01-01+00:00:00
-  filter_created_date: 'filter_created_date_example', # String | Response filter to select and display only the requests that contains the specified createdDate. The value is case insensitive and it  depends on depth query parameter that should have a value greater than 0. Date format e.g. 2020-11-16T17:42:59Z
-  filter_created_by: 'filter_created_by_example', # String | Response filter to select and display only the requests that contains the specified createdBy. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
-  filter_etag: 'filter_etag_example', # String | Response filter to select and display only the requests that contains the specified etag. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
-  filter_request_status: 'filter_request_status_example', # String | Response filter to select and display only the requests that contains the specified requestStatus. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
-  filter_method: 'filter_method_example', # String | Response filter to select and display only the requests that contains the specified method. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
-  filter_headers: 'filter_headers_example', # String | Response filter to select and display only the requests that contains the specified headers. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
-  filter_body: 'filter_body_example', # String | Response filter to select and display only the requests that contains the specified body. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
-  filter_url: 'filter_url_example', # String | Response filter to select and display only the requests that contains the specified url. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0. 
+  filter_status: 'filter_status_example', # String | Filter the list by request status [QUEUED, RUNNING, DONE, FAILED]. Filter is not affected by the depth query parameter.
+  filter_created_after: 'filter_created_after_example', # String | Filter the list to only include the requests created after the date, specified in the yyyy-MM-dd HH:mm:ss format. Filter is not affected by the depth query parameter.
+  filter_created_before: 'filter_created_before_example', # String | Filter the list to only include the requests created before the date, specified in the yyyy-MM-dd HH:mm:ss format. Filter is not affected by the depth query parameter.
+  filter_created_date: 'filter_created_date_example', # String | Filter the list to only include the requests that contain the createdDate, specified in the yyyy-MM-dd HH:mm:ss format. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.
+  filter_created_by: 'filter_created_by_example', # String | Filter the list to only include the requests that contain the createdBy, specified in the yyyy-MM-dd HH:mm:ss format. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. 
+  filter_etag: 'filter_etag_example', # String | Filter the list to only include the requests that contain the specified etag. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. 
+  filter_request_status: 'filter_request_status_example', # String | Filter the list to only include the requests that contain the specified requestStatus. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. 
+  filter_method: 'filter_method_example', # String | Filter the list to only include the requests that contain the specified method. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. 
+  filter_headers: 'filter_headers_example', # String | Filter the list to only include the requests that contain the specified headers. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. 
+  filter_body: 'filter_body_example', # String | Filter the list to only include the requests that contain the specified body. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. 
+  filter_url: 'filter_url_example', # String | Filter the list to only include the requests that contain the specified URL. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. 
   offset: 56, # Integer | The first element (from the complete list of the elements) to include in the response (use together with limit for pagination).
   limit: 56 # Integer | The maximum number of elements to return (use together with offset for pagination).
 }
 
 begin
-  # List Requests
+  # List requests
   result = api_instance.requests_get(opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -154,7 +154,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Requests
+  # List requests
   data, status_code, headers = api_instance.requests_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -171,23 +171,23 @@ end
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
-| **filter_status** | **String** | Request filter to fetch all requests based on a particular status [QUEUED, RUNNING, DONE, FAILED]. It doesn&#39;t depend on depth query parameter | [optional] |
-| **filter_created_after** | **String** | Request filter to fetch all requests created after the specified date. It doesn&#39;t depend on depth query parameter. Date format e.g. 2021-01-01+00:00:00 | [optional] |
-| **filter_created_before** | **String** | Request filter to fetch all requests created before the specified date. It doesn&#39;t depend on depth query parameter. Date format e.g. 2021-01-01+00:00:00 | [optional] |
-| **filter_created_date** | **String** | Response filter to select and display only the requests that contains the specified createdDate. The value is case insensitive and it  depends on depth query parameter that should have a value greater than 0. Date format e.g. 2020-11-16T17:42:59Z | [optional] |
-| **filter_created_by** | **String** | Response filter to select and display only the requests that contains the specified createdBy. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0.  | [optional] |
-| **filter_etag** | **String** | Response filter to select and display only the requests that contains the specified etag. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0.  | [optional] |
-| **filter_request_status** | **String** | Response filter to select and display only the requests that contains the specified requestStatus. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0.  | [optional] |
-| **filter_method** | **String** | Response filter to select and display only the requests that contains the specified method. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0.  | [optional] |
-| **filter_headers** | **String** | Response filter to select and display only the requests that contains the specified headers. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0.  | [optional] |
-| **filter_body** | **String** | Response filter to select and display only the requests that contains the specified body. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0.  | [optional] |
-| **filter_url** | **String** | Response filter to select and display only the requests that contains the specified url. The value is case insensitive and it depends on depth query parameter that should have a value greater than 0.  | [optional] |
+| **filter_status** | **String** | Filter the list by request status [QUEUED, RUNNING, DONE, FAILED]. Filter is not affected by the depth query parameter. | [optional] |
+| **filter_created_after** | **String** | Filter the list to only include the requests created after the date, specified in the yyyy-MM-dd HH:mm:ss format. Filter is not affected by the depth query parameter. | [optional] |
+| **filter_created_before** | **String** | Filter the list to only include the requests created before the date, specified in the yyyy-MM-dd HH:mm:ss format. Filter is not affected by the depth query parameter. | [optional] |
+| **filter_created_date** | **String** | Filter the list to only include the requests that contain the createdDate, specified in the yyyy-MM-dd HH:mm:ss format. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero. | [optional] |
+| **filter_created_by** | **String** | Filter the list to only include the requests that contain the createdBy, specified in the yyyy-MM-dd HH:mm:ss format. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.  | [optional] |
+| **filter_etag** | **String** | Filter the list to only include the requests that contain the specified etag. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.  | [optional] |
+| **filter_request_status** | **String** | Filter the list to only include the requests that contain the specified requestStatus. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.  | [optional] |
+| **filter_method** | **String** | Filter the list to only include the requests that contain the specified method. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.  | [optional] |
+| **filter_headers** | **String** | Filter the list to only include the requests that contain the specified headers. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.  | [optional] |
+| **filter_body** | **String** | Filter the list to only include the requests that contain the specified body. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.  | [optional] |
+| **filter_url** | **String** | Filter the list to only include the requests that contain the specified URL. The value is not case-sensitive, and the filter requires that the depth query parameter value is greater than zero.  | [optional] |
 | **offset** | **Integer** | The first element (from the complete list of the elements) to include in the response (use together with limit for pagination). | [optional][default to 0] |
 | **limit** | **Integer** | The maximum number of elements to return (use together with offset for pagination). | [optional][default to 1000] |
 
 ### Return type
 
-[**Requests**](Requests.md)
+[**Requests**](../models/Requests.md)
 
 ### Authorization
 
@@ -203,9 +203,9 @@ Basic Authentication, Token Authentication
 
 > <RequestStatus> requests_status_get(request_id, opts)
 
-Retrieve Request Status
+Retrieve request status
 
-Retrieves the status of a given request.
+Retrieve the status of the specified request.
 
 ### Examples
 
@@ -225,7 +225,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::RequestsApi.new
-request_id = 'request_id_example' # String | 
+request_id = 'request_id_example' # String | The unique ID of the request.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -233,7 +233,7 @@ opts = {
 }
 
 begin
-  # Retrieve Request Status
+  # Retrieve request status
   result = api_instance.requests_status_get(request_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -249,7 +249,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve Request Status
+  # Retrieve request status
   data, status_code, headers = api_instance.requests_status_get_with_http_info(request_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -263,14 +263,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **request_id** | **String** |  |  |
+| **request_id** | **String** | The unique ID of the request. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**RequestStatus**](RequestStatus.md)
+[**RequestStatus**](../models/RequestStatus.md)
 
 ### Authorization
 

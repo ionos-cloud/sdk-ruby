@@ -4,21 +4,21 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**datacenters_servers_nics_delete**](NetworkInterfacesApi.md#datacenters_servers_nics_delete) | **DELETE** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Delete a Network Interface |
-| [**datacenters_servers_nics_find_by_id**](NetworkInterfacesApi.md#datacenters_servers_nics_find_by_id) | **GET** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Retrieve a Network Interface |
-| [**datacenters_servers_nics_get**](NetworkInterfacesApi.md#datacenters_servers_nics_get) | **GET** /datacenters/{datacenterId}/servers/{serverId}/nics | List Network Interfaces |
-| [**datacenters_servers_nics_patch**](NetworkInterfacesApi.md#datacenters_servers_nics_patch) | **PATCH** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Partially Modify a Network Interface |
-| [**datacenters_servers_nics_post**](NetworkInterfacesApi.md#datacenters_servers_nics_post) | **POST** /datacenters/{datacenterId}/servers/{serverId}/nics | Create a Network Interface |
-| [**datacenters_servers_nics_put**](NetworkInterfacesApi.md#datacenters_servers_nics_put) | **PUT** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Modify a Network Interface |
+| [**datacenters_servers_nics_delete**](NetworkInterfacesApi.md#datacenters_servers_nics_delete) | **DELETE** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Delete NICs |
+| [**datacenters_servers_nics_find_by_id**](NetworkInterfacesApi.md#datacenters_servers_nics_find_by_id) | **GET** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Retrieve NICs |
+| [**datacenters_servers_nics_get**](NetworkInterfacesApi.md#datacenters_servers_nics_get) | **GET** /datacenters/{datacenterId}/servers/{serverId}/nics | List NICs |
+| [**datacenters_servers_nics_patch**](NetworkInterfacesApi.md#datacenters_servers_nics_patch) | **PATCH** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Partially modify NICs |
+| [**datacenters_servers_nics_post**](NetworkInterfacesApi.md#datacenters_servers_nics_post) | **POST** /datacenters/{datacenterId}/servers/{serverId}/nics | Create NICs |
+| [**datacenters_servers_nics_put**](NetworkInterfacesApi.md#datacenters_servers_nics_put) | **PUT** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId} | Modify NICs |
 
 
 ## datacenters_servers_nics_delete
 
 > datacenters_servers_nics_delete(datacenter_id, server_id, nic_id, opts)
 
-Delete a Network Interface
+Delete NICs
 
-Deletes the specified network interface.
+Remove the specified NIC.
 
 ### Examples
 
@@ -39,8 +39,8 @@ end
 
 api_instance = Ionoscloud::NetworkInterfacesApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-server_id = 'server_id_example' # String | The unique ID of the Server
-nic_id = 'nic_id_example' # String | The unique ID of the NIC
+server_id = 'server_id_example' # String | The unique ID of the server.
+nic_id = 'nic_id_example' # String | The unique ID of the NIC.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -48,7 +48,7 @@ opts = {
 }
 
 begin
-  # Delete a Network Interface
+  # Delete NICs
   api_instance.datacenters_servers_nics_delete(datacenter_id, server_id, nic_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling NetworkInterfacesApi->datacenters_servers_nics_delete: #{e}"
@@ -63,7 +63,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete a Network Interface
+  # Delete NICs
   data, status_code, headers = api_instance.datacenters_servers_nics_delete_with_http_info(datacenter_id, server_id, nic_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -78,8 +78,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **server_id** | **String** | The unique ID of the Server |  |
-| **nic_id** | **String** | The unique ID of the NIC |  |
+| **server_id** | **String** | The unique ID of the server. |  |
+| **nic_id** | **String** | The unique ID of the NIC. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -102,9 +102,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_servers_nics_find_by_id(datacenter_id, server_id, nic_id, opts)
 
-Retrieve a Network Interface
+Retrieve NICs
 
-Retrieves the attributes of a given network interface.
+Retrieve the properties of the specified NIC.
 
 ### Examples
 
@@ -125,8 +125,8 @@ end
 
 api_instance = Ionoscloud::NetworkInterfacesApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-server_id = 'server_id_example' # String | The unique ID of the Server
-nic_id = 'nic_id_example' # String | The unique ID of the NIC
+server_id = 'server_id_example' # String | The unique ID of the server.
+nic_id = 'nic_id_example' # String | The unique ID of the NIC.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -134,7 +134,7 @@ opts = {
 }
 
 begin
-  # Retrieve a Network Interface
+  # Retrieve NICs
   result = api_instance.datacenters_servers_nics_find_by_id(datacenter_id, server_id, nic_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -150,7 +150,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a Network Interface
+  # Retrieve NICs
   data, status_code, headers = api_instance.datacenters_servers_nics_find_by_id_with_http_info(datacenter_id, server_id, nic_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -165,15 +165,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **server_id** | **String** | The unique ID of the Server |  |
-| **nic_id** | **String** | The unique ID of the NIC |  |
+| **server_id** | **String** | The unique ID of the server. |  |
+| **nic_id** | **String** | The unique ID of the NIC. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 
@@ -189,9 +189,9 @@ Basic Authentication, Token Authentication
 
 > <Nics> datacenters_servers_nics_get(datacenter_id, server_id, opts)
 
-List Network Interfaces
+List NICs
 
-Retrieves a list of network interfaces.
+List all NICs, attached to the specified server.
 
 ### Examples
 
@@ -212,7 +212,7 @@ end
 
 api_instance = Ionoscloud::NetworkInterfacesApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-server_id = 'server_id_example' # String | The unique ID of the Server
+server_id = 'server_id_example' # String | The unique ID of the server.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -222,7 +222,7 @@ opts = {
 }
 
 begin
-  # List Network Interfaces
+  # List NICs
   result = api_instance.datacenters_servers_nics_get(datacenter_id, server_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -238,7 +238,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Network Interfaces
+  # List NICs
   data, status_code, headers = api_instance.datacenters_servers_nics_get_with_http_info(datacenter_id, server_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -253,7 +253,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **server_id** | **String** | The unique ID of the Server |  |
+| **server_id** | **String** | The unique ID of the server. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -262,7 +262,7 @@ end
 
 ### Return type
 
-[**Nics**](Nics.md)
+[**Nics**](../models/Nics.md)
 
 ### Authorization
 
@@ -278,9 +278,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_servers_nics_patch(datacenter_id, server_id, nic_id, nic, opts)
 
-Partially Modify a Network Interface
+Partially modify NICs
 
-You can use update attributes of a network interface.
+Update the properties of the specified NIC.
 
 ### Examples
 
@@ -301,9 +301,9 @@ end
 
 api_instance = Ionoscloud::NetworkInterfacesApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-server_id = 'server_id_example' # String | The unique ID of the Server
-nic_id = 'nic_id_example' # String | The unique ID of the NIC
-nic = Ionoscloud::NicProperties.new({lan: 2}) # NicProperties | Modified properties of Nic
+server_id = 'server_id_example' # String | The unique ID of the server.
+nic_id = 'nic_id_example' # String | The unique ID of the NIC.
+nic = Ionoscloud::NicProperties.new({lan: 2}) # NicProperties | The properties of the NIC to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -311,7 +311,7 @@ opts = {
 }
 
 begin
-  # Partially Modify a Network Interface
+  # Partially modify NICs
   result = api_instance.datacenters_servers_nics_patch(datacenter_id, server_id, nic_id, nic, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -327,7 +327,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially Modify a Network Interface
+  # Partially modify NICs
   data, status_code, headers = api_instance.datacenters_servers_nics_patch_with_http_info(datacenter_id, server_id, nic_id, nic, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -342,16 +342,16 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **server_id** | **String** | The unique ID of the Server |  |
-| **nic_id** | **String** | The unique ID of the NIC |  |
-| **nic** | [**NicProperties**](NicProperties.md) | Modified properties of Nic |  |
+| **server_id** | **String** | The unique ID of the server. |  |
+| **nic_id** | **String** | The unique ID of the NIC. |  |
+| **nic** | [**NicProperties**](NicProperties.md) | The properties of the NIC to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 
@@ -367,9 +367,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_servers_nics_post(datacenter_id, server_id, nic, opts)
 
-Create a Network Interface
+Create NICs
 
-Adds a network interface to the target server. Combined count of network interfaces and volumes attached to the server should not exceed size 24.
+Add a NIC to the specified server. The combined total of NICs and attached volumes cannot exceed 24 per server.
 
 ### Examples
 
@@ -390,8 +390,8 @@ end
 
 api_instance = Ionoscloud::NetworkInterfacesApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-server_id = 'server_id_example' # String | The unique ID of the Server
-nic = Ionoscloud::Nic.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # Nic | Nic to be created
+server_id = 'server_id_example' # String | The unique ID of the server.
+nic = Ionoscloud::Nic.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # Nic | The NIC to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -399,7 +399,7 @@ opts = {
 }
 
 begin
-  # Create a Network Interface
+  # Create NICs
   result = api_instance.datacenters_servers_nics_post(datacenter_id, server_id, nic, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -415,7 +415,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a Network Interface
+  # Create NICs
   data, status_code, headers = api_instance.datacenters_servers_nics_post_with_http_info(datacenter_id, server_id, nic, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -430,15 +430,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **server_id** | **String** | The unique ID of the Server |  |
-| **nic** | [**Nic**](Nic.md) | Nic to be created |  |
+| **server_id** | **String** | The unique ID of the server. |  |
+| **nic** | [**Nic**](Nic.md) | The NIC to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 
@@ -454,9 +454,9 @@ Basic Authentication, Token Authentication
 
 > <Nic> datacenters_servers_nics_put(datacenter_id, server_id, nic_id, nic, opts)
 
-Modify a Network Interface
+Modify NICs
 
-You can use update attributes of a network interface.
+Modify the properties of the specified NIC.
 
 ### Examples
 
@@ -477,9 +477,9 @@ end
 
 api_instance = Ionoscloud::NetworkInterfacesApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-server_id = 'server_id_example' # String | The unique ID of the Server
-nic_id = 'nic_id_example' # String | The unique ID of the NIC
-nic = Ionoscloud::NicPut.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # NicPut | Modified Nic
+server_id = 'server_id_example' # String | The unique ID of the server.
+nic_id = 'nic_id_example' # String | The unique ID of the NIC.
+nic = Ionoscloud::NicPut.new({properties: Ionoscloud::NicProperties.new({lan: 2})}) # NicPut | The modified NIC
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -487,7 +487,7 @@ opts = {
 }
 
 begin
-  # Modify a Network Interface
+  # Modify NICs
   result = api_instance.datacenters_servers_nics_put(datacenter_id, server_id, nic_id, nic, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -503,7 +503,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify a Network Interface
+  # Modify NICs
   data, status_code, headers = api_instance.datacenters_servers_nics_put_with_http_info(datacenter_id, server_id, nic_id, nic, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -518,16 +518,16 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **server_id** | **String** | The unique ID of the Server |  |
-| **nic_id** | **String** | The unique ID of the NIC |  |
-| **nic** | [**NicPut**](NicPut.md) | Modified Nic |  |
+| **server_id** | **String** | The unique ID of the server. |  |
+| **nic_id** | **String** | The unique ID of the NIC. |  |
+| **nic** | [**NicPut**](NicPut.md) | The modified NIC |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Nic**](Nic.md)
+[**Nic**](../models/Nic.md)
 
 ### Authorization
 

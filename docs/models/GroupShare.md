@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The resource&#39;s unique identifier | [optional][readonly] |
+| **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
 | **type** | [**Type**](Type.md) | resource as generic type | [optional] |
-| **href** | **String** | URL to the object representation (absolute path) | [optional][readonly] |
+| **href** | **String** | URL to the object representation (absolute path). | [optional][readonly] |
 | **properties** | [**GroupShareProperties**](GroupShareProperties.md) |  |  |
 
 ## Example

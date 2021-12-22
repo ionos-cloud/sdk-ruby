@@ -15,7 +15,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 List locations within regions
 
-List locations by region ID.
+List locations by the region ID.
 
 ### Examples
 
@@ -35,7 +35,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::LocationsApi.new
-region_id = 'region_id_example' # String | 
+region_id = 'region_id_example' # String | The unique ID of the region.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -73,14 +73,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **region_id** | **String** |  |  |
+| **region_id** | **String** | The unique ID of the region. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Locations**](Locations.md)
+[**Locations**](../models/Locations.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ Basic Authentication, Token Authentication
 
 Retrieve specified locations
 
-Retrieves the attributes of a given location
+Retrieve the properties of the specified location
 
 ### Examples
 
@@ -118,8 +118,8 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::LocationsApi.new
-region_id = 'region_id_example' # String | 
-location_id = 'location_id_example' # String | 
+region_id = 'region_id_example' # String | The unique ID of the region.
+location_id = 'location_id_example' # String | The unique ID of the location.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -157,15 +157,15 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **region_id** | **String** |  |  |
-| **location_id** | **String** |  |  |
+| **region_id** | **String** | The unique ID of the region. |  |
+| **location_id** | **String** | The unique ID of the location. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Location**](Location.md)
+[**Location**](../models/Location.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ end
 
 ### Return type
 
-[**Locations**](Locations.md)
+[**Locations**](../models/Locations.md)
 
 ### Authorization
 

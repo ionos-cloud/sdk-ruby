@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** | A name of that resource |  |
-| **cores** | **Float** | The CPU cores count |  |
-| **ram** | **Float** | The RAM size in MB |  |
-| **storage_size** | **Float** | The storage size in GB |  |
+| **name** | **String** | The name of the  resource. |  |
+| **cores** | **Float** | The CPU cores count. |  |
+| **ram** | **Float** | The RAM size in MB. |  |
+| **storage_size** | **Float** | The storage size in GB. |  |
 
 ## Example
 

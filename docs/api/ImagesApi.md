@@ -4,20 +4,20 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**images_delete**](ImagesApi.md#images_delete) | **DELETE** /images/{imageId} | Delete an Image |
-| [**images_find_by_id**](ImagesApi.md#images_find_by_id) | **GET** /images/{imageId} | Retrieve an Image |
-| [**images_get**](ImagesApi.md#images_get) | **GET** /images | List Images |
-| [**images_patch**](ImagesApi.md#images_patch) | **PATCH** /images/{imageId} | Partially modify an Image |
-| [**images_put**](ImagesApi.md#images_put) | **PUT** /images/{imageId} | Modify an Image |
+| [**images_delete**](ImagesApi.md#images_delete) | **DELETE** /images/{imageId} | Delete images |
+| [**images_find_by_id**](ImagesApi.md#images_find_by_id) | **GET** /images/{imageId} | Retrieve images |
+| [**images_get**](ImagesApi.md#images_get) | **GET** /images | List images |
+| [**images_patch**](ImagesApi.md#images_patch) | **PATCH** /images/{imageId} | Partially modify images |
+| [**images_put**](ImagesApi.md#images_put) | **PUT** /images/{imageId} | Modify images |
 
 
 ## images_delete
 
 > images_delete(image_id, opts)
 
-Delete an Image
+Delete images
 
-Deletes the specified image. This operation is permitted on private image only.
+Delete the specified image; this operation is only supported for private images.
 
 ### Examples
 
@@ -37,7 +37,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::ImagesApi.new
-image_id = 'image_id_example' # String | 
+image_id = 'image_id_example' # String | The unique ID of the image.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -45,7 +45,7 @@ opts = {
 }
 
 begin
-  # Delete an Image
+  # Delete images
   api_instance.images_delete(image_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ImagesApi->images_delete: #{e}"
@@ -60,7 +60,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete an Image
+  # Delete images
   data, status_code, headers = api_instance.images_delete_with_http_info(image_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -74,7 +74,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **image_id** | **String** |  |  |
+| **image_id** | **String** | The unique ID of the image. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -97,9 +97,9 @@ Basic Authentication, Token Authentication
 
 > <Image> images_find_by_id(image_id, opts)
 
-Retrieve an Image
+Retrieve images
 
-Retrieves the attributes of a given image.
+Retrieve the properties of the specified image.
 
 ### Examples
 
@@ -119,7 +119,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::ImagesApi.new
-image_id = 'image_id_example' # String | 
+image_id = 'image_id_example' # String | The unique ID of the image.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -127,7 +127,7 @@ opts = {
 }
 
 begin
-  # Retrieve an Image
+  # Retrieve images
   result = api_instance.images_find_by_id(image_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -143,7 +143,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve an Image
+  # Retrieve images
   data, status_code, headers = api_instance.images_find_by_id_with_http_info(image_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -157,14 +157,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **image_id** | **String** |  |  |
+| **image_id** | **String** | The unique ID of the image. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Image**](Image.md)
+[**Image**](../models/Image.md)
 
 ### Authorization
 
@@ -180,9 +180,9 @@ Basic Authentication, Token Authentication
 
 > <Images> images_get(opts)
 
-List Images
+List images
 
-Retrieve a list of images within the datacenter
+List all the images within the data center.
 
 ### Examples
 
@@ -209,7 +209,7 @@ opts = {
 }
 
 begin
-  # List Images
+  # List images
   result = api_instance.images_get(opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -225,7 +225,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Images
+  # List images
   data, status_code, headers = api_instance.images_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -245,7 +245,7 @@ end
 
 ### Return type
 
-[**Images**](Images.md)
+[**Images**](../models/Images.md)
 
 ### Authorization
 
@@ -261,9 +261,9 @@ Basic Authentication, Token Authentication
 
 > <Image> images_patch(image_id, image, opts)
 
-Partially modify an Image
+Partially modify images
 
-You can use update attributes of a resource
+Update the properties of the specified image.
 
 ### Examples
 
@@ -283,8 +283,8 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::ImagesApi.new
-image_id = 'image_id_example' # String | 
-image = Ionoscloud::ImageProperties.new({licence_type: 'UNKNOWN'}) # ImageProperties | Modified Image
+image_id = 'image_id_example' # String | The unique ID of the image.
+image = Ionoscloud::ImageProperties.new({licence_type: 'UNKNOWN'}) # ImageProperties | The image properties to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -292,7 +292,7 @@ opts = {
 }
 
 begin
-  # Partially modify an Image
+  # Partially modify images
   result = api_instance.images_patch(image_id, image, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -308,7 +308,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify an Image
+  # Partially modify images
   data, status_code, headers = api_instance.images_patch_with_http_info(image_id, image, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -322,15 +322,15 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **image_id** | **String** |  |  |
-| **image** | [**ImageProperties**](ImageProperties.md) | Modified Image |  |
+| **image_id** | **String** | The unique ID of the image. |  |
+| **image** | [**ImageProperties**](ImageProperties.md) | The image properties to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Image**](Image.md)
+[**Image**](../models/Image.md)
 
 ### Authorization
 
@@ -346,9 +346,9 @@ Basic Authentication, Token Authentication
 
 > <Image> images_put(image_id, image, opts)
 
-Modify an Image
+Modify images
 
-You can use update attributes of a resource
+Modify the properties of the specified image.
 
 ### Examples
 
@@ -368,8 +368,8 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::ImagesApi.new
-image_id = 'image_id_example' # String | 
-image = Ionoscloud::Image.new({properties: Ionoscloud::ImageProperties.new({licence_type: 'UNKNOWN'})}) # Image | Modified Image
+image_id = 'image_id_example' # String | The unique ID of the image.
+image = Ionoscloud::Image.new({properties: Ionoscloud::ImageProperties.new({licence_type: 'UNKNOWN'})}) # Image | The modified image
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -377,7 +377,7 @@ opts = {
 }
 
 begin
-  # Modify an Image
+  # Modify images
   result = api_instance.images_put(image_id, image, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -393,7 +393,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify an Image
+  # Modify images
   data, status_code, headers = api_instance.images_put_with_http_info(image_id, image, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -407,15 +407,15 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **image_id** | **String** |  |  |
-| **image** | [**Image**](Image.md) | Modified Image |  |
+| **image_id** | **String** | The unique ID of the image. |  |
+| **image** | [**Image**](Image.md) | The modified image |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**Image**](Image.md)
+[**Image**](../models/Image.md)
 
 ### Authorization
 

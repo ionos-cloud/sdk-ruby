@@ -4,21 +4,21 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**um_users_s3keys_delete**](UserS3KeysApi.md#um_users_s3keys_delete) | **DELETE** /um/users/{userId}/s3keys/{keyId} | Delete an S3 Key |
-| [**um_users_s3keys_find_by_key_id**](UserS3KeysApi.md#um_users_s3keys_find_by_key_id) | **GET** /um/users/{userId}/s3keys/{keyId} | Retrieve given S3 Key belonging to the given User |
-| [**um_users_s3keys_get**](UserS3KeysApi.md#um_users_s3keys_get) | **GET** /um/users/{userId}/s3keys | Retrieve a User&#39;s S3 keys |
-| [**um_users_s3keys_post**](UserS3KeysApi.md#um_users_s3keys_post) | **POST** /um/users/{userId}/s3keys | Create a S3 Key for the given User |
-| [**um_users_s3keys_put**](UserS3KeysApi.md#um_users_s3keys_put) | **PUT** /um/users/{userId}/s3keys/{keyId} | Modify a S3 key having the given key id |
-| [**um_users_s3ssourl_get**](UserS3KeysApi.md#um_users_s3ssourl_get) | **GET** /um/users/{userId}/s3ssourl | Retrieve S3 object storage single signon URL for the given user |
+| [**um_users_s3keys_delete**](UserS3KeysApi.md#um_users_s3keys_delete) | **DELETE** /um/users/{userId}/s3keys/{keyId} | Delete S3 keys |
+| [**um_users_s3keys_find_by_key_id**](UserS3KeysApi.md#um_users_s3keys_find_by_key_id) | **GET** /um/users/{userId}/s3keys/{keyId} | Retrieve user S3 keys by key ID |
+| [**um_users_s3keys_get**](UserS3KeysApi.md#um_users_s3keys_get) | **GET** /um/users/{userId}/s3keys | List user S3 keys |
+| [**um_users_s3keys_post**](UserS3KeysApi.md#um_users_s3keys_post) | **POST** /um/users/{userId}/s3keys | Create user S3 keys |
+| [**um_users_s3keys_put**](UserS3KeysApi.md#um_users_s3keys_put) | **PUT** /um/users/{userId}/s3keys/{keyId} | Modify S3 keys by key ID |
+| [**um_users_s3ssourl_get**](UserS3KeysApi.md#um_users_s3ssourl_get) | **GET** /um/users/{userId}/s3ssourl | Retrieve S3 single sign-on URLs |
 
 
 ## um_users_s3keys_delete
 
 > um_users_s3keys_delete(user_id, key_id, opts)
 
-Delete an S3 Key
+Delete S3 keys
 
-Delete an S3 key.
+Delete the specified user S3 key.
 
 ### Examples
 
@@ -38,8 +38,8 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::UserS3KeysApi.new
-user_id = 'user_id_example' # String | The unique ID of the user
-key_id = 'key_id_example' # String | The unique access key ID of the S3 key
+user_id = 'user_id_example' # String | The unique ID of the user.
+key_id = 'key_id_example' # String | The unique ID of the S3 key.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -47,7 +47,7 @@ opts = {
 }
 
 begin
-  # Delete an S3 Key
+  # Delete S3 keys
   api_instance.um_users_s3keys_delete(user_id, key_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling UserS3KeysApi->um_users_s3keys_delete: #{e}"
@@ -62,7 +62,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete an S3 Key
+  # Delete S3 keys
   data, status_code, headers = api_instance.um_users_s3keys_delete_with_http_info(user_id, key_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -76,8 +76,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The unique ID of the user |  |
-| **key_id** | **String** | The unique access key ID of the S3 key |  |
+| **user_id** | **String** | The unique ID of the user. |  |
+| **key_id** | **String** | The unique ID of the S3 key. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
@@ -100,9 +100,9 @@ Basic Authentication, Token Authentication
 
 > <S3Key> um_users_s3keys_find_by_key_id(user_id, key_id, opts)
 
-Retrieve given S3 Key belonging to the given User
+Retrieve user S3 keys by key ID
 
-You can retrieve S3 key belonging to the given User. This user Id can be found in the response body when a user is created or when you GET a list of users. The key Id can be found in the response body when a S3 key is created or when you GET a list of all S3 keys of a user
+Retrieve the specified user S3 key. The user ID is in the response body when the user is created, and in the list of the users, returned by GET. The key ID is in the response body when the S3 key is created, and in the list of all user S3 keys, returned by GET.
 
 ### Examples
 
@@ -122,8 +122,8 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::UserS3KeysApi.new
-user_id = 'user_id_example' # String | The unique ID of the user
-key_id = 'key_id_example' # String | The unique access key ID of the S3 key
+user_id = 'user_id_example' # String | The unique ID of the user.
+key_id = 'key_id_example' # String | The unique ID of the S3 key.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -131,7 +131,7 @@ opts = {
 }
 
 begin
-  # Retrieve given S3 Key belonging to the given User
+  # Retrieve user S3 keys by key ID
   result = api_instance.um_users_s3keys_find_by_key_id(user_id, key_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -147,7 +147,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve given S3 Key belonging to the given User
+  # Retrieve user S3 keys by key ID
   data, status_code, headers = api_instance.um_users_s3keys_find_by_key_id_with_http_info(user_id, key_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -161,15 +161,15 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The unique ID of the user |  |
-| **key_id** | **String** | The unique access key ID of the S3 key |  |
+| **user_id** | **String** | The unique ID of the user. |  |
+| **key_id** | **String** | The unique ID of the S3 key. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**S3Key**](S3Key.md)
+[**S3Key**](../models/S3Key.md)
 
 ### Authorization
 
@@ -185,9 +185,9 @@ Basic Authentication, Token Authentication
 
 > <S3Keys> um_users_s3keys_get(user_id, opts)
 
-Retrieve a User's S3 keys
+List user S3 keys
 
-You can retrieve S3 keys owned by a user by using the users ID. This user Id can be found in the response body when a user is created or when you GET a list of users.
+List S3 keys by user ID. The user ID is in the response body when the user is created, and in the list of the users, returned by GET.
 
 ### Examples
 
@@ -207,7 +207,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::UserS3KeysApi.new
-user_id = 'user_id_example' # String | The unique ID of the user
+user_id = 'user_id_example' # String | The unique ID of the user.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -215,7 +215,7 @@ opts = {
 }
 
 begin
-  # Retrieve a User's S3 keys
+  # List user S3 keys
   result = api_instance.um_users_s3keys_get(user_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -231,7 +231,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve a User's S3 keys
+  # List user S3 keys
   data, status_code, headers = api_instance.um_users_s3keys_get_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -245,14 +245,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The unique ID of the user |  |
+| **user_id** | **String** | The unique ID of the user. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**S3Keys**](S3Keys.md)
+[**S3Keys**](../models/S3Keys.md)
 
 ### Authorization
 
@@ -268,9 +268,9 @@ Basic Authentication, Token Authentication
 
 > <S3Key> um_users_s3keys_post(user_id, opts)
 
-Create a S3 Key for the given User
+Create user S3 keys
 
-Creates a S3 key for the given user. This user Id can be found in the response body when a user is created or when you GET a list of users. Maximum of 5 keys can be generated for a given user
+Create an S3 key for the specified user. The user ID is in the response body when the user is created, and in the list of the users, returned by GET. A maximum of five keys per user can be generated.
 
 ### Examples
 
@@ -290,7 +290,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::UserS3KeysApi.new
-user_id = 'user_id_example' # String | The unique ID of the user
+user_id = 'user_id_example' # String | The unique ID of the user.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -298,7 +298,7 @@ opts = {
 }
 
 begin
-  # Create a S3 Key for the given User
+  # Create user S3 keys
   result = api_instance.um_users_s3keys_post(user_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -314,7 +314,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a S3 Key for the given User
+  # Create user S3 keys
   data, status_code, headers = api_instance.um_users_s3keys_post_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -328,14 +328,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The unique ID of the user |  |
+| **user_id** | **String** | The unique ID of the user. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**S3Key**](S3Key.md)
+[**S3Key**](../models/S3Key.md)
 
 ### Authorization
 
@@ -351,9 +351,9 @@ Basic Authentication, Token Authentication
 
 > <S3Key> um_users_s3keys_put(user_id, key_id, s3_key, opts)
 
-Modify a S3 key having the given key id
+Modify S3 keys by key ID
 
-You can enable or disable a given S3 key.
+Enable or disable the specified user S3 key.
 
 ### Examples
 
@@ -373,9 +373,9 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::UserS3KeysApi.new
-user_id = 'user_id_example' # String | 
-key_id = 'key_id_example' # String | The unique access key ID of the S3 key
-s3_key = Ionoscloud::S3Key.new({properties: Ionoscloud::S3KeyProperties.new}) # S3Key | Modified S3 key
+user_id = 'user_id_example' # String | The unique ID of the user.
+key_id = 'key_id_example' # String | The unique ID of the S3 key.
+s3_key = Ionoscloud::S3Key.new({properties: Ionoscloud::S3KeyProperties.new}) # S3Key | The modified S3 key.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -383,7 +383,7 @@ opts = {
 }
 
 begin
-  # Modify a S3 key having the given key id
+  # Modify S3 keys by key ID
   result = api_instance.um_users_s3keys_put(user_id, key_id, s3_key, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -399,7 +399,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify a S3 key having the given key id
+  # Modify S3 keys by key ID
   data, status_code, headers = api_instance.um_users_s3keys_put_with_http_info(user_id, key_id, s3_key, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -413,16 +413,16 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** |  |  |
-| **key_id** | **String** | The unique access key ID of the S3 key |  |
-| **s3_key** | [**S3Key**](S3Key.md) | Modified S3 key |  |
+| **user_id** | **String** | The unique ID of the user. |  |
+| **key_id** | **String** | The unique ID of the S3 key. |  |
+| **s3_key** | [**S3Key**](S3Key.md) | The modified S3 key. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**S3Key**](S3Key.md)
+[**S3Key**](../models/S3Key.md)
 
 ### Authorization
 
@@ -438,9 +438,9 @@ Basic Authentication, Token Authentication
 
 > <S3ObjectStorageSSO> um_users_s3ssourl_get(user_id, opts)
 
-Retrieve S3 object storage single signon URL for the given user
+Retrieve S3 single sign-on URLs
 
-You can retrieve S3 object storage single signon URL for the given user. This user Id can be found in the response body when a user is created or when you GET a list of users.
+Retrieve S3 Object Storage single sign-on URLs for the the specified user. The user ID is in the response body when the user is created, and in the list of the users, returned by GET.
 
 ### Examples
 
@@ -460,14 +460,14 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::UserS3KeysApi.new
-user_id = 'user_id_example' # String | The unique ID of the user
+user_id = 'user_id_example' # String | The unique ID of the user.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   x_contract_number: 56 # Integer | Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
 }
 
 begin
-  # Retrieve S3 object storage single signon URL for the given user
+  # Retrieve S3 single sign-on URLs
   result = api_instance.um_users_s3ssourl_get(user_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -483,7 +483,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve S3 object storage single signon URL for the given user
+  # Retrieve S3 single sign-on URLs
   data, status_code, headers = api_instance.um_users_s3ssourl_get_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -497,13 +497,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The unique ID of the user |  |
+| **user_id** | **String** | The unique ID of the user. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, against which all API requests are to be executed. | [optional] |
 
 ### Return type
 
-[**S3ObjectStorageSSO**](S3ObjectStorageSSO.md)
+[**S3ObjectStorageSSO**](../models/S3ObjectStorageSSO.md)
 
 ### Authorization
 

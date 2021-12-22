@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The resource&#39;s unique identifier | [optional][readonly] |
-| **type** | **String** | The type of object that has been created | [optional][readonly] |
-| **href** | **String** | URL to the object representation (absolute path) | [optional][readonly] |
-| **items** | [**Array&lt;BackupUnit&gt;**](BackupUnit.md) | Array of items in that collection | [optional][readonly] |
+| **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
+| **type** | **String** | The type of object that has been created. | [optional][readonly] |
+| **href** | **String** | URL to the object representation (absolute path). | [optional][readonly] |
+| **items** | [**Array&lt;BackupUnit&gt;**](BackupUnit.md) | Array of items in that collection. | [optional][readonly] |
 
 ## Example
 

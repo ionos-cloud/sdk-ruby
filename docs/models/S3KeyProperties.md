@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **secret_key** | **String** | secret of the S3 key | [optional][readonly] |
-| **active** | **Boolean** | denotes if the S3 key is active or not | [optional] |
+| **secret_key** | **String** | Secret of the S3 key. | [optional][readonly] |
+| **active** | **Boolean** | Denotes weather the S3 key is active. | [optional] |
 
 ## Example
 

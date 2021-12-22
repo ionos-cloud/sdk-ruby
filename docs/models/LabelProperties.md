@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **key** | **String** | A Label Key | [optional] |
-| **value** | **String** | A Label Value | [optional] |
-| **resource_id** | **String** | The id of the resource | [optional] |
+| **key** | **String** | A label key | [optional] |
+| **value** | **String** | A label value | [optional] |
+| **resource_id** | **String** | The ID of the resource. | [optional] |
 | **resource_type** | **String** | The type of the resource on which the label is applied. | [optional] |
 | **resource_href** | **String** | URL to the Resource (absolute path) on which the label is applied. | [optional] |
 

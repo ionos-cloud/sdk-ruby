@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **error_code** | **String** | Application internal error code | [optional][readonly] |
-| **message** | **String** | Human readable message | [optional][readonly] |
+| **error_code** | **String** | Application internal error code. | [optional][readonly] |
+| **message** | **String** | Human-readable message. | [optional][readonly] |
 
 ## Example
 
@@ -14,7 +14,7 @@ require 'ionoscloud'
 
 instance = Ionoscloud::ErrorMessage.new(
   error_code: 123,
-  message: Error message example
+  message: Error message example.
 )
 ```
 
