@@ -14,7 +14,7 @@
 # Ruby API Client For IONOS Cloud
 
 **NOTE:
-_Be aware that the SDK Ruby v6 will become main branch and it will using the latest stable API Version_**
+_Be aware that the SDK Ruby v6 will become main branch and it will be using the latest stable API Version_**
 
 Ionoscloud - the Ruby gem for the CLOUD API
 
