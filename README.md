@@ -1,8 +1,20 @@
 ![CI](https://github.com/ionos-cloud/sdk-resources/workflows/%5B%20CI%20%5D%20CloudApi%20V6%20/%20Ruby/badge.svg)
+[![Gem Version](https://img.shields.io/gem/v/ionoscloud)](https://rubygems.org/gems/ionoscloud) 
 [![Gitter](https://badges.gitter.im/ionos-cloud/sdk-general.png)](https://gitter.im/ionos-cloud/sdk-general)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=alert_status)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=bugs)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=security_rating)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ionos-cloud_sdk-ruby&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=ionos-cloud_sdk-ruby)
+
+![Alt text](.github/IONOS.CLOUD.BLU.svg?raw=true "Title")
 
 
-# Ionoscloud
+# Ruby API Client For IONOS Cloud
+
+**NOTE:
+_Be aware that the SDK Ruby v6 will become main branch and it will using the latest stable API Version_**
 
 Ionoscloud - the Ruby gem for the CLOUD API
 
