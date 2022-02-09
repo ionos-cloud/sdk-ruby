@@ -13,9 +13,6 @@
 
 # Ruby API Client For IONOS Cloud
 
-**NOTE:
-_Be aware that the SDK Ruby v6 will become main branch and it will be using the latest stable API Version_**
-
 Ionoscloud - the Ruby gem for the CLOUD API
 
 An enterprise-grade Infrastructure is provided as a Service (IaaS) solution that can be managed through a browser-based \"Data Center Designer\" (DCD) tool or via an easy to use API. 
