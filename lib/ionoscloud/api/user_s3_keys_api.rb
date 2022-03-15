@@ -26,7 +26,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [nil]
     def um_users_s3keys_delete(user_id, key_id, opts = {})
       um_users_s3keys_delete_with_http_info(user_id, key_id, opts)
@@ -40,7 +40,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def um_users_s3keys_delete_with_http_info(user_id, key_id, opts = {})
       if @api_client.config.debugging
@@ -112,7 +112,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [S3Key]
     def um_users_s3keys_find_by_key_id(user_id, key_id, opts = {})
       data, _status_code, _headers = um_users_s3keys_find_by_key_id_with_http_info(user_id, key_id, opts)
@@ -126,7 +126,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(S3Key, Integer, Hash)>] S3Key data, response status code and response headers
     def um_users_s3keys_find_by_key_id_with_http_info(user_id, key_id, opts = {})
       if @api_client.config.debugging
@@ -197,7 +197,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [S3Keys]
     def um_users_s3keys_get(user_id, opts = {})
       data, _status_code, _headers = um_users_s3keys_get_with_http_info(user_id, opts)
@@ -210,7 +210,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(S3Keys, Integer, Hash)>] S3Keys data, response status code and response headers
     def um_users_s3keys_get_with_http_info(user_id, opts = {})
       if @api_client.config.debugging
@@ -277,7 +277,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [S3Key]
     def um_users_s3keys_post(user_id, opts = {})
       data, _status_code, _headers = um_users_s3keys_post_with_http_info(user_id, opts)
@@ -290,7 +290,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(S3Key, Integer, Hash)>] S3Key data, response status code and response headers
     def um_users_s3keys_post_with_http_info(user_id, opts = {})
       if @api_client.config.debugging
@@ -359,7 +359,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [S3Key]
     def um_users_s3keys_put(user_id, key_id, s3_key, opts = {})
       data, _status_code, _headers = um_users_s3keys_put_with_http_info(user_id, key_id, s3_key, opts)
@@ -374,7 +374,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(S3Key, Integer, Hash)>] S3Key data, response status code and response headers
     def um_users_s3keys_put_with_http_info(user_id, key_id, s3_key, opts = {})
       if @api_client.config.debugging
@@ -450,7 +450,7 @@ module Ionoscloud
     # @param user_id [String] The unique ID of the user.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [S3ObjectStorageSSO]
     def um_users_s3ssourl_get(user_id, opts = {})
       data, _status_code, _headers = um_users_s3ssourl_get_with_http_info(user_id, opts)
@@ -462,7 +462,7 @@ module Ionoscloud
     # @param user_id [String] The unique ID of the user.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(S3ObjectStorageSSO, Integer, Hash)>] S3ObjectStorageSSO data, response status code and response headers
     def um_users_s3ssourl_get_with_http_info(user_id, opts = {})
       if @api_client.config.debugging

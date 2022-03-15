@@ -25,7 +25,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [nil]
     def backupunits_delete(backupunit_id, opts = {})
       backupunits_delete_with_http_info(backupunit_id, opts)
@@ -38,7 +38,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def backupunits_delete_with_http_info(backupunit_id, opts = {})
       if @api_client.config.debugging
@@ -105,7 +105,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [BackupUnit]
     def backupunits_find_by_id(backupunit_id, opts = {})
       data, _status_code, _headers = backupunits_find_by_id_with_http_info(backupunit_id, opts)
@@ -118,7 +118,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(BackupUnit, Integer, Hash)>] BackupUnit data, response status code and response headers
     def backupunits_find_by_id_with_http_info(backupunit_id, opts = {})
       if @api_client.config.debugging
@@ -184,7 +184,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [BackupUnits]
     def backupunits_get(opts = {})
       data, _status_code, _headers = backupunits_get_with_http_info(opts)
@@ -196,7 +196,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(BackupUnits, Integer, Hash)>] BackupUnits data, response status code and response headers
     def backupunits_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -260,7 +260,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [BackupUnit]
     def backupunits_patch(backupunit_id, backup_unit, opts = {})
       data, _status_code, _headers = backupunits_patch_with_http_info(backupunit_id, backup_unit, opts)
@@ -274,7 +274,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(BackupUnit, Integer, Hash)>] BackupUnit data, response status code and response headers
     def backupunits_patch_with_http_info(backupunit_id, backup_unit, opts = {})
       if @api_client.config.debugging
@@ -347,7 +347,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [BackupUnit]
     def backupunits_post(backup_unit, opts = {})
       data, _status_code, _headers = backupunits_post_with_http_info(backup_unit, opts)
@@ -360,7 +360,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(BackupUnit, Integer, Hash)>] BackupUnit data, response status code and response headers
     def backupunits_post_with_http_info(backup_unit, opts = {})
       if @api_client.config.debugging
@@ -430,7 +430,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [BackupUnit]
     def backupunits_put(backupunit_id, backup_unit, opts = {})
       data, _status_code, _headers = backupunits_put_with_http_info(backupunit_id, backup_unit, opts)
@@ -444,7 +444,7 @@ module Ionoscloud
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(BackupUnit, Integer, Hash)>] BackupUnit data, response status code and response headers
     def backupunits_put_with_http_info(backupunit_id, backup_unit, opts = {})
       if @api_client.config.debugging
@@ -516,7 +516,7 @@ module Ionoscloud
     # @param backupunit_id [String] The unique ID of the backup unit.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [BackupUnitSSO]
     def backupunits_ssourl_get(backupunit_id, opts = {})
       data, _status_code, _headers = backupunits_ssourl_get_with_http_info(backupunit_id, opts)
@@ -528,7 +528,7 @@ module Ionoscloud
     # @param backupunit_id [String] The unique ID of the backup unit.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
-    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, against which all API requests are to be executed.
+    # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
     # @return [Array<(BackupUnitSSO, Integer, Hash)>] BackupUnitSSO data, response status code and response headers
     def backupunits_ssourl_get_with_http_info(backupunit_id, opts = {})
       if @api_client.config.debugging

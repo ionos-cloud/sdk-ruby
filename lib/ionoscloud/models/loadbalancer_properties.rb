@@ -61,6 +61,7 @@ module Ionoscloud
       Set.new([
         
 
+        :'ip',
 
       ])
     end

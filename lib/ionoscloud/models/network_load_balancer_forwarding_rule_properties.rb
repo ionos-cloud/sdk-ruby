@@ -20,26 +20,26 @@ module Ionoscloud
     attr_accessor :name
 
 
-    # Algorithm for the balancing.
+    # Balancing algorithm
     attr_accessor :algorithm
 
 
-    # Protocol of the balancing.
+    # Balancing protocol
     attr_accessor :protocol
 
 
-    # Listening IP. (inbound)
+    # Listening (inbound) IP
     attr_accessor :listener_ip
 
 
-    # Listening port number. (inbound) (range: 1 to 65535)
+    # Listening (inbound) port number; valid range is 1 to 65535.
     attr_accessor :listener_port
 
 
     attr_accessor :health_check
 
 
-    # Array of items in that collection.
+    # Array of items in the collection.
     attr_accessor :targets
 
     class EnumAttributeValidator

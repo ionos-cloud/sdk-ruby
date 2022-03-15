@@ -28,15 +28,15 @@ module Ionoscloud
     attr_accessor :href
 
 
-    # Array of items in that collection
+    # Array of items in the collection.
     attr_accessor :items
 
 
-    # The offset specified in the request (or, if none was specified, the default offset of 0)
+    # The offset, specified in the request (if not is specified, 0 is used by default).
     attr_accessor :offset
 
 
-    # The limit specified in the request (if none was specified, use the endpoint's default pagination limit).
+    # The limit, specified in the request (if not specified, the endpoint's default pagination limit is used).
     attr_accessor :limit
 
 

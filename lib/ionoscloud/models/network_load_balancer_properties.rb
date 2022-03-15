@@ -24,7 +24,7 @@ module Ionoscloud
     attr_accessor :listener_lan
 
 
-    # Collection of IP addresses of the Network Load Balancer. (Inbound and outbound) IP of the listenerLan must be a customer reserved IP for the public Load Balancer and private IP for the private Load balancer.
+    # Collection of the Network Load Balancer IP addresses. (Inbound and outbound) IPs of the listenerLan must be customer-reserved IPs for public Load Balancers, and private IPs for private Load Balancers.
     attr_accessor :ips
 
 
@@ -32,7 +32,7 @@ module Ionoscloud
     attr_accessor :target_lan
 
 
-    # Collection of private IP addresses with subnet mask of the Network Load Balancer. IPs must contain valid subnet mask. If user will not provide any IP then the system will generate one IP with /24 subnet.
+    # Collection of private IP addresses with subnet mask of the Network Load Balancer. IPs must contain a valid subnet mask. If no IP is provided, the system will generate an IP with /24 subnet.
     attr_accessor :lb_private_ips
 
     # Attribute mapping from ruby-style variable name to JSON key.

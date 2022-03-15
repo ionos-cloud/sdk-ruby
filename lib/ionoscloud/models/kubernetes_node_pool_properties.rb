@@ -74,12 +74,16 @@ module Ionoscloud
     attr_accessor :annotations
 
 
-    # Optional array of reserved public IP addresses to be used by the nodes. IPs must be from same location as the data center used for the node pool. The array must contain one extra IP than maximum number of nodes could be. (nodeCount+1 if fixed node amount or maxNodeCount+1 if auto scaling is used) The extra provided IP Will be used during rebuilding of nodes.
+    # Optional array of reserved public IP addresses to be used by the nodes. IPs must be from same location as the data center used for the node pool. The array must contain one more IP than maximum number possible number of nodes (nodeCount+1 for fixed number of nodes or maxNodeCount+1 when auto scaling is used). The extra IP is used when the nodes are rebuilt.
     attr_accessor :public_ips
 
 
     # List of available versions for upgrading the node pool.
     attr_accessor :available_upgrade_versions
+
+
+    # Public IP address for the gateway performing source NAT for the node pool's nodes belonging to a private cluster. Required only if the node pool belongs to a private cluster.
+    attr_accessor :gateway_ip
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -140,6 +144,8 @@ module Ionoscloud
         :'public_ips' => :'publicIps',
 
         :'available_upgrade_versions' => :'availableUpgradeVersions',
+
+        :'gateway_ip' => :'gatewayIp'
       }
     end
 
@@ -185,6 +191,8 @@ module Ionoscloud
         :'public_ips' => :'Array<String>',
 
         :'available_upgrade_versions' => :'Array<String>',
+
+        :'gateway_ip' => :'String'
       }
     end
 
@@ -192,6 +200,7 @@ module Ionoscloud
     def self.openapi_nullable
       Set.new([
         
+
 
 
 
@@ -310,6 +319,11 @@ module Ionoscloud
       if attributes.key?(:'available_upgrade_versions') && (value = attributes[:'available_upgrade_versions']).is_a?(Array)
         self.available_upgrade_versions = value
       end
+
+
+      if attributes.key?(:'gateway_ip')
+        self.gateway_ip = attributes[:'gateway_ip']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -369,6 +383,7 @@ module Ionoscloud
 
 
 
+
       invalid_properties
     end
 
@@ -397,6 +412,7 @@ module Ionoscloud
       return false unless storage_type_validator.valid?(@storage_type)
 
       return false if @storage_size.nil?
+
 
 
 
@@ -445,6 +461,7 @@ module Ionoscloud
 
 
 
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -466,7 +483,8 @@ module Ionoscloud
         labels == o.labels &&
         annotations == o.annotations &&
         public_ips == o.public_ips &&
-        available_upgrade_versions == o.available_upgrade_versions
+        available_upgrade_versions == o.available_upgrade_versions &&
+        gateway_ip == o.gateway_ip
     end
 
     # @see the `==` method
@@ -478,7 +496,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, datacenter_id, node_count, cpu_family, cores_count, ram_size, availability_zone, storage_type, storage_size, k8s_version, maintenance_window, auto_scaling, lans, labels, annotations, public_ips, available_upgrade_versions, ].hash
+      [name, datacenter_id, node_count, cpu_family, cores_count, ram_size, availability_zone, storage_type, storage_size, k8s_version, maintenance_window, auto_scaling, lans, labels, annotations, public_ips, available_upgrade_versions, gateway_ip].hash
     end
 
     # Builds the object from hash

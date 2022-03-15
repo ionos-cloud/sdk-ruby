@@ -20,7 +20,7 @@ module Ionoscloud
     attr_accessor :error_code
 
 
-    # Human-readable message.
+    # A human-readable message.
     attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.

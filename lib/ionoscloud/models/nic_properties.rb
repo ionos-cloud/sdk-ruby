@@ -40,15 +40,15 @@ module Ionoscloud
     attr_accessor :firewall_active
 
 
-    # The type of firewall rules that will be allowed on the NIC. If not specified, the default INGRESS value is taken.
+    # The type of firewall rules that will be allowed on the NIC. If not specified, the default INGRESS value is used.
     attr_accessor :firewall_type
 
 
-    # The Logical Unit Number (LUN) of the storage volume. Null if this NIC was create from CloudAPI and no DCD changes were done on the Datacenter.
+    # The Logical Unit Number (LUN) of the storage volume. Null if this NIC was created using Cloud API and no DCD changes were performed on the Datacenter.
     attr_accessor :device_number
 
 
-    # The PCI slot number of the NIC.
+    # The PCI slot number for the NIC.
     attr_accessor :pci_slot
 
     class EnumAttributeValidator
@@ -132,6 +132,7 @@ module Ionoscloud
         
 
 
+        :'ips',
 
 
 

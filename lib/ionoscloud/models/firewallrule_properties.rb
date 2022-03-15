@@ -52,7 +52,7 @@ module Ionoscloud
     attr_accessor :port_range_end
 
 
-    # The type of firewall rule. If not specified, the default INGRESS value is taken.
+    # The type of the firewall rule. If not specified, the default INGRESS value is used.
     attr_accessor :type
 
     class EnumAttributeValidator
@@ -140,10 +140,15 @@ module Ionoscloud
         
 
 
+        :'source_mac',
 
+        :'source_ip',
 
+        :'target_ip',
 
+        :'icmp_code',
 
+        :'icmp_type',
 
 
 

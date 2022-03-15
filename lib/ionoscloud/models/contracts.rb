@@ -28,7 +28,7 @@ module Ionoscloud
     attr_accessor :href
 
 
-    # Array of items in that collection.
+    # Array of items in the collection.
     attr_accessor :items
 
     # Attribute mapping from ruby-style variable name to JSON key.

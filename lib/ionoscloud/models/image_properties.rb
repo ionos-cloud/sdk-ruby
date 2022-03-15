@@ -391,7 +391,7 @@ module Ionoscloud
 
 
       return false if @licence_type.nil?
-      licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "LINUX", "OTHER"])
+      licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "LINUX", "OTHER"])
       return false unless licence_type_validator.valid?(@licence_type)
 
       image_type_validator = EnumAttributeValidator.new('String', ["HDD", "CDROM", "UNKNOWN"])
@@ -422,7 +422,7 @@ module Ionoscloud
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] licence_type Object to be assigned
     def licence_type=(licence_type)
-      validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "LINUX", "OTHER"])
+      validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "LINUX", "OTHER"])
       unless validator.valid?(licence_type)
         fail ArgumentError, "invalid value for \"licence_type\", must be one of #{validator.allowable_values}."
       end

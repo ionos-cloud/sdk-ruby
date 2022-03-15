@@ -24,7 +24,7 @@ module Ionoscloud
     attr_accessor :public_ips
 
 
-    # Collection of LANs connected to the NAT Gateway. IPs must contain valid subnet mask. If user will not provide any IP then system will generate an IP with /24 subnet.
+    # Collection of LANs connected to the NAT Gateway. IPs must contain a valid subnet mask. If no IP is provided, the system will generate an IP with /24 subnet.
     attr_accessor :lans
 
     # Attribute mapping from ruby-style variable name to JSON key.

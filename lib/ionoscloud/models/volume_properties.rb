@@ -47,7 +47,7 @@ module Ionoscloud
     attr_accessor :ssh_keys
 
 
-    # The bus type of the volume. Default is VIRTIO
+    # The bus type for this volume; default is VIRTIO.
     attr_accessor :bus
 
 
@@ -93,6 +93,10 @@ module Ionoscloud
 
     # The cloud-init configuration for the volume as base64 encoded string. The property is immutable and is only allowed to be set on creation of a new a volume. It is mandatory to provide either 'public image' or 'imageAlias' that has cloud-init compatibility in conjunction with this property.
     attr_accessor :user_data
+
+
+    # The UUID of the attached server.
+    attr_accessor :boot_server
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -158,7 +162,9 @@ module Ionoscloud
 
         :'backupunit_id' => :'backupunitId',
 
-        :'user_data' => :'userData'
+        :'user_data' => :'userData',
+
+        :'boot_server' => :'bootServer'
       }
     end
 
@@ -209,7 +215,9 @@ module Ionoscloud
 
         :'backupunit_id' => :'String',
 
-        :'user_data' => :'String'
+        :'user_data' => :'String',
+
+        :'boot_server' => :'String'
       }
     end
 
@@ -217,6 +225,7 @@ module Ionoscloud
     def self.openapi_nullable
       Set.new([
         
+
 
 
 
@@ -353,6 +362,11 @@ module Ionoscloud
       if attributes.key?(:'user_data')
         self.user_data = attributes[:'user_data']
       end
+
+
+      if attributes.key?(:'boot_server')
+        self.boot_server = attributes[:'boot_server']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -365,6 +379,7 @@ module Ionoscloud
       if @size.nil?
         invalid_properties.push('invalid value for "size", size cannot be nil.')
       end
+
 
 
 
@@ -406,8 +421,9 @@ module Ionoscloud
       bus_validator = EnumAttributeValidator.new('String', ["VIRTIO", "IDE", "UNKNOWN"])
       return false unless bus_validator.valid?(@bus)
 
-      licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "LINUX", "OTHER"])
+      licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "LINUX", "OTHER"])
       return false unless licence_type_validator.valid?(@licence_type)
+
 
 
 
@@ -464,12 +480,13 @@ module Ionoscloud
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] licence_type Object to be assigned
     def licence_type=(licence_type)
-      validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "LINUX", "OTHER"])
+      validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "LINUX", "OTHER"])
       unless validator.valid?(licence_type)
         fail ArgumentError, "invalid value for \"licence_type\", must be one of #{validator.allowable_values}."
       end
       @licence_type = licence_type
     end
+
 
 
 
@@ -505,7 +522,8 @@ module Ionoscloud
         device_number == o.device_number &&
         pci_slot == o.pci_slot &&
         backupunit_id == o.backupunit_id &&
-        user_data == o.user_data
+        user_data == o.user_data &&
+        boot_server == o.boot_server
     end
 
     # @see the `==` method
@@ -517,7 +535,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, type, size, availability_zone, image, image_password, image_alias, ssh_keys, bus, licence_type, cpu_hot_plug, ram_hot_plug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, device_number, pci_slot, backupunit_id, user_data].hash
+      [name, type, size, availability_zone, image, image_password, image_alias, ssh_keys, bus, licence_type, cpu_hot_plug, ram_hot_plug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, device_number, pci_slot, backupunit_id, user_data, boot_server].hash
     end
 
     # Builds the object from hash

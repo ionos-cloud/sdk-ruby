@@ -13,7 +13,7 @@
 | **icmp_type** | **Integer** | Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types. | [optional] |
 | **port_range_start** | **Integer** | Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports. | [optional] |
 | **port_range_end** | **Integer** | Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd null to allow all ports. | [optional] |
-| **type** | **String** | The type of firewall rule. If not specified, the default INGRESS value is taken. | [optional] |
+| **type** | **String** | The type of the firewall rule. If not specified, the default INGRESS value is used. | [optional] |
 
 ## Example
 

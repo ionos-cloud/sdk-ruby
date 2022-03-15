@@ -7,7 +7,7 @@
 | **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
 | **type** | [**Type**](Type.md) | The type of object that has been created. | [optional] |
 | **href** | **String** | URL to the object representation (absolute path). | [optional][readonly] |
-| **items** | [**Array&lt;NetworkLoadBalancerForwardingRule&gt;**](NetworkLoadBalancerForwardingRule.md) | Array of items in that collection. | [optional][readonly] |
+| **items** | [**Array&lt;NetworkLoadBalancerForwardingRule&gt;**](NetworkLoadBalancerForwardingRule.md) | Array of items in the collection. | [optional][readonly] |
 | **offset** | **Float** | The offset (if specified in the request). | [optional] |
 | **limit** | **Float** | The limit (if specified in the request). | [optional] |
 | **_links** | [**PaginationLinks**](PaginationLinks.md) |  | [optional] |
