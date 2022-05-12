@@ -35,10 +35,6 @@ module Ionoscloud
     attr_accessor :viable_node_pool_versions
 
 
-    # The indicator if the cluster is public or private. Be aware that setting it to false is currently in beta phase.
-    attr_accessor :public
-
-
     # Access to the K8s API server is restricted to these CIDRs. Traffic, internal to the cluster, is not affected by this restriction. If no allowlist is specified, access is not restricted. If an IP without subnet mask is provided, the default value is used: 32 for IPv4 and 128 for IPv6.
     attr_accessor :api_subnet_allow_list
 
@@ -59,8 +55,6 @@ module Ionoscloud
         :'available_upgrade_versions' => :'availableUpgradeVersions',
 
         :'viable_node_pool_versions' => :'viableNodePoolVersions',
-
-        :'public' => :'public',
 
         :'api_subnet_allow_list' => :'apiSubnetAllowList',
 
@@ -87,8 +81,6 @@ module Ionoscloud
 
         :'viable_node_pool_versions' => :'Array<String>',
 
-        :'public' => :'Boolean',
-
         :'api_subnet_allow_list' => :'Array<String>',
 
         :'s3_buckets' => :'Array<S3Bucket>'
@@ -99,7 +91,6 @@ module Ionoscloud
     def self.openapi_nullable
       Set.new([
         
-
 
 
 
@@ -150,13 +141,6 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'public')
-        self.public = attributes[:'public']
-      else
-        self.public = true
-      end
-
-
       if attributes.key?(:'api_subnet_allow_list') && (value = attributes[:'api_subnet_allow_list']).is_a?(Array)
         self.api_subnet_allow_list = value
       end
@@ -182,7 +166,6 @@ module Ionoscloud
 
 
 
-
       invalid_properties
     end
 
@@ -191,7 +174,6 @@ module Ionoscloud
     def valid?
       
       return false if @name.nil?
-
 
 
 
@@ -208,7 +190,6 @@ module Ionoscloud
 
 
 
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -219,7 +200,6 @@ module Ionoscloud
         maintenance_window == o.maintenance_window &&
         available_upgrade_versions == o.available_upgrade_versions &&
         viable_node_pool_versions == o.viable_node_pool_versions &&
-        public == o.public &&
         api_subnet_allow_list == o.api_subnet_allow_list &&
         s3_buckets == o.s3_buckets
     end
@@ -233,7 +213,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, k8s_version, maintenance_window, available_upgrade_versions, viable_node_pool_versions, public, api_subnet_allow_list, s3_buckets].hash
+      [name, k8s_version, maintenance_window, available_upgrade_versions, viable_node_pool_versions, api_subnet_allow_list, s3_buckets].hash
     end
 
     # Builds the object from hash

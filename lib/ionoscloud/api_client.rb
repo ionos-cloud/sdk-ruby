@@ -38,7 +38,7 @@ module Ionoscloud
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "ionos-cloud-sdk-ruby/6.0.1"
+      @user_agent = "ionos-cloud-sdk-ruby/v6.0.2"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent

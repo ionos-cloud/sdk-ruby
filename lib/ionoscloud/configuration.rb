@@ -33,21 +33,16 @@ module Ionoscloud
     # Default server operation variables
     attr_accessor :server_operation_variables
 
-    # Defines API keys used with API Key authentications.
+    # Defines Tokens used with Token authentications.
     #
-    # @return [Hash] key: parameter name, value: parameter value (API key)
-    #
-    # @example parameter name is "api_key", API key is "xxx" (e.g. "api_key=xxx" in query string)
-    #   config.api_key['api_key'] = 'xxx'
-    attr_accessor :api_key
+    # @return [String]
+    attr_accessor :token
 
-    # Defines API key prefixes used with API Key authentications.
+    # Defines Token prefixes used with Token authentications.
+    # Default to 'Bearer'.
     #
-    # @return [Hash] key: parameter name, value: API key prefix
-    #
-    # @example parameter name is "Authorization", API key prefix is "Token" (e.g. "Authorization: Token xxx" in headers)
-    #   config.api_key_prefix['api_key'] = 'Token'
-    attr_accessor :api_key_prefix
+    # @return [String]
+    attr_accessor :token_prefix
 
     # Defines the username used with HTTP basic authentication.
     #
@@ -151,8 +146,8 @@ module Ionoscloud
       @server_operation_index = {}
       @server_variables = {}
       @server_operation_variables = {}
-      @api_key = {}
-      @api_key_prefix = {}
+      @token = nil
+      @token_prefix = 'Bearer'
       @timeout = 0
       @client_side_validation = true
       @verify_ssl = true
@@ -204,16 +199,6 @@ module Ionoscloud
       server_url(index, server_operation_variables.fetch(operation, server_variables), operation_server_settings[operation])
     end
 
-    # Gets API key (with prefix if set).
-    # @param [String] param_name the parameter name of API key auth
-    def api_key_with_prefix(param_name)
-      if @api_key_prefix[param_name]
-        "#{@api_key_prefix[param_name]} #{@api_key[param_name]}"
-      else
-        @api_key[param_name]
-      end
-    end
-
     # Gets Basic Auth token string
     def basic_auth_token
       'Basic ' + ["#{username}:#{password}"].pack('m').delete("\r\n")
@@ -231,10 +216,10 @@ module Ionoscloud
           },
         'Token Authentication' =>
           {
-            type: 'api_key',
+            type: 'token',
             in: 'header',
             key: 'Authorization',
-            value: api_key_with_prefix('Authorization')
+            value: token.nil? ? nil : "#{token_prefix} #{token}"
           },
       }
     end
