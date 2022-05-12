@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 6.0.2 \(May 12th, 2022\)
+
+### Enhancements:
+
+* added token authentication
+* removed public field from KubernetesCluster
+* removed gateway_ip field from KubernetesNodePoolProperties
+
 ## 6.0.1 \(March 15th, 2022\)
 
 ### Enhancements:
