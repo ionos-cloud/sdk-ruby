@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 6.1.0 \(June 15th, 2022\)
+
+### Enhancements:
+
+* added Application Load Balancer and Target Group, 18 new models and 2 new apis
+
 ## 6.0.2 \(May 12th, 2022\)
 
 ### Enhancements:
