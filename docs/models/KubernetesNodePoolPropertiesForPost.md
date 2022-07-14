@@ -42,6 +42,7 @@ instance = Ionoscloud::KubernetesNodePoolPropertiesForPost.new(
   lans: null,
   labels: null,
   annotations: null,
-  public_ips: [81.173.1.2, 82.231.2.5, 92.221.2.4],
+  public_ips: [81.173.1.2, 82.231.2.5, 92.221.2.4]
+)
 ```
 

@@ -139,7 +139,7 @@ module Ionoscloud
 
         :'public_ips' => :'publicIps',
 
-        :'available_upgrade_versions' => :'availableUpgradeVersions',
+        :'available_upgrade_versions' => :'availableUpgradeVersions'
       }
     end
 
@@ -184,7 +184,7 @@ module Ionoscloud
 
         :'public_ips' => :'Array<String>',
 
-        :'available_upgrade_versions' => :'Array<String>',
+        :'available_upgrade_versions' => :'Array<String>'
       }
     end
 
@@ -478,7 +478,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, datacenter_id, node_count, cpu_family, cores_count, ram_size, availability_zone, storage_type, storage_size, k8s_version, maintenance_window, auto_scaling, lans, labels, annotations, public_ips, available_upgrade_versions, ].hash
+      [name, datacenter_id, node_count, cpu_family, cores_count, ram_size, availability_zone, storage_type, storage_size, k8s_version, maintenance_window, auto_scaling, lans, labels, annotations, public_ips, available_upgrade_versions].hash
     end
 
     # Builds the object from hash

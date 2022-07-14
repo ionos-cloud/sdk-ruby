@@ -98,6 +98,10 @@ module Ionoscloud
     # The UUID of the attached server.
     attr_accessor :boot_server
 
+
+    # Determines whether the volume will be used as a boot volume. Set to `NONE`, the volume will not be used as boot volume. Set to `PRIMARY`, the volume will be used as boot volume and all other volumes must be set to `NONE`. Set to `AUTO` or `null` requires all volumes to be set to `AUTO` or `null`; this will use the legacy behavior, which is to use the volume as a boot volume only if there are no other volumes or cdrom devices.
+    attr_accessor :boot_order
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -164,7 +168,9 @@ module Ionoscloud
 
         :'user_data' => :'userData',
 
-        :'boot_server' => :'bootServer'
+        :'boot_server' => :'bootServer',
+
+        :'boot_order' => :'bootOrder'
       }
     end
 
@@ -217,7 +223,9 @@ module Ionoscloud
 
         :'user_data' => :'String',
 
-        :'boot_server' => :'String'
+        :'boot_server' => :'String',
+
+        :'boot_order' => :'String'
       }
     end
 
@@ -225,6 +233,7 @@ module Ionoscloud
     def self.openapi_nullable
       Set.new([
         
+
 
 
 
@@ -367,6 +376,13 @@ module Ionoscloud
       if attributes.key?(:'boot_server')
         self.boot_server = attributes[:'boot_server']
       end
+
+
+      if attributes.key?(:'boot_order')
+        self.boot_order = attributes[:'boot_order']
+      else
+        self.boot_order = 'AUTO'
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -379,6 +395,7 @@ module Ionoscloud
       if @size.nil?
         invalid_properties.push('invalid value for "size", size cannot be nil.')
       end
+
 
 
 
@@ -434,6 +451,9 @@ module Ionoscloud
 
 
 
+
+      boot_order_validator = EnumAttributeValidator.new('String', ["AUTO", "NONE", "PRIMARY"])
+      return false unless boot_order_validator.valid?(@boot_order)
       true
     end
 
@@ -498,6 +518,17 @@ module Ionoscloud
 
 
 
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] boot_order Object to be assigned
+    def boot_order=(boot_order)
+      validator = EnumAttributeValidator.new('String', ["AUTO", "NONE", "PRIMARY"])
+      unless validator.valid?(boot_order)
+        fail ArgumentError, "invalid value for \"boot_order\", must be one of #{validator.allowable_values}."
+      end
+      @boot_order = boot_order
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -523,7 +554,8 @@ module Ionoscloud
         pci_slot == o.pci_slot &&
         backupunit_id == o.backupunit_id &&
         user_data == o.user_data &&
-        boot_server == o.boot_server
+        boot_server == o.boot_server &&
+        boot_order == o.boot_order
     end
 
     # @see the `==` method
@@ -535,7 +567,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, type, size, availability_zone, image, image_password, image_alias, ssh_keys, bus, licence_type, cpu_hot_plug, ram_hot_plug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, device_number, pci_slot, backupunit_id, user_data, boot_server].hash
+      [name, type, size, availability_zone, image, image_password, image_alias, ssh_keys, bus, licence_type, cpu_hot_plug, ram_hot_plug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, device_number, pci_slot, backupunit_id, user_data, boot_server, boot_order].hash
     end
 
     # Builds the object from hash

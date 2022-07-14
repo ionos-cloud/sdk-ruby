@@ -44,6 +44,7 @@ instance = Ionoscloud::KubernetesNodePoolProperties.new(
   labels: null,
   annotations: null,
   public_ips: [81.173.1.2, 82.231.2.5, 92.221.2.4],
-  available_upgrade_versions: [1.16.4, 1.17.7],
+  available_upgrade_versions: [1.16.4, 1.17.7]
+)
 ```
 

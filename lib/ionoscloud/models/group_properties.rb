@@ -67,6 +67,10 @@ module Ionoscloud
     # Privilege for a group to access and manage certificates.
     attr_accessor :access_and_manage_certificates
 
+
+    # Privilege for a group to manage DBaaS related functionality.
+    attr_accessor :manage_dbaas
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -95,7 +99,9 @@ module Ionoscloud
 
         :'access_and_manage_monitoring' => :'accessAndManageMonitoring',
 
-        :'access_and_manage_certificates' => :'accessAndManageCertificates'
+        :'access_and_manage_certificates' => :'accessAndManageCertificates',
+
+        :'manage_dbaas' => :'manageDbaas'
       }
     end
 
@@ -132,7 +138,9 @@ module Ionoscloud
 
         :'access_and_manage_monitoring' => :'Boolean',
 
-        :'access_and_manage_certificates' => :'Boolean'
+        :'access_and_manage_certificates' => :'Boolean',
+
+        :'manage_dbaas' => :'Boolean'
       }
     end
 
@@ -140,6 +148,7 @@ module Ionoscloud
     def self.openapi_nullable
       Set.new([
         
+
 
 
 
@@ -234,6 +243,11 @@ module Ionoscloud
       if attributes.key?(:'access_and_manage_certificates')
         self.access_and_manage_certificates = attributes[:'access_and_manage_certificates']
       end
+
+
+      if attributes.key?(:'manage_dbaas')
+        self.manage_dbaas = attributes[:'manage_dbaas']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -241,6 +255,7 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
 
 
 
@@ -272,10 +287,12 @@ module Ionoscloud
 
 
 
+
       true
     end
 
     
+
 
 
 
@@ -305,7 +322,8 @@ module Ionoscloud
         create_k8s_cluster == o.create_k8s_cluster &&
         create_flow_log == o.create_flow_log &&
         access_and_manage_monitoring == o.access_and_manage_monitoring &&
-        access_and_manage_certificates == o.access_and_manage_certificates
+        access_and_manage_certificates == o.access_and_manage_certificates &&
+        manage_dbaas == o.manage_dbaas
     end
 
     # @see the `==` method
@@ -317,7 +335,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, create_data_center, create_snapshot, reserve_ip, access_activity_log, create_pcc, s3_privilege, create_backup_unit, create_internet_access, create_k8s_cluster, create_flow_log, access_and_manage_monitoring, access_and_manage_certificates].hash
+      [name, create_data_center, create_snapshot, reserve_ip, access_activity_log, create_pcc, s3_privilege, create_backup_unit, create_internet_access, create_k8s_cluster, create_flow_log, access_and_manage_monitoring, access_and_manage_certificates, manage_dbaas].hash
     end
 
     # Builds the object from hash

@@ -409,6 +409,7 @@ module Ionoscloud
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
     # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
+    # @option opts [Boolean] :delete_volumes If true, all attached storage volumes will also be deleted.
     # @return [nil]
     def datacenters_servers_delete(datacenter_id, server_id, opts = {})
       datacenters_servers_delete_with_http_info(datacenter_id, server_id, opts)
@@ -423,6 +424,7 @@ module Ionoscloud
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
     # @option opts [Integer] :x_contract_number Users with multiple contracts must provide the contract number, for which all API requests are to be executed.
+    # @option opts [Boolean] :delete_volumes If true, all attached storage volumes will also be deleted.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def datacenters_servers_delete_with_http_info(datacenter_id, server_id, opts = {})
       if @api_client.config.debugging
@@ -451,6 +453,7 @@ module Ionoscloud
       query_params = opts[:query_params] || {}
       query_params[:'pretty'] = opts[:'pretty'] if !opts[:'pretty'].nil?
       query_params[:'depth'] = opts[:'depth'] if !opts[:'depth'].nil?
+      query_params[:'deleteVolumes'] = opts[:'delete_volumes'] if !opts[:'delete_volumes'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

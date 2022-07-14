@@ -17,6 +17,7 @@
 | **create_flow_log** | **Boolean** | Create Flow Logs privilege. | [optional] |
 | **access_and_manage_monitoring** | **Boolean** | Privilege for a group to access and manage monitoring related functionality (access metrics, CRUD on alarms, alarm-actions etc) using Monotoring-as-a-Service (MaaS). | [optional] |
 | **access_and_manage_certificates** | **Boolean** | Privilege for a group to access and manage certificates. | [optional] |
+| **manage_dbaas** | **Boolean** | Privilege for a group to manage DBaaS related functionality. | [optional] |
 
 ## Example
 
@@ -36,7 +37,8 @@ instance = Ionoscloud::GroupProperties.new(
   create_k8s_cluster: null,
   create_flow_log: null,
   access_and_manage_monitoring: null,
-  access_and_manage_certificates: null
+  access_and_manage_certificates: null,
+  manage_dbaas: null
 )
 ```
 
