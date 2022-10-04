@@ -1,8 +1,8 @@
 # Ruby SDK
 
 
-**NOTE:**
-Be aware that the SDK Ruby v6 will become main branch and it will be using the latest stable API Version.
+**NOTE:
+_Please consider using SDK Ruby v6 releases that are using IONOS Cloud API Version 6, the latest stable API version. New features and improvements will be integrated in IONOS Cloud API Version 6._**
 
 ---
 

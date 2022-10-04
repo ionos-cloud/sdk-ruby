@@ -13,6 +13,8 @@
 
 
 # Ruby API Client For IONOS Cloud
+**NOTE:
+_Please consider using SDK Ruby v6 releases that are using IONOS Cloud API Version 6, the latest stable API version. New features and improvements will be integrated in IONOS Cloud API Version 6._**
 
 An enterprise-grade Infrastructure is provided as a Service (IaaS) solution that can be managed through a browser-based \"Data Center Designer\" (DCD) tool or via an easy to use API. 
 
