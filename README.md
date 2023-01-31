@@ -63,4 +63,4 @@ Include the Ruby code directly using `-I` as follows:
 ruby -Ilib script.rb
 ```
 
-## Our latest, most up to date documentation is available [here](https://github.com/ionos-cloud/sdk-ruby/blob/master/docs/README.md)
+## Our latest, most up to date documentation is available [here](https://github.com/ionos-cloud/sdk-ruby/tree/master/docs)
