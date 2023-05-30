@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class NatGatewayLanProperties
   
-    # Id for the LAN connected to the NAT Gateway
-    attr_accessor :id
-
-
     # Collection of gateway IP addresses of the NAT Gateway. Will be auto-generated if not provided. Should ideally be an IP belonging to the same subnet as the LAN
     attr_accessor :gateway_ips
+
+
+    # Id for the LAN connected to the NAT Gateway
+    attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'id' => :'id',
+        :'gateway_ips' => :'gatewayIps',
 
-        :'gateway_ips' => :'gatewayIps'
+        :'id' => :'id'
       }
     end
 
@@ -42,9 +42,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'Integer',
+        :'gateway_ips' => :'Array<String>',
 
-        :'gateway_ips' => :'Array<String>'
+        :'id' => :'Integer'
       }
     end
 
@@ -72,13 +72,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'gateway_ips') && (value = attributes[:'gateway_ips']).is_a?(Array)
+        self.gateway_ips = value
       end
 
 
-      if attributes.key?(:'gateway_ips') && (value = attributes[:'gateway_ips']).is_a?(Array)
-        self.gateway_ips = value
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
     end
 
@@ -87,10 +87,10 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
-
 
       invalid_properties
     end
@@ -99,8 +99,8 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @id.nil?
 
+      return false if @id.nil?
       true
     end
 
@@ -111,8 +111,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        gateway_ips == o.gateway_ips
+        gateway_ips == o.gateway_ips &&
+        id == o.id
     end
 
     # @see the `==` method
@@ -124,7 +124,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, gateway_ips].hash
+      [gateway_ips, id].hash
     end
 
     # Builds the object from hash

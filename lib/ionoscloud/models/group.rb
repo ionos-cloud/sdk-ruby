@@ -16,36 +16,36 @@ require 'time'
 module Ionoscloud
   class Group
   
-    # The resource's unique identifier.
-    attr_accessor :id
-
-
-    # The type of the resource.
-    attr_accessor :type
+    attr_accessor :entities
 
 
     # URL to the object representation (absolute path).
     attr_accessor :href
 
 
+    # The resource's unique identifier.
+    attr_accessor :id
+
+
     attr_accessor :properties
 
 
-    attr_accessor :entities
+    # The type of the resource.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'type' => :'type',
+        :'entities' => :'entities',
 
         :'href' => :'href',
 
+        :'id' => :'id',
+
         :'properties' => :'properties',
 
-        :'entities' => :'entities'
+        :'type' => :'type'
       }
     end
 
@@ -58,15 +58,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'type' => :'Type',
+        :'entities' => :'GroupEntities',
 
         :'href' => :'String',
 
+        :'id' => :'String',
+
         :'properties' => :'GroupProperties',
 
-        :'entities' => :'GroupEntities'
+        :'type' => :'Type'
       }
     end
 
@@ -97,13 +97,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'entities')
+        self.entities = attributes[:'entities']
       end
 
 
@@ -112,13 +107,18 @@ module Ionoscloud
       end
 
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+
       if attributes.key?(:'properties')
         self.properties = attributes[:'properties']
       end
 
 
-      if attributes.key?(:'entities')
-        self.entities = attributes[:'entities']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -160,11 +160,11 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        type == o.type &&
+        entities == o.entities &&
         href == o.href &&
+        id == o.id &&
         properties == o.properties &&
-        entities == o.entities
+        type == o.type
     end
 
     # @see the `==` method
@@ -176,7 +176,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href, properties, entities].hash
+      [entities, href, id, properties, type].hash
     end
 
     # Builds the object from hash

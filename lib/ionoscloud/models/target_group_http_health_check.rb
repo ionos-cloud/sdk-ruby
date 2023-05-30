@@ -16,28 +16,28 @@ require 'time'
 module Ionoscloud
   class TargetGroupHttpHealthCheck
   
-    # The path (destination URL) for the HTTP health check request; the default is /.
-    attr_accessor :path
-
-
-    # The method for the HTTP health check.
-    attr_accessor :method
-
-
-    # 
+    # Specify the target's response type to match ALB's request.
     attr_accessor :match_type
 
 
-    # The response returned by the request, depending on the match type.
-    attr_accessor :response
+    # The method used for the health check request.
+    attr_accessor :method
 
 
-    # 
+    # Specifies whether to negate an individual entry; the default value is 'FALSE'.
+    attr_accessor :negate
+
+
+    # The destination URL for HTTP the health check; the default is '/'.
+    attr_accessor :path
+
+
+    # Specifies whether to use a regular expression to parse the response body; the default value is 'FALSE'.  By using regular expressions, you can flexibly customize the expected response from a healthy server.
     attr_accessor :regex
 
 
-    # 
-    attr_accessor :negate
+    # The response returned by the request. It can be a status code or a response body depending on the definition of 'matchType'.
+    attr_accessor :response
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -65,17 +65,17 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'path' => :'path',
+        :'match_type' => :'matchType',
 
         :'method' => :'method',
 
-        :'match_type' => :'matchType',
+        :'negate' => :'negate',
 
-        :'response' => :'response',
+        :'path' => :'path',
 
         :'regex' => :'regex',
 
-        :'negate' => :'negate'
+        :'response' => :'response'
       }
     end
 
@@ -88,17 +88,17 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'path' => :'String',
+        :'match_type' => :'String',
 
         :'method' => :'String',
 
-        :'match_type' => :'String',
+        :'negate' => :'Boolean',
 
-        :'response' => :'String',
+        :'path' => :'String',
 
         :'regex' => :'Boolean',
 
-        :'negate' => :'Boolean'
+        :'response' => :'String'
       }
     end
 
@@ -130,8 +130,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'path')
-        self.path = attributes[:'path']
+      if attributes.key?(:'match_type')
+        self.match_type = attributes[:'match_type']
       end
 
 
@@ -140,13 +140,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'match_type')
-        self.match_type = attributes[:'match_type']
+      if attributes.key?(:'negate')
+        self.negate = attributes[:'negate']
       end
 
 
-      if attributes.key?(:'response')
-        self.response = attributes[:'response']
+      if attributes.key?(:'path')
+        self.path = attributes[:'path']
       end
 
 
@@ -155,8 +155,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'negate')
-        self.negate = attributes[:'negate']
+      if attributes.key?(:'response')
+        self.response = attributes[:'response']
       end
     end
 
@@ -165,18 +165,18 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-
-
       if @match_type.nil?
         invalid_properties.push('invalid value for "match_type", match_type cannot be nil.')
       end
 
 
+
+
+
+
       if @response.nil?
         invalid_properties.push('invalid value for "response", response cannot be nil.')
       end
-
-
 
       invalid_properties
     end
@@ -185,21 +185,31 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-
-      method_validator = EnumAttributeValidator.new('String', ["HEAD", "PUT", "POST", "GET", "TRACE", "PATCH", "OPTIONS"])
-      return false unless method_validator.valid?(@method)
-
       return false if @match_type.nil?
       match_type_validator = EnumAttributeValidator.new('String', ["STATUS_CODE", "RESPONSE_BODY"])
       return false unless match_type_validator.valid?(@match_type)
 
+      method_validator = EnumAttributeValidator.new('String', ["HEAD", "PUT", "POST", "GET", "TRACE", "PATCH", "OPTIONS"])
+      return false unless method_validator.valid?(@method)
+
+
+
+
       return false if @response.nil?
-
-
       true
     end
 
     
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] match_type Object to be assigned
+    def match_type=(match_type)
+      validator = EnumAttributeValidator.new('String', ["STATUS_CODE", "RESPONSE_BODY"])
+      unless validator.valid?(match_type)
+        fail ArgumentError, "invalid value for \"match_type\", must be one of #{validator.allowable_values}."
+      end
+      @match_type = match_type
+    end
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] method Object to be assigned
@@ -212,16 +222,6 @@ module Ionoscloud
     end
 
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] match_type Object to be assigned
-    def match_type=(match_type)
-      validator = EnumAttributeValidator.new('String', ["STATUS_CODE", "RESPONSE_BODY"])
-      unless validator.valid?(match_type)
-        fail ArgumentError, "invalid value for \"match_type\", must be one of #{validator.allowable_values}."
-      end
-      @match_type = match_type
-    end
-
 
 
 
@@ -230,12 +230,12 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        path == o.path &&
-        method == o.method &&
         match_type == o.match_type &&
-        response == o.response &&
+        method == o.method &&
+        negate == o.negate &&
+        path == o.path &&
         regex == o.regex &&
-        negate == o.negate
+        response == o.response
     end
 
     # @see the `==` method
@@ -247,7 +247,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [path, method, match_type, response, regex, negate].hash
+      [match_type, method, negate, path, regex, response].hash
     end
 
     # Builds the object from hash

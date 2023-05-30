@@ -70,7 +70,7 @@ module Ionoscloud
         fail ArgumentError, 'invalid value for "opts[:"depth"]" when calling VolumesApi.datacenters_volumes_create_snapshot_post, must be greater than or equal to 0.'
       end
 
-      allowable_values = ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "LINUX", "OTHER"]
+      allowable_values = ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "RHEL", "LINUX", "OTHER"]
       if @api_client.config.client_side_validation && opts[:'licence_type'] && !allowable_values.include?(opts[:'licence_type'])
         fail ArgumentError, "invalid value for \"licence_type\", must be one of #{allowable_values}"
       end
@@ -487,8 +487,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create volumes
-    # Create a storage volume within the specified data center. The volume will not be attached! Attaching volumes is described in the Servers section.
+    # Create a Volume
+    # Creates a storage volume within the specified data center. The volume will not be attached! Attaching volumes is described in the Servers section.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume [Volume] The volume to create.
     # @param [Hash] opts the optional parameters
@@ -501,8 +501,8 @@ module Ionoscloud
       data
     end
 
-    # Create volumes
-    # Create a storage volume within the specified data center. The volume will not be attached! Attaching volumes is described in the Servers section.
+    # Create a Volume
+    # Creates a storage volume within the specified data center. The volume will not be attached! Attaching volumes is described in the Servers section.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume [Volume] The volume to create.
     # @param [Hash] opts the optional parameters
@@ -575,8 +575,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify volumes
-    # Modify the properties of the specified volume within the data center.
+    # Modify a Volume by ID
+    # Modifies the properties of the specified volume within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume_id [String] The unique ID of the volume.
     # @param volume [Volume] The modified volume
@@ -590,8 +590,8 @@ module Ionoscloud
       data
     end
 
-    # Modify volumes
-    # Modify the properties of the specified volume within the data center.
+    # Modify a Volume by ID
+    # Modifies the properties of the specified volume within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume_id [String] The unique ID of the volume.
     # @param volume [Volume] The modified volume

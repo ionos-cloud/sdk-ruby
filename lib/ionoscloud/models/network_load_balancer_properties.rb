@@ -16,38 +16,38 @@ require 'time'
 module Ionoscloud
   class NetworkLoadBalancerProperties
   
-    # The name of the Network Load Balancer.
-    attr_accessor :name
+    # Collection of the Network Load Balancer IP addresses. (Inbound and outbound) IPs of the listenerLan must be customer-reserved IPs for public Load Balancers, and private IPs for private Load Balancers.
+    attr_accessor :ips
+
+
+    # Collection of private IP addresses with subnet mask of the Network Load Balancer. IPs must contain a valid subnet mask. If no IP is provided, the system will generate an IP with /24 subnet.
+    attr_accessor :lb_private_ips
 
 
     # ID of the listening LAN (inbound).
     attr_accessor :listener_lan
 
 
-    # Collection of the Network Load Balancer IP addresses. (Inbound and outbound) IPs of the listenerLan must be customer-reserved IPs for public Load Balancers, and private IPs for private Load Balancers.
-    attr_accessor :ips
+    # The name of the Network Load Balancer.
+    attr_accessor :name
 
 
     # ID of the balanced private target LAN (outbound).
     attr_accessor :target_lan
 
-
-    # Collection of private IP addresses with subnet mask of the Network Load Balancer. IPs must contain a valid subnet mask. If no IP is provided, the system will generate an IP with /24 subnet.
-    attr_accessor :lb_private_ips
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'ips' => :'ips',
+
+        :'lb_private_ips' => :'lbPrivateIps',
 
         :'listener_lan' => :'listenerLan',
 
-        :'ips' => :'ips',
+        :'name' => :'name',
 
-        :'target_lan' => :'targetLan',
-
-        :'lb_private_ips' => :'lbPrivateIps'
+        :'target_lan' => :'targetLan'
       }
     end
 
@@ -60,15 +60,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'ips' => :'Array<String>',
+
+        :'lb_private_ips' => :'Array<String>',
 
         :'listener_lan' => :'Integer',
 
-        :'ips' => :'Array<String>',
+        :'name' => :'String',
 
-        :'target_lan' => :'Integer',
-
-        :'lb_private_ips' => :'Array<String>'
+        :'target_lan' => :'Integer'
       }
     end
 
@@ -99,8 +99,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'ips') && (value = attributes[:'ips']).is_a?(Array)
+        self.ips = value
+      end
+
+
+      if attributes.key?(:'lb_private_ips') && (value = attributes[:'lb_private_ips']).is_a?(Array)
+        self.lb_private_ips = value
       end
 
 
@@ -109,18 +114,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'ips') && (value = attributes[:'ips']).is_a?(Array)
-        self.ips = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
       if attributes.key?(:'target_lan')
         self.target_lan = attributes[:'target_lan']
-      end
-
-
-      if attributes.key?(:'lb_private_ips') && (value = attributes[:'lb_private_ips']).is_a?(Array)
-        self.lb_private_ips = value
       end
     end
 
@@ -129,9 +129,6 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
 
 
       if @listener_lan.nil?
@@ -139,11 +136,14 @@ module Ionoscloud
       end
 
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
 
       if @target_lan.nil?
         invalid_properties.push('invalid value for "target_lan", target_lan cannot be nil.')
       end
-
 
       invalid_properties
     end
@@ -152,13 +152,13 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @name.nil?
+
 
       return false if @listener_lan.nil?
 
+      return false if @name.nil?
 
       return false if @target_lan.nil?
-
       true
     end
 
@@ -172,11 +172,11 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
-        listener_lan == o.listener_lan &&
         ips == o.ips &&
-        target_lan == o.target_lan &&
-        lb_private_ips == o.lb_private_ips
+        lb_private_ips == o.lb_private_ips &&
+        listener_lan == o.listener_lan &&
+        name == o.name &&
+        target_lan == o.target_lan
     end
 
     # @see the `==` method
@@ -188,7 +188,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, listener_lan, ips, target_lan, lb_private_ips].hash
+      [ips, lb_private_ips, listener_lan, name, target_lan].hash
     end
 
     # Builds the object from hash

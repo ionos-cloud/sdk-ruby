@@ -4,21 +4,29 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
-| **type** | [**Type**](Type.md) | The type of the resource. | [optional] |
+
 | **href** | **String** | URL to the object representation (absolute path). | [optional][readonly] |
+
+| **id** | **String** | The resource&#39;s unique identifier. | [optional][readonly] |
+
 | **items** | [**Array&lt;Resource&gt;**](Resource.md) | Array of items in the collection. | [optional][readonly] |
+
+| **type** | [**Type**](Type.md) | The type of the resource. | [optional] |
 
 ## Example
 
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::Resources.new(
-  id: 15f67991-0f51-4efc-a8ad-ef1fb31a480c,
-  type: "collection",
   href: https://<API_HOST>/cloudapi/v6/um/resources,
-  items: null
+
+  id: 15f67991-0f51-4efc-a8ad-ef1fb31a480c,
+
+  items: null,
+
+  type: "collection"
 )
 ```
 

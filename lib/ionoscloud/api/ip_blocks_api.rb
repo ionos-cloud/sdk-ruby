@@ -359,8 +359,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Reserve IP blocks
-    # Reserve a new IP block.
+    # Reserve a IP Block
+    # Reserves a new IP block.
     # @param ipblock [IpBlock] The IP block to be reserved.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -372,8 +372,8 @@ module Ionoscloud
       data
     end
 
-    # Reserve IP blocks
-    # Reserve a new IP block.
+    # Reserve a IP Block
+    # Reserves a new IP block.
     # @param ipblock [IpBlock] The IP block to be reserved.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -441,8 +441,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify IP blocks
-    # Modify the properties of the specified IP block.
+    # Modify a IP Block by ID
+    # Modifies the properties of the specified IP block.
     # @param ipblock_id [String] The unique ID of the IP block.
     # @param ipblock [IpBlock] The modified IP block.
     # @param [Hash] opts the optional parameters
@@ -455,8 +455,8 @@ module Ionoscloud
       data
     end
 
-    # Modify IP blocks
-    # Modify the properties of the specified IP block.
+    # Modify a IP Block by ID
+    # Modifies the properties of the specified IP block.
     # @param ipblock_id [String] The unique ID of the IP block.
     # @param ipblock [IpBlock] The modified IP block.
     # @param [Hash] opts the optional parameters

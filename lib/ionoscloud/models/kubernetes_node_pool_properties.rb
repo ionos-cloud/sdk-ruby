@@ -16,70 +16,70 @@ require 'time'
 module Ionoscloud
   class KubernetesNodePoolProperties
   
-    # A Kubernetes node pool name. Valid Kubernetes node pool name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
-    attr_accessor :name
+    # The annotations attached to the node pool.
+    attr_accessor :annotations
 
 
-    # A valid ID of the data center, to which user has access.
-    attr_accessor :datacenter_id
-
-
-    # The number of nodes that make up the node pool.
-    attr_accessor :node_count
-
-
-    # A valid CPU family name.
-    attr_accessor :cpu_family
-
-
-    # The number of cores for the node.
-    attr_accessor :cores_count
-
-
-    # The RAM size for the node. Must be set in multiples of 1024 MB, with minimum size is of 2048 MB.
-    attr_accessor :ram_size
+    attr_accessor :auto_scaling
 
 
     # The availability zone in which the target VM should be provisioned.
     attr_accessor :availability_zone
 
 
-    # The type of hardware for the volume.
-    attr_accessor :storage_type
+    # The list of available versions for upgrading the node pool.
+    attr_accessor :available_upgrade_versions
 
 
-    # The size of the volume in GB. The size should be greater than 10GB.
-    attr_accessor :storage_size
+    # The total number of cores for the nodes.
+    attr_accessor :cores_count
 
 
-    # The Kubernetes version the nodepool is running. This imposes restrictions on what Kubernetes versions can be run in a cluster's nodepools. Additionally, not all Kubernetes versions are viable upgrade targets for all prior versions.
+    # The CPU type for the nodes.
+    attr_accessor :cpu_family
+
+
+    # The unique identifier of the VDC where the worker nodes of the node pool are provisioned.Note that the data center is located in the exact place where the parent cluster of the node pool is located.
+    attr_accessor :datacenter_id
+
+
+    # The Kubernetes version running in the node pool. Note that this imposes restrictions on which Kubernetes versions can run in the node pools of a cluster. Also, not all Kubernetes versions are suitable upgrade targets for all earlier versions.
     attr_accessor :k8s_version
+
+
+    # The labels attached to the node pool.
+    attr_accessor :labels
+
+
+    # The array of existing private LANs to attach to worker nodes.
+    attr_accessor :lans
 
 
     attr_accessor :maintenance_window
 
 
-    attr_accessor :auto_scaling
+    # A Kubernetes node pool name. Valid Kubernetes node pool name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
+    attr_accessor :name
 
 
-    # array of additional LANs attached to worker nodes
-    attr_accessor :lans
+    # The number of worker nodes of the node pool.
+    attr_accessor :node_count
 
 
-    # map of labels attached to node pool.
-    attr_accessor :labels
-
-
-    # map of annotations attached to node pool.
-    attr_accessor :annotations
-
-
-    # Optional array of reserved public IP addresses to be used by the nodes. IPs must be from same location as the data center used for the node pool. The array must contain one more IP than maximum number possible number of nodes (nodeCount+1 for fixed number of nodes or maxNodeCount+1 when auto scaling is used). The extra IP is used when the nodes are rebuilt.
+    # Optional array of reserved public IP addresses to be used by the nodes. The IPs must be from the exact location of the node pool's data center. If autoscaling is used, the array must contain one more IP than the maximum possible number of nodes (nodeCount+1 for a fixed number of nodes or maxNodeCount+1). The extra IP is used when the nodes are rebuilt.
     attr_accessor :public_ips
 
 
-    # List of available versions for upgrading the node pool.
-    attr_accessor :available_upgrade_versions
+    # The RAM size for the nodes. Must be specified in multiples of 1024 MB, with a minimum size of 2048 MB.
+    attr_accessor :ram_size
+
+
+    # The allocated volume size in GB. The allocated volume size in GB. To achieve good performance, we recommend a size greater than 100GB for SSD.
+    attr_accessor :storage_size
+
+
+    # The storage type for the nodes.
+    attr_accessor :storage_type
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -107,39 +107,39 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
-        :'datacenter_id' => :'datacenterId',
-
-        :'node_count' => :'nodeCount',
-
-        :'cpu_family' => :'cpuFamily',
-
-        :'cores_count' => :'coresCount',
-
-        :'ram_size' => :'ramSize',
-
-        :'availability_zone' => :'availabilityZone',
-
-        :'storage_type' => :'storageType',
-
-        :'storage_size' => :'storageSize',
-
-        :'k8s_version' => :'k8sVersion',
-
-        :'maintenance_window' => :'maintenanceWindow',
+        :'annotations' => :'annotations',
 
         :'auto_scaling' => :'autoScaling',
 
-        :'lans' => :'lans',
+        :'availability_zone' => :'availabilityZone',
+
+        :'available_upgrade_versions' => :'availableUpgradeVersions',
+
+        :'cores_count' => :'coresCount',
+
+        :'cpu_family' => :'cpuFamily',
+
+        :'datacenter_id' => :'datacenterId',
+
+        :'k8s_version' => :'k8sVersion',
 
         :'labels' => :'labels',
 
-        :'annotations' => :'annotations',
+        :'lans' => :'lans',
+
+        :'maintenance_window' => :'maintenanceWindow',
+
+        :'name' => :'name',
+
+        :'node_count' => :'nodeCount',
 
         :'public_ips' => :'publicIps',
 
-        :'available_upgrade_versions' => :'availableUpgradeVersions'
+        :'ram_size' => :'ramSize',
+
+        :'storage_size' => :'storageSize',
+
+        :'storage_type' => :'storageType'
       }
     end
 
@@ -152,39 +152,39 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
-        :'datacenter_id' => :'String',
-
-        :'node_count' => :'Integer',
-
-        :'cpu_family' => :'String',
-
-        :'cores_count' => :'Integer',
-
-        :'ram_size' => :'Integer',
-
-        :'availability_zone' => :'String',
-
-        :'storage_type' => :'String',
-
-        :'storage_size' => :'Integer',
-
-        :'k8s_version' => :'String',
-
-        :'maintenance_window' => :'KubernetesMaintenanceWindow',
+        :'annotations' => :'Hash<String, String>',
 
         :'auto_scaling' => :'KubernetesAutoScaling',
 
-        :'lans' => :'Array<KubernetesNodePoolLan>',
+        :'availability_zone' => :'String',
+
+        :'available_upgrade_versions' => :'Array<String>',
+
+        :'cores_count' => :'Integer',
+
+        :'cpu_family' => :'String',
+
+        :'datacenter_id' => :'String',
+
+        :'k8s_version' => :'String',
 
         :'labels' => :'Hash<String, String>',
 
-        :'annotations' => :'Hash<String, String>',
+        :'lans' => :'Array<KubernetesNodePoolLan>',
+
+        :'maintenance_window' => :'KubernetesMaintenanceWindow',
+
+        :'name' => :'String',
+
+        :'node_count' => :'Integer',
 
         :'public_ips' => :'Array<String>',
 
-        :'available_upgrade_versions' => :'Array<String>'
+        :'ram_size' => :'Integer',
+
+        :'storage_size' => :'Integer',
+
+        :'storage_type' => :'String'
       }
     end
 
@@ -227,58 +227,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
-      if attributes.key?(:'datacenter_id')
-        self.datacenter_id = attributes[:'datacenter_id']
-      end
-
-
-      if attributes.key?(:'node_count')
-        self.node_count = attributes[:'node_count']
-      end
-
-
-      if attributes.key?(:'cpu_family')
-        self.cpu_family = attributes[:'cpu_family']
-      end
-
-
-      if attributes.key?(:'cores_count')
-        self.cores_count = attributes[:'cores_count']
-      end
-
-
-      if attributes.key?(:'ram_size')
-        self.ram_size = attributes[:'ram_size']
-      end
-
-
-      if attributes.key?(:'availability_zone')
-        self.availability_zone = attributes[:'availability_zone']
-      end
-
-
-      if attributes.key?(:'storage_type')
-        self.storage_type = attributes[:'storage_type']
-      end
-
-
-      if attributes.key?(:'storage_size')
-        self.storage_size = attributes[:'storage_size']
-      end
-
-
-      if attributes.key?(:'k8s_version')
-        self.k8s_version = attributes[:'k8s_version']
-      end
-
-
-      if attributes.key?(:'maintenance_window')
-        self.maintenance_window = attributes[:'maintenance_window']
+      if attributes.key?(:'annotations') && (value = attributes[:'annotations']).is_a?(Hash)
+        self.annotations = value
       end
 
 
@@ -287,8 +237,33 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'lans') && (value = attributes[:'lans']).is_a?(Array)
-        self.lans = value
+      if attributes.key?(:'availability_zone')
+        self.availability_zone = attributes[:'availability_zone']
+      end
+
+
+      if attributes.key?(:'available_upgrade_versions') && (value = attributes[:'available_upgrade_versions']).is_a?(Array)
+        self.available_upgrade_versions = value
+      end
+
+
+      if attributes.key?(:'cores_count')
+        self.cores_count = attributes[:'cores_count']
+      end
+
+
+      if attributes.key?(:'cpu_family')
+        self.cpu_family = attributes[:'cpu_family']
+      end
+
+
+      if attributes.key?(:'datacenter_id')
+        self.datacenter_id = attributes[:'datacenter_id']
+      end
+
+
+      if attributes.key?(:'k8s_version')
+        self.k8s_version = attributes[:'k8s_version']
       end
 
 
@@ -297,8 +272,23 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'annotations') && (value = attributes[:'annotations']).is_a?(Hash)
-        self.annotations = value
+      if attributes.key?(:'lans') && (value = attributes[:'lans']).is_a?(Array)
+        self.lans = value
+      end
+
+
+      if attributes.key?(:'maintenance_window')
+        self.maintenance_window = attributes[:'maintenance_window']
+      end
+
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'node_count')
+        self.node_count = attributes[:'node_count']
       end
 
 
@@ -307,8 +297,18 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'available_upgrade_versions') && (value = attributes[:'available_upgrade_versions']).is_a?(Array)
-        self.available_upgrade_versions = value
+      if attributes.key?(:'ram_size')
+        self.ram_size = attributes[:'ram_size']
+      end
+
+
+      if attributes.key?(:'storage_size')
+        self.storage_size = attributes[:'storage_size']
+      end
+
+
+      if attributes.key?(:'storage_type')
+        self.storage_type = attributes[:'storage_type']
       end
     end
 
@@ -317,18 +317,16 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+
+
+      if @availability_zone.nil?
+        invalid_properties.push('invalid value for "availability_zone", availability_zone cannot be nil.')
       end
 
 
-      if @datacenter_id.nil?
-        invalid_properties.push('invalid value for "datacenter_id", datacenter_id cannot be nil.')
-      end
 
-
-      if @node_count.nil?
-        invalid_properties.push('invalid value for "node_count", node_count cannot be nil.')
+      if @cores_count.nil?
+        invalid_properties.push('invalid value for "cores_count", cores_count cannot be nil.')
       end
 
 
@@ -337,23 +335,28 @@ module Ionoscloud
       end
 
 
-      if @cores_count.nil?
-        invalid_properties.push('invalid value for "cores_count", cores_count cannot be nil.')
+      if @datacenter_id.nil?
+        invalid_properties.push('invalid value for "datacenter_id", datacenter_id cannot be nil.')
       end
+
+
+
+
+
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+
+      if @node_count.nil?
+        invalid_properties.push('invalid value for "node_count", node_count cannot be nil.')
+      end
+
 
 
       if @ram_size.nil?
         invalid_properties.push('invalid value for "ram_size", ram_size cannot be nil.')
-      end
-
-
-      if @availability_zone.nil?
-        invalid_properties.push('invalid value for "availability_zone", availability_zone cannot be nil.')
-      end
-
-
-      if @storage_type.nil?
-        invalid_properties.push('invalid value for "storage_type", storage_type cannot be nil.')
       end
 
 
@@ -362,12 +365,9 @@ module Ionoscloud
       end
 
 
-
-
-
-
-
-
+      if @storage_type.nil?
+        invalid_properties.push('invalid value for "storage_type", storage_type cannot be nil.')
+      end
 
       invalid_properties
     end
@@ -376,43 +376,39 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @name.nil?
 
-      return false if @datacenter_id.nil?
-
-      return false if @node_count.nil?
-
-      return false if @cpu_family.nil?
-
-      return false if @cores_count.nil?
-
-      return false if @ram_size.nil?
 
       return false if @availability_zone.nil?
       availability_zone_validator = EnumAttributeValidator.new('String', ["AUTO", "ZONE_1", "ZONE_2"])
       return false unless availability_zone_validator.valid?(@availability_zone)
 
-      return false if @storage_type.nil?
-      storage_type_validator = EnumAttributeValidator.new('String', ["HDD", "SSD"])
-      return false unless storage_type_validator.valid?(@storage_type)
+
+      return false if @cores_count.nil?
+
+      return false if @cpu_family.nil?
+
+      return false if @datacenter_id.nil?
+
+
+
+
+
+      return false if @name.nil?
+
+      return false if @node_count.nil?
+
+
+      return false if @ram_size.nil?
 
       return false if @storage_size.nil?
 
-
-
-
-
-
-
-
+      return false if @storage_type.nil?
+      storage_type_validator = EnumAttributeValidator.new('String', ["HDD", "SSD"])
+      return false unless storage_type_validator.valid?(@storage_type)
       true
     end
 
     
-
-
-
-
 
 
     # Custom attribute writer method checking allowed values (enum).
@@ -426,6 +422,19 @@ module Ionoscloud
     end
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] storage_type Object to be assigned
     def storage_type=(storage_type)
@@ -436,37 +445,28 @@ module Ionoscloud
       @storage_type = storage_type
     end
 
-
-
-
-
-
-
-
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
-        datacenter_id == o.datacenter_id &&
-        node_count == o.node_count &&
-        cpu_family == o.cpu_family &&
-        cores_count == o.cores_count &&
-        ram_size == o.ram_size &&
-        availability_zone == o.availability_zone &&
-        storage_type == o.storage_type &&
-        storage_size == o.storage_size &&
-        k8s_version == o.k8s_version &&
-        maintenance_window == o.maintenance_window &&
-        auto_scaling == o.auto_scaling &&
-        lans == o.lans &&
-        labels == o.labels &&
         annotations == o.annotations &&
+        auto_scaling == o.auto_scaling &&
+        availability_zone == o.availability_zone &&
+        available_upgrade_versions == o.available_upgrade_versions &&
+        cores_count == o.cores_count &&
+        cpu_family == o.cpu_family &&
+        datacenter_id == o.datacenter_id &&
+        k8s_version == o.k8s_version &&
+        labels == o.labels &&
+        lans == o.lans &&
+        maintenance_window == o.maintenance_window &&
+        name == o.name &&
+        node_count == o.node_count &&
         public_ips == o.public_ips &&
-        available_upgrade_versions == o.available_upgrade_versions
+        ram_size == o.ram_size &&
+        storage_size == o.storage_size &&
+        storage_type == o.storage_type
     end
 
     # @see the `==` method
@@ -478,7 +478,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, datacenter_id, node_count, cpu_family, cores_count, ram_size, availability_zone, storage_type, storage_size, k8s_version, maintenance_window, auto_scaling, lans, labels, annotations, public_ips, available_upgrade_versions].hash
+      [annotations, auto_scaling, availability_zone, available_upgrade_versions, cores_count, cpu_family, datacenter_id, k8s_version, labels, lans, maintenance_window, name, node_count, public_ips, ram_size, storage_size, storage_type].hash
     end
 
     # Builds the object from hash

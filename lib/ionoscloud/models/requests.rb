@@ -16,49 +16,49 @@ require 'time'
 module Ionoscloud
   class Requests
   
-    # The resource's unique identifier.
-    attr_accessor :id
-
-
-    # The type of object that has been created.
-    attr_accessor :type
+    attr_accessor :_links
 
 
     # URL to the object representation (absolute path).
     attr_accessor :href
 
 
+    # The resource's unique identifier.
+    attr_accessor :id
+
+
     # Array of items in the collection.
     attr_accessor :items
-
-
-    # The offset, specified in the request (if not is specified, 0 is used by default).
-    attr_accessor :offset
 
 
     # The limit, specified in the request (if not specified, the endpoint's default pagination limit is used).
     attr_accessor :limit
 
 
-    attr_accessor :_links
+    # The offset, specified in the request (if not is specified, 0 is used by default).
+    attr_accessor :offset
+
+
+    # The type of object that has been created.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'type' => :'type',
+        :'_links' => :'_links',
 
         :'href' => :'href',
 
-        :'items' => :'items',
+        :'id' => :'id',
 
-        :'offset' => :'offset',
+        :'items' => :'items',
 
         :'limit' => :'limit',
 
-        :'_links' => :'_links'
+        :'offset' => :'offset',
+
+        :'type' => :'type'
       }
     end
 
@@ -71,19 +71,19 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'type' => :'Type',
+        :'_links' => :'PaginationLinks',
 
         :'href' => :'String',
 
-        :'items' => :'Array<Request>',
+        :'id' => :'String',
 
-        :'offset' => :'Float',
+        :'items' => :'Array<Request>',
 
         :'limit' => :'Float',
 
-        :'_links' => :'PaginationLinks'
+        :'offset' => :'Float',
+
+        :'type' => :'Type'
       }
     end
 
@@ -116,13 +116,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'_links')
+        self._links = attributes[:'_links']
       end
 
 
@@ -131,13 +126,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
-        self.items = value
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
 
-      if attributes.key?(:'offset')
-        self.offset = attributes[:'offset']
+      if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
+        self.items = value
       end
 
 
@@ -146,8 +141,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'_links')
-        self._links = attributes[:'_links']
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -156,13 +156,12 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-
-
-
-
-      if @offset.nil?
-        invalid_properties.push('invalid value for "offset", offset cannot be nil.')
+      if @_links.nil?
+        invalid_properties.push('invalid value for "_links", _links cannot be nil.')
       end
+
+
+
 
 
       if @limit.nil?
@@ -170,9 +169,10 @@ module Ionoscloud
       end
 
 
-      if @_links.nil?
-        invalid_properties.push('invalid value for "_links", _links cannot be nil.')
+      if @offset.nil?
+        invalid_properties.push('invalid value for "offset", offset cannot be nil.')
       end
+
 
       invalid_properties
     end
@@ -181,15 +181,15 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+      return false if @_links.nil?
 
 
 
-
-      return false if @offset.nil?
 
       return false if @limit.nil?
 
-      return false if @_links.nil?
+      return false if @offset.nil?
+
       true
     end
 
@@ -205,13 +205,13 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        type == o.type &&
+        _links == o._links &&
         href == o.href &&
+        id == o.id &&
         items == o.items &&
-        offset == o.offset &&
         limit == o.limit &&
-        _links == o._links
+        offset == o.offset &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -223,7 +223,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href, items, offset, limit, _links].hash
+      [_links, href, id, items, limit, offset, type].hash
     end
 
     # Builds the object from hash

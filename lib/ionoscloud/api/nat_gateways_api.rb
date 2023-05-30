@@ -565,8 +565,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create NAT Gateway Flow Logs
-    # Add a new Flow Log for the specified NAT Gateway.
+    # Create a NAT Gateway Flow Log
+    # Adds a new Flow Log to the specified NAT Gateway.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.
     # @param nat_gateway_flow_log [FlowLog] The Flow Log to create.
@@ -579,8 +579,8 @@ module Ionoscloud
       data
     end
 
-    # Create NAT Gateway Flow Logs
-    # Add a new Flow Log for the specified NAT Gateway.
+    # Create a NAT Gateway Flow Log
+    # Adds a new Flow Log to the specified NAT Gateway.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.
     # @param nat_gateway_flow_log [FlowLog] The Flow Log to create.
@@ -925,8 +925,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create NAT Gateways
-    # Create a NAT Gateway within the data center.  This operation is restricted to contract owner, admin, and users with 'createInternetAccess' privileges.
+    # Create a NAT Gateway
+    # Creates a NAT Gateway within the data center.  This operation is restricted to contract owner, admin, and users with 'createInternetAccess' privileges.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway [NatGateway] The NAT Gateway to create.
     # @param [Hash] opts the optional parameters
@@ -939,8 +939,8 @@ module Ionoscloud
       data
     end
 
-    # Create NAT Gateways
-    # Create a NAT Gateway within the data center.  This operation is restricted to contract owner, admin, and users with &#39;createInternetAccess&#39; privileges.
+    # Create a NAT Gateway
+    # Creates a NAT Gateway within the data center.  This operation is restricted to contract owner, admin, and users with &#39;createInternetAccess&#39; privileges.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway [NatGateway] The NAT Gateway to create.
     # @param [Hash] opts the optional parameters
@@ -1377,8 +1377,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Partially modify NAT Gateway rules
-    # Update the properties of the specified NAT Gateway rule.
+    # Partially Modify a NAT Gateway Rule by ID
+    # Updates the properties of the specified NAT Gateway rule.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.
     # @param nat_gateway_rule_id [String] The unique ID of the NAT Gateway rule.
@@ -1393,8 +1393,8 @@ module Ionoscloud
       data
     end
 
-    # Partially modify NAT Gateway rules
-    # Update the properties of the specified NAT Gateway rule.
+    # Partially Modify a NAT Gateway Rule by ID
+    # Updates the properties of the specified NAT Gateway rule.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.
     # @param nat_gateway_rule_id [String] The unique ID of the NAT Gateway rule.
@@ -1475,8 +1475,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create NAT Gateway rules
-    # Create a rule for the specified NAT Gateway.
+    # Create a NAT Gateway Rule
+    # Creates a rule for the specified NAT Gateway.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.
     # @param nat_gateway_rule [NatGatewayRule] The NAT Gateway rule to create.
@@ -1490,8 +1490,8 @@ module Ionoscloud
       data
     end
 
-    # Create NAT Gateway rules
-    # Create a rule for the specified NAT Gateway.
+    # Create a NAT Gateway Rule
+    # Creates a rule for the specified NAT Gateway.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.
     # @param nat_gateway_rule [NatGatewayRule] The NAT Gateway rule to create.
@@ -1569,7 +1569,7 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify NAT Gateway rules
+    # Modify a NAT Gateway Rule by ID
     # Modify the specified NAT Gateway rule.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.
@@ -1585,7 +1585,7 @@ module Ionoscloud
       data
     end
 
-    # Modify NAT Gateway rules
+    # Modify a NAT Gateway Rule by ID
     # Modify the specified NAT Gateway rule.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param nat_gateway_id [String] The unique ID of the NAT Gateway.

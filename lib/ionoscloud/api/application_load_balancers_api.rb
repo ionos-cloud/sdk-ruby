@@ -19,8 +19,8 @@ module Ionoscloud
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Delete Application Load Balancers
-    # Remove the specified Application Load Balancer from the data center..
+    # Delete an Application Load Balancer by ID
+    # Removes the specified Application Load Balancer from the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -33,8 +33,8 @@ module Ionoscloud
       nil
     end
 
-    # Delete Application Load Balancers
-    # Remove the specified Application Load Balancer from the data center..
+    # Delete an Application Load Balancer by ID
+    # Removes the specified Application Load Balancer from the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -105,8 +105,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve Application Load Balancers
-    # Retrieve the properties of the specified Application Load Balancer within the data center.
+    # Get an Application Load Balancer by ID
+    # Retrieves the properties of the specified Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -119,8 +119,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve Application Load Balancers
-    # Retrieve the properties of the specified Application Load Balancer within the data center.
+    # Get an Application Load Balancer by ID
+    # Retrieves the properties of the specified Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -191,11 +191,11 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Delete ALB Flow Logs
-    # Delete the specified Application Load Balancer Flow Log.
+    # Delete an ALB Flow Log by ID
+    # Deletes the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
+    # @param flow_log_id [String] The unique ID of the flow log.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -206,11 +206,11 @@ module Ionoscloud
       nil
     end
 
-    # Delete ALB Flow Logs
-    # Delete the specified Application Load Balancer Flow Log.
+    # Delete an ALB Flow Log by ID
+    # Deletes the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
+    # @param flow_log_id [String] The unique ID of the flow log.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -283,11 +283,11 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve ALB Flow Logs
-    # Retrieve the specified Application Load Balancer Flow Log.
+    # Get an ALB Flow Log by ID
+    # Retrieves the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
+    # @param flow_log_id [String] The unique ID of the flow log.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -298,11 +298,11 @@ module Ionoscloud
       data
     end
 
-    # Retrieve ALB Flow Logs
-    # Retrieve the specified Application Load Balancer Flow Log.
+    # Get an ALB Flow Log by ID
+    # Retrieves the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
+    # @param flow_log_id [String] The unique ID of the flow log.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -375,8 +375,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List ALB Flow Logs
-    # List the Flow Logs for the specified Application Load Balancer.
+    # Get ALB Flow Logs
+    # Retrieves the flow logs for the specified Application Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -389,8 +389,8 @@ module Ionoscloud
       data
     end
 
-    # List ALB Flow Logs
-    # List the Flow Logs for the specified Application Load Balancer.
+    # Get ALB Flow Logs
+    # Retrieves the flow logs for the specified Application Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -461,12 +461,12 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Partially modify ALB Flow Logs
-    # Update the properties of the specified Application Load Balancer Flow Log.
+    # Partially Modify an ALB Flow Log by ID
+    # Updates the properties of the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
-    # @param application_load_balancer_flow_log_properties [FlowLogProperties] The properties of the ALB Flow Log to be updated.
+    # @param flow_log_id [String] The unique ID of the flow log.
+    # @param application_load_balancer_flow_log_properties [FlowLogProperties] The properties of the ALB flow log to be updated.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -477,12 +477,12 @@ module Ionoscloud
       data
     end
 
-    # Partially modify ALB Flow Logs
-    # Update the properties of the specified Application Load Balancer Flow Log.
+    # Partially Modify an ALB Flow Log by ID
+    # Updates the properties of the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
-    # @param application_load_balancer_flow_log_properties [FlowLogProperties] The properties of the ALB Flow Log to be updated.
+    # @param flow_log_id [String] The unique ID of the flow log.
+    # @param application_load_balancer_flow_log_properties [FlowLogProperties] The properties of the ALB flow log to be updated.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -559,11 +559,11 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create ALB Flow Logs
-    # Add a new Flow Log for the Application Load Balancer.
+    # Create an ALB Flow Log
+    # Creates a flow log for the Application Load Balancer specified by ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param application_load_balancer_flow_log [FlowLog] The Flow Log to create.
+    # @param application_load_balancer_flow_log [FlowLog] The flow log to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -574,11 +574,11 @@ module Ionoscloud
       data
     end
 
-    # Create ALB Flow Logs
-    # Add a new Flow Log for the Application Load Balancer.
+    # Create an ALB Flow Log
+    # Creates a flow log for the Application Load Balancer specified by ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param application_load_balancer_flow_log [FlowLog] The Flow Log to create.
+    # @param application_load_balancer_flow_log [FlowLog] The flow log to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -653,12 +653,12 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify ALB Flow Logs
-    # Modify the specified Application Load Balancer Flow Log.
+    # Modify an ALB Flow Log by ID
+    # Modifies the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
-    # @param application_load_balancer_flow_log [FlowLogPut] The modified ALB Flow Log.
+    # @param flow_log_id [String] The unique ID of the flow log.
+    # @param application_load_balancer_flow_log [FlowLogPut] The modified ALB flow log.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -669,12 +669,12 @@ module Ionoscloud
       data
     end
 
-    # Modify ALB Flow Logs
-    # Modify the specified Application Load Balancer Flow Log.
+    # Modify an ALB Flow Log by ID
+    # Modifies the Application Load Balancer flow log specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
-    # @param flow_log_id [String] The unique ID of the Flow Log.
-    # @param application_load_balancer_flow_log [FlowLogPut] The modified ALB Flow Log.
+    # @param flow_log_id [String] The unique ID of the flow log.
+    # @param application_load_balancer_flow_log [FlowLogPut] The modified ALB flow log.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -753,8 +753,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Delete ALB forwarding rules
-    # Delete the specified Application Load Balancer forwarding rule.
+    # Delete an ALB Forwarding Rule by ID
+    # Deletes the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -768,8 +768,8 @@ module Ionoscloud
       nil
     end
 
-    # Delete ALB forwarding rules
-    # Delete the specified Application Load Balancer forwarding rule.
+    # Delete an ALB Forwarding Rule by ID
+    # Deletes the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -845,8 +845,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve ALB forwarding rules
-    # Retrieve the specified Application Load Balancer forwarding rule.
+    # Get an ALB Forwarding Rule by ID
+    # Retrieves the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -860,8 +860,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve ALB forwarding rules
-    # Retrieve the specified Application Load Balancer forwarding rule.
+    # Get an ALB Forwarding Rule by ID
+    # Retrieves the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -937,8 +937,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List ALB forwarding rules
-    # List the forwarding rules for the specified Application Load Balancer.
+    # Get ALB Forwarding Rules
+    # Lists the forwarding rules of the specified Application Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -951,8 +951,8 @@ module Ionoscloud
       data
     end
 
-    # List ALB forwarding rules
-    # List the forwarding rules for the specified Application Load Balancer.
+    # Get ALB Forwarding Rules
+    # Lists the forwarding rules of the specified Application Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param [Hash] opts the optional parameters
@@ -1023,8 +1023,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Partially modify ALB forwarding rules
-    # Update the properties of the specified Application Load Balancer forwarding rule.
+    # Partially modify an ALB Forwarding Rule by ID
+    # Updates the properties of the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -1039,8 +1039,8 @@ module Ionoscloud
       data
     end
 
-    # Partially modify ALB forwarding rules
-    # Update the properties of the specified Application Load Balancer forwarding rule.
+    # Partially modify an ALB Forwarding Rule by ID
+    # Updates the properties of the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -1121,8 +1121,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create ALB forwarding rules
-    # Create a forwarding rule for the Application Load Balancer.
+    # Create an ALB Forwarding Rule
+    # Creates a forwarding rule for the specified Application Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param application_load_balancer_forwarding_rule [ApplicationLoadBalancerForwardingRule] The forwarding rule to create.
@@ -1136,8 +1136,8 @@ module Ionoscloud
       data
     end
 
-    # Create ALB forwarding rules
-    # Create a forwarding rule for the Application Load Balancer.
+    # Create an ALB Forwarding Rule
+    # Creates a forwarding rule for the specified Application Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param application_load_balancer_forwarding_rule [ApplicationLoadBalancerForwardingRule] The forwarding rule to create.
@@ -1215,8 +1215,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify ALB forwarding rules
-    # Modify the specified Application Load Balancer forwarding rule.
+    # Modify an ALB Forwarding Rule by ID
+    # Modifies the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -1231,8 +1231,8 @@ module Ionoscloud
       data
     end
 
-    # Modify ALB forwarding rules
-    # Modify the specified Application Load Balancer forwarding rule.
+    # Modify an ALB Forwarding Rule by ID
+    # Modifies the Application Load Balancer forwarding rule specified by its ID.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param forwarding_rule_id [String] The unique ID of the forwarding rule.
@@ -1315,8 +1315,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List Application Load Balancers
-    # List all Application Load Balancers within the data center.
+    # Get Application Load Balancers
+    # Lists all Application Load Balancers within a data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -1330,8 +1330,8 @@ module Ionoscloud
       data
     end
 
-    # List Application Load Balancers
-    # List all Application Load Balancers within the data center.
+    # Get Application Load Balancers
+    # Lists all Application Load Balancers within a data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -1413,8 +1413,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Partially modify Application Load Balancers
-    # Update the properties of the specified Application Load Balancer within the data center.
+    # Partially Modify an Application Load Balancer by ID
+    # Updates the properties of the specified Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param application_load_balancer_properties [ApplicationLoadBalancerProperties] The Application Load Balancer properties to be updated.
@@ -1428,8 +1428,8 @@ module Ionoscloud
       data
     end
 
-    # Partially modify Application Load Balancers
-    # Update the properties of the specified Application Load Balancer within the data center.
+    # Partially Modify an Application Load Balancer by ID
+    # Updates the properties of the specified Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param application_load_balancer_properties [ApplicationLoadBalancerProperties] The Application Load Balancer properties to be updated.
@@ -1505,8 +1505,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create Application Load Balancers
-    # Create an Application Load Balancer within the datacenter.
+    # Create an Application Load Balancer
+    # Creates an Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer [ApplicationLoadBalancer] The Application Load Balancer to create.
     # @param [Hash] opts the optional parameters
@@ -1519,8 +1519,8 @@ module Ionoscloud
       data
     end
 
-    # Create Application Load Balancers
-    # Create an Application Load Balancer within the datacenter.
+    # Create an Application Load Balancer
+    # Creates an Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer [ApplicationLoadBalancer] The Application Load Balancer to create.
     # @param [Hash] opts the optional parameters
@@ -1593,8 +1593,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify Application Load Balancers
-    # Modify the properties of the specified Application Load Balancer within the data center.
+    # Modify an Application Load Balancer by ID
+    # Modifies the properties of the specified Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param application_load_balancer [ApplicationLoadBalancerPut] The modified Application Load Balancer.
@@ -1608,8 +1608,8 @@ module Ionoscloud
       data
     end
 
-    # Modify Application Load Balancers
-    # Modify the properties of the specified Application Load Balancer within the data center.
+    # Modify an Application Load Balancer by ID
+    # Modifies the properties of the specified Application Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param application_load_balancer_id [String] The unique ID of the Application Load Balancer.
     # @param application_load_balancer [ApplicationLoadBalancerPut] The modified Application Load Balancer.

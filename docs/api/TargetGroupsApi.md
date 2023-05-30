@@ -4,21 +4,21 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**target_groups_delete**](TargetGroupsApi.md#target_groups_delete) | **DELETE** /targetgroups/{targetGroupId} | Remove target groups |
-| [**targetgroups_find_by_target_group_id**](TargetGroupsApi.md#targetgroups_find_by_target_group_id) | **GET** /targetgroups/{targetGroupId} | Retrieve target groups |
-| [**targetgroups_get**](TargetGroupsApi.md#targetgroups_get) | **GET** /targetgroups | List target groups |
-| [**targetgroups_patch**](TargetGroupsApi.md#targetgroups_patch) | **PATCH** /targetgroups/{targetGroupId} | Partially modify target groups |
-| [**targetgroups_post**](TargetGroupsApi.md#targetgroups_post) | **POST** /targetgroups | Create target groups |
-| [**targetgroups_put**](TargetGroupsApi.md#targetgroups_put) | **PUT** /targetgroups/{targetGroupId} | Modify target groups |
+| [**target_groups_delete**](TargetGroupsApi.md#target_groups_delete) | **DELETE** /targetgroups/{targetGroupId} | Delete a Target Group by ID |
+| [**targetgroups_find_by_target_group_id**](TargetGroupsApi.md#targetgroups_find_by_target_group_id) | **GET** /targetgroups/{targetGroupId} | Get a Target Group by ID |
+| [**targetgroups_get**](TargetGroupsApi.md#targetgroups_get) | **GET** /targetgroups | Get Target Groups |
+| [**targetgroups_patch**](TargetGroupsApi.md#targetgroups_patch) | **PATCH** /targetgroups/{targetGroupId} | Partially Modify a Target Group by ID |
+| [**targetgroups_post**](TargetGroupsApi.md#targetgroups_post) | **POST** /targetgroups | Create a Target Group |
+| [**targetgroups_put**](TargetGroupsApi.md#targetgroups_put) | **PUT** /targetgroups/{targetGroupId} | Modify a Target Group by ID |
 
 
 ## target_groups_delete
 
 > target_groups_delete(target_group_id, opts)
 
-Remove target groups
+Delete a Target Group by ID
 
-Remove the specified target group.
+Deletes the target group specified by its ID.
 
 ### Examples
 
@@ -46,7 +46,7 @@ opts = {
 }
 
 begin
-  # Remove target groups
+  # Delete a Target Group by ID
   api_instance.target_groups_delete(target_group_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling TargetGroupsApi->target_groups_delete: #{e}"
@@ -61,7 +61,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Remove target groups
+  # Delete a Target Group by ID
   data, status_code, headers = api_instance.target_groups_delete_with_http_info(target_group_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -98,9 +98,9 @@ Basic Authentication, Token Authentication
 
 > <TargetGroup> targetgroups_find_by_target_group_id(target_group_id, opts)
 
-Retrieve target groups
+Get a Target Group by ID
 
-Retrieve the properties of the specified target group.
+Retrieves the properties of the target group specified by its ID.
 
 ### Examples
 
@@ -128,7 +128,7 @@ opts = {
 }
 
 begin
-  # Retrieve target groups
+  # Get a Target Group by ID
   result = api_instance.targetgroups_find_by_target_group_id(target_group_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -144,7 +144,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve target groups
+  # Get a Target Group by ID
   data, status_code, headers = api_instance.targetgroups_find_by_target_group_id_with_http_info(target_group_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -181,9 +181,9 @@ Basic Authentication, Token Authentication
 
 > <TargetGroups> targetgroups_get(opts)
 
-List target groups
+Get Target Groups
 
-List all target groups.
+Lists target groups.  A target group is a set of one or more registered targets. You must specify an IP address, a port number, and a weight for each target. Any object with an IP address in your VDC can be a target, for example, a VM, another load balancer, etc. You can register a target with multiple target groups.
 
 ### Examples
 
@@ -212,7 +212,7 @@ opts = {
 }
 
 begin
-  # List target groups
+  # Get Target Groups
   result = api_instance.targetgroups_get(opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -228,7 +228,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List target groups
+  # Get Target Groups
   data, status_code, headers = api_instance.targetgroups_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -266,9 +266,9 @@ Basic Authentication, Token Authentication
 
 > <TargetGroup> targetgroups_patch(target_group_id, target_group_properties, opts)
 
-Partially modify target groups
+Partially Modify a Target Group by ID
 
-Update the properties of the specified target group.
+Updates the properties of the target group specified by its ID.
 
 ### Examples
 
@@ -289,7 +289,7 @@ end
 
 api_instance = Ionoscloud::TargetGroupsApi.new
 target_group_id = 'target_group_id_example' # String | The unique ID of the target group.
-target_group_properties = Ionoscloud::TargetGroupProperties.new({name: 'My target group', algorithm: 'ROUND_ROBIN', protocol: 'HTTP'}) # TargetGroupProperties | The target group properties to be updated.
+target_group_properties = Ionoscloud::TargetGroupProperties.new({algorithm: 'ROUND_ROBIN', name: 'My target group', protocol: 'HTTP'}) # TargetGroupProperties | The target group properties to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -297,7 +297,7 @@ opts = {
 }
 
 begin
-  # Partially modify target groups
+  # Partially Modify a Target Group by ID
   result = api_instance.targetgroups_patch(target_group_id, target_group_properties, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -313,7 +313,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify target groups
+  # Partially Modify a Target Group by ID
   data, status_code, headers = api_instance.targetgroups_patch_with_http_info(target_group_id, target_group_properties, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -328,7 +328,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_group_id** | **String** | The unique ID of the target group. |  |
-| **target_group_properties** | [**TargetGroupProperties**](TargetGroupProperties.md) | The target group properties to be updated. |  |
+| **target_group_properties** | [**TargetGroupProperties**](../models/TargetGroupProperties.md) | The target group properties to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -351,9 +351,9 @@ Basic Authentication, Token Authentication
 
 > <TargetGroup> targetgroups_post(target_group, opts)
 
-Create target groups
+Create a Target Group
 
-Create a target group.
+Creates a target group.
 
 ### Examples
 
@@ -373,7 +373,7 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::TargetGroupsApi.new
-target_group = Ionoscloud::TargetGroup.new({properties: Ionoscloud::TargetGroupProperties.new({name: 'My target group', algorithm: 'ROUND_ROBIN', protocol: 'HTTP'})}) # TargetGroup | The target group to create.
+target_group = Ionoscloud::TargetGroup.new({properties: Ionoscloud::TargetGroupProperties.new({algorithm: 'ROUND_ROBIN', name: 'My target group', protocol: 'HTTP'})}) # TargetGroup | The target group to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -381,7 +381,7 @@ opts = {
 }
 
 begin
-  # Create target groups
+  # Create a Target Group
   result = api_instance.targetgroups_post(target_group, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -397,7 +397,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create target groups
+  # Create a Target Group
   data, status_code, headers = api_instance.targetgroups_post_with_http_info(target_group, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -411,7 +411,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **target_group** | [**TargetGroup**](TargetGroup.md) | The target group to create. |  |
+| **target_group** | [**TargetGroup**](../models/TargetGroup.md) | The target group to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -434,9 +434,9 @@ Basic Authentication, Token Authentication
 
 > <TargetGroup> targetgroups_put(target_group_id, target_group, opts)
 
-Modify target groups
+Modify a Target Group by ID
 
-Modify the properties of the specified target group.
+Modifies the properties of the target group specified by its ID.
 
 ### Examples
 
@@ -457,7 +457,7 @@ end
 
 api_instance = Ionoscloud::TargetGroupsApi.new
 target_group_id = 'target_group_id_example' # String | The unique ID of the target group.
-target_group = Ionoscloud::TargetGroupPut.new({properties: Ionoscloud::TargetGroupProperties.new({name: 'My target group', algorithm: 'ROUND_ROBIN', protocol: 'HTTP'})}) # TargetGroupPut | The modified target group.
+target_group = Ionoscloud::TargetGroupPut.new({properties: Ionoscloud::TargetGroupProperties.new({algorithm: 'ROUND_ROBIN', name: 'My target group', protocol: 'HTTP'})}) # TargetGroupPut | The modified target group.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -465,7 +465,7 @@ opts = {
 }
 
 begin
-  # Modify target groups
+  # Modify a Target Group by ID
   result = api_instance.targetgroups_put(target_group_id, target_group, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -481,7 +481,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify target groups
+  # Modify a Target Group by ID
   data, status_code, headers = api_instance.targetgroups_put_with_http_info(target_group_id, target_group, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -496,7 +496,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **target_group_id** | **String** | The unique ID of the target group. |  |
-| **target_group** | [**TargetGroupPut**](TargetGroupPut.md) | The modified target group. |  |
+| **target_group** | [**TargetGroupPut**](../models/TargetGroupPut.md) | The modified target group. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

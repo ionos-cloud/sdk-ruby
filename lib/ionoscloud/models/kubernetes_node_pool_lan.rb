@@ -16,24 +16,30 @@ require 'time'
 module Ionoscloud
   class KubernetesNodePoolLan
   
-    # The LAN ID of an existing LAN at the related datacenter
-    attr_accessor :id
+    # The datacenter ID, requires system privileges, for internal usage only
+    attr_accessor :datacenter_id
 
 
-    # Indicates if the Kubernetes node pool LAN will reserve an IP using DHCP.
+    # Specifies whether the Kubernetes node pool LAN reserves an IP with DHCP.
     attr_accessor :dhcp
 
 
-    # array of additional LANs attached to worker nodes
+    # The LAN ID of an existing LAN at the related data center
+    attr_accessor :id
+
+
+    # The array of additional LANs attached to worker nodes.
     attr_accessor :routes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'id' => :'id',
+        :'datacenter_id' => :'datacenterId',
 
         :'dhcp' => :'dhcp',
+
+        :'id' => :'id',
 
         :'routes' => :'routes'
       }
@@ -48,9 +54,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'Integer',
+        :'datacenter_id' => :'String',
 
         :'dhcp' => :'Boolean',
+
+        :'id' => :'Integer',
 
         :'routes' => :'Array<KubernetesNodePoolLanRoutes>'
       }
@@ -60,6 +68,7 @@ module Ionoscloud
     def self.openapi_nullable
       Set.new([
         
+
 
 
       ])
@@ -81,13 +90,18 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'datacenter_id')
+        self.datacenter_id = attributes[:'datacenter_id']
       end
 
 
       if attributes.key?(:'dhcp')
         self.dhcp = attributes[:'dhcp']
+      end
+
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
 
@@ -101,10 +115,11 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
-
 
 
       invalid_properties
@@ -114,8 +129,9 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @id.nil?
 
+
+      return false if @id.nil?
 
       true
     end
@@ -123,13 +139,15 @@ module Ionoscloud
     
 
 
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
+        datacenter_id == o.datacenter_id &&
         dhcp == o.dhcp &&
+        id == o.id &&
         routes == o.routes
     end
 
@@ -142,7 +160,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, dhcp, routes].hash
+      [datacenter_id, dhcp, id, routes].hash
     end
 
     # Builds the object from hash

@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class KubernetesNodes
   
+    # The URL to the collection representation (absolute path).
+    attr_accessor :href
+
+
     # A unique representation of the Kubernetes node pool as a resource collection.
     attr_accessor :id
 
 
-    # The type of resource within a collection.
-    attr_accessor :type
-
-
-    # URL to the collection representation (absolute path).
-    attr_accessor :href
-
-
     # Array of items in the collection.
     attr_accessor :items
+
+
+    # The resource type within a collection.
+    attr_accessor :type
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -57,13 +57,13 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'type' => :'type',
-
         :'href' => :'href',
 
-        :'items' => :'items'
+        :'id' => :'id',
+
+        :'items' => :'items',
+
+        :'type' => :'type'
       }
     end
 
@@ -76,13 +76,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'type' => :'String',
-
         :'href' => :'String',
 
-        :'items' => :'Array<KubernetesNode>'
+        :'id' => :'String',
+
+        :'items' => :'Array<KubernetesNode>',
+
+        :'type' => :'String'
       }
     end
 
@@ -112,23 +112,23 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-
       if attributes.key?(:'href')
         self.href = attributes[:'href']
       end
 
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+
       if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
         self.items = value
+      end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -148,14 +148,16 @@ module Ionoscloud
     def valid?
       
 
+
+
       type_validator = EnumAttributeValidator.new('String', ["collection"])
       return false unless type_validator.valid?(@type)
-
-
       true
     end
 
     
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
@@ -167,17 +169,15 @@ module Ionoscloud
       @type = type
     end
 
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        type == o.type &&
         href == o.href &&
-        items == o.items
+        id == o.id &&
+        items == o.items &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -189,7 +189,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href, items].hash
+      [href, id, items, type].hash
     end
 
     # Builds the object from hash

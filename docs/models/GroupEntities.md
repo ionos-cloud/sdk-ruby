@@ -4,17 +4,21 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **users** | [**GroupMembers**](GroupMembers.md) |  | [optional] |
+
 | **resources** | [**ResourceGroups**](ResourceGroups.md) |  | [optional] |
+
+| **users** | [**GroupMembers**](GroupMembers.md) |  | [optional] |
 
 ## Example
 
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::GroupEntities.new(
-  users: null,
-  resources: null
+  resources: null,
+
+  users: null
 )
 ```
 

@@ -16,6 +16,9 @@ require 'time'
 module Ionoscloud
   class NetworkLoadBalancerForwardingRuleTarget
   
+    attr_accessor :health_check
+
+
     # The IP of the balanced target VM.
     attr_accessor :ip
 
@@ -27,20 +30,17 @@ module Ionoscloud
     # Traffic is distributed in proportion to target weight, relative to the combined weight of all targets. A target with higher weight receives a greater share of traffic. Valid range is 0 to 256 and default is 1. Targets with weight of 0 do not participate in load balancing but still accept persistent connections. It is best to assign weights in the middle of the range to leave room for later adjustments.
     attr_accessor :weight
 
-
-    attr_accessor :health_check
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'health_check' => :'healthCheck',
+
         :'ip' => :'ip',
 
         :'port' => :'port',
 
-        :'weight' => :'weight',
-
-        :'health_check' => :'healthCheck'
+        :'weight' => :'weight'
       }
     end
 
@@ -53,13 +53,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'health_check' => :'NetworkLoadBalancerForwardingRuleTargetHealthCheck',
+
         :'ip' => :'String',
 
         :'port' => :'Integer',
 
-        :'weight' => :'Integer',
-
-        :'health_check' => :'NetworkLoadBalancerForwardingRuleTargetHealthCheck'
+        :'weight' => :'Integer'
       }
     end
 
@@ -89,6 +89,11 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'health_check')
+        self.health_check = attributes[:'health_check']
+      end
+
+
       if attributes.key?(:'ip')
         self.ip = attributes[:'ip']
       end
@@ -102,11 +107,6 @@ module Ionoscloud
       if attributes.key?(:'weight')
         self.weight = attributes[:'weight']
       end
-
-
-      if attributes.key?(:'health_check')
-        self.health_check = attributes[:'health_check']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -114,6 +114,7 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
       if @ip.nil?
         invalid_properties.push('invalid value for "ip", ip cannot be nil.')
       end
@@ -128,7 +129,6 @@ module Ionoscloud
         invalid_properties.push('invalid value for "weight", weight cannot be nil.')
       end
 
-
       invalid_properties
     end
 
@@ -136,12 +136,12 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+
       return false if @ip.nil?
 
       return false if @port.nil?
 
       return false if @weight.nil?
-
       true
     end
 
@@ -154,10 +154,10 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        health_check == o.health_check &&
         ip == o.ip &&
         port == o.port &&
-        weight == o.weight &&
-        health_check == o.health_check
+        weight == o.weight
     end
 
     # @see the `==` method
@@ -169,7 +169,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ip, port, weight, health_check].hash
+      [health_check, ip, port, weight].hash
     end
 
     # Builds the object from hash

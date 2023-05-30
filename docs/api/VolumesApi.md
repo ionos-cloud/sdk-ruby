@@ -9,8 +9,8 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 | [**datacenters_volumes_find_by_id**](VolumesApi.md#datacenters_volumes_find_by_id) | **GET** /datacenters/{datacenterId}/volumes/{volumeId} | Retrieve volumes |
 | [**datacenters_volumes_get**](VolumesApi.md#datacenters_volumes_get) | **GET** /datacenters/{datacenterId}/volumes | List volumes |
 | [**datacenters_volumes_patch**](VolumesApi.md#datacenters_volumes_patch) | **PATCH** /datacenters/{datacenterId}/volumes/{volumeId} | Partially modify volumes |
-| [**datacenters_volumes_post**](VolumesApi.md#datacenters_volumes_post) | **POST** /datacenters/{datacenterId}/volumes | Create volumes |
-| [**datacenters_volumes_put**](VolumesApi.md#datacenters_volumes_put) | **PUT** /datacenters/{datacenterId}/volumes/{volumeId} | Modify volumes |
+| [**datacenters_volumes_post**](VolumesApi.md#datacenters_volumes_post) | **POST** /datacenters/{datacenterId}/volumes | Create a Volume |
+| [**datacenters_volumes_put**](VolumesApi.md#datacenters_volumes_put) | **PUT** /datacenters/{datacenterId}/volumes/{volumeId} | Modify a Volume by ID |
 | [**datacenters_volumes_restore_snapshot_post**](VolumesApi.md#datacenters_volumes_restore_snapshot_post) | **POST** /datacenters/{datacenterId}/volumes/{volumeId}/restore-snapshot | Restore volume snapshots |
 
 
@@ -431,7 +431,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **volume_id** | **String** | The unique ID of the volume. |  |
-| **volume** | [**VolumeProperties**](VolumeProperties.md) | The properties of the volume to be updated. |  |
+| **volume** | [**VolumeProperties**](../models/VolumeProperties.md) | The properties of the volume to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -454,9 +454,9 @@ Basic Authentication, Token Authentication
 
 > <Volume> datacenters_volumes_post(datacenter_id, volume, opts)
 
-Create volumes
+Create a Volume
 
-Create a storage volume within the specified data center. The volume will not be attached! Attaching volumes is described in the Servers section.
+Creates a storage volume within the specified data center. The volume will not be attached! Attaching volumes is described in the Servers section.
 
 ### Examples
 
@@ -485,7 +485,7 @@ opts = {
 }
 
 begin
-  # Create volumes
+  # Create a Volume
   result = api_instance.datacenters_volumes_post(datacenter_id, volume, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -501,7 +501,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create volumes
+  # Create a Volume
   data, status_code, headers = api_instance.datacenters_volumes_post_with_http_info(datacenter_id, volume, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -516,7 +516,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **volume** | [**Volume**](Volume.md) | The volume to create. |  |
+| **volume** | [**Volume**](../models/Volume.md) | The volume to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -539,9 +539,9 @@ Basic Authentication, Token Authentication
 
 > <Volume> datacenters_volumes_put(datacenter_id, volume_id, volume, opts)
 
-Modify volumes
+Modify a Volume by ID
 
-Modify the properties of the specified volume within the data center.
+Modifies the properties of the specified volume within the data center.
 
 ### Examples
 
@@ -571,7 +571,7 @@ opts = {
 }
 
 begin
-  # Modify volumes
+  # Modify a Volume by ID
   result = api_instance.datacenters_volumes_put(datacenter_id, volume_id, volume, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -587,7 +587,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify volumes
+  # Modify a Volume by ID
   data, status_code, headers = api_instance.datacenters_volumes_put_with_http_info(datacenter_id, volume_id, volume, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -603,7 +603,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **volume_id** | **String** | The unique ID of the volume. |  |
-| **volume** | [**Volume**](Volume.md) | The modified volume |  |
+| **volume** | [**Volume**](../models/Volume.md) | The modified volume |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

@@ -16,6 +16,10 @@ require 'time'
 module Ionoscloud
   class IpBlockProperties
   
+    # Read-Only attribute. Lists consumption detail for an individual IP
+    attr_accessor :ip_consumers
+
+
     # Collection of IPs, associated with the IP Block.
     attr_accessor :ips
 
@@ -24,30 +28,26 @@ module Ionoscloud
     attr_accessor :location
 
 
-    # The size of the IP block.
-    attr_accessor :size
-
-
     # The name of the  resource.
     attr_accessor :name
 
 
-    # Read-Only attribute. Lists consumption detail for an individual IP
-    attr_accessor :ip_consumers
+    # The size of the IP block.
+    attr_accessor :size
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'ip_consumers' => :'ipConsumers',
+
         :'ips' => :'ips',
 
         :'location' => :'location',
 
-        :'size' => :'size',
-
         :'name' => :'name',
 
-        :'ip_consumers' => :'ipConsumers'
+        :'size' => :'size'
       }
     end
 
@@ -60,15 +60,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'ip_consumers' => :'Array<IpConsumer>',
+
         :'ips' => :'Array<String>',
 
         :'location' => :'String',
 
-        :'size' => :'Integer',
-
         :'name' => :'String',
 
-        :'ip_consumers' => :'Array<IpConsumer>'
+        :'size' => :'Integer'
       }
     end
 
@@ -99,6 +99,11 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'ip_consumers') && (value = attributes[:'ip_consumers']).is_a?(Array)
+        self.ip_consumers = value
+      end
+
+
       if attributes.key?(:'ips') && (value = attributes[:'ips']).is_a?(Array)
         self.ips = value
       end
@@ -109,18 +114,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
 
-      if attributes.key?(:'ip_consumers') && (value = attributes[:'ip_consumers']).is_a?(Array)
-        self.ip_consumers = value
+      if attributes.key?(:'size')
+        self.size = attributes[:'size']
       end
     end
 
@@ -130,16 +130,16 @@ module Ionoscloud
       invalid_properties = Array.new
       
 
+
       if @location.nil?
         invalid_properties.push('invalid value for "location", location cannot be nil.')
       end
 
 
+
       if @size.nil?
         invalid_properties.push('invalid value for "size", size cannot be nil.')
       end
-
-
 
       invalid_properties
     end
@@ -149,11 +149,11 @@ module Ionoscloud
     def valid?
       
 
+
       return false if @location.nil?
 
+
       return false if @size.nil?
-
-
       true
     end
 
@@ -167,11 +167,11 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        ip_consumers == o.ip_consumers &&
         ips == o.ips &&
         location == o.location &&
-        size == o.size &&
         name == o.name &&
-        ip_consumers == o.ip_consumers
+        size == o.size
     end
 
     # @see the `==` method
@@ -183,7 +183,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ips, location, size, name, ip_consumers].hash
+      [ip_consumers, ips, location, name, size].hash
     end
 
     # Builds the object from hash

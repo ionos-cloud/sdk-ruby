@@ -19,10 +19,10 @@ module Ionoscloud
     attr_accessor :id
 
 
-    attr_accessor :name
-
-
     attr_accessor :location
+
+
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -30,9 +30,9 @@ module Ionoscloud
         
         :'id' => :'id',
 
-        :'name' => :'name',
+        :'location' => :'location',
 
-        :'location' => :'location'
+        :'name' => :'name'
       }
     end
 
@@ -47,9 +47,9 @@ module Ionoscloud
         
         :'id' => :'String',
 
-        :'name' => :'String',
+        :'location' => :'String',
 
-        :'location' => :'String'
+        :'name' => :'String'
       }
     end
 
@@ -83,13 +83,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
       end
 
 
-      if attributes.key?(:'location')
-        self.location = attributes[:'location']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -121,8 +121,8 @@ module Ionoscloud
       return true if self.equal?(o)
       self.class == o.class &&
         id == o.id &&
-        name == o.name &&
-        location == o.location
+        location == o.location &&
+        name == o.name
     end
 
     # @see the `==` method
@@ -134,7 +134,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, location].hash
+      [id, location, name].hash
     end
 
     # Builds the object from hash

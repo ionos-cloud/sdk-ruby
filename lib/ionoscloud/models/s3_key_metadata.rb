@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class S3KeyMetadata
   
-    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
-    attr_accessor :etag
-
-
     # The time when the S3 key was created.
     attr_accessor :created_date
+
+
+    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
+    attr_accessor :etag
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'etag' => :'etag',
+        :'created_date' => :'createdDate',
 
-        :'created_date' => :'createdDate'
+        :'etag' => :'etag'
       }
     end
 
@@ -42,9 +42,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'etag' => :'String',
+        :'created_date' => :'Time',
 
-        :'created_date' => :'Time'
+        :'etag' => :'String'
       }
     end
 
@@ -72,13 +72,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'etag')
-        self.etag = attributes[:'etag']
+      if attributes.key?(:'created_date')
+        self.created_date = attributes[:'created_date']
       end
 
 
-      if attributes.key?(:'created_date')
-        self.created_date = attributes[:'created_date']
+      if attributes.key?(:'etag')
+        self.etag = attributes[:'etag']
       end
     end
 
@@ -106,8 +106,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        etag == o.etag &&
-        created_date == o.created_date
+        created_date == o.created_date &&
+        etag == o.etag
     end
 
     # @see the `==` method
@@ -119,7 +119,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [etag, created_date].hash
+      [created_date, etag].hash
     end
 
     # Builds the object from hash

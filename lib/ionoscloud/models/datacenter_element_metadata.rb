@@ -16,14 +16,6 @@ require 'time'
 module Ionoscloud
   class DatacenterElementMetadata
   
-    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
-    attr_accessor :etag
-
-
-    # The last time the resource was created.
-    attr_accessor :created_date
-
-
     # The user who created the resource.
     attr_accessor :created_by
 
@@ -32,8 +24,12 @@ module Ionoscloud
     attr_accessor :created_by_user_id
 
 
-    # The last time the resource was modified.
-    attr_accessor :last_modified_date
+    # The last time the resource was created.
+    attr_accessor :created_date
+
+
+    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
+    attr_accessor :etag
 
 
     # The user who last modified the resource.
@@ -44,7 +40,11 @@ module Ionoscloud
     attr_accessor :last_modified_by_user_id
 
 
-    # State of the resource. *AVAILABLE* There are no pending modification requests for this item; *BUSY* There is at least one modification request pending and all following requests will be queued; *INACTIVE* Resource has been de-provisioned; *DEPLOYING* Resource state DEPLOYING - relevant for Kubernetes cluster/nodepool; *ACTIVE* Resource state ACTIVE - relevant for Kubernetes cluster/nodepool; *FAILED* Resource state FAILED - relevant for Kubernetes cluster/nodepool; *SUSPENDED* Resource state SUSPENDED - relevant for Kubernetes cluster/nodepool; *FAILED_SUSPENDED* Resource state FAILED_SUSPENDED - relevant for Kubernetes cluster; *UPDATING* Resource state UPDATING - relevant for Kubernetes cluster/nodepool; *FAILED_UPDATING* Resource state FAILED_UPDATING - relevant for Kubernetes cluster/nodepool; *DESTROYING* Resource state DESTROYING - relevant for Kubernetes cluster; *FAILED_DESTROYING* Resource state FAILED_DESTROYING - relevant for Kubernetes cluster/nodepool; *TERMINATED* Resource state TERMINATED - relevant for Kubernetes cluster/nodepool.
+    # The last time the resource was modified.
+    attr_accessor :last_modified_date
+
+
+    # State of the resource. *AVAILABLE* There are no pending modification requests for this item; *BUSY* There is at least one modification request pending and all following requests will be queued; *INACTIVE* Resource has been de-provisioned; *DEPLOYING* Resource state DEPLOYING - relevant for Kubernetes cluster/nodepool; *ACTIVE* Resource state ACTIVE - relevant for Kubernetes cluster/nodepool; *FAILED* Resource state FAILED - relevant for Kubernetes cluster/nodepool; *SUSPENDED* Resource state SUSPENDED - relevant for Kubernetes cluster/nodepool; *FAILED_SUSPENDED* Resource state FAILED_SUSPENDED - relevant for Kubernetes cluster; *UPDATING* Resource state UPDATING - relevant for Kubernetes cluster/nodepool; *FAILED_UPDATING* Resource state FAILED_UPDATING - relevant for Kubernetes cluster/nodepool; *DESTROYING* Resource state DESTROYING - relevant for Kubernetes cluster; *FAILED_DESTROYING* Resource state FAILED_DESTROYING - relevant for Kubernetes cluster/nodepool; *TERMINATED* Resource state TERMINATED - relevant for Kubernetes cluster/nodepool; *HIBERNATING* Resource state HIBERNATING - relevant for Kubernetes cluster/nodepool; *FAILED_HIBERNATING* Resource state FAILED_HIBERNATING - relevant for Kubernetes cluster/nodepool; *MAINTENANCE* Resource state MAINTENANCE - relevant for Kubernetes cluster/nodepool; *FAILED_HIBERNATING* Resource state FAILED_HIBERNATING - relevant for Kubernetes cluster/nodepool.
     attr_accessor :state
 
     class EnumAttributeValidator
@@ -73,19 +73,19 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'etag' => :'etag',
-
-        :'created_date' => :'createdDate',
-
         :'created_by' => :'createdBy',
 
         :'created_by_user_id' => :'createdByUserId',
 
-        :'last_modified_date' => :'lastModifiedDate',
+        :'created_date' => :'createdDate',
+
+        :'etag' => :'etag',
 
         :'last_modified_by' => :'lastModifiedBy',
 
         :'last_modified_by_user_id' => :'lastModifiedByUserId',
+
+        :'last_modified_date' => :'lastModifiedDate',
 
         :'state' => :'state'
       }
@@ -100,19 +100,19 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'etag' => :'String',
-
-        :'created_date' => :'Time',
-
         :'created_by' => :'String',
 
         :'created_by_user_id' => :'String',
 
-        :'last_modified_date' => :'Time',
+        :'created_date' => :'Time',
+
+        :'etag' => :'String',
 
         :'last_modified_by' => :'String',
 
         :'last_modified_by_user_id' => :'String',
+
+        :'last_modified_date' => :'Time',
 
         :'state' => :'String'
       }
@@ -148,16 +148,6 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'etag')
-        self.etag = attributes[:'etag']
-      end
-
-
-      if attributes.key?(:'created_date')
-        self.created_date = attributes[:'created_date']
-      end
-
-
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
       end
@@ -168,8 +158,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'last_modified_date')
-        self.last_modified_date = attributes[:'last_modified_date']
+      if attributes.key?(:'created_date')
+        self.created_date = attributes[:'created_date']
+      end
+
+
+      if attributes.key?(:'etag')
+        self.etag = attributes[:'etag']
       end
 
 
@@ -180,6 +175,11 @@ module Ionoscloud
 
       if attributes.key?(:'last_modified_by_user_id')
         self.last_modified_by_user_id = attributes[:'last_modified_by_user_id']
+      end
+
+
+      if attributes.key?(:'last_modified_date')
+        self.last_modified_date = attributes[:'last_modified_date']
       end
 
 
@@ -214,7 +214,7 @@ module Ionoscloud
 
 
 
-      state_validator = EnumAttributeValidator.new('String', ["AVAILABLE", "INACTIVE", "BUSY", "DEPLOYING", "ACTIVE", "FAILED", "SUSPENDED", "FAILED_SUSPENDED", "UPDATING", "FAILED_UPDATING", "DESTROYING", "FAILED_DESTROYING", "TERMINATED"])
+      state_validator = EnumAttributeValidator.new('String', ["AVAILABLE", "INACTIVE", "BUSY", "DEPLOYING", "ACTIVE", "FAILED", "SUSPENDED", "FAILED_SUSPENDED", "UPDATING", "FAILED_UPDATING", "DESTROYING", "FAILED_DESTROYING", "TERMINATED", "HIBERNATING", "FAILED_HIBERNATING", "MAINTENANCE", "FAILED_MAINTENANCE", "UNKNOWN"])
       return false unless state_validator.valid?(@state)
       true
     end
@@ -230,7 +230,7 @@ module Ionoscloud
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ["AVAILABLE", "INACTIVE", "BUSY", "DEPLOYING", "ACTIVE", "FAILED", "SUSPENDED", "FAILED_SUSPENDED", "UPDATING", "FAILED_UPDATING", "DESTROYING", "FAILED_DESTROYING", "TERMINATED"])
+      validator = EnumAttributeValidator.new('String', ["AVAILABLE", "INACTIVE", "BUSY", "DEPLOYING", "ACTIVE", "FAILED", "SUSPENDED", "FAILED_SUSPENDED", "UPDATING", "FAILED_UPDATING", "DESTROYING", "FAILED_DESTROYING", "TERMINATED", "HIBERNATING", "FAILED_HIBERNATING", "MAINTENANCE", "FAILED_MAINTENANCE", "UNKNOWN"])
       unless validator.valid?(state)
         fail ArgumentError, "invalid value for \"state\", must be one of #{validator.allowable_values}."
       end
@@ -242,13 +242,13 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        etag == o.etag &&
-        created_date == o.created_date &&
         created_by == o.created_by &&
         created_by_user_id == o.created_by_user_id &&
-        last_modified_date == o.last_modified_date &&
+        created_date == o.created_date &&
+        etag == o.etag &&
         last_modified_by == o.last_modified_by &&
         last_modified_by_user_id == o.last_modified_by_user_id &&
+        last_modified_date == o.last_modified_date &&
         state == o.state
     end
 
@@ -261,7 +261,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [etag, created_date, created_by, created_by_user_id, last_modified_date, last_modified_by, last_modified_by_user_id, state].hash
+      [created_by, created_by_user_id, created_date, etag, last_modified_by, last_modified_by_user_id, last_modified_date, state].hash
     end
 
     # Builds the object from hash

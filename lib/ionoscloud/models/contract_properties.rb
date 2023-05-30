@@ -20,12 +20,8 @@ module Ionoscloud
     attr_accessor :contract_number
 
 
-    # The owner of the contract.
+    # The contract owner's user name.
     attr_accessor :owner
-
-
-    # The status of the contract.
-    attr_accessor :status
 
 
     # The registration domain of the contract.
@@ -33,6 +29,10 @@ module Ionoscloud
 
 
     attr_accessor :resource_limits
+
+
+    # The contract status.
+    attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -42,11 +42,11 @@ module Ionoscloud
 
         :'owner' => :'owner',
 
-        :'status' => :'status',
-
         :'reg_domain' => :'regDomain',
 
-        :'resource_limits' => :'resourceLimits'
+        :'resource_limits' => :'resourceLimits',
+
+        :'status' => :'status'
       }
     end
 
@@ -63,11 +63,11 @@ module Ionoscloud
 
         :'owner' => :'String',
 
-        :'status' => :'String',
-
         :'reg_domain' => :'String',
 
-        :'resource_limits' => :'ResourceLimits'
+        :'resource_limits' => :'ResourceLimits',
+
+        :'status' => :'String'
       }
     end
 
@@ -108,11 +108,6 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-
       if attributes.key?(:'reg_domain')
         self.reg_domain = attributes[:'reg_domain']
       end
@@ -120,6 +115,11 @@ module Ionoscloud
 
       if attributes.key?(:'resource_limits')
         self.resource_limits = attributes[:'resource_limits']
+      end
+
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -158,9 +158,9 @@ module Ionoscloud
       self.class == o.class &&
         contract_number == o.contract_number &&
         owner == o.owner &&
-        status == o.status &&
         reg_domain == o.reg_domain &&
-        resource_limits == o.resource_limits
+        resource_limits == o.resource_limits &&
+        status == o.status
     end
 
     # @see the `==` method
@@ -172,7 +172,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contract_number, owner, status, reg_domain, resource_limits].hash
+      [contract_number, owner, reg_domain, resource_limits, status].hash
     end
 
     # Builds the object from hash

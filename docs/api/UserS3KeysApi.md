@@ -8,7 +8,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 | [**um_users_s3keys_find_by_key_id**](UserS3KeysApi.md#um_users_s3keys_find_by_key_id) | **GET** /um/users/{userId}/s3keys/{keyId} | Retrieve user S3 keys by key ID |
 | [**um_users_s3keys_get**](UserS3KeysApi.md#um_users_s3keys_get) | **GET** /um/users/{userId}/s3keys | List user S3 keys |
 | [**um_users_s3keys_post**](UserS3KeysApi.md#um_users_s3keys_post) | **POST** /um/users/{userId}/s3keys | Create user S3 keys |
-| [**um_users_s3keys_put**](UserS3KeysApi.md#um_users_s3keys_put) | **PUT** /um/users/{userId}/s3keys/{keyId} | Modify S3 keys by key ID |
+| [**um_users_s3keys_put**](UserS3KeysApi.md#um_users_s3keys_put) | **PUT** /um/users/{userId}/s3keys/{keyId} | Modify a S3 Key by Key ID |
 | [**um_users_s3ssourl_get**](UserS3KeysApi.md#um_users_s3ssourl_get) | **GET** /um/users/{userId}/s3ssourl | Retrieve S3 single sign-on URLs |
 
 
@@ -351,9 +351,9 @@ Basic Authentication, Token Authentication
 
 > <S3Key> um_users_s3keys_put(user_id, key_id, s3_key, opts)
 
-Modify S3 keys by key ID
+Modify a S3 Key by Key ID
 
-Enable or disable the specified user S3 key.
+Enables or disables the specified user S3 key.
 
 ### Examples
 
@@ -383,7 +383,7 @@ opts = {
 }
 
 begin
-  # Modify S3 keys by key ID
+  # Modify a S3 Key by Key ID
   result = api_instance.um_users_s3keys_put(user_id, key_id, s3_key, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -399,7 +399,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify S3 keys by key ID
+  # Modify a S3 Key by Key ID
   data, status_code, headers = api_instance.um_users_s3keys_put_with_http_info(user_id, key_id, s3_key, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -415,7 +415,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The unique ID of the user. |  |
 | **key_id** | **String** | The unique ID of the S3 key. |  |
-| **s3_key** | [**S3Key**](S3Key.md) | The modified S3 key. |  |
+| **s3_key** | [**S3Key**](../models/S3Key.md) | The modified S3 key. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

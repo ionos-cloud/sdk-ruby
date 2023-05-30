@@ -16,18 +16,18 @@ require 'time'
 module Ionoscloud
   class NicEntities
   
-    attr_accessor :flowlogs
-
-
     attr_accessor :firewallrules
+
+
+    attr_accessor :flowlogs
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'flowlogs' => :'flowlogs',
+        :'firewallrules' => :'firewallrules',
 
-        :'firewallrules' => :'firewallrules'
+        :'flowlogs' => :'flowlogs'
       }
     end
 
@@ -40,9 +40,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'flowlogs' => :'FlowLogs',
+        :'firewallrules' => :'FirewallRules',
 
-        :'firewallrules' => :'FirewallRules'
+        :'flowlogs' => :'FlowLogs'
       }
     end
 
@@ -70,13 +70,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'flowlogs')
-        self.flowlogs = attributes[:'flowlogs']
+      if attributes.key?(:'firewallrules')
+        self.firewallrules = attributes[:'firewallrules']
       end
 
 
-      if attributes.key?(:'firewallrules')
-        self.firewallrules = attributes[:'firewallrules']
+      if attributes.key?(:'flowlogs')
+        self.flowlogs = attributes[:'flowlogs']
       end
     end
 
@@ -104,8 +104,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        flowlogs == o.flowlogs &&
-        firewallrules == o.firewallrules
+        firewallrules == o.firewallrules &&
+        flowlogs == o.flowlogs
     end
 
     # @see the `==` method
@@ -117,7 +117,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [flowlogs, firewallrules].hash
+      [firewallrules, flowlogs].hash
     end
 
     # Builds the object from hash

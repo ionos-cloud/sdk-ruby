@@ -16,33 +16,33 @@ require 'time'
 module Ionoscloud
   class Peer
   
-    attr_accessor :id
-
-
-    attr_accessor :name
-
-
     attr_accessor :datacenter_id
 
 
     attr_accessor :datacenter_name
 
 
+    attr_accessor :id
+
+
     attr_accessor :location
+
+
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'name' => :'name',
-
         :'datacenter_id' => :'datacenterId',
 
         :'datacenter_name' => :'datacenterName',
 
-        :'location' => :'location'
+        :'id' => :'id',
+
+        :'location' => :'location',
+
+        :'name' => :'name'
       }
     end
 
@@ -55,15 +55,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'name' => :'String',
-
         :'datacenter_id' => :'String',
 
         :'datacenter_name' => :'String',
 
-        :'location' => :'String'
+        :'id' => :'String',
+
+        :'location' => :'String',
+
+        :'name' => :'String'
       }
     end
 
@@ -94,16 +94,6 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
       if attributes.key?(:'datacenter_id')
         self.datacenter_id = attributes[:'datacenter_id']
       end
@@ -114,8 +104,18 @@ module Ionoscloud
       end
 
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+
       if attributes.key?(:'location')
         self.location = attributes[:'location']
+      end
+
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -152,11 +152,11 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        name == o.name &&
         datacenter_id == o.datacenter_id &&
         datacenter_name == o.datacenter_name &&
-        location == o.location
+        id == o.id &&
+        location == o.location &&
+        name == o.name
     end
 
     # @see the `==` method
@@ -168,7 +168,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, datacenter_id, datacenter_name, location].hash
+      [datacenter_id, datacenter_name, id, location, name].hash
     end
 
     # Builds the object from hash

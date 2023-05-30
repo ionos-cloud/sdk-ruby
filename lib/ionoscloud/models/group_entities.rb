@@ -16,18 +16,18 @@ require 'time'
 module Ionoscloud
   class GroupEntities
   
-    attr_accessor :users
-
-
     attr_accessor :resources
+
+
+    attr_accessor :users
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'users' => :'users',
+        :'resources' => :'resources',
 
-        :'resources' => :'resources'
+        :'users' => :'users'
       }
     end
 
@@ -40,9 +40,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'users' => :'GroupMembers',
+        :'resources' => :'ResourceGroups',
 
-        :'resources' => :'ResourceGroups'
+        :'users' => :'GroupMembers'
       }
     end
 
@@ -70,13 +70,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'users')
-        self.users = attributes[:'users']
+      if attributes.key?(:'resources')
+        self.resources = attributes[:'resources']
       end
 
 
-      if attributes.key?(:'resources')
-        self.resources = attributes[:'resources']
+      if attributes.key?(:'users')
+        self.users = attributes[:'users']
       end
     end
 
@@ -104,8 +104,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        users == o.users &&
-        resources == o.resources
+        resources == o.resources &&
+        users == o.users
     end
 
     # @see the `==` method
@@ -117,7 +117,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [users, resources].hash
+      [resources, users].hash
     end
 
     # Builds the object from hash

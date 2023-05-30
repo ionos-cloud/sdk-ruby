@@ -16,19 +16,14 @@ require 'time'
 module Ionoscloud
   class NetworkLoadBalancerForwardingRuleProperties
   
-    # The name of the Network Load Balancer forwarding rule.
-    attr_accessor :name
-
-
     # Balancing algorithm
     attr_accessor :algorithm
 
 
-    # Balancing protocol
-    attr_accessor :protocol
+    attr_accessor :health_check
 
 
-    # Listening (inbound) IP
+    # Listening (inbound) IP.
     attr_accessor :listener_ip
 
 
@@ -36,7 +31,12 @@ module Ionoscloud
     attr_accessor :listener_port
 
 
-    attr_accessor :health_check
+    # The name of the Network Load Balancer forwarding rule.
+    attr_accessor :name
+
+
+    # Balancing protocol
+    attr_accessor :protocol
 
 
     # Array of items in the collection.
@@ -68,17 +68,17 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
         :'algorithm' => :'algorithm',
 
-        :'protocol' => :'protocol',
+        :'health_check' => :'healthCheck',
 
         :'listener_ip' => :'listenerIp',
 
         :'listener_port' => :'listenerPort',
 
-        :'health_check' => :'healthCheck',
+        :'name' => :'name',
+
+        :'protocol' => :'protocol',
 
         :'targets' => :'targets'
       }
@@ -93,17 +93,17 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
         :'algorithm' => :'String',
 
-        :'protocol' => :'String',
+        :'health_check' => :'NetworkLoadBalancerForwardingRuleHealthCheck',
 
         :'listener_ip' => :'String',
 
         :'listener_port' => :'Integer',
 
-        :'health_check' => :'NetworkLoadBalancerForwardingRuleHealthCheck',
+        :'name' => :'String',
+
+        :'protocol' => :'String',
 
         :'targets' => :'Array<NetworkLoadBalancerForwardingRuleTarget>'
       }
@@ -138,18 +138,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
       if attributes.key?(:'algorithm')
         self.algorithm = attributes[:'algorithm']
       end
 
 
-      if attributes.key?(:'protocol')
-        self.protocol = attributes[:'protocol']
+      if attributes.key?(:'health_check')
+        self.health_check = attributes[:'health_check']
       end
 
 
@@ -163,8 +158,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'health_check')
-        self.health_check = attributes[:'health_check']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'protocol')
+        self.protocol = attributes[:'protocol']
       end
 
 
@@ -178,19 +178,10 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-
       if @algorithm.nil?
         invalid_properties.push('invalid value for "algorithm", algorithm cannot be nil.')
       end
 
-
-      if @protocol.nil?
-        invalid_properties.push('invalid value for "protocol", protocol cannot be nil.')
-      end
 
 
       if @listener_ip.nil?
@@ -202,6 +193,15 @@ module Ionoscloud
         invalid_properties.push('invalid value for "listener_port", listener_port cannot be nil.')
       end
 
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+
+      if @protocol.nil?
+        invalid_properties.push('invalid value for "protocol", protocol cannot be nil.')
+      end
 
 
       if @targets.nil?
@@ -215,27 +215,26 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @name.nil?
-
       return false if @algorithm.nil?
       algorithm_validator = EnumAttributeValidator.new('String', ["ROUND_ROBIN", "LEAST_CONNECTION", "RANDOM", "SOURCE_IP"])
       return false unless algorithm_validator.valid?(@algorithm)
 
-      return false if @protocol.nil?
-      protocol_validator = EnumAttributeValidator.new('String', ["HTTP", "TCP"])
-      return false unless protocol_validator.valid?(@protocol)
 
       return false if @listener_ip.nil?
 
       return false if @listener_port.nil?
 
+      return false if @name.nil?
+
+      return false if @protocol.nil?
+      protocol_validator = EnumAttributeValidator.new('String', ["HTTP", "TCP"])
+      return false unless protocol_validator.valid?(@protocol)
 
       return false if @targets.nil?
       true
     end
 
     
-
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] algorithm Object to be assigned
     def algorithm=(algorithm)
@@ -245,6 +244,10 @@ module Ionoscloud
       end
       @algorithm = algorithm
     end
+
+
+
+
 
 
     # Custom attribute writer method checking allowed values (enum).
@@ -258,20 +261,17 @@ module Ionoscloud
     end
 
 
-
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
         algorithm == o.algorithm &&
-        protocol == o.protocol &&
+        health_check == o.health_check &&
         listener_ip == o.listener_ip &&
         listener_port == o.listener_port &&
-        health_check == o.health_check &&
+        name == o.name &&
+        protocol == o.protocol &&
         targets == o.targets
     end
 
@@ -284,7 +284,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, algorithm, protocol, listener_ip, listener_port, health_check, targets].hash
+      [algorithm, health_check, listener_ip, listener_port, name, protocol, targets].hash
     end
 
     # Builds the object from hash

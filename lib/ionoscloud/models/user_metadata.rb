@@ -16,12 +16,12 @@ require 'time'
 module Ionoscloud
   class UserMetadata
   
-    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
-    attr_accessor :etag
-
-
     # The time the user was created.
     attr_accessor :created_date
+
+
+    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
+    attr_accessor :etag
 
 
     # The time of the last login by the user.
@@ -31,9 +31,9 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'etag' => :'etag',
-
         :'created_date' => :'createdDate',
+
+        :'etag' => :'etag',
 
         :'last_login' => :'lastLogin'
       }
@@ -48,9 +48,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'etag' => :'String',
-
         :'created_date' => :'Time',
+
+        :'etag' => :'String',
 
         :'last_login' => :'Time'
       }
@@ -81,13 +81,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'etag')
-        self.etag = attributes[:'etag']
+      if attributes.key?(:'created_date')
+        self.created_date = attributes[:'created_date']
       end
 
 
-      if attributes.key?(:'created_date')
-        self.created_date = attributes[:'created_date']
+      if attributes.key?(:'etag')
+        self.etag = attributes[:'etag']
       end
 
 
@@ -123,8 +123,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        etag == o.etag &&
         created_date == o.created_date &&
+        etag == o.etag &&
         last_login == o.last_login
     end
 
@@ -137,7 +137,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [etag, created_date, last_login].hash
+      [created_date, etag, last_login].hash
     end
 
     # Builds the object from hash

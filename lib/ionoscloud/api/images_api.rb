@@ -341,8 +341,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify images
-    # Modify the properties of the specified image.
+    # Modify an Image by ID
+    # Modifies the properties of the specified image.
     # @param image_id [String] The unique ID of the image.
     # @param image [Image] The modified image
     # @param [Hash] opts the optional parameters
@@ -355,8 +355,8 @@ module Ionoscloud
       data
     end
 
-    # Modify images
-    # Modify the properties of the specified image.
+    # Modify an Image by ID
+    # Modifies the properties of the specified image.
     # @param image_id [String] The unique ID of the image.
     # @param image [Image] The modified image
     # @param [Hash] opts the optional parameters

@@ -16,31 +16,31 @@ require 'time'
 module Ionoscloud
   class RequestStatus
   
+    # URL to the object representation (absolute path).
+    attr_accessor :href
+
+
     # The resource's unique identifier.
     attr_accessor :id
+
+
+    attr_accessor :metadata
 
 
     # The type of object that has been created.
     attr_accessor :type
 
-
-    # URL to the object representation (absolute path).
-    attr_accessor :href
-
-
-    attr_accessor :metadata
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'type' => :'type',
-
         :'href' => :'href',
 
-        :'metadata' => :'metadata'
+        :'id' => :'id',
+
+        :'metadata' => :'metadata',
+
+        :'type' => :'type'
       }
     end
 
@@ -53,13 +53,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'type' => :'Type',
-
         :'href' => :'String',
 
-        :'metadata' => :'RequestStatusMetadata'
+        :'id' => :'String',
+
+        :'metadata' => :'RequestStatusMetadata',
+
+        :'type' => :'Type'
       }
     end
 
@@ -89,23 +89,23 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-
       if attributes.key?(:'href')
         self.href = attributes[:'href']
       end
 
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
+      end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -139,10 +139,10 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        type == o.type &&
         href == o.href &&
-        metadata == o.metadata
+        id == o.id &&
+        metadata == o.metadata &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -154,7 +154,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href, metadata].hash
+      [href, id, metadata, type].hash
     end
 
     # Builds the object from hash

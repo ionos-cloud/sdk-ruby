@@ -290,7 +290,7 @@ module Ionoscloud
     end
 
     # Attach balanced NICs
-    # Attach an existing NIC to the specified Load Balancer.
+    # Attachs an existing NIC to the specified Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param loadbalancer_id [String] The unique ID of the Load Balancer.
     # @param nic [Nic] The NIC to be attached.
@@ -305,7 +305,7 @@ module Ionoscloud
     end
 
     # Attach balanced NICs
-    # Attach an existing NIC to the specified Load Balancer.
+    # Attachs an existing NIC to the specified Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param loadbalancer_id [String] The unique ID of the Load Balancer.
     # @param nic [Nic] The NIC to be attached.
@@ -747,8 +747,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create Load Balancers
-    # Create a Load Balancer within the data center.
+    # Create a Load Balancer
+    # Creates a Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param loadbalancer [Loadbalancer] The Load Balancer to create.
     # @param [Hash] opts the optional parameters
@@ -761,8 +761,8 @@ module Ionoscloud
       data
     end
 
-    # Create Load Balancers
-    # Create a Load Balancer within the data center.
+    # Create a Load Balancer
+    # Creates a Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param loadbalancer [Loadbalancer] The Load Balancer to create.
     # @param [Hash] opts the optional parameters
@@ -835,8 +835,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify Load Balancers
-    # Modify the properties of the specified Load Balancer within the data center.
+    # Modify a Load Balancer by ID
+    # Modifies the properties of the specified Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param loadbalancer_id [String] The unique ID of the Load Balancer.
     # @param loadbalancer [Loadbalancer] The modified Load Balancer.
@@ -850,8 +850,8 @@ module Ionoscloud
       data
     end
 
-    # Modify Load Balancers
-    # Modify the properties of the specified Load Balancer within the data center.
+    # Modify a Load Balancer by ID
+    # Modifies the properties of the specified Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param loadbalancer_id [String] The unique ID of the Load Balancer.
     # @param loadbalancer [Loadbalancer] The modified Load Balancer.

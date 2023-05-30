@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class KubernetesNodePoolLanRoutes
   
-    # IPv4 or IPv6 CIDR to be routed via the interface.
-    attr_accessor :network
-
-
     # IPv4 or IPv6 Gateway IP for the route.
     attr_accessor :gateway_ip
+
+
+    # IPv4 or IPv6 CIDR to be routed via the interface.
+    attr_accessor :network
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'network' => :'network',
+        :'gateway_ip' => :'gatewayIp',
 
-        :'gateway_ip' => :'gatewayIp'
+        :'network' => :'network'
       }
     end
 
@@ -42,9 +42,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'network' => :'String',
+        :'gateway_ip' => :'String',
 
-        :'gateway_ip' => :'String'
+        :'network' => :'String'
       }
     end
 
@@ -72,13 +72,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'network')
-        self.network = attributes[:'network']
+      if attributes.key?(:'gateway_ip')
+        self.gateway_ip = attributes[:'gateway_ip']
       end
 
 
-      if attributes.key?(:'gateway_ip')
-        self.gateway_ip = attributes[:'gateway_ip']
+      if attributes.key?(:'network')
+        self.network = attributes[:'network']
       end
     end
 
@@ -106,8 +106,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        network == o.network &&
-        gateway_ip == o.gateway_ip
+        gateway_ip == o.gateway_ip &&
+        network == o.network
     end
 
     # @see the `==` method
@@ -119,7 +119,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [network, gateway_ip].hash
+      [gateway_ip, network].hash
     end
 
     # Builds the object from hash

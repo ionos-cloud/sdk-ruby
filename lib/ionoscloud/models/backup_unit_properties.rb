@@ -16,6 +16,10 @@ require 'time'
 module Ionoscloud
   class BackupUnitProperties
   
+    # The email associated with the backup unit. Bear in mind that this email does not be the same email as of the user.
+    attr_accessor :email
+
+
     # The name of the  resource (alphanumeric characters only).
     attr_accessor :name
 
@@ -23,19 +27,15 @@ module Ionoscloud
     # The password associated with that resource.
     attr_accessor :password
 
-
-    # The email associated with the backup unit. Bear in mind that this email does not be the same email as of the user.
-    attr_accessor :email
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'email' => :'email',
+
         :'name' => :'name',
 
-        :'password' => :'password',
-
-        :'email' => :'email'
+        :'password' => :'password'
       }
     end
 
@@ -48,11 +48,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'email' => :'String',
+
         :'name' => :'String',
 
-        :'password' => :'String',
-
-        :'email' => :'String'
+        :'password' => :'String'
       }
     end
 
@@ -81,6 +81,11 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
+      end
+
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -89,11 +94,6 @@ module Ionoscloud
       if attributes.key?(:'password')
         self.password = attributes[:'password']
       end
-
-
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -101,10 +101,10 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
 
 
       invalid_properties
@@ -114,8 +114,8 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @name.nil?
 
+      return false if @name.nil?
 
       true
     end
@@ -128,9 +128,9 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        email == o.email &&
         name == o.name &&
-        password == o.password &&
-        email == o.email
+        password == o.password
     end
 
     # @see the `==` method
@@ -142,7 +142,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, password, email].hash
+      [email, name, password].hash
     end
 
     # Builds the object from hash

@@ -351,8 +351,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify S3 keys by key ID
-    # Enable or disable the specified user S3 key.
+    # Modify a S3 Key by Key ID
+    # Enables or disables the specified user S3 key.
     # @param user_id [String] The unique ID of the user.
     # @param key_id [String] The unique ID of the S3 key.
     # @param s3_key [S3Key] The modified S3 key.
@@ -366,8 +366,8 @@ module Ionoscloud
       data
     end
 
-    # Modify S3 keys by key ID
-    # Enable or disable the specified user S3 key.
+    # Modify a S3 Key by Key ID
+    # Enables or disables the specified user S3 key.
     # @param user_id [String] The unique ID of the user.
     # @param key_id [String] The unique ID of the S3 key.
     # @param s3_key [S3Key] The modified S3 key.

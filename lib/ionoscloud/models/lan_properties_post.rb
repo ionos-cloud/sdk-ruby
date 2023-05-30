@@ -16,12 +16,12 @@ require 'time'
 module Ionoscloud
   class LanPropertiesPost
   
-    # The name of the  resource.
-    attr_accessor :name
-
-
     # IP failover configurations for lan
     attr_accessor :ip_failover
+
+
+    # The name of the  resource.
+    attr_accessor :name
 
 
     # The unique identifier of the private Cross-Connect the LAN is connected to, if any.
@@ -35,9 +35,9 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
         :'ip_failover' => :'ipFailover',
+
+        :'name' => :'name',
 
         :'pcc' => :'pcc',
 
@@ -54,9 +54,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
         :'ip_failover' => :'Array<IPFailover>',
+
+        :'name' => :'String',
 
         :'pcc' => :'String',
 
@@ -90,13 +90,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'ip_failover') && (value = attributes[:'ip_failover']).is_a?(Array)
+        self.ip_failover = value
       end
 
 
-      if attributes.key?(:'ip_failover') && (value = attributes[:'ip_failover']).is_a?(Array)
-        self.ip_failover = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
@@ -140,8 +140,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
         ip_failover == o.ip_failover &&
+        name == o.name &&
         pcc == o.pcc &&
         public == o.public
     end
@@ -155,7 +155,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, ip_failover, pcc, public].hash
+      [ip_failover, name, pcc, public].hash
     end
 
     # Builds the object from hash

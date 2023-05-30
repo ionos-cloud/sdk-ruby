@@ -16,22 +16,22 @@ require 'time'
 module Ionoscloud
   class KubernetesNodePoolForPut
   
+    # The URL to the object representation (absolute path).
+    attr_accessor :href
+
+
     # The resource's unique identifier.
     attr_accessor :id
-
-
-    # The type of object.
-    attr_accessor :type
-
-
-    # URL to the object representation (absolute path).
-    attr_accessor :href
 
 
     attr_accessor :metadata
 
 
     attr_accessor :properties
+
+
+    # The object type.
+    attr_accessor :type
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -59,15 +59,15 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'type' => :'type',
-
         :'href' => :'href',
+
+        :'id' => :'id',
 
         :'metadata' => :'metadata',
 
-        :'properties' => :'properties'
+        :'properties' => :'properties',
+
+        :'type' => :'type'
       }
     end
 
@@ -80,15 +80,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'type' => :'String',
-
         :'href' => :'String',
+
+        :'id' => :'String',
 
         :'metadata' => :'DatacenterElementMetadata',
 
-        :'properties' => :'KubernetesNodePoolPropertiesForPut'
+        :'properties' => :'KubernetesNodePoolPropertiesForPut',
+
+        :'type' => :'String'
       }
     end
 
@@ -119,18 +119,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-
       if attributes.key?(:'href')
         self.href = attributes[:'href']
+      end
+
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
 
@@ -142,6 +137,11 @@ module Ionoscloud
       if attributes.key?(:'properties')
         self.properties = attributes[:'properties']
       end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -152,10 +152,10 @@ module Ionoscloud
 
 
 
-
       if @properties.nil?
         invalid_properties.push('invalid value for "properties", properties cannot be nil.')
       end
+
 
       invalid_properties
     end
@@ -165,16 +165,19 @@ module Ionoscloud
     def valid?
       
 
-      type_validator = EnumAttributeValidator.new('String', ["nodepool"])
-      return false unless type_validator.valid?(@type)
-
 
 
       return false if @properties.nil?
+
+      type_validator = EnumAttributeValidator.new('String', ["nodepool"])
+      return false unless type_validator.valid?(@type)
       true
     end
 
     
+
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
@@ -186,19 +189,16 @@ module Ionoscloud
       @type = type
     end
 
-
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        type == o.type &&
         href == o.href &&
+        id == o.id &&
         metadata == o.metadata &&
-        properties == o.properties
+        properties == o.properties &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -210,7 +210,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href, metadata, properties].hash
+      [href, id, metadata, properties, type].hash
     end
 
     # Builds the object from hash

@@ -10,18 +10,18 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 | [**datacenters_natgateways_flowlogs_find_by_flow_log_id**](NATGatewaysApi.md#datacenters_natgateways_flowlogs_find_by_flow_log_id) | **GET** /datacenters/{datacenterId}/natgateways/{natGatewayId}/flowlogs/{flowLogId} | Retrieve NAT Gateway Flow Logs |
 | [**datacenters_natgateways_flowlogs_get**](NATGatewaysApi.md#datacenters_natgateways_flowlogs_get) | **GET** /datacenters/{datacenterId}/natgateways/{natGatewayId}/flowlogs | List NAT Gateway Flow Logs |
 | [**datacenters_natgateways_flowlogs_patch**](NATGatewaysApi.md#datacenters_natgateways_flowlogs_patch) | **PATCH** /datacenters/{datacenterId}/natgateways/{natGatewayId}/flowlogs/{flowLogId} | Partially modify NAT Gateway Flow Logs |
-| [**datacenters_natgateways_flowlogs_post**](NATGatewaysApi.md#datacenters_natgateways_flowlogs_post) | **POST** /datacenters/{datacenterId}/natgateways/{natGatewayId}/flowlogs | Create NAT Gateway Flow Logs |
+| [**datacenters_natgateways_flowlogs_post**](NATGatewaysApi.md#datacenters_natgateways_flowlogs_post) | **POST** /datacenters/{datacenterId}/natgateways/{natGatewayId}/flowlogs | Create a NAT Gateway Flow Log |
 | [**datacenters_natgateways_flowlogs_put**](NATGatewaysApi.md#datacenters_natgateways_flowlogs_put) | **PUT** /datacenters/{datacenterId}/natgateways/{natGatewayId}/flowlogs/{flowLogId} | Modify NAT Gateway Flow Logs |
 | [**datacenters_natgateways_get**](NATGatewaysApi.md#datacenters_natgateways_get) | **GET** /datacenters/{datacenterId}/natgateways | List NAT Gateways |
 | [**datacenters_natgateways_patch**](NATGatewaysApi.md#datacenters_natgateways_patch) | **PATCH** /datacenters/{datacenterId}/natgateways/{natGatewayId} | Partially modify NAT Gateways |
-| [**datacenters_natgateways_post**](NATGatewaysApi.md#datacenters_natgateways_post) | **POST** /datacenters/{datacenterId}/natgateways | Create NAT Gateways |
+| [**datacenters_natgateways_post**](NATGatewaysApi.md#datacenters_natgateways_post) | **POST** /datacenters/{datacenterId}/natgateways | Create a NAT Gateway |
 | [**datacenters_natgateways_put**](NATGatewaysApi.md#datacenters_natgateways_put) | **PUT** /datacenters/{datacenterId}/natgateways/{natGatewayId} | Modify NAT Gateways |
 | [**datacenters_natgateways_rules_delete**](NATGatewaysApi.md#datacenters_natgateways_rules_delete) | **DELETE** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules/{natGatewayRuleId} | Delete NAT Gateway rules |
 | [**datacenters_natgateways_rules_find_by_nat_gateway_rule_id**](NATGatewaysApi.md#datacenters_natgateways_rules_find_by_nat_gateway_rule_id) | **GET** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules/{natGatewayRuleId} | Retrieve NAT Gateway rules |
 | [**datacenters_natgateways_rules_get**](NATGatewaysApi.md#datacenters_natgateways_rules_get) | **GET** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules | List NAT Gateway rules |
-| [**datacenters_natgateways_rules_patch**](NATGatewaysApi.md#datacenters_natgateways_rules_patch) | **PATCH** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules/{natGatewayRuleId} | Partially modify NAT Gateway rules |
-| [**datacenters_natgateways_rules_post**](NATGatewaysApi.md#datacenters_natgateways_rules_post) | **POST** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules | Create NAT Gateway rules |
-| [**datacenters_natgateways_rules_put**](NATGatewaysApi.md#datacenters_natgateways_rules_put) | **PUT** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules/{natGatewayRuleId} | Modify NAT Gateway rules |
+| [**datacenters_natgateways_rules_patch**](NATGatewaysApi.md#datacenters_natgateways_rules_patch) | **PATCH** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules/{natGatewayRuleId} | Partially Modify a NAT Gateway Rule by ID |
+| [**datacenters_natgateways_rules_post**](NATGatewaysApi.md#datacenters_natgateways_rules_post) | **POST** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules | Create a NAT Gateway Rule |
+| [**datacenters_natgateways_rules_put**](NATGatewaysApi.md#datacenters_natgateways_rules_put) | **PUT** /datacenters/{datacenterId}/natgateways/{natGatewayId}/rules/{natGatewayRuleId} | Modify a NAT Gateway Rule by ID |
 
 
 ## datacenters_natgateways_delete
@@ -478,7 +478,7 @@ api_instance = Ionoscloud::NATGatewaysApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 nat_gateway_id = 'nat_gateway_id_example' # String | The unique ID of the NAT Gateway.
 flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
-nat_gateway_flow_log_properties = Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'}) # FlowLogProperties | The properties of the Flow Log to be updated.
+nat_gateway_flow_log_properties = Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'}) # FlowLogProperties | The properties of the Flow Log to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56 # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -518,7 +518,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
 | **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
-| **nat_gateway_flow_log_properties** | [**FlowLogProperties**](FlowLogProperties.md) | The properties of the Flow Log to be updated. |  |
+| **nat_gateway_flow_log_properties** | [**FlowLogProperties**](../models/FlowLogProperties.md) | The properties of the Flow Log to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 
@@ -540,9 +540,9 @@ Basic Authentication, Token Authentication
 
 > <FlowLog> datacenters_natgateways_flowlogs_post(datacenter_id, nat_gateway_id, nat_gateway_flow_log, opts)
 
-Create NAT Gateway Flow Logs
+Create a NAT Gateway Flow Log
 
-Add a new Flow Log for the specified NAT Gateway.
+Adds a new Flow Log to the specified NAT Gateway.
 
 ### Examples
 
@@ -564,14 +564,14 @@ end
 api_instance = Ionoscloud::NATGatewaysApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 nat_gateway_id = 'nat_gateway_id_example' # String | The unique ID of the NAT Gateway.
-nat_gateway_flow_log = Ionoscloud::FlowLog.new({properties: Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'})}) # FlowLog | The Flow Log to create.
+nat_gateway_flow_log = Ionoscloud::FlowLog.new({properties: Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'})}) # FlowLog | The Flow Log to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56 # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
 }
 
 begin
-  # Create NAT Gateway Flow Logs
+  # Create a NAT Gateway Flow Log
   result = api_instance.datacenters_natgateways_flowlogs_post(datacenter_id, nat_gateway_id, nat_gateway_flow_log, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -587,7 +587,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create NAT Gateway Flow Logs
+  # Create a NAT Gateway Flow Log
   data, status_code, headers = api_instance.datacenters_natgateways_flowlogs_post_with_http_info(datacenter_id, nat_gateway_id, nat_gateway_flow_log, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -603,7 +603,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
-| **nat_gateway_flow_log** | [**FlowLog**](FlowLog.md) | The Flow Log to create. |  |
+| **nat_gateway_flow_log** | [**FlowLog**](../models/FlowLog.md) | The Flow Log to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 
@@ -650,7 +650,7 @@ api_instance = Ionoscloud::NATGatewaysApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 nat_gateway_id = 'nat_gateway_id_example' # String | The unique ID of the NAT Gateway.
 flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
-nat_gateway_flow_log = Ionoscloud::FlowLogPut.new({properties: Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'})}) # FlowLogPut | The modified NAT Gateway Flow Log.
+nat_gateway_flow_log = Ionoscloud::FlowLogPut.new({properties: Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'})}) # FlowLogPut | The modified NAT Gateway Flow Log.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56 # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -690,7 +690,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
 | **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
-| **nat_gateway_flow_log** | [**FlowLogPut**](FlowLogPut.md) | The modified NAT Gateway Flow Log. |  |
+| **nat_gateway_flow_log** | [**FlowLogPut**](../models/FlowLogPut.md) | The modified NAT Gateway Flow Log. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 
@@ -859,7 +859,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
-| **nat_gateway_properties** | [**NatGatewayProperties**](NatGatewayProperties.md) | The properties of the NAT Gateway to be updated. |  |
+| **nat_gateway_properties** | [**NatGatewayProperties**](../models/NatGatewayProperties.md) | The properties of the NAT Gateway to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -882,9 +882,9 @@ Basic Authentication, Token Authentication
 
 > <NatGateway> datacenters_natgateways_post(datacenter_id, nat_gateway, opts)
 
-Create NAT Gateways
+Create a NAT Gateway
 
-Create a NAT Gateway within the data center.  This operation is restricted to contract owner, admin, and users with 'createInternetAccess' privileges.
+Creates a NAT Gateway within the data center.  This operation is restricted to contract owner, admin, and users with 'createInternetAccess' privileges.
 
 ### Examples
 
@@ -913,7 +913,7 @@ opts = {
 }
 
 begin
-  # Create NAT Gateways
+  # Create a NAT Gateway
   result = api_instance.datacenters_natgateways_post(datacenter_id, nat_gateway, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -929,7 +929,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create NAT Gateways
+  # Create a NAT Gateway
   data, status_code, headers = api_instance.datacenters_natgateways_post_with_http_info(datacenter_id, nat_gateway, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -944,7 +944,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **nat_gateway** | [**NatGateway**](NatGateway.md) | The NAT Gateway to create. |  |
+| **nat_gateway** | [**NatGateway**](../models/NatGateway.md) | The NAT Gateway to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1031,7 +1031,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
-| **nat_gateway** | [**NatGatewayPut**](NatGatewayPut.md) | The modified NAT Gateway. |  |
+| **nat_gateway** | [**NatGatewayPut**](../models/NatGatewayPut.md) | The modified NAT Gateway. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1312,9 +1312,9 @@ Basic Authentication, Token Authentication
 
 > <NatGatewayRule> datacenters_natgateways_rules_patch(datacenter_id, nat_gateway_id, nat_gateway_rule_id, nat_gateway_rule_properties, opts)
 
-Partially modify NAT Gateway rules
+Partially Modify a NAT Gateway Rule by ID
 
-Update the properties of the specified NAT Gateway rule.
+Updates the properties of the specified NAT Gateway rule.
 
 ### Examples
 
@@ -1337,7 +1337,7 @@ api_instance = Ionoscloud::NATGatewaysApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 nat_gateway_id = 'nat_gateway_id_example' # String | The unique ID of the NAT Gateway.
 nat_gateway_rule_id = 'nat_gateway_rule_id_example' # String | The unique ID of the NAT Gateway rule.
-nat_gateway_rule_properties = Ionoscloud::NatGatewayRuleProperties.new({name: 'My NAT Gateway rule', source_subnet: '10.0.1.0/24', public_ip: '192.18.7.17'}) # NatGatewayRuleProperties | The properties of the NAT Gateway rule to be updated.
+nat_gateway_rule_properties = Ionoscloud::NatGatewayRuleProperties.new({name: 'My NAT Gateway rule', public_ip: '192.18.7.17', source_subnet: '10.0.1.0/24'}) # NatGatewayRuleProperties | The properties of the NAT Gateway rule to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1345,7 +1345,7 @@ opts = {
 }
 
 begin
-  # Partially modify NAT Gateway rules
+  # Partially Modify a NAT Gateway Rule by ID
   result = api_instance.datacenters_natgateways_rules_patch(datacenter_id, nat_gateway_id, nat_gateway_rule_id, nat_gateway_rule_properties, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1361,7 +1361,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify NAT Gateway rules
+  # Partially Modify a NAT Gateway Rule by ID
   data, status_code, headers = api_instance.datacenters_natgateways_rules_patch_with_http_info(datacenter_id, nat_gateway_id, nat_gateway_rule_id, nat_gateway_rule_properties, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1378,7 +1378,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
 | **nat_gateway_rule_id** | **String** | The unique ID of the NAT Gateway rule. |  |
-| **nat_gateway_rule_properties** | [**NatGatewayRuleProperties**](NatGatewayRuleProperties.md) | The properties of the NAT Gateway rule to be updated. |  |
+| **nat_gateway_rule_properties** | [**NatGatewayRuleProperties**](../models/NatGatewayRuleProperties.md) | The properties of the NAT Gateway rule to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1401,9 +1401,9 @@ Basic Authentication, Token Authentication
 
 > <NatGatewayRule> datacenters_natgateways_rules_post(datacenter_id, nat_gateway_id, nat_gateway_rule, opts)
 
-Create NAT Gateway rules
+Create a NAT Gateway Rule
 
-Create a rule for the specified NAT Gateway.
+Creates a rule for the specified NAT Gateway.
 
 ### Examples
 
@@ -1425,7 +1425,7 @@ end
 api_instance = Ionoscloud::NATGatewaysApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 nat_gateway_id = 'nat_gateway_id_example' # String | The unique ID of the NAT Gateway.
-nat_gateway_rule = Ionoscloud::NatGatewayRule.new({properties: Ionoscloud::NatGatewayRuleProperties.new({name: 'My NAT Gateway rule', source_subnet: '10.0.1.0/24', public_ip: '192.18.7.17'})}) # NatGatewayRule | The NAT Gateway rule to create.
+nat_gateway_rule = Ionoscloud::NatGatewayRule.new({properties: Ionoscloud::NatGatewayRuleProperties.new({name: 'My NAT Gateway rule', public_ip: '192.18.7.17', source_subnet: '10.0.1.0/24'})}) # NatGatewayRule | The NAT Gateway rule to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1433,7 +1433,7 @@ opts = {
 }
 
 begin
-  # Create NAT Gateway rules
+  # Create a NAT Gateway Rule
   result = api_instance.datacenters_natgateways_rules_post(datacenter_id, nat_gateway_id, nat_gateway_rule, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1449,7 +1449,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create NAT Gateway rules
+  # Create a NAT Gateway Rule
   data, status_code, headers = api_instance.datacenters_natgateways_rules_post_with_http_info(datacenter_id, nat_gateway_id, nat_gateway_rule, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1465,7 +1465,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
-| **nat_gateway_rule** | [**NatGatewayRule**](NatGatewayRule.md) | The NAT Gateway rule to create. |  |
+| **nat_gateway_rule** | [**NatGatewayRule**](../models/NatGatewayRule.md) | The NAT Gateway rule to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1488,7 +1488,7 @@ Basic Authentication, Token Authentication
 
 > <NatGatewayRule> datacenters_natgateways_rules_put(datacenter_id, nat_gateway_id, nat_gateway_rule_id, nat_gateway_rule, opts)
 
-Modify NAT Gateway rules
+Modify a NAT Gateway Rule by ID
 
 Modify the specified NAT Gateway rule.
 
@@ -1513,7 +1513,7 @@ api_instance = Ionoscloud::NATGatewaysApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 nat_gateway_id = 'nat_gateway_id_example' # String | The unique ID of the NAT Gateway.
 nat_gateway_rule_id = 'nat_gateway_rule_id_example' # String | The unique ID of the NAT Gateway rule.
-nat_gateway_rule = Ionoscloud::NatGatewayRulePut.new({properties: Ionoscloud::NatGatewayRuleProperties.new({name: 'My NAT Gateway rule', source_subnet: '10.0.1.0/24', public_ip: '192.18.7.17'})}) # NatGatewayRulePut | The modified NAT Gateway rule.
+nat_gateway_rule = Ionoscloud::NatGatewayRulePut.new({properties: Ionoscloud::NatGatewayRuleProperties.new({name: 'My NAT Gateway rule', public_ip: '192.18.7.17', source_subnet: '10.0.1.0/24'})}) # NatGatewayRulePut | The modified NAT Gateway rule.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1521,7 +1521,7 @@ opts = {
 }
 
 begin
-  # Modify NAT Gateway rules
+  # Modify a NAT Gateway Rule by ID
   result = api_instance.datacenters_natgateways_rules_put(datacenter_id, nat_gateway_id, nat_gateway_rule_id, nat_gateway_rule, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1537,7 +1537,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify NAT Gateway rules
+  # Modify a NAT Gateway Rule by ID
   data, status_code, headers = api_instance.datacenters_natgateways_rules_put_with_http_info(datacenter_id, nat_gateway_id, nat_gateway_rule_id, nat_gateway_rule, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1554,7 +1554,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **nat_gateway_id** | **String** | The unique ID of the NAT Gateway. |  |
 | **nat_gateway_rule_id** | **String** | The unique ID of the NAT Gateway rule. |  |
-| **nat_gateway_rule** | [**NatGatewayRulePut**](NatGatewayRulePut.md) | The modified NAT Gateway rule. |  |
+| **nat_gateway_rule** | [**NatGatewayRulePut**](../models/NatGatewayRulePut.md) | The modified NAT Gateway rule. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

@@ -16,26 +16,26 @@ require 'time'
 module Ionoscloud
   class LoadbalancerProperties
   
-    # The name of the  resource.
-    attr_accessor :name
+    # Indicates if the loadbalancer will reserve an IP using DHCP.
+    attr_accessor :dhcp
 
 
     # IPv4 address of the loadbalancer. All attached NICs will inherit this IP. Leaving value null will assign IP automatically.
     attr_accessor :ip
 
 
-    # Indicates if the loadbalancer will reserve an IP using DHCP.
-    attr_accessor :dhcp
+    # The name of the  resource.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'dhcp' => :'dhcp',
 
         :'ip' => :'ip',
 
-        :'dhcp' => :'dhcp'
+        :'name' => :'name'
       }
     end
 
@@ -48,11 +48,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'dhcp' => :'Boolean',
 
         :'ip' => :'String',
 
-        :'dhcp' => :'Boolean'
+        :'name' => :'String'
       }
     end
 
@@ -82,8 +82,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'dhcp')
+        self.dhcp = attributes[:'dhcp']
       end
 
 
@@ -92,8 +92,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'dhcp')
-        self.dhcp = attributes[:'dhcp']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -102,11 +102,6 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-
-      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
-      if !@ip.nil? && @ip !~ pattern
-        invalid_properties.push("invalid value for \"ip\", must conform to the pattern #{pattern}.")
-      end
 
 
       invalid_properties
@@ -117,23 +112,11 @@ module Ionoscloud
     def valid?
       
 
-      return false if !@ip.nil? && @ip !~ Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
 
       true
     end
 
     
-
-    # Custom attribute writer method with validation
-    # @param [Object] ip Value to be assigned
-    def ip=(ip)
-      pattern = Regexp.new(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
-      if !ip.nil? && ip !~ pattern
-        fail ArgumentError, "invalid value for \"ip\", must conform to the pattern #{pattern}."
-      end
-
-      @ip = ip
-    end
 
 
     # Checks equality by comparing each attribute.
@@ -141,9 +124,9 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
+        dhcp == o.dhcp &&
         ip == o.ip &&
-        dhcp == o.dhcp
+        name == o.name
     end
 
     # @see the `==` method
@@ -155,7 +138,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, ip, dhcp].hash
+      [dhcp, ip, name].hash
     end
 
     # Builds the object from hash

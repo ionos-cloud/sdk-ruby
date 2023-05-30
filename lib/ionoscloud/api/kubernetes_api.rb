@@ -19,8 +19,8 @@ module Ionoscloud
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Delete Kubernetes clusters
-    # Delete the specified Kubernetes cluster.
+    # Delete a Kubernetes Cluster by ID
+    # Deletes the K8s cluster specified  by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -32,8 +32,8 @@ module Ionoscloud
       nil
     end
 
-    # Delete Kubernetes clusters
-    # Delete the specified Kubernetes cluster.
+    # Delete a Kubernetes Cluster by ID
+    # Deletes the K8s cluster specified  by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -99,9 +99,9 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve Kubernetes clusters
-    # Retrieve the specified Kubernetes cluster.
-    # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
+    # Get a Kubernetes Cluster by ID
+    # Retrieves the K8s cluster specified by its ID.
+    # @param k8s_cluster_id [String] The unique ID of the K8s cluster to be retrieved.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -112,9 +112,9 @@ module Ionoscloud
       data
     end
 
-    # Retrieve Kubernetes clusters
-    # Retrieve the specified Kubernetes cluster.
-    # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
+    # Get a Kubernetes Cluster by ID
+    # Retrieves the K8s cluster specified by its ID.
+    # @param k8s_cluster_id [String] The unique ID of the K8s cluster to be retrieved.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -179,8 +179,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List Kubernetes clusters
-    # List all available Kubernetes clusters.
+    # Get Kubernetes Clusters
+    # Retrieves a list of all K8s clusters provisioned under your account.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -191,8 +191,8 @@ module Ionoscloud
       data
     end
 
-    # List Kubernetes clusters
-    # List all available Kubernetes clusters.
+    # Get Kubernetes Clusters
+    # Retrieves a list of all K8s clusters provisioned under your account.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -253,8 +253,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve Kubernetes configuration files
-    # Retrieve a configuration file for the specified Kubernetes cluster, in YAML or JSON format as defined in the Accept header; the default Accept header is application/yaml.
+    # Get Kubernetes Configuration File
+    # Retrieves the configuration file for the specified K8s cluster. You can define the format (YAML or JSON) of the returned file in the Accept header. By default, 'application/yaml' is specified.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -266,8 +266,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve Kubernetes configuration files
-    # Retrieve a configuration file for the specified Kubernetes cluster, in YAML or JSON format as defined in the Accept header; the default Accept header is application/yaml.
+    # Get Kubernetes Configuration File
+    # Retrieves the configuration file for the specified K8s cluster. You can define the format (YAML or JSON) of the returned file in the Accept header. By default, &#39;application/yaml&#39; is specified.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -333,8 +333,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Delete Kubernetes node pools
-    # Delete the specified Kubernetes node pool.
+    # Delete a Kubernetes Node Pool by ID
+    # Deletes the K8s node pool specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param [Hash] opts the optional parameters
@@ -347,8 +347,8 @@ module Ionoscloud
       nil
     end
 
-    # Delete Kubernetes node pools
-    # Delete the specified Kubernetes node pool.
+    # Delete a Kubernetes Node Pool by ID
+    # Deletes the K8s node pool specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param [Hash] opts the optional parameters
@@ -419,8 +419,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve Kubernetes node pools
-    # Retrieve the specified Kubernetes node pool.
+    # Get a Kubernetes Node Pool by ID
+    # Retrieves the K8s node pool specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param [Hash] opts the optional parameters
@@ -433,8 +433,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve Kubernetes node pools
-    # Retrieve the specified Kubernetes node pool.
+    # Get a Kubernetes Node Pool by ID
+    # Retrieves the K8s node pool specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param [Hash] opts the optional parameters
@@ -505,8 +505,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List Kubernetes node pools
-    # List all Kubernetes node pools, included the specified Kubernetes cluster.
+    # Get Kubernetes Node Pools
+    # Retrieves a list of K8s node pools of a cluster specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -518,8 +518,8 @@ module Ionoscloud
       data
     end
 
-    # List Kubernetes node pools
-    # List all Kubernetes node pools, included the specified Kubernetes cluster.
+    # Get Kubernetes Node Pools
+    # Retrieves a list of K8s node pools of a cluster specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -585,8 +585,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Delete Kubernetes nodes
-    # Delete the specified Kubernetes node.
+    # Delete a Kubernetes Node by ID
+    # Deletes the K8s node specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param node_id [String] The unique ID of the Kubernetes node.
@@ -600,8 +600,8 @@ module Ionoscloud
       nil
     end
 
-    # Delete Kubernetes nodes
-    # Delete the specified Kubernetes node.
+    # Delete a Kubernetes Node by ID
+    # Deletes the K8s node specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param node_id [String] The unique ID of the Kubernetes node.
@@ -677,8 +677,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve Kubernetes nodes
-    # Retrieve the specified Kubernetes node.
+    # Get Kubernetes Node by ID
+    # Retrieves the K8s node specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param node_id [String] The unique ID of the Kubernetes node.
@@ -692,8 +692,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve Kubernetes nodes
-    # Retrieve the specified Kubernetes node.
+    # Get Kubernetes Node by ID
+    # Retrieves the K8s node specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param node_id [String] The unique ID of the Kubernetes node.
@@ -769,8 +769,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List Kubernetes nodes
-    # List all the nodes, included in the specified Kubernetes node pool.
+    # Get Kubernetes Nodes
+    # Retrieves the list of all K8s nodes of the specified node pool.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param [Hash] opts the optional parameters
@@ -783,8 +783,8 @@ module Ionoscloud
       data
     end
 
-    # List Kubernetes nodes
-    # List all the nodes, included in the specified Kubernetes node pool.
+    # Get Kubernetes Nodes
+    # Retrieves the list of all K8s nodes of the specified node pool.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param [Hash] opts the optional parameters
@@ -855,8 +855,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Recreate Kubernetes nodes
-    # Recreate the specified Kubernetes node.  A new node is created and configured by Managed Kubernetes, based on the node pool template. Once the status is  \"Active\", all the pods are migrated from the faulty node, which is then deleted once empty. During this operation, the node pool will have an additional billable  \"Active\" node.
+    # Recreate a Kubernetes Node by ID
+    # Recreates the K8s node specified by its ID.  If a node becomes unusable, Managed Kubernetes allows you to recreate it with a configuration based on the node pool template. Once the status is 'Active,' all the pods from the failed node will be migrated to the new node. The node pool has an additional billable 'active' node during this process.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param node_id [String] The unique ID of the Kubernetes node.
@@ -870,8 +870,8 @@ module Ionoscloud
       nil
     end
 
-    # Recreate Kubernetes nodes
-    # Recreate the specified Kubernetes node.  A new node is created and configured by Managed Kubernetes, based on the node pool template. Once the status is  \&quot;Active\&quot;, all the pods are migrated from the faulty node, which is then deleted once empty. During this operation, the node pool will have an additional billable  \&quot;Active\&quot; node.
+    # Recreate a Kubernetes Node by ID
+    # Recreates the K8s node specified by its ID.  If a node becomes unusable, Managed Kubernetes allows you to recreate it with a configuration based on the node pool template. Once the status is &#39;Active,&#39; all the pods from the failed node will be migrated to the new node. The node pool has an additional billable &#39;active&#39; node during this process.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param node_id [String] The unique ID of the Kubernetes node.
@@ -947,8 +947,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create Kubernetes node pools
-    # Create a Kubernetes node pool inside the specified Kubernetes cluster.
+    # Create a Kubernetes Node Pool
+    # Creates a node pool inside the specified K8s cluster.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param kubernetes_node_pool [KubernetesNodePoolForPost] The Kubernetes node pool to create.
     # @param [Hash] opts the optional parameters
@@ -961,8 +961,8 @@ module Ionoscloud
       data
     end
 
-    # Create Kubernetes node pools
-    # Create a Kubernetes node pool inside the specified Kubernetes cluster.
+    # Create a Kubernetes Node Pool
+    # Creates a node pool inside the specified K8s cluster.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param kubernetes_node_pool [KubernetesNodePoolForPost] The Kubernetes node pool to create.
     # @param [Hash] opts the optional parameters
@@ -1035,8 +1035,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify Kubernetes node pools
-    # Modify the specified Kubernetes node pool.
+    # Modify a Kubernetes Node Pool by ID
+    # Modifies the K8s node pool specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param kubernetes_node_pool [KubernetesNodePoolForPut] Details of the Kubernetes Node Pool
@@ -1050,8 +1050,8 @@ module Ionoscloud
       data
     end
 
-    # Modify Kubernetes node pools
-    # Modify the specified Kubernetes node pool.
+    # Modify a Kubernetes Node Pool by ID
+    # Modifies the K8s node pool specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param nodepool_id [String] The unique ID of the Kubernetes node pool.
     # @param kubernetes_node_pool [KubernetesNodePoolForPut] Details of the Kubernetes Node Pool
@@ -1129,8 +1129,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create Kubernetes clusters
-    # Create a Kubernetes cluster.
+    # Create a Kubernetes Cluster
+    # Creates a K8s cluster provisioned under your account.
     # @param kubernetes_cluster [KubernetesClusterForPost] The Kubernetes cluster to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -1142,8 +1142,8 @@ module Ionoscloud
       data
     end
 
-    # Create Kubernetes clusters
-    # Create a Kubernetes cluster.
+    # Create a Kubernetes Cluster
+    # Creates a K8s cluster provisioned under your account.
     # @param kubernetes_cluster [KubernetesClusterForPost] The Kubernetes cluster to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -1211,8 +1211,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify Kubernetes clusters
-    # Modify the specified Kubernetes cluster.
+    # Modify a Kubernetes Cluster by ID
+    # Modifies the K8s cluster specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param kubernetes_cluster [KubernetesClusterForPut] The modified Kubernetes cluster.
     # @param [Hash] opts the optional parameters
@@ -1225,8 +1225,8 @@ module Ionoscloud
       data
     end
 
-    # Modify Kubernetes clusters
-    # Modify the specified Kubernetes cluster.
+    # Modify a Kubernetes Cluster by ID
+    # Modifies the K8s cluster specified by its ID.
     # @param k8s_cluster_id [String] The unique ID of the Kubernetes cluster.
     # @param kubernetes_cluster [KubernetesClusterForPut] The modified Kubernetes cluster.
     # @param [Hash] opts the optional parameters
@@ -1299,8 +1299,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve current default Kubernetes version
-    # Retrieve current default Kubernetes version for clusters and nodepools.
+    # Get Default Kubernetes Version
+    # Retrieves the current default K8s version to be used by the clusters and node pools.
     # @param [Hash] opts the optional parameters
     # @return [String]
     def k8s_versions_default_get(opts = {})
@@ -1308,8 +1308,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve current default Kubernetes version
-    # Retrieve current default Kubernetes version for clusters and nodepools.
+    # Get Default Kubernetes Version
+    # Retrieves the current default K8s version to be used by the clusters and node pools.
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
     def k8s_versions_default_get_with_http_info(opts = {})
@@ -1356,8 +1356,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List Kubernetes versions
-    # List available Kubernetes versions.
+    # Get Kubernetes Versions
+    # Lists available K8s versions.
     # @param [Hash] opts the optional parameters
     # @return [Array<String>]
     def k8s_versions_get(opts = {})
@@ -1365,8 +1365,8 @@ module Ionoscloud
       data
     end
 
-    # List Kubernetes versions
-    # List available Kubernetes versions.
+    # Get Kubernetes Versions
+    # Lists available K8s versions.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<String>, Integer, Hash)>] Array<String> data, response status code and response headers
     def k8s_versions_get_with_http_info(opts = {})

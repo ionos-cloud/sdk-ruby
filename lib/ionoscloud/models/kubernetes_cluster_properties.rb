@@ -16,8 +16,12 @@ require 'time'
 module Ionoscloud
   class KubernetesClusterProperties
   
-    # A Kubernetes cluster name. Valid Kubernetes cluster name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
-    attr_accessor :name
+    # Access to the K8s API server is restricted to these CIDRs. Traffic, internal to the cluster, is not affected by this restriction. If no allowlist is specified, access is not restricted. If an IP without subnet mask is provided, the default value is used: 32 for IPv4 and 128 for IPv6.
+    attr_accessor :api_subnet_allow_list
+
+
+    # List of available versions for upgrading the cluster
+    attr_accessor :available_upgrade_versions
 
 
     # The Kubernetes version the cluster is running. This imposes restrictions on what Kubernetes versions can be run in a cluster's nodepools. Additionally, not all Kubernetes versions are viable upgrade targets for all prior versions.
@@ -27,38 +31,34 @@ module Ionoscloud
     attr_accessor :maintenance_window
 
 
-    # List of available versions for upgrading the cluster
-    attr_accessor :available_upgrade_versions
-
-
-    # List of versions that may be used for node pools under this cluster
-    attr_accessor :viable_node_pool_versions
-
-
-    # Access to the K8s API server is restricted to these CIDRs. Traffic, internal to the cluster, is not affected by this restriction. If no allowlist is specified, access is not restricted. If an IP without subnet mask is provided, the default value is used: 32 for IPv4 and 128 for IPv6.
-    attr_accessor :api_subnet_allow_list
+    # A Kubernetes cluster name. Valid Kubernetes cluster name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
+    attr_accessor :name
 
 
     # List of S3 bucket configured for K8s usage. For now it contains only an S3 bucket used to store K8s API audit logs
     attr_accessor :s3_buckets
 
+
+    # List of versions that may be used for node pools under this cluster
+    attr_accessor :viable_node_pool_versions
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'api_subnet_allow_list' => :'apiSubnetAllowList',
+
+        :'available_upgrade_versions' => :'availableUpgradeVersions',
 
         :'k8s_version' => :'k8sVersion',
 
         :'maintenance_window' => :'maintenanceWindow',
 
-        :'available_upgrade_versions' => :'availableUpgradeVersions',
+        :'name' => :'name',
 
-        :'viable_node_pool_versions' => :'viableNodePoolVersions',
+        :'s3_buckets' => :'s3Buckets',
 
-        :'api_subnet_allow_list' => :'apiSubnetAllowList',
-
-        :'s3_buckets' => :'s3Buckets'
+        :'viable_node_pool_versions' => :'viableNodePoolVersions'
       }
     end
 
@@ -71,19 +71,19 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'api_subnet_allow_list' => :'Array<String>',
+
+        :'available_upgrade_versions' => :'Array<String>',
 
         :'k8s_version' => :'String',
 
         :'maintenance_window' => :'KubernetesMaintenanceWindow',
 
-        :'available_upgrade_versions' => :'Array<String>',
+        :'name' => :'String',
 
-        :'viable_node_pool_versions' => :'Array<String>',
+        :'s3_buckets' => :'Array<S3Bucket>',
 
-        :'api_subnet_allow_list' => :'Array<String>',
-
-        :'s3_buckets' => :'Array<S3Bucket>'
+        :'viable_node_pool_versions' => :'Array<String>'
       }
     end
 
@@ -116,8 +116,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'api_subnet_allow_list') && (value = attributes[:'api_subnet_allow_list']).is_a?(Array)
+        self.api_subnet_allow_list = value
+      end
+
+
+      if attributes.key?(:'available_upgrade_versions') && (value = attributes[:'available_upgrade_versions']).is_a?(Array)
+        self.available_upgrade_versions = value
       end
 
 
@@ -131,23 +136,18 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'available_upgrade_versions') && (value = attributes[:'available_upgrade_versions']).is_a?(Array)
-        self.available_upgrade_versions = value
-      end
-
-
-      if attributes.key?(:'viable_node_pool_versions') && (value = attributes[:'viable_node_pool_versions']).is_a?(Array)
-        self.viable_node_pool_versions = value
-      end
-
-
-      if attributes.key?(:'api_subnet_allow_list') && (value = attributes[:'api_subnet_allow_list']).is_a?(Array)
-        self.api_subnet_allow_list = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
       if attributes.key?(:'s3_buckets') && (value = attributes[:'s3_buckets']).is_a?(Array)
         self.s3_buckets = value
+      end
+
+
+      if attributes.key?(:'viable_node_pool_versions') && (value = attributes[:'viable_node_pool_versions']).is_a?(Array)
+        self.viable_node_pool_versions = value
       end
     end
 
@@ -156,13 +156,13 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
+
+
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
-
-
-
-
 
 
 
@@ -173,11 +173,11 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+
+
+
+
       return false if @name.nil?
-
-
-
-
 
 
       true
@@ -195,13 +195,13 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
+        api_subnet_allow_list == o.api_subnet_allow_list &&
+        available_upgrade_versions == o.available_upgrade_versions &&
         k8s_version == o.k8s_version &&
         maintenance_window == o.maintenance_window &&
-        available_upgrade_versions == o.available_upgrade_versions &&
-        viable_node_pool_versions == o.viable_node_pool_versions &&
-        api_subnet_allow_list == o.api_subnet_allow_list &&
-        s3_buckets == o.s3_buckets
+        name == o.name &&
+        s3_buckets == o.s3_buckets &&
+        viable_node_pool_versions == o.viable_node_pool_versions
     end
 
     # @see the `==` method
@@ -213,7 +213,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, k8s_version, maintenance_window, available_upgrade_versions, viable_node_pool_versions, api_subnet_allow_list, s3_buckets].hash
+      [api_subnet_allow_list, available_upgrade_versions, k8s_version, maintenance_window, name, s3_buckets, viable_node_pool_versions].hash
     end
 
     # Builds the object from hash

@@ -8,8 +8,8 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 | [**datacenters_servers_nics_firewallrules_find_by_id**](FirewallRulesApi.md#datacenters_servers_nics_firewallrules_find_by_id) | **GET** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId}/firewallrules/{firewallruleId} | Retrieve firewall rules |
 | [**datacenters_servers_nics_firewallrules_get**](FirewallRulesApi.md#datacenters_servers_nics_firewallrules_get) | **GET** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId}/firewallrules | List firewall rules |
 | [**datacenters_servers_nics_firewallrules_patch**](FirewallRulesApi.md#datacenters_servers_nics_firewallrules_patch) | **PATCH** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId}/firewallrules/{firewallruleId} | Partially modify firewall rules |
-| [**datacenters_servers_nics_firewallrules_post**](FirewallRulesApi.md#datacenters_servers_nics_firewallrules_post) | **POST** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId}/firewallrules | Create firewall rules |
-| [**datacenters_servers_nics_firewallrules_put**](FirewallRulesApi.md#datacenters_servers_nics_firewallrules_put) | **PUT** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId}/firewallrules/{firewallruleId} | Modify firewall rules |
+| [**datacenters_servers_nics_firewallrules_post**](FirewallRulesApi.md#datacenters_servers_nics_firewallrules_post) | **POST** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId}/firewallrules | Create a Firewall Rule |
+| [**datacenters_servers_nics_firewallrules_put**](FirewallRulesApi.md#datacenters_servers_nics_firewallrules_put) | **PUT** /datacenters/{datacenterId}/servers/{serverId}/nics/{nicId}/firewallrules/{firewallruleId} | Modify a Firewall Rule |
 
 
 ## datacenters_servers_nics_firewallrules_delete
@@ -352,7 +352,7 @@ end
 | **server_id** | **String** | The unique ID of the server. |  |
 | **nic_id** | **String** | The unique ID of the NIC. |  |
 | **firewallrule_id** | **String** | The unique ID of the firewall rule. |  |
-| **firewallrule** | [**FirewallruleProperties**](FirewallruleProperties.md) | The properties of the firewall rule to be updated. |  |
+| **firewallrule** | [**FirewallruleProperties**](../models/FirewallruleProperties.md) | The properties of the firewall rule to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -375,9 +375,9 @@ Basic Authentication, Token Authentication
 
 > <FirewallRule> datacenters_servers_nics_firewallrules_post(datacenter_id, server_id, nic_id, firewallrule, opts)
 
-Create firewall rules
+Create a Firewall Rule
 
-Create a firewall rule for the specified NIC.
+Creates a firewall rule for the specified NIC.
 
 ### Examples
 
@@ -408,7 +408,7 @@ opts = {
 }
 
 begin
-  # Create firewall rules
+  # Create a Firewall Rule
   result = api_instance.datacenters_servers_nics_firewallrules_post(datacenter_id, server_id, nic_id, firewallrule, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -424,7 +424,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create firewall rules
+  # Create a Firewall Rule
   data, status_code, headers = api_instance.datacenters_servers_nics_firewallrules_post_with_http_info(datacenter_id, server_id, nic_id, firewallrule, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -441,7 +441,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **server_id** | **String** | The unique ID of the server. |  |
 | **nic_id** | **String** | The unique ID of the NIC. |  |
-| **firewallrule** | [**FirewallRule**](FirewallRule.md) | The firewall rule to create. |  |
+| **firewallrule** | [**FirewallRule**](../models/FirewallRule.md) | The firewall rule to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -464,9 +464,9 @@ Basic Authentication, Token Authentication
 
 > <FirewallRule> datacenters_servers_nics_firewallrules_put(datacenter_id, server_id, nic_id, firewallrule_id, firewallrule, opts)
 
-Modify firewall rules
+Modify a Firewall Rule
 
-Modify the properties of the specified firewall rule.
+Modifies the properties of the specified firewall rule.
 
 ### Examples
 
@@ -498,7 +498,7 @@ opts = {
 }
 
 begin
-  # Modify firewall rules
+  # Modify a Firewall Rule
   result = api_instance.datacenters_servers_nics_firewallrules_put(datacenter_id, server_id, nic_id, firewallrule_id, firewallrule, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -514,7 +514,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify firewall rules
+  # Modify a Firewall Rule
   data, status_code, headers = api_instance.datacenters_servers_nics_firewallrules_put_with_http_info(datacenter_id, server_id, nic_id, firewallrule_id, firewallrule, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -532,7 +532,7 @@ end
 | **server_id** | **String** | The unique ID of the server. |  |
 | **nic_id** | **String** | The unique ID of the NIC. |  |
 | **firewallrule_id** | **String** | The unique ID of the firewall rule. |  |
-| **firewallrule** | [**FirewallRule**](FirewallRule.md) | The modified firewall rule. |  |
+| **firewallrule** | [**FirewallRule**](../models/FirewallRule.md) | The modified firewall rule. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

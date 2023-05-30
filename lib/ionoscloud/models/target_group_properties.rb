@@ -16,26 +16,26 @@ require 'time'
 module Ionoscloud
   class TargetGroupProperties
   
-    # The name of the target group.
-    attr_accessor :name
-
-
-    # Balancing algorithm
+    # The balancing algorithm. A balancing algorithm consists of predefined rules with the logic that a load balancer uses to distribute network traffic between servers.  - **Round Robin**: Targets are served alternately according to their weighting.  - **Least Connection**: The target with the least active connection is served.  - **Random**: The targets are served based on a consistent pseudorandom algorithm.  - **Source IP**: It is ensured that the same client IP address reaches the same target.
     attr_accessor :algorithm
-
-
-    # Balancing protocol
-    attr_accessor :protocol
-
-
-    # Array of items in the collection.
-    attr_accessor :targets
 
 
     attr_accessor :health_check
 
 
     attr_accessor :http_health_check
+
+
+    # The target group name.
+    attr_accessor :name
+
+
+    # The forwarding protocol. Only the value 'HTTP' is allowed.
+    attr_accessor :protocol
+
+
+    # Array of items in the collection.
+    attr_accessor :targets
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -63,17 +63,17 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
         :'algorithm' => :'algorithm',
-
-        :'protocol' => :'protocol',
-
-        :'targets' => :'targets',
 
         :'health_check' => :'healthCheck',
 
-        :'http_health_check' => :'httpHealthCheck'
+        :'http_health_check' => :'httpHealthCheck',
+
+        :'name' => :'name',
+
+        :'protocol' => :'protocol',
+
+        :'targets' => :'targets'
       }
     end
 
@@ -86,17 +86,17 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
         :'algorithm' => :'String',
-
-        :'protocol' => :'String',
-
-        :'targets' => :'Array<TargetGroupTarget>',
 
         :'health_check' => :'TargetGroupHealthCheck',
 
-        :'http_health_check' => :'TargetGroupHttpHealthCheck'
+        :'http_health_check' => :'TargetGroupHttpHealthCheck',
+
+        :'name' => :'String',
+
+        :'protocol' => :'String',
+
+        :'targets' => :'Array<TargetGroupTarget>'
       }
     end
 
@@ -128,23 +128,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
       if attributes.key?(:'algorithm')
         self.algorithm = attributes[:'algorithm']
-      end
-
-
-      if attributes.key?(:'protocol')
-        self.protocol = attributes[:'protocol']
-      end
-
-
-      if attributes.key?(:'targets') && (value = attributes[:'targets']).is_a?(Array)
-        self.targets = value
       end
 
 
@@ -156,6 +141,21 @@ module Ionoscloud
       if attributes.key?(:'http_health_check')
         self.http_health_check = attributes[:'http_health_check']
       end
+
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'protocol')
+        self.protocol = attributes[:'protocol']
+      end
+
+
+      if attributes.key?(:'targets') && (value = attributes[:'targets']).is_a?(Array)
+        self.targets = value
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -163,21 +163,21 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @algorithm.nil?
+        invalid_properties.push('invalid value for "algorithm", algorithm cannot be nil.')
       end
 
 
-      if @algorithm.nil?
-        invalid_properties.push('invalid value for "algorithm", algorithm cannot be nil.')
+
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
 
       if @protocol.nil?
         invalid_properties.push('invalid value for "protocol", protocol cannot be nil.')
       end
-
-
 
 
       invalid_properties
@@ -187,23 +187,22 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @name.nil?
-
       return false if @algorithm.nil?
       algorithm_validator = EnumAttributeValidator.new('String', ["ROUND_ROBIN", "LEAST_CONNECTION", "RANDOM", "SOURCE_IP"])
       return false unless algorithm_validator.valid?(@algorithm)
+
+
+
+      return false if @name.nil?
 
       return false if @protocol.nil?
       protocol_validator = EnumAttributeValidator.new('String', ["HTTP"])
       return false unless protocol_validator.valid?(@protocol)
 
-
-
       true
     end
 
     
-
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] algorithm Object to be assigned
     def algorithm=(algorithm)
@@ -213,6 +212,9 @@ module Ionoscloud
       end
       @algorithm = algorithm
     end
+
+
+
 
 
     # Custom attribute writer method checking allowed values (enum).
@@ -226,19 +228,17 @@ module Ionoscloud
     end
 
 
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
         algorithm == o.algorithm &&
-        protocol == o.protocol &&
-        targets == o.targets &&
         health_check == o.health_check &&
-        http_health_check == o.http_health_check
+        http_health_check == o.http_health_check &&
+        name == o.name &&
+        protocol == o.protocol &&
+        targets == o.targets
     end
 
     # @see the `==` method
@@ -250,7 +250,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, algorithm, protocol, targets, health_check, http_health_check].hash
+      [algorithm, health_check, http_health_check, name, protocol, targets].hash
     end
 
     # Builds the object from hash

@@ -407,8 +407,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create NICs
-    # Add a NIC to the specified server. The combined total of NICs and attached volumes cannot exceed 24 per server.
+    # Create a NIC
+    # Adds a NIC to the specified server. The combined total of NICs and attached volumes cannot exceed 24 per server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic [Nic] The NIC to create.
@@ -422,8 +422,8 @@ module Ionoscloud
       data
     end
 
-    # Create NICs
-    # Add a NIC to the specified server. The combined total of NICs and attached volumes cannot exceed 24 per server.
+    # Create a NIC
+    # Adds a NIC to the specified server. The combined total of NICs and attached volumes cannot exceed 24 per server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic [Nic] The NIC to create.

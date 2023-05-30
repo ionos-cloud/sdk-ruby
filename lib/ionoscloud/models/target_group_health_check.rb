@@ -16,24 +16,24 @@ require 'time'
 module Ionoscloud
   class TargetGroupHealthCheck
   
-    # The maximum time in milliseconds to wait for a target to respond to a check. For target VMs with 'Check Interval' set, the lesser of the two  values is used once the TCP connection is established.
-    attr_accessor :check_timeout
-
-
-    # The interval in milliseconds between consecutive health checks; default is 2000.
+    # The interval in milliseconds between consecutive health checks; the default value is '2000'.
     attr_accessor :check_interval
 
 
-    # The maximum number of attempts to reconnect to a target after a connection failure. Valid range is 0 to 65535, and default is three reconnection attempts.
+    # The maximum time in milliseconds is to wait for a target to respond to a check. For target VMs with a 'Check Interval' set, the smaller of the two values is used once the TCP connection is established.
+    attr_accessor :check_timeout
+
+
+    # The maximum number of attempts to reconnect to a target after a connection failure. The valid range is '0 to 65535'; the default value is '3'.
     attr_accessor :retries
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'check_timeout' => :'checkTimeout',
-
         :'check_interval' => :'checkInterval',
+
+        :'check_timeout' => :'checkTimeout',
 
         :'retries' => :'retries'
       }
@@ -48,9 +48,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'check_timeout' => :'Integer',
-
         :'check_interval' => :'Integer',
+
+        :'check_timeout' => :'Integer',
 
         :'retries' => :'Integer'
       }
@@ -81,13 +81,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'check_timeout')
-        self.check_timeout = attributes[:'check_timeout']
+      if attributes.key?(:'check_interval')
+        self.check_interval = attributes[:'check_interval']
       end
 
 
-      if attributes.key?(:'check_interval')
-        self.check_interval = attributes[:'check_interval']
+      if attributes.key?(:'check_timeout')
+        self.check_timeout = attributes[:'check_timeout']
       end
 
 
@@ -123,8 +123,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        check_timeout == o.check_timeout &&
         check_interval == o.check_interval &&
+        check_timeout == o.check_timeout &&
         retries == o.retries
     end
 
@@ -137,7 +137,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [check_timeout, check_interval, retries].hash
+      [check_interval, check_timeout, retries].hash
     end
 
     # Builds the object from hash

@@ -4,17 +4,21 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **target** | [**ResourceReference**](ResourceReference.md) |  | [optional] |
+
 | **status** | **String** |  | [optional] |
+
+| **target** | [**ResourceReference**](ResourceReference.md) |  | [optional] |
 
 ## Example
 
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::RequestTarget.new(
-  target: null,
-  status: null
+  status: null,
+
+  target: null
 )
 ```
 

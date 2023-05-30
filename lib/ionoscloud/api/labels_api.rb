@@ -271,8 +271,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create data center labels
-    # Add a new label to the specified data center.
+    # Create a Data Center Label
+    # Adds a new label to the specified data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param label [LabelResource] The label to create.
     # @param [Hash] opts the optional parameters
@@ -285,8 +285,8 @@ module Ionoscloud
       data
     end
 
-    # Create data center labels
-    # Add a new label to the specified data center.
+    # Create a Data Center Label
+    # Adds a new label to the specified data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param label [LabelResource] The label to create.
     # @param [Hash] opts the optional parameters
@@ -359,8 +359,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify data center labels
-    # Modify the specified data center label.
+    # Modify a Data Center Label by Key
+    # Modifies the specified data center label.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param key [String] The label key
     # @param label [LabelResource] The modified label
@@ -374,8 +374,8 @@ module Ionoscloud
       data
     end
 
-    # Modify data center labels
-    # Modify the specified data center label.
+    # Modify a Data Center Label by Key
+    # Modifies the specified data center label.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param key [String] The label key
     # @param label [LabelResource] The modified label
@@ -723,8 +723,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create server labels
-    # Add a new label to the specified server.
+    # Create a Server Label
+    # Adds a new label to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param label [LabelResource] The label to create.
@@ -738,8 +738,8 @@ module Ionoscloud
       data
     end
 
-    # Create server labels
-    # Add a new label to the specified server.
+    # Create a Server Label
+    # Adds a new label to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param label [LabelResource] The label to create.
@@ -817,8 +817,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify server labels
-    # Modify the specified server label.
+    # Modify a Server Label
+    # Modifies the specified server label.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param key [String] The label key
@@ -833,8 +833,8 @@ module Ionoscloud
       data
     end
 
-    # Modify server labels
-    # Modify the specified server label.
+    # Modify a Server Label
+    # Modifies the specified server label.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param key [String] The label key
@@ -1187,8 +1187,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create volume labels
-    # Add a new label to the specified volume.
+    # Create a Volume Label
+    # Adds a new label to the specified volume.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume_id [String] The unique ID of the volume.
     # @param label [LabelResource] The label to create.
@@ -1202,8 +1202,8 @@ module Ionoscloud
       data
     end
 
-    # Create volume labels
-    # Add a new label to the specified volume.
+    # Create a Volume Label
+    # Adds a new label to the specified volume.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume_id [String] The unique ID of the volume.
     # @param label [LabelResource] The label to create.
@@ -1281,8 +1281,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify volume labels
-    # Modify the specified volume label.
+    # Modify a Volume Label
+    # Modifies the specified volume label.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume_id [String] The unique ID of the volume.
     # @param key [String] The label key
@@ -1297,8 +1297,8 @@ module Ionoscloud
       data
     end
 
-    # Modify volume labels
-    # Modify the specified volume label.
+    # Modify a Volume Label
+    # Modifies the specified volume label.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param volume_id [String] The unique ID of the volume.
     # @param key [String] The label key
@@ -1721,8 +1721,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify IP block labels
-    # Modify the specified IP block label.
+    # Modify a IP Block Label by ID
+    # Modifies the specified IP block label.
     # @param ipblock_id [String] The unique ID of the IP block.
     # @param key [String] The label key
     # @param label [LabelResource] The modified label
@@ -1736,8 +1736,8 @@ module Ionoscloud
       data
     end
 
-    # Modify IP block labels
-    # Modify the specified IP block label.
+    # Modify a IP Block Label by ID
+    # Modifies the specified IP block label.
     # @param ipblock_id [String] The unique ID of the IP block.
     # @param key [String] The label key
     # @param label [LabelResource] The modified label
@@ -2221,8 +2221,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create snapshot labels
-    # Add a new label to the specified snapshot.
+    # Create a Snapshot Label
+    # Adds a new label to the specified snapshot.
     # @param snapshot_id [String] The unique ID of the snapshot.
     # @param label [LabelResource] The label to create.
     # @param [Hash] opts the optional parameters
@@ -2235,8 +2235,8 @@ module Ionoscloud
       data
     end
 
-    # Create snapshot labels
-    # Add a new label to the specified snapshot.
+    # Create a Snapshot Label
+    # Adds a new label to the specified snapshot.
     # @param snapshot_id [String] The unique ID of the snapshot.
     # @param label [LabelResource] The label to create.
     # @param [Hash] opts the optional parameters
@@ -2309,8 +2309,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify snapshot labels
-    # Modify the specified snapshot label.
+    # Modify a Snapshot Label by ID
+    # Modifies the specified snapshot label.
     # @param snapshot_id [String] The unique ID of the snapshot.
     # @param key [String] The label key
     # @param label [LabelResource] The modified label
@@ -2324,8 +2324,8 @@ module Ionoscloud
       data
     end
 
-    # Modify snapshot labels
-    # Modify the specified snapshot label.
+    # Modify a Snapshot Label by ID
+    # Modifies the specified snapshot label.
     # @param snapshot_id [String] The unique ID of the snapshot.
     # @param key [String] The label key
     # @param label [LabelResource] The modified label

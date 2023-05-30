@@ -16,6 +16,10 @@ require 'time'
 module Ionoscloud
   class ResourceReference
   
+    # URL to the object representation (absolute path).
+    attr_accessor :href
+
+
     # The resource's unique identifier.
     attr_accessor :id
 
@@ -23,19 +27,15 @@ module Ionoscloud
     # The type of object that has been created.
     attr_accessor :type
 
-
-    # URL to the object representation (absolute path).
-    attr_accessor :href
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'href' => :'href',
+
         :'id' => :'id',
 
-        :'type' => :'type',
-
-        :'href' => :'href'
+        :'type' => :'type'
       }
     end
 
@@ -48,11 +48,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'href' => :'String',
+
         :'id' => :'String',
 
-        :'type' => :'Type',
-
-        :'href' => :'String'
+        :'type' => :'Type'
       }
     end
 
@@ -81,6 +81,11 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'href')
+        self.href = attributes[:'href']
+      end
+
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -89,11 +94,6 @@ module Ionoscloud
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
-
-
-      if attributes.key?(:'href')
-        self.href = attributes[:'href']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -101,10 +101,10 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
-
 
 
       invalid_properties
@@ -114,8 +114,8 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @id.nil?
 
+      return false if @id.nil?
 
       true
     end
@@ -128,9 +128,9 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        href == o.href &&
         id == o.id &&
-        type == o.type &&
-        href == o.href
+        type == o.type
     end
 
     # @see the `==` method
@@ -142,7 +142,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href].hash
+      [href, id, type].hash
     end
 
     # Builds the object from hash

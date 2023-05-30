@@ -20,8 +20,8 @@ module Ionoscloud
     attr_accessor :key
 
 
-    # A label value
-    attr_accessor :value
+    # URL to the Resource (absolute path) on which the label is applied.
+    attr_accessor :resource_href
 
 
     # The ID of the resource.
@@ -32,8 +32,8 @@ module Ionoscloud
     attr_accessor :resource_type
 
 
-    # URL to the Resource (absolute path) on which the label is applied.
-    attr_accessor :resource_href
+    # A label value
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -41,13 +41,13 @@ module Ionoscloud
         
         :'key' => :'key',
 
-        :'value' => :'value',
+        :'resource_href' => :'resourceHref',
 
         :'resource_id' => :'resourceId',
 
         :'resource_type' => :'resourceType',
 
-        :'resource_href' => :'resourceHref'
+        :'value' => :'value'
       }
     end
 
@@ -62,13 +62,13 @@ module Ionoscloud
         
         :'key' => :'String',
 
-        :'value' => :'String',
+        :'resource_href' => :'String',
 
         :'resource_id' => :'String',
 
         :'resource_type' => :'String',
 
-        :'resource_href' => :'String'
+        :'value' => :'String'
       }
     end
 
@@ -104,8 +104,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.key?(:'resource_href')
+        self.resource_href = attributes[:'resource_href']
       end
 
 
@@ -119,8 +119,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'resource_href')
-        self.resource_href = attributes[:'resource_href']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -158,10 +158,10 @@ module Ionoscloud
       return true if self.equal?(o)
       self.class == o.class &&
         key == o.key &&
-        value == o.value &&
+        resource_href == o.resource_href &&
         resource_id == o.resource_id &&
         resource_type == o.resource_type &&
-        resource_href == o.resource_href
+        value == o.value
     end
 
     # @see the `==` method
@@ -173,7 +173,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [key, value, resource_id, resource_type, resource_href].hash
+      [key, resource_href, resource_id, resource_type, value].hash
     end
 
     # Builds the object from hash

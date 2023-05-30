@@ -4,33 +4,33 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**datacenters_applicationloadbalancers_delete**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_delete) | **DELETE** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Delete Application Load Balancers |
-| [**datacenters_applicationloadbalancers_find_by_application_load_balancer_id**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_find_by_application_load_balancer_id) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Retrieve Application Load Balancers |
-| [**datacenters_applicationloadbalancers_flowlogs_delete**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_delete) | **DELETE** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Delete ALB Flow Logs |
-| [**datacenters_applicationloadbalancers_flowlogs_find_by_flow_log_id**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_find_by_flow_log_id) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Retrieve ALB Flow Logs |
-| [**datacenters_applicationloadbalancers_flowlogs_get**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_get) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs | List ALB Flow Logs |
-| [**datacenters_applicationloadbalancers_flowlogs_patch**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_patch) | **PATCH** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Partially modify ALB Flow Logs |
-| [**datacenters_applicationloadbalancers_flowlogs_post**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_post) | **POST** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs | Create ALB Flow Logs |
-| [**datacenters_applicationloadbalancers_flowlogs_put**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_put) | **PUT** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Modify ALB Flow Logs |
-| [**datacenters_applicationloadbalancers_forwardingrules_delete**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_delete) | **DELETE** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Delete ALB forwarding rules |
-| [**datacenters_applicationloadbalancers_forwardingrules_find_by_forwarding_rule_id**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_find_by_forwarding_rule_id) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Retrieve ALB forwarding rules |
-| [**datacenters_applicationloadbalancers_forwardingrules_get**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_get) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules | List ALB forwarding rules |
-| [**datacenters_applicationloadbalancers_forwardingrules_patch**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_patch) | **PATCH** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Partially modify ALB forwarding rules |
-| [**datacenters_applicationloadbalancers_forwardingrules_post**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_post) | **POST** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules | Create ALB forwarding rules |
-| [**datacenters_applicationloadbalancers_forwardingrules_put**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_put) | **PUT** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Modify ALB forwarding rules |
-| [**datacenters_applicationloadbalancers_get**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_get) | **GET** /datacenters/{datacenterId}/applicationloadbalancers | List Application Load Balancers |
-| [**datacenters_applicationloadbalancers_patch**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_patch) | **PATCH** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Partially modify Application Load Balancers |
-| [**datacenters_applicationloadbalancers_post**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_post) | **POST** /datacenters/{datacenterId}/applicationloadbalancers | Create Application Load Balancers |
-| [**datacenters_applicationloadbalancers_put**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_put) | **PUT** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Modify Application Load Balancers |
+| [**datacenters_applicationloadbalancers_delete**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_delete) | **DELETE** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Delete an Application Load Balancer by ID |
+| [**datacenters_applicationloadbalancers_find_by_application_load_balancer_id**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_find_by_application_load_balancer_id) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Get an Application Load Balancer by ID |
+| [**datacenters_applicationloadbalancers_flowlogs_delete**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_delete) | **DELETE** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Delete an ALB Flow Log by ID |
+| [**datacenters_applicationloadbalancers_flowlogs_find_by_flow_log_id**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_find_by_flow_log_id) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Get an ALB Flow Log by ID |
+| [**datacenters_applicationloadbalancers_flowlogs_get**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_get) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs | Get ALB Flow Logs |
+| [**datacenters_applicationloadbalancers_flowlogs_patch**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_patch) | **PATCH** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Partially Modify an ALB Flow Log by ID |
+| [**datacenters_applicationloadbalancers_flowlogs_post**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_post) | **POST** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs | Create an ALB Flow Log |
+| [**datacenters_applicationloadbalancers_flowlogs_put**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_flowlogs_put) | **PUT** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/flowlogs/{flowLogId} | Modify an ALB Flow Log by ID |
+| [**datacenters_applicationloadbalancers_forwardingrules_delete**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_delete) | **DELETE** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Delete an ALB Forwarding Rule by ID |
+| [**datacenters_applicationloadbalancers_forwardingrules_find_by_forwarding_rule_id**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_find_by_forwarding_rule_id) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Get an ALB Forwarding Rule by ID |
+| [**datacenters_applicationloadbalancers_forwardingrules_get**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_get) | **GET** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules | Get ALB Forwarding Rules |
+| [**datacenters_applicationloadbalancers_forwardingrules_patch**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_patch) | **PATCH** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Partially modify an ALB Forwarding Rule by ID |
+| [**datacenters_applicationloadbalancers_forwardingrules_post**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_post) | **POST** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules | Create an ALB Forwarding Rule |
+| [**datacenters_applicationloadbalancers_forwardingrules_put**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_forwardingrules_put) | **PUT** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId}/forwardingrules/{forwardingRuleId} | Modify an ALB Forwarding Rule by ID |
+| [**datacenters_applicationloadbalancers_get**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_get) | **GET** /datacenters/{datacenterId}/applicationloadbalancers | Get Application Load Balancers |
+| [**datacenters_applicationloadbalancers_patch**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_patch) | **PATCH** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Partially Modify an Application Load Balancer by ID |
+| [**datacenters_applicationloadbalancers_post**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_post) | **POST** /datacenters/{datacenterId}/applicationloadbalancers | Create an Application Load Balancer |
+| [**datacenters_applicationloadbalancers_put**](ApplicationLoadBalancersApi.md#datacenters_applicationloadbalancers_put) | **PUT** /datacenters/{datacenterId}/applicationloadbalancers/{applicationLoadBalancerId} | Modify an Application Load Balancer by ID |
 
 
 ## datacenters_applicationloadbalancers_delete
 
 > datacenters_applicationloadbalancers_delete(datacenter_id, application_load_balancer_id, opts)
 
-Delete Application Load Balancers
+Delete an Application Load Balancer by ID
 
-Remove the specified Application Load Balancer from the data center..
+Removes the specified Application Load Balancer from the data center.
 
 ### Examples
 
@@ -59,7 +59,7 @@ opts = {
 }
 
 begin
-  # Delete Application Load Balancers
+  # Delete an Application Load Balancer by ID
   api_instance.datacenters_applicationloadbalancers_delete(datacenter_id, application_load_balancer_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ApplicationLoadBalancersApi->datacenters_applicationloadbalancers_delete: #{e}"
@@ -74,7 +74,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete Application Load Balancers
+  # Delete an Application Load Balancer by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_delete_with_http_info(datacenter_id, application_load_balancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -112,9 +112,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancer> datacenters_applicationloadbalancers_find_by_application_load_balancer_id(datacenter_id, application_load_balancer_id, opts)
 
-Retrieve Application Load Balancers
+Get an Application Load Balancer by ID
 
-Retrieve the properties of the specified Application Load Balancer within the data center.
+Retrieves the properties of the specified Application Load Balancer within the data center.
 
 ### Examples
 
@@ -143,7 +143,7 @@ opts = {
 }
 
 begin
-  # Retrieve Application Load Balancers
+  # Get an Application Load Balancer by ID
   result = api_instance.datacenters_applicationloadbalancers_find_by_application_load_balancer_id(datacenter_id, application_load_balancer_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -159,7 +159,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve Application Load Balancers
+  # Get an Application Load Balancer by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_find_by_application_load_balancer_id_with_http_info(datacenter_id, application_load_balancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -197,9 +197,9 @@ Basic Authentication, Token Authentication
 
 > datacenters_applicationloadbalancers_flowlogs_delete(datacenter_id, application_load_balancer_id, flow_log_id, opts)
 
-Delete ALB Flow Logs
+Delete an ALB Flow Log by ID
 
-Delete the specified Application Load Balancer Flow Log.
+Deletes the Application Load Balancer flow log specified by its ID.
 
 ### Examples
 
@@ -221,7 +221,7 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
+flow_log_id = 'flow_log_id_example' # String | The unique ID of the flow log.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -229,7 +229,7 @@ opts = {
 }
 
 begin
-  # Delete ALB Flow Logs
+  # Delete an ALB Flow Log by ID
   api_instance.datacenters_applicationloadbalancers_flowlogs_delete(datacenter_id, application_load_balancer_id, flow_log_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ApplicationLoadBalancersApi->datacenters_applicationloadbalancers_flowlogs_delete: #{e}"
@@ -244,7 +244,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete ALB Flow Logs
+  # Delete an ALB Flow Log by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_flowlogs_delete_with_http_info(datacenter_id, application_load_balancer_id, flow_log_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -260,7 +260,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
+| **flow_log_id** | **String** | The unique ID of the flow log. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -283,9 +283,9 @@ Basic Authentication, Token Authentication
 
 > <FlowLog> datacenters_applicationloadbalancers_flowlogs_find_by_flow_log_id(datacenter_id, application_load_balancer_id, flow_log_id, opts)
 
-Retrieve ALB Flow Logs
+Get an ALB Flow Log by ID
 
-Retrieve the specified Application Load Balancer Flow Log.
+Retrieves the Application Load Balancer flow log specified by its ID.
 
 ### Examples
 
@@ -307,7 +307,7 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
+flow_log_id = 'flow_log_id_example' # String | The unique ID of the flow log.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -315,7 +315,7 @@ opts = {
 }
 
 begin
-  # Retrieve ALB Flow Logs
+  # Get an ALB Flow Log by ID
   result = api_instance.datacenters_applicationloadbalancers_flowlogs_find_by_flow_log_id(datacenter_id, application_load_balancer_id, flow_log_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -331,7 +331,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve ALB Flow Logs
+  # Get an ALB Flow Log by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_flowlogs_find_by_flow_log_id_with_http_info(datacenter_id, application_load_balancer_id, flow_log_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -347,7 +347,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
+| **flow_log_id** | **String** | The unique ID of the flow log. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -370,9 +370,9 @@ Basic Authentication, Token Authentication
 
 > <FlowLogs> datacenters_applicationloadbalancers_flowlogs_get(datacenter_id, application_load_balancer_id, opts)
 
-List ALB Flow Logs
+Get ALB Flow Logs
 
-List the Flow Logs for the specified Application Load Balancer.
+Retrieves the flow logs for the specified Application Load Balancer.
 
 ### Examples
 
@@ -401,7 +401,7 @@ opts = {
 }
 
 begin
-  # List ALB Flow Logs
+  # Get ALB Flow Logs
   result = api_instance.datacenters_applicationloadbalancers_flowlogs_get(datacenter_id, application_load_balancer_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -417,7 +417,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List ALB Flow Logs
+  # Get ALB Flow Logs
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_flowlogs_get_with_http_info(datacenter_id, application_load_balancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -455,9 +455,9 @@ Basic Authentication, Token Authentication
 
 > <FlowLog> datacenters_applicationloadbalancers_flowlogs_patch(datacenter_id, application_load_balancer_id, flow_log_id, application_load_balancer_flow_log_properties, opts)
 
-Partially modify ALB Flow Logs
+Partially Modify an ALB Flow Log by ID
 
-Update the properties of the specified Application Load Balancer Flow Log.
+Updates the properties of the Application Load Balancer flow log specified by its ID.
 
 ### Examples
 
@@ -479,8 +479,8 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
-application_load_balancer_flow_log_properties = Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'}) # FlowLogProperties | The properties of the ALB Flow Log to be updated.
+flow_log_id = 'flow_log_id_example' # String | The unique ID of the flow log.
+application_load_balancer_flow_log_properties = Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'}) # FlowLogProperties | The properties of the ALB flow log to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -488,7 +488,7 @@ opts = {
 }
 
 begin
-  # Partially modify ALB Flow Logs
+  # Partially Modify an ALB Flow Log by ID
   result = api_instance.datacenters_applicationloadbalancers_flowlogs_patch(datacenter_id, application_load_balancer_id, flow_log_id, application_load_balancer_flow_log_properties, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -504,7 +504,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify ALB Flow Logs
+  # Partially Modify an ALB Flow Log by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_flowlogs_patch_with_http_info(datacenter_id, application_load_balancer_id, flow_log_id, application_load_balancer_flow_log_properties, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -520,8 +520,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
-| **application_load_balancer_flow_log_properties** | [**FlowLogProperties**](FlowLogProperties.md) | The properties of the ALB Flow Log to be updated. |  |
+| **flow_log_id** | **String** | The unique ID of the flow log. |  |
+| **application_load_balancer_flow_log_properties** | [**FlowLogProperties**](../models/FlowLogProperties.md) | The properties of the ALB flow log to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -544,9 +544,9 @@ Basic Authentication, Token Authentication
 
 > <FlowLog> datacenters_applicationloadbalancers_flowlogs_post(datacenter_id, application_load_balancer_id, application_load_balancer_flow_log, opts)
 
-Create ALB Flow Logs
+Create an ALB Flow Log
 
-Add a new Flow Log for the Application Load Balancer.
+Creates a flow log for the Application Load Balancer specified by ID.
 
 ### Examples
 
@@ -568,7 +568,7 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-application_load_balancer_flow_log = Ionoscloud::FlowLog.new({properties: Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'})}) # FlowLog | The Flow Log to create.
+application_load_balancer_flow_log = Ionoscloud::FlowLog.new({properties: Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'})}) # FlowLog | The flow log to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -576,7 +576,7 @@ opts = {
 }
 
 begin
-  # Create ALB Flow Logs
+  # Create an ALB Flow Log
   result = api_instance.datacenters_applicationloadbalancers_flowlogs_post(datacenter_id, application_load_balancer_id, application_load_balancer_flow_log, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -592,7 +592,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create ALB Flow Logs
+  # Create an ALB Flow Log
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_flowlogs_post_with_http_info(datacenter_id, application_load_balancer_id, application_load_balancer_flow_log, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -608,7 +608,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **application_load_balancer_flow_log** | [**FlowLog**](FlowLog.md) | The Flow Log to create. |  |
+| **application_load_balancer_flow_log** | [**FlowLog**](../models/FlowLog.md) | The flow log to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -631,9 +631,9 @@ Basic Authentication, Token Authentication
 
 > <FlowLog> datacenters_applicationloadbalancers_flowlogs_put(datacenter_id, application_load_balancer_id, flow_log_id, application_load_balancer_flow_log, opts)
 
-Modify ALB Flow Logs
+Modify an ALB Flow Log by ID
 
-Modify the specified Application Load Balancer Flow Log.
+Modifies the Application Load Balancer flow log specified by its ID.
 
 ### Examples
 
@@ -655,8 +655,8 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
-application_load_balancer_flow_log = Ionoscloud::FlowLogPut.new({properties: Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'})}) # FlowLogPut | The modified ALB Flow Log.
+flow_log_id = 'flow_log_id_example' # String | The unique ID of the flow log.
+application_load_balancer_flow_log = Ionoscloud::FlowLogPut.new({properties: Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'})}) # FlowLogPut | The modified ALB flow log.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -664,7 +664,7 @@ opts = {
 }
 
 begin
-  # Modify ALB Flow Logs
+  # Modify an ALB Flow Log by ID
   result = api_instance.datacenters_applicationloadbalancers_flowlogs_put(datacenter_id, application_load_balancer_id, flow_log_id, application_load_balancer_flow_log, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -680,7 +680,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify ALB Flow Logs
+  # Modify an ALB Flow Log by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_flowlogs_put_with_http_info(datacenter_id, application_load_balancer_id, flow_log_id, application_load_balancer_flow_log, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -696,8 +696,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
-| **application_load_balancer_flow_log** | [**FlowLogPut**](FlowLogPut.md) | The modified ALB Flow Log. |  |
+| **flow_log_id** | **String** | The unique ID of the flow log. |  |
+| **application_load_balancer_flow_log** | [**FlowLogPut**](../models/FlowLogPut.md) | The modified ALB flow log. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -720,9 +720,9 @@ Basic Authentication, Token Authentication
 
 > datacenters_applicationloadbalancers_forwardingrules_delete(datacenter_id, application_load_balancer_id, forwarding_rule_id, opts)
 
-Delete ALB forwarding rules
+Delete an ALB Forwarding Rule by ID
 
-Delete the specified Application Load Balancer forwarding rule.
+Deletes the Application Load Balancer forwarding rule specified by its ID.
 
 ### Examples
 
@@ -752,7 +752,7 @@ opts = {
 }
 
 begin
-  # Delete ALB forwarding rules
+  # Delete an ALB Forwarding Rule by ID
   api_instance.datacenters_applicationloadbalancers_forwardingrules_delete(datacenter_id, application_load_balancer_id, forwarding_rule_id, opts)
 rescue Ionoscloud::ApiError => e
   puts "Error when calling ApplicationLoadBalancersApi->datacenters_applicationloadbalancers_forwardingrules_delete: #{e}"
@@ -767,7 +767,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Delete ALB forwarding rules
+  # Delete an ALB Forwarding Rule by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_forwardingrules_delete_with_http_info(datacenter_id, application_load_balancer_id, forwarding_rule_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -806,9 +806,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancerForwardingRule> datacenters_applicationloadbalancers_forwardingrules_find_by_forwarding_rule_id(datacenter_id, application_load_balancer_id, forwarding_rule_id, opts)
 
-Retrieve ALB forwarding rules
+Get an ALB Forwarding Rule by ID
 
-Retrieve the specified Application Load Balancer forwarding rule.
+Retrieves the Application Load Balancer forwarding rule specified by its ID.
 
 ### Examples
 
@@ -838,7 +838,7 @@ opts = {
 }
 
 begin
-  # Retrieve ALB forwarding rules
+  # Get an ALB Forwarding Rule by ID
   result = api_instance.datacenters_applicationloadbalancers_forwardingrules_find_by_forwarding_rule_id(datacenter_id, application_load_balancer_id, forwarding_rule_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -854,7 +854,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve ALB forwarding rules
+  # Get an ALB Forwarding Rule by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_forwardingrules_find_by_forwarding_rule_id_with_http_info(datacenter_id, application_load_balancer_id, forwarding_rule_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -893,9 +893,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancerForwardingRules> datacenters_applicationloadbalancers_forwardingrules_get(datacenter_id, application_load_balancer_id, opts)
 
-List ALB forwarding rules
+Get ALB Forwarding Rules
 
-List the forwarding rules for the specified Application Load Balancer.
+Lists the forwarding rules of the specified Application Load Balancer.
 
 ### Examples
 
@@ -924,7 +924,7 @@ opts = {
 }
 
 begin
-  # List ALB forwarding rules
+  # Get ALB Forwarding Rules
   result = api_instance.datacenters_applicationloadbalancers_forwardingrules_get(datacenter_id, application_load_balancer_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -940,7 +940,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List ALB forwarding rules
+  # Get ALB Forwarding Rules
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_forwardingrules_get_with_http_info(datacenter_id, application_load_balancer_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -978,9 +978,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancerForwardingRule> datacenters_applicationloadbalancers_forwardingrules_patch(datacenter_id, application_load_balancer_id, forwarding_rule_id, application_load_balancer_forwarding_rule_properties, opts)
 
-Partially modify ALB forwarding rules
+Partially modify an ALB Forwarding Rule by ID
 
-Update the properties of the specified Application Load Balancer forwarding rule.
+Updates the properties of the Application Load Balancer forwarding rule specified by its ID.
 
 ### Examples
 
@@ -1003,7 +1003,7 @@ api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
 forwarding_rule_id = 'forwarding_rule_id_example' # String | The unique ID of the forwarding rule.
-application_load_balancer_forwarding_rule_properties = Ionoscloud::ApplicationLoadBalancerForwardingRuleProperties.new({name: 'My Application Load Balancer forwarding rule', protocol: 'HTTP', listener_ip: '81.173.1.2', listener_port: 8080}) # ApplicationLoadBalancerForwardingRuleProperties | The properties of the forwarding rule to be updated.
+application_load_balancer_forwarding_rule_properties = Ionoscloud::ApplicationLoadBalancerForwardingRuleProperties.new({listener_ip: '81.173.1.2', listener_port: 8080, name: 'My Application Load Balancer forwarding rule', protocol: 'HTTP'}) # ApplicationLoadBalancerForwardingRuleProperties | The properties of the forwarding rule to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1011,7 +1011,7 @@ opts = {
 }
 
 begin
-  # Partially modify ALB forwarding rules
+  # Partially modify an ALB Forwarding Rule by ID
   result = api_instance.datacenters_applicationloadbalancers_forwardingrules_patch(datacenter_id, application_load_balancer_id, forwarding_rule_id, application_load_balancer_forwarding_rule_properties, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1027,7 +1027,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify ALB forwarding rules
+  # Partially modify an ALB Forwarding Rule by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_forwardingrules_patch_with_http_info(datacenter_id, application_load_balancer_id, forwarding_rule_id, application_load_balancer_forwarding_rule_properties, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1044,7 +1044,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
 | **forwarding_rule_id** | **String** | The unique ID of the forwarding rule. |  |
-| **application_load_balancer_forwarding_rule_properties** | [**ApplicationLoadBalancerForwardingRuleProperties**](ApplicationLoadBalancerForwardingRuleProperties.md) | The properties of the forwarding rule to be updated. |  |
+| **application_load_balancer_forwarding_rule_properties** | [**ApplicationLoadBalancerForwardingRuleProperties**](../models/ApplicationLoadBalancerForwardingRuleProperties.md) | The properties of the forwarding rule to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1067,9 +1067,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancerForwardingRule> datacenters_applicationloadbalancers_forwardingrules_post(datacenter_id, application_load_balancer_id, application_load_balancer_forwarding_rule, opts)
 
-Create ALB forwarding rules
+Create an ALB Forwarding Rule
 
-Create a forwarding rule for the Application Load Balancer.
+Creates a forwarding rule for the specified Application Load Balancer.
 
 ### Examples
 
@@ -1091,7 +1091,7 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-application_load_balancer_forwarding_rule = Ionoscloud::ApplicationLoadBalancerForwardingRule.new({properties: Ionoscloud::ApplicationLoadBalancerForwardingRuleProperties.new({name: 'My Application Load Balancer forwarding rule', protocol: 'HTTP', listener_ip: '81.173.1.2', listener_port: 8080})}) # ApplicationLoadBalancerForwardingRule | The forwarding rule to create.
+application_load_balancer_forwarding_rule = Ionoscloud::ApplicationLoadBalancerForwardingRule.new({properties: Ionoscloud::ApplicationLoadBalancerForwardingRuleProperties.new({listener_ip: '81.173.1.2', listener_port: 8080, name: 'My Application Load Balancer forwarding rule', protocol: 'HTTP'})}) # ApplicationLoadBalancerForwardingRule | The forwarding rule to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1099,7 +1099,7 @@ opts = {
 }
 
 begin
-  # Create ALB forwarding rules
+  # Create an ALB Forwarding Rule
   result = api_instance.datacenters_applicationloadbalancers_forwardingrules_post(datacenter_id, application_load_balancer_id, application_load_balancer_forwarding_rule, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1115,7 +1115,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create ALB forwarding rules
+  # Create an ALB Forwarding Rule
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_forwardingrules_post_with_http_info(datacenter_id, application_load_balancer_id, application_load_balancer_forwarding_rule, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1131,7 +1131,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **application_load_balancer_forwarding_rule** | [**ApplicationLoadBalancerForwardingRule**](ApplicationLoadBalancerForwardingRule.md) | The forwarding rule to create. |  |
+| **application_load_balancer_forwarding_rule** | [**ApplicationLoadBalancerForwardingRule**](../models/ApplicationLoadBalancerForwardingRule.md) | The forwarding rule to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1154,9 +1154,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancerForwardingRule> datacenters_applicationloadbalancers_forwardingrules_put(datacenter_id, application_load_balancer_id, forwarding_rule_id, application_load_balancer_forwarding_rule, opts)
 
-Modify ALB forwarding rules
+Modify an ALB Forwarding Rule by ID
 
-Modify the specified Application Load Balancer forwarding rule.
+Modifies the Application Load Balancer forwarding rule specified by its ID.
 
 ### Examples
 
@@ -1179,7 +1179,7 @@ api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
 forwarding_rule_id = 'forwarding_rule_id_example' # String | The unique ID of the forwarding rule.
-application_load_balancer_forwarding_rule = Ionoscloud::ApplicationLoadBalancerForwardingRulePut.new({properties: Ionoscloud::ApplicationLoadBalancerForwardingRuleProperties.new({name: 'My Application Load Balancer forwarding rule', protocol: 'HTTP', listener_ip: '81.173.1.2', listener_port: 8080})}) # ApplicationLoadBalancerForwardingRulePut | The modified ALB forwarding rule.
+application_load_balancer_forwarding_rule = Ionoscloud::ApplicationLoadBalancerForwardingRulePut.new({properties: Ionoscloud::ApplicationLoadBalancerForwardingRuleProperties.new({listener_ip: '81.173.1.2', listener_port: 8080, name: 'My Application Load Balancer forwarding rule', protocol: 'HTTP'})}) # ApplicationLoadBalancerForwardingRulePut | The modified ALB forwarding rule.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1187,7 +1187,7 @@ opts = {
 }
 
 begin
-  # Modify ALB forwarding rules
+  # Modify an ALB Forwarding Rule by ID
   result = api_instance.datacenters_applicationloadbalancers_forwardingrules_put(datacenter_id, application_load_balancer_id, forwarding_rule_id, application_load_balancer_forwarding_rule, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1203,7 +1203,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify ALB forwarding rules
+  # Modify an ALB Forwarding Rule by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_forwardingrules_put_with_http_info(datacenter_id, application_load_balancer_id, forwarding_rule_id, application_load_balancer_forwarding_rule, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1220,7 +1220,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
 | **forwarding_rule_id** | **String** | The unique ID of the forwarding rule. |  |
-| **application_load_balancer_forwarding_rule** | [**ApplicationLoadBalancerForwardingRulePut**](ApplicationLoadBalancerForwardingRulePut.md) | The modified ALB forwarding rule. |  |
+| **application_load_balancer_forwarding_rule** | [**ApplicationLoadBalancerForwardingRulePut**](../models/ApplicationLoadBalancerForwardingRulePut.md) | The modified ALB forwarding rule. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1243,9 +1243,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancers> datacenters_applicationloadbalancers_get(datacenter_id, opts)
 
-List Application Load Balancers
+Get Application Load Balancers
 
-List all Application Load Balancers within the data center.
+Lists all Application Load Balancers within a data center.
 
 ### Examples
 
@@ -1275,7 +1275,7 @@ opts = {
 }
 
 begin
-  # List Application Load Balancers
+  # Get Application Load Balancers
   result = api_instance.datacenters_applicationloadbalancers_get(datacenter_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1291,7 +1291,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Application Load Balancers
+  # Get Application Load Balancers
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_get_with_http_info(datacenter_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1330,9 +1330,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancer> datacenters_applicationloadbalancers_patch(datacenter_id, application_load_balancer_id, application_load_balancer_properties, opts)
 
-Partially modify Application Load Balancers
+Partially Modify an Application Load Balancer by ID
 
-Update the properties of the specified Application Load Balancer within the data center.
+Updates the properties of the specified Application Load Balancer within the data center.
 
 ### Examples
 
@@ -1354,7 +1354,7 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-application_load_balancer_properties = Ionoscloud::ApplicationLoadBalancerProperties.new({name: 'My Application Load Balancer', listener_lan: 1, target_lan: 2}) # ApplicationLoadBalancerProperties | The Application Load Balancer properties to be updated.
+application_load_balancer_properties = Ionoscloud::ApplicationLoadBalancerProperties.new({listener_lan: 1, name: 'My Application Load Balancer', target_lan: 2}) # ApplicationLoadBalancerProperties | The Application Load Balancer properties to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1362,7 +1362,7 @@ opts = {
 }
 
 begin
-  # Partially modify Application Load Balancers
+  # Partially Modify an Application Load Balancer by ID
   result = api_instance.datacenters_applicationloadbalancers_patch(datacenter_id, application_load_balancer_id, application_load_balancer_properties, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1378,7 +1378,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify Application Load Balancers
+  # Partially Modify an Application Load Balancer by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_patch_with_http_info(datacenter_id, application_load_balancer_id, application_load_balancer_properties, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1394,7 +1394,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **application_load_balancer_properties** | [**ApplicationLoadBalancerProperties**](ApplicationLoadBalancerProperties.md) | The Application Load Balancer properties to be updated. |  |
+| **application_load_balancer_properties** | [**ApplicationLoadBalancerProperties**](../models/ApplicationLoadBalancerProperties.md) | The Application Load Balancer properties to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1417,9 +1417,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancer> datacenters_applicationloadbalancers_post(datacenter_id, application_load_balancer, opts)
 
-Create Application Load Balancers
+Create an Application Load Balancer
 
-Create an Application Load Balancer within the datacenter.
+Creates an Application Load Balancer within the data center.
 
 ### Examples
 
@@ -1440,7 +1440,7 @@ end
 
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-application_load_balancer = Ionoscloud::ApplicationLoadBalancer.new({properties: Ionoscloud::ApplicationLoadBalancerProperties.new({name: 'My Application Load Balancer', listener_lan: 1, target_lan: 2})}) # ApplicationLoadBalancer | The Application Load Balancer to create.
+application_load_balancer = Ionoscloud::ApplicationLoadBalancer.new({properties: Ionoscloud::ApplicationLoadBalancerProperties.new({listener_lan: 1, name: 'My Application Load Balancer', target_lan: 2})}) # ApplicationLoadBalancer | The Application Load Balancer to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1448,7 +1448,7 @@ opts = {
 }
 
 begin
-  # Create Application Load Balancers
+  # Create an Application Load Balancer
   result = api_instance.datacenters_applicationloadbalancers_post(datacenter_id, application_load_balancer, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1464,7 +1464,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create Application Load Balancers
+  # Create an Application Load Balancer
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_post_with_http_info(datacenter_id, application_load_balancer, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1479,7 +1479,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **application_load_balancer** | [**ApplicationLoadBalancer**](ApplicationLoadBalancer.md) | The Application Load Balancer to create. |  |
+| **application_load_balancer** | [**ApplicationLoadBalancer**](../models/ApplicationLoadBalancer.md) | The Application Load Balancer to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1502,9 +1502,9 @@ Basic Authentication, Token Authentication
 
 > <ApplicationLoadBalancer> datacenters_applicationloadbalancers_put(datacenter_id, application_load_balancer_id, application_load_balancer, opts)
 
-Modify Application Load Balancers
+Modify an Application Load Balancer by ID
 
-Modify the properties of the specified Application Load Balancer within the data center.
+Modifies the properties of the specified Application Load Balancer within the data center.
 
 ### Examples
 
@@ -1526,7 +1526,7 @@ end
 api_instance = Ionoscloud::ApplicationLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 application_load_balancer_id = 'application_load_balancer_id_example' # String | The unique ID of the Application Load Balancer.
-application_load_balancer = Ionoscloud::ApplicationLoadBalancerPut.new({properties: Ionoscloud::ApplicationLoadBalancerProperties.new({name: 'My Application Load Balancer', listener_lan: 1, target_lan: 2})}) # ApplicationLoadBalancerPut | The modified Application Load Balancer.
+application_load_balancer = Ionoscloud::ApplicationLoadBalancerPut.new({properties: Ionoscloud::ApplicationLoadBalancerProperties.new({listener_lan: 1, name: 'My Application Load Balancer', target_lan: 2})}) # ApplicationLoadBalancerPut | The modified Application Load Balancer.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1534,7 +1534,7 @@ opts = {
 }
 
 begin
-  # Modify Application Load Balancers
+  # Modify an Application Load Balancer by ID
   result = api_instance.datacenters_applicationloadbalancers_put(datacenter_id, application_load_balancer_id, application_load_balancer, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1550,7 +1550,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify Application Load Balancers
+  # Modify an Application Load Balancer by ID
   data, status_code, headers = api_instance.datacenters_applicationloadbalancers_put_with_http_info(datacenter_id, application_load_balancer_id, application_load_balancer, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1566,7 +1566,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **application_load_balancer_id** | **String** | The unique ID of the Application Load Balancer. |  |
-| **application_load_balancer** | [**ApplicationLoadBalancerPut**](ApplicationLoadBalancerPut.md) | The modified Application Load Balancer. |  |
+| **application_load_balancer** | [**ApplicationLoadBalancerPut**](../models/ApplicationLoadBalancerPut.md) | The modified Application Load Balancer. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

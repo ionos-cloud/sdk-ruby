@@ -16,32 +16,32 @@ require 'time'
 module Ionoscloud
   class KubernetesNodeProperties
   
-    # A Kubernetes node name.
+    # The Kubernetes version running in the node pool. Note that this imposes restrictions on which Kubernetes versions can run in the node pools of a cluster. Also, not all Kubernetes versions are suitable upgrade targets for all earlier versions.
+    attr_accessor :k8s_version
+
+
+    # The Kubernetes node name.
     attr_accessor :name
 
 
-    # A valid public IP.
-    attr_accessor :public_ip
-
-
-    # A valid private IP.
+    # The private IP associated with the node.
     attr_accessor :private_ip
 
 
-    # The Kubernetes version the nodepool is running. This imposes restrictions on what Kubernetes versions can be run in a cluster's nodepools. Additionally, not all Kubernetes versions are viable upgrade targets for all prior versions.
-    attr_accessor :k8s_version
+    # The public IP associated with the node.
+    attr_accessor :public_ip
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'k8s_version' => :'k8sVersion',
 
-        :'public_ip' => :'publicIP',
+        :'name' => :'name',
 
         :'private_ip' => :'privateIP',
 
-        :'k8s_version' => :'k8sVersion'
+        :'public_ip' => :'publicIP'
       }
     end
 
@@ -54,13 +54,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'k8s_version' => :'String',
 
-        :'public_ip' => :'String',
+        :'name' => :'String',
 
         :'private_ip' => :'String',
 
-        :'k8s_version' => :'String'
+        :'public_ip' => :'String'
       }
     end
 
@@ -90,13 +90,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'k8s_version')
+        self.k8s_version = attributes[:'k8s_version']
       end
 
 
-      if attributes.key?(:'public_ip')
-        self.public_ip = attributes[:'public_ip']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
@@ -105,8 +105,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'k8s_version')
-        self.k8s_version = attributes[:'k8s_version']
+      if attributes.key?(:'public_ip')
+        self.public_ip = attributes[:'public_ip']
       end
     end
 
@@ -115,16 +115,16 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+      if @k8s_version.nil?
+        invalid_properties.push('invalid value for "k8s_version", k8s_version cannot be nil.')
+      end
+
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
 
-
-
-      if @k8s_version.nil?
-        invalid_properties.push('invalid value for "k8s_version", k8s_version cannot be nil.')
-      end
 
       invalid_properties
     end
@@ -133,11 +133,11 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+      return false if @k8s_version.nil?
+
       return false if @name.nil?
 
 
-
-      return false if @k8s_version.nil?
       true
     end
 
@@ -150,10 +150,10 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        k8s_version == o.k8s_version &&
         name == o.name &&
-        public_ip == o.public_ip &&
         private_ip == o.private_ip &&
-        k8s_version == o.k8s_version
+        public_ip == o.public_ip
     end
 
     # @see the `==` method
@@ -165,7 +165,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, public_ip, private_ip, k8s_version].hash
+      [k8s_version, name, private_ip, public_ip].hash
     end
 
     # Builds the object from hash

@@ -16,40 +16,40 @@ require 'time'
 module Ionoscloud
   class ApplicationLoadBalancerHttpRule
   
+    # An array of items in the collection. The action will be executed only if each condition is met; the rule will always be applied if no conditions are set.
+    attr_accessor :conditions
+
+
+    # Specifies the content type and is valid only for 'STATIC' actions.
+    attr_accessor :content_type
+
+
+    # Indicates whether the query part of the URI should be dropped and is valid only for 'REDIRECT' actions. Default value is 'FALSE', the redirect URI does not contain any query parameters.
+    attr_accessor :drop_query
+
+
+    # The location for the redirection; this parameter is mandatory and valid only for 'REDIRECT' actions.
+    attr_accessor :location
+
+
     # The unique name of the Application Load Balancer HTTP rule.
     attr_accessor :name
 
 
-    # Type of the HTTP rule.
-    attr_accessor :type
-
-
-    # The ID of the target group; mandatory and only valid for FORWARD actions.
-    attr_accessor :target_group
-
-
-    # Default is false; valid only for REDIRECT actions.
-    attr_accessor :drop_query
-
-
-    # The location for redirecting; mandatory and valid only for REDIRECT actions.
-    attr_accessor :location
-
-
-    # Valid only for REDIRECT and STATIC actions. For REDIRECT actions, default is 301 and possible values are 301, 302, 303, 307, and 308. For STATIC actions, default is 503 and valid range is 200 to 599.
-    attr_accessor :status_code
-
-
-    # The response message of the request; mandatory for STATIC actions.
+    # The response message of the request; this parameter is mandatory for 'STATIC' actions.
     attr_accessor :response_message
 
 
-    # Valid only for STATIC actions.
-    attr_accessor :content_type
+    # The status code is for 'REDIRECT' and 'STATIC' actions only.   If the HTTP rule is 'REDIRECT' the valid values are: 301, 302, 303, 307, 308; default value is '301'.  If the HTTP rule is 'STATIC' the valid values are from the range 200-599; default value is '503'.
+    attr_accessor :status_code
 
 
-    # An array of items in the collection.The action is only performed if each and every condition is met; if no conditions are set, the rule will always be performed.
-    attr_accessor :conditions
+    # The ID of the target group; this parameter is mandatory and is valid only for 'FORWARD' actions.
+    attr_accessor :target_group
+
+
+    # The HTTP rule type.
+    attr_accessor :type
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -77,23 +77,23 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'conditions' => :'conditions',
 
-        :'type' => :'type',
-
-        :'target_group' => :'targetGroup',
+        :'content_type' => :'contentType',
 
         :'drop_query' => :'dropQuery',
 
         :'location' => :'location',
 
-        :'status_code' => :'statusCode',
+        :'name' => :'name',
 
         :'response_message' => :'responseMessage',
 
-        :'content_type' => :'contentType',
+        :'status_code' => :'statusCode',
 
-        :'conditions' => :'conditions'
+        :'target_group' => :'targetGroup',
+
+        :'type' => :'type'
       }
     end
 
@@ -106,23 +106,23 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'conditions' => :'Array<ApplicationLoadBalancerHttpRuleCondition>',
 
-        :'type' => :'String',
-
-        :'target_group' => :'String',
+        :'content_type' => :'String',
 
         :'drop_query' => :'Boolean',
 
         :'location' => :'String',
 
-        :'status_code' => :'Integer',
+        :'name' => :'String',
 
         :'response_message' => :'String',
 
-        :'content_type' => :'String',
+        :'status_code' => :'Integer',
 
-        :'conditions' => :'Array<ApplicationLoadBalancerHttpRuleCondition>'
+        :'target_group' => :'String',
+
+        :'type' => :'String'
       }
     end
 
@@ -157,18 +157,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'conditions') && (value = attributes[:'conditions']).is_a?(Array)
+        self.conditions = value
       end
 
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-
-      if attributes.key?(:'target_group')
-        self.target_group = attributes[:'target_group']
+      if attributes.key?(:'content_type')
+        self.content_type = attributes[:'content_type']
       end
 
 
@@ -182,8 +177,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'status_code')
-        self.status_code = attributes[:'status_code']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
@@ -192,13 +187,18 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'content_type')
-        self.content_type = attributes[:'content_type']
+      if attributes.key?(:'status_code')
+        self.status_code = attributes[:'status_code']
       end
 
 
-      if attributes.key?(:'conditions') && (value = attributes[:'conditions']).is_a?(Array)
-        self.conditions = value
+      if attributes.key?(:'target_group')
+        self.target_group = attributes[:'target_group']
+      end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -207,21 +207,21 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
+
+
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
 
+
+
+
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
-
-
-
-
-
-
-
 
       invalid_properties
     end
@@ -230,24 +230,29 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+
+
+
+
       return false if @name.nil?
+
+
+
 
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ["FORWARD", "STATIC", "REDIRECT"])
       return false unless type_validator.valid?(@type)
-
-
-
-
-      status_code_validator = EnumAttributeValidator.new('Integer', [301, 302, 303, 307, 308, 200, 503, 599])
-      return false unless status_code_validator.valid?(@status_code)
-
-
-
       true
     end
 
     
+
+
+
+
+
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
@@ -259,37 +264,20 @@ module Ionoscloud
       @type = type
     end
 
-
-
-
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] status_code Object to be assigned
-    def status_code=(status_code)
-      validator = EnumAttributeValidator.new('Integer', [301, 302, 303, 307, 308, 200, 503, 599])
-      unless validator.valid?(status_code)
-        fail ArgumentError, "invalid value for \"status_code\", must be one of #{validator.allowable_values}."
-      end
-      @status_code = status_code
-    end
-
-
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
-        type == o.type &&
-        target_group == o.target_group &&
+        conditions == o.conditions &&
+        content_type == o.content_type &&
         drop_query == o.drop_query &&
         location == o.location &&
-        status_code == o.status_code &&
+        name == o.name &&
         response_message == o.response_message &&
-        content_type == o.content_type &&
-        conditions == o.conditions
+        status_code == o.status_code &&
+        target_group == o.target_group &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -301,7 +289,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, type, target_group, drop_query, location, status_code, response_message, content_type, conditions].hash
+      [conditions, content_type, drop_query, location, name, response_message, status_code, target_group, type].hash
     end
 
     # Builds the object from hash

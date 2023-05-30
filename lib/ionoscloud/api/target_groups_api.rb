@@ -19,8 +19,8 @@ module Ionoscloud
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Remove target groups
-    # Remove the specified target group.
+    # Delete a Target Group by ID
+    # Deletes the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -32,8 +32,8 @@ module Ionoscloud
       nil
     end
 
-    # Remove target groups
-    # Remove the specified target group.
+    # Delete a Target Group by ID
+    # Deletes the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -99,8 +99,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve target groups
-    # Retrieve the properties of the specified target group.
+    # Get a Target Group by ID
+    # Retrieves the properties of the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -112,8 +112,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve target groups
-    # Retrieve the properties of the specified target group.
+    # Get a Target Group by ID
+    # Retrieves the properties of the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -179,8 +179,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List target groups
-    # List all target groups.
+    # Get Target Groups
+    # Lists target groups.  A target group is a set of one or more registered targets. You must specify an IP address, a port number, and a weight for each target. Any object with an IP address in your VDC can be a target, for example, a VM, another load balancer, etc. You can register a target with multiple target groups.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -193,8 +193,8 @@ module Ionoscloud
       data
     end
 
-    # List target groups
-    # List all target groups.
+    # Get Target Groups
+    # Lists target groups.  A target group is a set of one or more registered targets. You must specify an IP address, a port number, and a weight for each target. Any object with an IP address in your VDC can be a target, for example, a VM, another load balancer, etc. You can register a target with multiple target groups.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
@@ -271,8 +271,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Partially modify target groups
-    # Update the properties of the specified target group.
+    # Partially Modify a Target Group by ID
+    # Updates the properties of the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param target_group_properties [TargetGroupProperties] The target group properties to be updated.
     # @param [Hash] opts the optional parameters
@@ -285,8 +285,8 @@ module Ionoscloud
       data
     end
 
-    # Partially modify target groups
-    # Update the properties of the specified target group.
+    # Partially Modify a Target Group by ID
+    # Updates the properties of the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param target_group_properties [TargetGroupProperties] The target group properties to be updated.
     # @param [Hash] opts the optional parameters
@@ -357,8 +357,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create target groups
-    # Create a target group.
+    # Create a Target Group
+    # Creates a target group.
     # @param target_group [TargetGroup] The target group to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -370,8 +370,8 @@ module Ionoscloud
       data
     end
 
-    # Create target groups
-    # Create a target group.
+    # Create a Target Group
+    # Creates a target group.
     # @param target_group [TargetGroup] The target group to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -439,8 +439,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify target groups
-    # Modify the properties of the specified target group.
+    # Modify a Target Group by ID
+    # Modifies the properties of the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param target_group [TargetGroupPut] The modified target group.
     # @param [Hash] opts the optional parameters
@@ -453,8 +453,8 @@ module Ionoscloud
       data
     end
 
-    # Modify target groups
-    # Modify the properties of the specified target group.
+    # Modify a Target Group by ID
+    # Modifies the properties of the target group specified by its ID.
     # @param target_group_id [String] The unique ID of the target group.
     # @param target_group [TargetGroupPut] The modified target group.
     # @param [Hash] opts the optional parameters

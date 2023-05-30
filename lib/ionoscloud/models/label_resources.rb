@@ -16,31 +16,31 @@ require 'time'
 module Ionoscloud
   class LabelResources
   
-    # A unique representation of the label as a resource collection.
-    attr_accessor :id
-
-
-    # The type of resource within a collection.
-    attr_accessor :type
+    attr_accessor :_links
 
 
     # URL to the collection representation (absolute path).
     attr_accessor :href
 
 
+    # A unique representation of the label as a resource collection.
+    attr_accessor :id
+
+
     # Array of items in the collection.
     attr_accessor :items
-
-
-    # The offset (if specified in the request).
-    attr_accessor :offset
 
 
     # The limit (if specified in the request).
     attr_accessor :limit
 
 
-    attr_accessor :_links
+    # The offset (if specified in the request).
+    attr_accessor :offset
+
+
+    # The type of resource within a collection.
+    attr_accessor :type
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -68,19 +68,19 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'type' => :'type',
+        :'_links' => :'_links',
 
         :'href' => :'href',
 
-        :'items' => :'items',
+        :'id' => :'id',
 
-        :'offset' => :'offset',
+        :'items' => :'items',
 
         :'limit' => :'limit',
 
-        :'_links' => :'_links'
+        :'offset' => :'offset',
+
+        :'type' => :'type'
       }
     end
 
@@ -93,19 +93,19 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'type' => :'String',
+        :'_links' => :'PaginationLinks',
 
         :'href' => :'String',
 
-        :'items' => :'Array<LabelResource>',
+        :'id' => :'String',
 
-        :'offset' => :'Float',
+        :'items' => :'Array<LabelResource>',
 
         :'limit' => :'Float',
 
-        :'_links' => :'PaginationLinks'
+        :'offset' => :'Float',
+
+        :'type' => :'String'
       }
     end
 
@@ -138,13 +138,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'_links')
+        self._links = attributes[:'_links']
       end
 
 
@@ -153,13 +148,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
-        self.items = value
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
 
-      if attributes.key?(:'offset')
-        self.offset = attributes[:'offset']
+      if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
+        self.items = value
       end
 
 
@@ -168,8 +163,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'_links')
-        self._links = attributes[:'_links']
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -192,17 +192,22 @@ module Ionoscloud
     def valid?
       
 
+
+
+
+
+
       type_validator = EnumAttributeValidator.new('String', ["collection"])
       return false unless type_validator.valid?(@type)
-
-
-
-
-
       true
     end
 
     
+
+
+
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
@@ -214,23 +219,18 @@ module Ionoscloud
       @type = type
     end
 
-
-
-
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        type == o.type &&
+        _links == o._links &&
         href == o.href &&
+        id == o.id &&
         items == o.items &&
-        offset == o.offset &&
         limit == o.limit &&
-        _links == o._links
+        offset == o.offset &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -242,7 +242,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href, items, offset, limit, _links].hash
+      [_links, href, id, items, limit, offset, type].hash
     end
 
     # Builds the object from hash

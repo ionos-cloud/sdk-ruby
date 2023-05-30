@@ -16,32 +16,32 @@ require 'time'
 module Ionoscloud
   class ApplicationLoadBalancerForwardingRuleProperties
   
-    # The name of the Application Load Balancer forwarding rule.
-    attr_accessor :name
-
-
-    # Balancing protocol
-    attr_accessor :protocol
-
-
-    # Listening (inbound) IP
-    attr_accessor :listener_ip
-
-
-    # Listening (inbound) port number; valid range is 1 to 65535.
-    attr_accessor :listener_port
-
-
     # The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds).
     attr_accessor :client_timeout
 
 
+    # An array of items in the collection. The original order of rules is preserved during processing, except that rules of the 'FORWARD' type are processed after the rules with other defined actions. The relative order of the 'FORWARD' type rules is also preserved during the processing.
+    attr_accessor :http_rules
+
+
+    # The listening (inbound) IP.
+    attr_accessor :listener_ip
+
+
+    # The listening (inbound) port number; the valid range is 1 to 65535.
+    attr_accessor :listener_port
+
+
+    # The name of the Application Load Balancer forwarding rule.
+    attr_accessor :name
+
+
+    # The balancing protocol.
+    attr_accessor :protocol
+
+
     # Array of items in the collection.
     attr_accessor :server_certificates
-
-
-    # An array of items in the collection. The original order of rules is perserved during processing, except for Forward-type rules are processed after the rules with other action defined. The relative order of Forward-type rules is also preserved during the processing.
-    attr_accessor :http_rules
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -69,19 +69,19 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'client_timeout' => :'clientTimeout',
 
-        :'protocol' => :'protocol',
+        :'http_rules' => :'httpRules',
 
         :'listener_ip' => :'listenerIp',
 
         :'listener_port' => :'listenerPort',
 
-        :'client_timeout' => :'clientTimeout',
+        :'name' => :'name',
 
-        :'server_certificates' => :'serverCertificates',
+        :'protocol' => :'protocol',
 
-        :'http_rules' => :'httpRules'
+        :'server_certificates' => :'serverCertificates'
       }
     end
 
@@ -94,19 +94,19 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'client_timeout' => :'Integer',
 
-        :'protocol' => :'String',
+        :'http_rules' => :'Array<ApplicationLoadBalancerHttpRule>',
 
         :'listener_ip' => :'String',
 
         :'listener_port' => :'Integer',
 
-        :'client_timeout' => :'Integer',
+        :'name' => :'String',
 
-        :'server_certificates' => :'Array<String>',
+        :'protocol' => :'String',
 
-        :'http_rules' => :'Array<ApplicationLoadBalancerHttpRule>'
+        :'server_certificates' => :'Array<String>'
       }
     end
 
@@ -139,13 +139,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'client_timeout')
+        self.client_timeout = attributes[:'client_timeout']
       end
 
 
-      if attributes.key?(:'protocol')
-        self.protocol = attributes[:'protocol']
+      if attributes.key?(:'http_rules') && (value = attributes[:'http_rules']).is_a?(Array)
+        self.http_rules = value
       end
 
 
@@ -159,18 +159,18 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'client_timeout')
-        self.client_timeout = attributes[:'client_timeout']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'protocol')
+        self.protocol = attributes[:'protocol']
       end
 
 
       if attributes.key?(:'server_certificates') && (value = attributes[:'server_certificates']).is_a?(Array)
         self.server_certificates = value
-      end
-
-
-      if attributes.key?(:'http_rules') && (value = attributes[:'http_rules']).is_a?(Array)
-        self.http_rules = value
       end
     end
 
@@ -179,14 +179,6 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-
-      if @protocol.nil?
-        invalid_properties.push('invalid value for "protocol", protocol cannot be nil.')
-      end
 
 
       if @listener_ip.nil?
@@ -199,6 +191,14 @@ module Ionoscloud
       end
 
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+
+      if @protocol.nil?
+        invalid_properties.push('invalid value for "protocol", protocol cannot be nil.')
+      end
 
 
       invalid_properties
@@ -208,22 +208,26 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+
+
+      return false if @listener_ip.nil?
+
+      return false if @listener_port.nil?
+
       return false if @name.nil?
 
       return false if @protocol.nil?
       protocol_validator = EnumAttributeValidator.new('String', ["HTTP"])
       return false unless protocol_validator.valid?(@protocol)
 
-      return false if @listener_ip.nil?
-
-      return false if @listener_port.nil?
-
-
-
       true
     end
 
     
+
+
+
+
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] protocol Object to be assigned
@@ -236,22 +240,18 @@ module Ionoscloud
     end
 
 
-
-
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
-        protocol == o.protocol &&
+        client_timeout == o.client_timeout &&
+        http_rules == o.http_rules &&
         listener_ip == o.listener_ip &&
         listener_port == o.listener_port &&
-        client_timeout == o.client_timeout &&
-        server_certificates == o.server_certificates &&
-        http_rules == o.http_rules
+        name == o.name &&
+        protocol == o.protocol &&
+        server_certificates == o.server_certificates
     end
 
     # @see the `==` method
@@ -263,7 +263,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, protocol, listener_ip, listener_port, client_timeout, server_certificates, http_rules].hash
+      [client_timeout, http_rules, listener_ip, listener_port, name, protocol, server_certificates].hash
     end
 
     # Builds the object from hash

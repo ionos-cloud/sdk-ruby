@@ -4,23 +4,33 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  | [optional] |
-| **name** | **String** |  | [optional] |
+
 | **datacenter_id** | **String** |  | [optional] |
+
 | **datacenter_name** | **String** |  | [optional] |
+
+| **id** | **String** |  | [optional] |
+
 | **location** | **String** |  | [optional] |
+
+| **name** | **String** |  | [optional] |
 
 ## Example
 
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::Peer.new(
-  id: null,
-  name: null,
   datacenter_id: null,
+
   datacenter_name: null,
-  location: null
+
+  id: null,
+
+  location: null,
+
+  name: null
 )
 ```
 

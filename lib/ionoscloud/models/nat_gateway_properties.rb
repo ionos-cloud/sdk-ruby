@@ -16,6 +16,10 @@ require 'time'
 module Ionoscloud
   class NatGatewayProperties
   
+    # Collection of LANs connected to the NAT Gateway. IPs must contain a valid subnet mask. If no IP is provided, the system will generate an IP with /24 subnet.
+    attr_accessor :lans
+
+
     # Name of the NAT Gateway.
     attr_accessor :name
 
@@ -23,19 +27,15 @@ module Ionoscloud
     # Collection of public IP addresses of the NAT Gateway. Should be customer reserved IP addresses in that location.
     attr_accessor :public_ips
 
-
-    # Collection of LANs connected to the NAT Gateway. IPs must contain a valid subnet mask. If no IP is provided, the system will generate an IP with /24 subnet.
-    attr_accessor :lans
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'lans' => :'lans',
+
         :'name' => :'name',
 
-        :'public_ips' => :'publicIps',
-
-        :'lans' => :'lans'
+        :'public_ips' => :'publicIps'
       }
     end
 
@@ -48,11 +48,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'lans' => :'Array<NatGatewayLanProperties>',
+
         :'name' => :'String',
 
-        :'public_ips' => :'Array<String>',
-
-        :'lans' => :'Array<NatGatewayLanProperties>'
+        :'public_ips' => :'Array<String>'
       }
     end
 
@@ -81,6 +81,11 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'lans') && (value = attributes[:'lans']).is_a?(Array)
+        self.lans = value
+      end
+
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -89,11 +94,6 @@ module Ionoscloud
       if attributes.key?(:'public_ips') && (value = attributes[:'public_ips']).is_a?(Array)
         self.public_ips = value
       end
-
-
-      if attributes.key?(:'lans') && (value = attributes[:'lans']).is_a?(Array)
-        self.lans = value
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -101,6 +101,7 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -110,7 +111,6 @@ module Ionoscloud
         invalid_properties.push('invalid value for "public_ips", public_ips cannot be nil.')
       end
 
-
       invalid_properties
     end
 
@@ -118,10 +118,10 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+
       return false if @name.nil?
 
       return false if @public_ips.nil?
-
       true
     end
 
@@ -133,9 +133,9 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        lans == o.lans &&
         name == o.name &&
-        public_ips == o.public_ips &&
-        lans == o.lans
+        public_ips == o.public_ips
     end
 
     # @see the `==` method
@@ -147,7 +147,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, public_ips, lans].hash
+      [lans, name, public_ips].hash
     end
 
     # Builds the object from hash

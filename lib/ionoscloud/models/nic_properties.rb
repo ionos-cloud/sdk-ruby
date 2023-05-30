@@ -16,24 +16,12 @@ require 'time'
 module Ionoscloud
   class NicProperties
   
-    # The name of the  resource.
-    attr_accessor :name
-
-
-    # The MAC address of the NIC.
-    attr_accessor :mac
-
-
-    # Collection of IP addresses, assigned to the NIC. Explicitly assigned public IPs need to come from reserved IP blocks. Passing value null or empty array will assign an IP address automatically.
-    attr_accessor :ips
+    # The Logical Unit Number (LUN) of the storage volume. Null if this NIC was created using Cloud API and no DCD changes were performed on the Datacenter.
+    attr_accessor :device_number
 
 
     # Indicates if the NIC will reserve an IP using DHCP.
     attr_accessor :dhcp
-
-
-    # The LAN ID the NIC will be on. If the LAN ID does not exist, it will be implicitly created.
-    attr_accessor :lan
 
 
     # Activate or deactivate the firewall. By default, an active firewall without any defined rules will block all incoming network traffic except for the firewall rules that explicitly allows certain protocols, IP addresses and ports.
@@ -44,8 +32,20 @@ module Ionoscloud
     attr_accessor :firewall_type
 
 
-    # The Logical Unit Number (LUN) of the storage volume. Null if this NIC was created using Cloud API and no DCD changes were performed on the Datacenter.
-    attr_accessor :device_number
+    # Collection of IP addresses, assigned to the NIC. Explicitly assigned public IPs need to come from reserved IP blocks. Passing value null or empty array will assign an IP address automatically.
+    attr_accessor :ips
+
+
+    # The LAN ID the NIC will be on. If the LAN ID does not exist, it will be implicitly created.
+    attr_accessor :lan
+
+
+    # The MAC address of the NIC.
+    attr_accessor :mac
+
+
+    # The name of the  resource.
+    attr_accessor :name
 
 
     # The PCI slot number for the NIC.
@@ -77,23 +77,23 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
-        :'mac' => :'mac',
-
-        :'ips' => :'ips',
+        :'device_number' => :'deviceNumber',
 
         :'dhcp' => :'dhcp',
-
-        :'lan' => :'lan',
 
         :'firewall_active' => :'firewallActive',
 
         :'firewall_type' => :'firewallType',
 
-        :'device_number' => :'deviceNumber',
+        :'ips' => :'ips',
 
-        :'pci_slot' => :'pciSlot'
+        :'lan' => :'lan',
+
+        :'mac' => :'mac',
+
+        :'name' => :'name',
+
+        :'pci_slot' => :'pciSlot',
       }
     end
 
@@ -106,23 +106,23 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
-        :'mac' => :'String',
-
-        :'ips' => :'Array<String>',
+        :'device_number' => :'Integer',
 
         :'dhcp' => :'Boolean',
-
-        :'lan' => :'Integer',
 
         :'firewall_active' => :'Boolean',
 
         :'firewall_type' => :'String',
 
-        :'device_number' => :'Integer',
+        :'ips' => :'Array<String>',
 
-        :'pci_slot' => :'Integer'
+        :'lan' => :'Integer',
+
+        :'mac' => :'String',
+
+        :'name' => :'String',
+
+        :'pci_slot' => :'Integer',
       }
     end
 
@@ -132,9 +132,9 @@ module Ionoscloud
         
 
 
+
+
         :'ips',
-
-
 
 
 
@@ -158,28 +158,15 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
-      if attributes.key?(:'mac')
-        self.mac = attributes[:'mac']
-      end
-
-
-      if attributes.key?(:'ips') && (value = attributes[:'ips']).is_a?(Array)
-        self.ips = value
+      if attributes.key?(:'device_number')
+        self.device_number = attributes[:'device_number']
       end
 
 
       if attributes.key?(:'dhcp')
         self.dhcp = attributes[:'dhcp']
-      end
-
-
-      if attributes.key?(:'lan')
-        self.lan = attributes[:'lan']
+      else
+        self.dhcp = true
       end
 
 
@@ -193,8 +180,23 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'device_number')
-        self.device_number = attributes[:'device_number']
+      if attributes.key?(:'ips') && (value = attributes[:'ips']).is_a?(Array)
+        self.ips = value
+      end
+
+
+      if attributes.key?(:'lan')
+        self.lan = attributes[:'lan']
+      end
+
+
+      if attributes.key?(:'mac')
+        self.mac = attributes[:'mac']
+      end
+
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
@@ -212,10 +214,10 @@ module Ionoscloud
 
 
 
+
       if @lan.nil?
         invalid_properties.push('invalid value for "lan", lan cannot be nil.')
       end
-
 
 
 
@@ -230,21 +232,18 @@ module Ionoscloud
 
 
 
+      firewall_type_validator = EnumAttributeValidator.new('String', ["INGRESS", "EGRESS", "BIDIRECTIONAL"])
+      return false unless firewall_type_validator.valid?(@firewall_type)
+
 
       return false if @lan.nil?
 
-
-      firewall_type_validator = EnumAttributeValidator.new('String', ["INGRESS", "EGRESS", "BIDIRECTIONAL"])
-      return false unless firewall_type_validator.valid?(@firewall_type)
 
 
       true
     end
 
     
-
-
-
 
 
 
@@ -260,19 +259,22 @@ module Ionoscloud
 
 
 
+
+
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
-        mac == o.mac &&
-        ips == o.ips &&
+        device_number == o.device_number &&
         dhcp == o.dhcp &&
-        lan == o.lan &&
         firewall_active == o.firewall_active &&
         firewall_type == o.firewall_type &&
-        device_number == o.device_number &&
+        ips == o.ips &&
+        lan == o.lan &&
+        mac == o.mac &&
+        name == o.name &&
         pci_slot == o.pci_slot
     end
 
@@ -285,7 +287,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, mac, ips, dhcp, lan, firewall_active, firewall_type, device_number, pci_slot].hash
+      [device_number, dhcp, firewall_active, firewall_type, ips, lan, mac, name, pci_slot, ].hash
     end
 
     # Builds the object from hash

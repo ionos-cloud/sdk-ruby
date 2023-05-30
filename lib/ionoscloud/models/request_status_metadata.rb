@@ -16,14 +16,14 @@ require 'time'
 module Ionoscloud
   class RequestStatusMetadata
   
-    attr_accessor :status
+    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
+    attr_accessor :etag
 
 
     attr_accessor :message
 
 
-    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
-    attr_accessor :etag
+    attr_accessor :status
 
 
     attr_accessor :targets
@@ -54,11 +54,11 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'status' => :'status',
+        :'etag' => :'etag',
 
         :'message' => :'message',
 
-        :'etag' => :'etag',
+        :'status' => :'status',
 
         :'targets' => :'targets'
       }
@@ -73,11 +73,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'status' => :'String',
+        :'etag' => :'String',
 
         :'message' => :'String',
 
-        :'etag' => :'String',
+        :'status' => :'String',
 
         :'targets' => :'Array<RequestTarget>'
       }
@@ -109,8 +109,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'etag')
+        self.etag = attributes[:'etag']
       end
 
 
@@ -119,8 +119,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'etag')
-        self.etag = attributes[:'etag']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
 
@@ -144,15 +144,17 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+
+
       status_validator = EnumAttributeValidator.new('String', ["QUEUED", "RUNNING", "DONE", "FAILED"])
       return false unless status_validator.valid?(@status)
-
-
 
       true
     end
 
     
+
+
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
@@ -164,16 +166,14 @@ module Ionoscloud
     end
 
 
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        status == o.status &&
-        message == o.message &&
         etag == o.etag &&
+        message == o.message &&
+        status == o.status &&
         targets == o.targets
     end
 
@@ -186,7 +186,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, message, etag, targets].hash
+      [etag, message, status, targets].hash
     end
 
     # Builds the object from hash

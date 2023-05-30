@@ -16,32 +16,32 @@ require 'time'
 module Ionoscloud
   class PrivateCrossConnectProperties
   
-    # The name of the  resource.
-    attr_accessor :name
+    # Read-Only attribute. Lists data centers that can be joined to this private Cross-Connect.
+    attr_accessor :connectable_datacenters
 
 
     # Human-readable description.
     attr_accessor :description
 
 
+    # The name of the  resource.
+    attr_accessor :name
+
+
     # Read-Only attribute. Lists LAN's joined to this private Cross-Connect.
     attr_accessor :peers
-
-
-    # Read-Only attribute. Lists data centers that can be joined to this private Cross-Connect.
-    attr_accessor :connectable_datacenters
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'connectable_datacenters' => :'connectableDatacenters',
 
         :'description' => :'description',
 
-        :'peers' => :'peers',
+        :'name' => :'name',
 
-        :'connectable_datacenters' => :'connectableDatacenters'
+        :'peers' => :'peers'
       }
     end
 
@@ -54,13 +54,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'connectable_datacenters' => :'Array<ConnectableDatacenter>',
 
         :'description' => :'String',
 
-        :'peers' => :'Array<Peer>',
+        :'name' => :'String',
 
-        :'connectable_datacenters' => :'Array<ConnectableDatacenter>'
+        :'peers' => :'Array<Peer>'
       }
     end
 
@@ -90,8 +90,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'connectable_datacenters') && (value = attributes[:'connectable_datacenters']).is_a?(Array)
+        self.connectable_datacenters = value
       end
 
 
@@ -100,13 +100,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'peers') && (value = attributes[:'peers']).is_a?(Array)
-        self.peers = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
-      if attributes.key?(:'connectable_datacenters') && (value = attributes[:'connectable_datacenters']).is_a?(Array)
-        self.connectable_datacenters = value
+      if attributes.key?(:'peers') && (value = attributes[:'peers']).is_a?(Array)
+        self.peers = value
       end
     end
 
@@ -140,10 +140,10 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
+        connectable_datacenters == o.connectable_datacenters &&
         description == o.description &&
-        peers == o.peers &&
-        connectable_datacenters == o.connectable_datacenters
+        name == o.name &&
+        peers == o.peers
     end
 
     # @see the `==` method
@@ -155,7 +155,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, peers, connectable_datacenters].hash
+      [connectable_datacenters, description, name, peers].hash
     end
 
     # Builds the object from hash

@@ -16,19 +16,19 @@ require 'time'
 module Ionoscloud
   class Contract
   
+    attr_accessor :properties
+
+
     # The type of the resource.
     attr_accessor :type
-
-
-    attr_accessor :properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'type' => :'type',
+        :'properties' => :'properties',
 
-        :'properties' => :'properties'
+        :'type' => :'type'
       }
     end
 
@@ -41,9 +41,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'type' => :'Type',
+        :'properties' => :'ContractProperties',
 
-        :'properties' => :'ContractProperties'
+        :'type' => :'Type'
       }
     end
 
@@ -71,13 +71,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'properties')
+        self.properties = attributes[:'properties']
       end
 
 
-      if attributes.key?(:'properties')
-        self.properties = attributes[:'properties']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -86,10 +86,10 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-
       if @properties.nil?
         invalid_properties.push('invalid value for "properties", properties cannot be nil.')
       end
+
 
       invalid_properties
     end
@@ -98,8 +98,8 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-
       return false if @properties.nil?
+
       true
     end
 
@@ -110,8 +110,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        type == o.type &&
-        properties == o.properties
+        properties == o.properties &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -123,7 +123,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, properties].hash
+      [properties, type].hash
     end
 
     # Builds the object from hash

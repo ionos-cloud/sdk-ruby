@@ -4,9 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **method** | **String** |  | [optional] |
-| **headers** | **Hash&lt;String, String&gt;** |  | [optional] |
+
 | **body** | **String** |  | [optional] |
+
+| **headers** | **Hash&lt;String, String&gt;** |  | [optional] |
+
+| **method** | **String** |  | [optional] |
+
 | **url** | **String** |  | [optional] |
 
 ## Example
@@ -14,10 +18,14 @@
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::RequestProperties.new(
-  method: null,
-  headers: null,
   body: null,
+
+  headers: null,
+
+  method: null,
+
   url: null
 )
 ```

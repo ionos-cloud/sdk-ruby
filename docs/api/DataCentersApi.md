@@ -7,9 +7,9 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 | [**datacenters_delete**](DataCentersApi.md#datacenters_delete) | **DELETE** /datacenters/{datacenterId} | Delete data centers |
 | [**datacenters_find_by_id**](DataCentersApi.md#datacenters_find_by_id) | **GET** /datacenters/{datacenterId} | Retrieve data centers |
 | [**datacenters_get**](DataCentersApi.md#datacenters_get) | **GET** /datacenters | List your data centers |
-| [**datacenters_patch**](DataCentersApi.md#datacenters_patch) | **PATCH** /datacenters/{datacenterId} | Partially modify data centers |
-| [**datacenters_post**](DataCentersApi.md#datacenters_post) | **POST** /datacenters | Create data centers |
-| [**datacenters_put**](DataCentersApi.md#datacenters_put) | **PUT** /datacenters/{datacenterId} | Modify data centers |
+| [**datacenters_patch**](DataCentersApi.md#datacenters_patch) | **PATCH** /datacenters/{datacenterId} | Partially modify a Data Center by ID |
+| [**datacenters_post**](DataCentersApi.md#datacenters_post) | **POST** /datacenters | Create a Data Center |
+| [**datacenters_put**](DataCentersApi.md#datacenters_put) | **PUT** /datacenters/{datacenterId} | Modify a Data Center by ID |
 
 
 ## datacenters_delete
@@ -266,9 +266,9 @@ Basic Authentication, Token Authentication
 
 > <Datacenter> datacenters_patch(datacenter_id, datacenter, opts)
 
-Partially modify data centers
+Partially modify a Data Center by ID
 
-Update the properties of the specified data center, rename it, or change the description.
+Updates the properties of the specified data center, rename it, or change the description.
 
 ### Examples
 
@@ -297,7 +297,7 @@ opts = {
 }
 
 begin
-  # Partially modify data centers
+  # Partially modify a Data Center by ID
   result = api_instance.datacenters_patch(datacenter_id, datacenter, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -313,7 +313,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Partially modify data centers
+  # Partially modify a Data Center by ID
   data, status_code, headers = api_instance.datacenters_patch_with_http_info(datacenter_id, datacenter, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -328,7 +328,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **datacenter** | [**DatacenterProperties**](DatacenterProperties.md) | The properties of the data center to be updated. |  |
+| **datacenter** | [**DatacenterProperties**](../models/DatacenterProperties.md) | The properties of the data center to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -351,9 +351,9 @@ Basic Authentication, Token Authentication
 
 > <Datacenter> datacenters_post(datacenter, opts)
 
-Create data centers
+Create a Data Center
 
-Create new data centers, and data centers that already contain elements, such as servers and storage volumes.  Virtual data centers are the foundation of the platform; they act as logical containers for all other objects you create, such as servers and storage volumes. You can provision as many data centers as needed. Data centers have their own private networks and are logically segmented from each other to create isolation.
+Creates new data centers, and data centers that already contain elements, such as servers and storage volumes.  Virtual data centers are the foundation of the platform; they act as logical containers for all other objects you create, such as servers and storage volumes. You can provision as many data centers as needed. Data centers have their own private networks and are logically segmented from each other to create isolation.
 
 ### Examples
 
@@ -381,7 +381,7 @@ opts = {
 }
 
 begin
-  # Create data centers
+  # Create a Data Center
   result = api_instance.datacenters_post(datacenter, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -397,7 +397,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create data centers
+  # Create a Data Center
   data, status_code, headers = api_instance.datacenters_post_with_http_info(datacenter, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -411,7 +411,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **datacenter** | [**Datacenter**](Datacenter.md) | The data center to create. |  |
+| **datacenter** | [**Datacenter**](../models/Datacenter.md) | The data center to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -434,9 +434,9 @@ Basic Authentication, Token Authentication
 
 > <Datacenter> datacenters_put(datacenter_id, datacenter, opts)
 
-Modify data centers
+Modify a Data Center by ID
 
-Modify the properties of the specified data center, rename it, or change the description.
+Modifies the properties of the specified data center, rename it, or change the description.
 
 ### Examples
 
@@ -465,7 +465,7 @@ opts = {
 }
 
 begin
-  # Modify data centers
+  # Modify a Data Center by ID
   result = api_instance.datacenters_put(datacenter_id, datacenter, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -481,7 +481,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Modify data centers
+  # Modify a Data Center by ID
   data, status_code, headers = api_instance.datacenters_put_with_http_info(datacenter_id, datacenter, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -496,7 +496,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **datacenter** | [**Datacenter**](Datacenter.md) | The modified data center. |  |
+| **datacenter** | [**Datacenter**](../models/Datacenter.md) | The modified data center. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

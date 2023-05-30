@@ -16,7 +16,19 @@ require 'time'
 module Ionoscloud
   class IpConsumer
   
+    attr_accessor :datacenter_id
+
+
+    attr_accessor :datacenter_name
+
+
     attr_accessor :ip
+
+
+    attr_accessor :k8s_cluster_uuid
+
+
+    attr_accessor :k8s_node_pool_uuid
 
 
     attr_accessor :mac
@@ -30,23 +42,19 @@ module Ionoscloud
 
     attr_accessor :server_name
 
-
-    attr_accessor :datacenter_id
-
-
-    attr_accessor :datacenter_name
-
-
-    attr_accessor :k8s_node_pool_uuid
-
-
-    attr_accessor :k8s_cluster_uuid
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'datacenter_id' => :'datacenterId',
+
+        :'datacenter_name' => :'datacenterName',
+
         :'ip' => :'ip',
+
+        :'k8s_cluster_uuid' => :'k8sClusterUuid',
+
+        :'k8s_node_pool_uuid' => :'k8sNodePoolUuid',
 
         :'mac' => :'mac',
 
@@ -54,15 +62,7 @@ module Ionoscloud
 
         :'server_id' => :'serverId',
 
-        :'server_name' => :'serverName',
-
-        :'datacenter_id' => :'datacenterId',
-
-        :'datacenter_name' => :'datacenterName',
-
-        :'k8s_node_pool_uuid' => :'k8sNodePoolUuid',
-
-        :'k8s_cluster_uuid' => :'k8sClusterUuid'
+        :'server_name' => :'serverName'
       }
     end
 
@@ -75,7 +75,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'datacenter_id' => :'String',
+
+        :'datacenter_name' => :'String',
+
         :'ip' => :'String',
+
+        :'k8s_cluster_uuid' => :'String',
+
+        :'k8s_node_pool_uuid' => :'String',
 
         :'mac' => :'String',
 
@@ -83,15 +91,7 @@ module Ionoscloud
 
         :'server_id' => :'String',
 
-        :'server_name' => :'String',
-
-        :'datacenter_id' => :'String',
-
-        :'datacenter_name' => :'String',
-
-        :'k8s_node_pool_uuid' => :'String',
-
-        :'k8s_cluster_uuid' => :'String'
+        :'server_name' => :'String'
       }
     end
 
@@ -126,8 +126,28 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'datacenter_id')
+        self.datacenter_id = attributes[:'datacenter_id']
+      end
+
+
+      if attributes.key?(:'datacenter_name')
+        self.datacenter_name = attributes[:'datacenter_name']
+      end
+
+
       if attributes.key?(:'ip')
         self.ip = attributes[:'ip']
+      end
+
+
+      if attributes.key?(:'k8s_cluster_uuid')
+        self.k8s_cluster_uuid = attributes[:'k8s_cluster_uuid']
+      end
+
+
+      if attributes.key?(:'k8s_node_pool_uuid')
+        self.k8s_node_pool_uuid = attributes[:'k8s_node_pool_uuid']
       end
 
 
@@ -148,26 +168,6 @@ module Ionoscloud
 
       if attributes.key?(:'server_name')
         self.server_name = attributes[:'server_name']
-      end
-
-
-      if attributes.key?(:'datacenter_id')
-        self.datacenter_id = attributes[:'datacenter_id']
-      end
-
-
-      if attributes.key?(:'datacenter_name')
-        self.datacenter_name = attributes[:'datacenter_name']
-      end
-
-
-      if attributes.key?(:'k8s_node_pool_uuid')
-        self.k8s_node_pool_uuid = attributes[:'k8s_node_pool_uuid']
-      end
-
-
-      if attributes.key?(:'k8s_cluster_uuid')
-        self.k8s_cluster_uuid = attributes[:'k8s_cluster_uuid']
       end
     end
 
@@ -216,15 +216,15 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        datacenter_id == o.datacenter_id &&
+        datacenter_name == o.datacenter_name &&
         ip == o.ip &&
+        k8s_cluster_uuid == o.k8s_cluster_uuid &&
+        k8s_node_pool_uuid == o.k8s_node_pool_uuid &&
         mac == o.mac &&
         nic_id == o.nic_id &&
         server_id == o.server_id &&
-        server_name == o.server_name &&
-        datacenter_id == o.datacenter_id &&
-        datacenter_name == o.datacenter_name &&
-        k8s_node_pool_uuid == o.k8s_node_pool_uuid &&
-        k8s_cluster_uuid == o.k8s_cluster_uuid
+        server_name == o.server_name
     end
 
     # @see the `==` method
@@ -236,7 +236,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ip, mac, nic_id, server_id, server_name, datacenter_id, datacenter_name, k8s_node_pool_uuid, k8s_cluster_uuid].hash
+      [datacenter_id, datacenter_name, ip, k8s_cluster_uuid, k8s_node_pool_uuid, mac, nic_id, server_id, server_name].hash
     end
 
     # Builds the object from hash

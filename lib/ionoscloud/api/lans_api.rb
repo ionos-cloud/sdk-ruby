@@ -674,7 +674,7 @@ module Ionoscloud
     end
 
     # Create LANs
-    # Create a LAN within the data center.
+    # Creates a LAN within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param lan [LanPost] The LAN to create.
     # @param [Hash] opts the optional parameters
@@ -688,7 +688,7 @@ module Ionoscloud
     end
 
     # Create LANs
-    # Create a LAN within the data center.
+    # Creates a LAN within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param lan [LanPost] The LAN to create.
     # @param [Hash] opts the optional parameters

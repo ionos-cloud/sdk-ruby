@@ -16,7 +16,7 @@ require 'time'
 module Ionoscloud
   class S3Bucket
   
-    # Name of the S3 bucket
+    # The name of the S3 bucket.
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

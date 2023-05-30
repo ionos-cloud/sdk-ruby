@@ -431,8 +431,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create firewall rules
-    # Create a firewall rule for the specified NIC.
+    # Create a Firewall Rule
+    # Creates a firewall rule for the specified NIC.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic_id [String] The unique ID of the NIC.
@@ -447,8 +447,8 @@ module Ionoscloud
       data
     end
 
-    # Create firewall rules
-    # Create a firewall rule for the specified NIC.
+    # Create a Firewall Rule
+    # Creates a firewall rule for the specified NIC.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic_id [String] The unique ID of the NIC.
@@ -531,8 +531,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify firewall rules
-    # Modify the properties of the specified firewall rule.
+    # Modify a Firewall Rule
+    # Modifies the properties of the specified firewall rule.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic_id [String] The unique ID of the NIC.
@@ -548,8 +548,8 @@ module Ionoscloud
       data
     end
 
-    # Modify firewall rules
-    # Modify the properties of the specified firewall rule.
+    # Modify a Firewall Rule
+    # Modifies the properties of the specified firewall rule.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic_id [String] The unique ID of the NIC.

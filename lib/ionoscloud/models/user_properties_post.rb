@@ -16,56 +16,56 @@ require 'time'
 module Ionoscloud
   class UserPropertiesPost
   
-    # The first name of the user.
-    attr_accessor :firstname
-
-
-    # The last name of the user.
-    attr_accessor :lastname
-
-
-    # The email address of the user.
-    attr_accessor :email
+    # Indicates if the user is active.
+    attr_accessor :active
 
 
     # Indicates if the user has admin rights.
     attr_accessor :administrator
 
 
+    # The email address of the user.
+    attr_accessor :email
+
+
+    # The first name of the user.
+    attr_accessor :firstname
+
+
     # Indicates if secure authentication should be forced on the user.
     attr_accessor :force_sec_auth
 
 
-    # Indicates if secure authentication is active for the user.
-    attr_accessor :sec_auth_active
+    # The last name of the user.
+    attr_accessor :lastname
 
 
     # User password.
     attr_accessor :password
 
 
-    # Indicates if the user is active.
-    attr_accessor :active
+    # Indicates if secure authentication is active for the user.
+    attr_accessor :sec_auth_active
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'firstname' => :'firstname',
-
-        :'lastname' => :'lastname',
-
-        :'email' => :'email',
+        :'active' => :'active',
 
         :'administrator' => :'administrator',
 
+        :'email' => :'email',
+
+        :'firstname' => :'firstname',
+
         :'force_sec_auth' => :'forceSecAuth',
 
-        :'sec_auth_active' => :'secAuthActive',
+        :'lastname' => :'lastname',
 
         :'password' => :'password',
 
-        :'active' => :'active'
+        :'sec_auth_active' => :'secAuthActive'
       }
     end
 
@@ -78,21 +78,21 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'firstname' => :'String',
-
-        :'lastname' => :'String',
-
-        :'email' => :'String',
+        :'active' => :'Boolean',
 
         :'administrator' => :'Boolean',
 
+        :'email' => :'String',
+
+        :'firstname' => :'String',
+
         :'force_sec_auth' => :'Boolean',
 
-        :'sec_auth_active' => :'Boolean',
+        :'lastname' => :'String',
 
         :'password' => :'String',
 
-        :'active' => :'Boolean'
+        :'sec_auth_active' => :'Boolean'
       }
     end
 
@@ -126,18 +126,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'firstname')
-        self.firstname = attributes[:'firstname']
-      end
-
-
-      if attributes.key?(:'lastname')
-        self.lastname = attributes[:'lastname']
-      end
-
-
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.key?(:'active')
+        self.active = attributes[:'active']
       end
 
 
@@ -146,13 +136,23 @@ module Ionoscloud
       end
 
 
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
+      end
+
+
+      if attributes.key?(:'firstname')
+        self.firstname = attributes[:'firstname']
+      end
+
+
       if attributes.key?(:'force_sec_auth')
         self.force_sec_auth = attributes[:'force_sec_auth']
       end
 
 
-      if attributes.key?(:'sec_auth_active')
-        self.sec_auth_active = attributes[:'sec_auth_active']
+      if attributes.key?(:'lastname')
+        self.lastname = attributes[:'lastname']
       end
 
 
@@ -161,8 +161,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'active')
-        self.active = attributes[:'active']
+      if attributes.key?(:'sec_auth_active')
+        self.sec_auth_active = attributes[:'sec_auth_active']
       end
     end
 
@@ -208,14 +208,14 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        firstname == o.firstname &&
-        lastname == o.lastname &&
-        email == o.email &&
+        active == o.active &&
         administrator == o.administrator &&
+        email == o.email &&
+        firstname == o.firstname &&
         force_sec_auth == o.force_sec_auth &&
-        sec_auth_active == o.sec_auth_active &&
+        lastname == o.lastname &&
         password == o.password &&
-        active == o.active
+        sec_auth_active == o.sec_auth_active
     end
 
     # @see the `==` method
@@ -227,7 +227,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [firstname, lastname, email, administrator, force_sec_auth, sec_auth_active, password, active].hash
+      [active, administrator, email, firstname, force_sec_auth, lastname, password, sec_auth_active].hash
     end
 
     # Builds the object from hash

@@ -419,8 +419,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create Flow Logs
-    # Add a new Flow Log for the specified NIC.
+    # Create a Flow Log
+    # Adds a new Flow Log for the specified NIC.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic_id [String] The unique ID of the NIC.
@@ -434,8 +434,8 @@ module Ionoscloud
       data
     end
 
-    # Create Flow Logs
-    # Add a new Flow Log for the specified NIC.
+    # Create a Flow Log
+    # Adds a new Flow Log for the specified NIC.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param nic_id [String] The unique ID of the NIC.

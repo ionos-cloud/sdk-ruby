@@ -16,15 +16,15 @@ require 'time'
 module Ionoscloud
   class Info
   
-    # API entry point
+    # The API entry point.
     attr_accessor :href
 
 
-    # Name of the API
+    # The API name.
     attr_accessor :name
 
 
-    # Version of the API
+    # The API version.
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.

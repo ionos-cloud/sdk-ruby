@@ -19,8 +19,8 @@ module Ionoscloud
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # List locations within regions
-    # List locations by the region ID.
+    # Get Locations within a Region
+    # Retrieves the available locations in a region specified by its ID. The 'regionId' consists of the two character identifier of the region (country), e.g., 'de'.
     # @param region_id [String] The unique ID of the region.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -32,8 +32,8 @@ module Ionoscloud
       data
     end
 
-    # List locations within regions
-    # List locations by the region ID.
+    # Get Locations within a Region
+    # Retrieves the available locations in a region specified by its ID. The &#39;regionId&#39; consists of the two character identifier of the region (country), e.g., &#39;de&#39;.
     # @param region_id [String] The unique ID of the region.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -99,8 +99,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve specified locations
-    # Retrieve the properties of the specified location
+    # Get Location by ID
+    # Retrieves the information about the location specified by its ID. The 'locationId' consists of the three-digit identifier of the city according to the IATA code.
     # @param region_id [String] The unique ID of the region.
     # @param location_id [String] The unique ID of the location.
     # @param [Hash] opts the optional parameters
@@ -113,8 +113,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve specified locations
-    # Retrieve the properties of the specified location
+    # Get Location by ID
+    # Retrieves the information about the location specified by its ID. The &#39;locationId&#39; consists of the three-digit identifier of the city according to the IATA code.
     # @param region_id [String] The unique ID of the region.
     # @param location_id [String] The unique ID of the location.
     # @param [Hash] opts the optional parameters
@@ -185,8 +185,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List locations
-    # List the available locations for provisioning your virtual data centers.
+    # Get Locations
+    # Retrieves the available physical locations where you can deploy cloud resources in a VDC.    A location is identified by a combination of the following characters:    * a two-character **regionId**, which represents a country (example: 'de')    * a three-character **locationId**, which represents a city. The 'locationId' is typically based on the IATA code of the city's airport (example: 'txl').    >Note that 'locations' are read-only and cannot be changed.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
@@ -197,8 +197,8 @@ module Ionoscloud
       data
     end
 
-    # List locations
-    # List the available locations for provisioning your virtual data centers.
+    # Get Locations
+    # Retrieves the available physical locations where you can deploy cloud resources in a VDC.    A location is identified by a combination of the following characters:    * a two-character **regionId**, which represents a country (example: &#39;de&#39;)    * a three-character **locationId**, which represents a city. The &#39;locationId&#39; is typically based on the IATA code of the city&#39;s airport (example: &#39;txl&#39;).    &gt;Note that &#39;locations&#39; are read-only and cannot be changed.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on

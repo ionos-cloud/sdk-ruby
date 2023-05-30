@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class TargetPortRange
   
-    # Target port range start associated with the NAT Gateway rule.
-    attr_accessor :start
-
-
     # Target port range end associated with the NAT Gateway rule.
     attr_accessor :_end
+
+
+    # Target port range start associated with the NAT Gateway rule.
+    attr_accessor :start
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'start' => :'start',
+        :'_end' => :'end',
 
-        :'_end' => :'end'
+        :'start' => :'start'
       }
     end
 
@@ -42,9 +42,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'start' => :'Integer',
+        :'_end' => :'Integer',
 
-        :'_end' => :'Integer'
+        :'start' => :'Integer'
       }
     end
 
@@ -72,13 +72,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'start')
-        self.start = attributes[:'start']
+      if attributes.key?(:'_end')
+        self._end = attributes[:'_end']
       end
 
 
-      if attributes.key?(:'_end')
-        self._end = attributes[:'_end']
+      if attributes.key?(:'start')
+        self.start = attributes[:'start']
       end
     end
 
@@ -106,8 +106,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        start == o.start &&
-        _end == o._end
+        _end == o._end &&
+        start == o.start
     end
 
     # @see the `==` method
@@ -119,7 +119,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [start, _end].hash
+      [_end, start].hash
     end
 
     # Builds the object from hash

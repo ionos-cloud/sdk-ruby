@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class KubernetesAutoScaling
   
-    # The minimum number of worker nodes that the managed node group can scale in. Should be set together with 'maxNodeCount'. Value for this attribute must be greater than equal to 1 and less than equal to maxNodeCount.
-    attr_accessor :min_node_count
-
-
-    # The maximum number of worker nodes that the managed node pool can scale-out. Should be set together with 'minNodeCount'. Value for this attribute must be greater than equal to 1 and minNodeCount.
+    # The maximum number of worker nodes that the managed node pool can scale in. Must be >= minNodeCount and must be >= nodeCount. Required if autoScaling is specified.
     attr_accessor :max_node_count
+
+
+    # The minimum number of working nodes that the managed node pool can scale must be >= 1 and >= nodeCount. Required if autoScaling is specified.
+    attr_accessor :min_node_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'min_node_count' => :'minNodeCount',
+        :'max_node_count' => :'maxNodeCount',
 
-        :'max_node_count' => :'maxNodeCount'
+        :'min_node_count' => :'minNodeCount'
       }
     end
 
@@ -42,9 +42,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'min_node_count' => :'Integer',
+        :'max_node_count' => :'Integer',
 
-        :'max_node_count' => :'Integer'
+        :'min_node_count' => :'Integer'
       }
     end
 
@@ -72,13 +72,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'min_node_count')
-        self.min_node_count = attributes[:'min_node_count']
+      if attributes.key?(:'max_node_count')
+        self.max_node_count = attributes[:'max_node_count']
       end
 
 
-      if attributes.key?(:'max_node_count')
-        self.max_node_count = attributes[:'max_node_count']
+      if attributes.key?(:'min_node_count')
+        self.min_node_count = attributes[:'min_node_count']
       end
     end
 
@@ -87,13 +87,13 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @min_node_count.nil?
-        invalid_properties.push('invalid value for "min_node_count", min_node_count cannot be nil.')
+      if @max_node_count.nil?
+        invalid_properties.push('invalid value for "max_node_count", max_node_count cannot be nil.')
       end
 
 
-      if @max_node_count.nil?
-        invalid_properties.push('invalid value for "max_node_count", max_node_count cannot be nil.')
+      if @min_node_count.nil?
+        invalid_properties.push('invalid value for "min_node_count", min_node_count cannot be nil.')
       end
 
       invalid_properties
@@ -103,9 +103,9 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @min_node_count.nil?
-
       return false if @max_node_count.nil?
+
+      return false if @min_node_count.nil?
       true
     end
 
@@ -116,8 +116,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        min_node_count == o.min_node_count &&
-        max_node_count == o.max_node_count
+        max_node_count == o.max_node_count &&
+        min_node_count == o.min_node_count
     end
 
     # @see the `==` method
@@ -129,7 +129,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [min_node_count, max_node_count].hash
+      [max_node_count, min_node_count].hash
     end
 
     # Builds the object from hash

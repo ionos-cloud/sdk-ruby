@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class S3KeyProperties
   
-    # Secret of the S3 key.
-    attr_accessor :secret_key
-
-
     # Denotes weather the S3 key is active.
     attr_accessor :active
+
+
+    # Secret of the S3 key.
+    attr_accessor :secret_key
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'secret_key' => :'secretKey',
+        :'active' => :'active',
 
-        :'active' => :'active'
+        :'secret_key' => :'secretKey'
       }
     end
 
@@ -42,9 +42,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'secret_key' => :'String',
+        :'active' => :'Boolean',
 
-        :'active' => :'Boolean'
+        :'secret_key' => :'String'
       }
     end
 
@@ -72,13 +72,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'secret_key')
-        self.secret_key = attributes[:'secret_key']
+      if attributes.key?(:'active')
+        self.active = attributes[:'active']
       end
 
 
-      if attributes.key?(:'active')
-        self.active = attributes[:'active']
+      if attributes.key?(:'secret_key')
+        self.secret_key = attributes[:'secret_key']
       end
     end
 
@@ -106,8 +106,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        secret_key == o.secret_key &&
-        active == o.active
+        active == o.active &&
+        secret_key == o.secret_key
     end
 
     # @see the `==` method
@@ -119,7 +119,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [secret_key, active].hash
+      [active, secret_key].hash
     end
 
     # Builds the object from hash

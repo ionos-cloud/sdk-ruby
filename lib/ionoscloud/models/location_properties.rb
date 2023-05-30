@@ -16,32 +16,32 @@ require 'time'
 module Ionoscloud
   class LocationProperties
   
-    # The name of the  resource.
-    attr_accessor :name
+    # A list of available CPU types and related resources available in the location.
+    attr_accessor :cpu_architecture
 
 
-    # List of features supported by the location
+    # A list of available features in the location.
     attr_accessor :features
 
 
-    # List of image aliases available for the location
+    # A list of image aliases available in the location.
     attr_accessor :image_aliases
 
 
-    # Array of features and CPU families available in a location
-    attr_accessor :cpu_architecture
+    # The location name.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'cpu_architecture' => :'cpuArchitecture',
 
         :'features' => :'features',
 
         :'image_aliases' => :'imageAliases',
 
-        :'cpu_architecture' => :'cpuArchitecture'
+        :'name' => :'name'
       }
     end
 
@@ -54,13 +54,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'cpu_architecture' => :'Array<CpuArchitectureProperties>',
 
         :'features' => :'Array<String>',
 
         :'image_aliases' => :'Array<String>',
 
-        :'cpu_architecture' => :'Array<CpuArchitectureProperties>'
+        :'name' => :'String'
       }
     end
 
@@ -90,8 +90,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'cpu_architecture') && (value = attributes[:'cpu_architecture']).is_a?(Array)
+        self.cpu_architecture = value
       end
 
 
@@ -105,8 +105,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'cpu_architecture') && (value = attributes[:'cpu_architecture']).is_a?(Array)
-        self.cpu_architecture = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -140,10 +140,10 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
+        cpu_architecture == o.cpu_architecture &&
         features == o.features &&
         image_aliases == o.image_aliases &&
-        cpu_architecture == o.cpu_architecture
+        name == o.name
     end
 
     # @see the `==` method
@@ -155,7 +155,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, features, image_aliases, cpu_architecture].hash
+      [cpu_architecture, features, image_aliases, name].hash
     end
 
     # Builds the object from hash

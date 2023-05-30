@@ -16,23 +16,23 @@ require 'time'
 module Ionoscloud
   class ApplicationLoadBalancerHttpRuleCondition
   
-    # Type of the HTTP rule condition.
-    attr_accessor :type
-
-
-    # Matching rule for the HTTP rule condition attribute; mandatory for HEADER, PATH, QUERY, METHOD, HOST, and COOKIE types; must be null when type is SOURCE_IP.
+    # The matching rule for the HTTP rule condition attribute; this parameter is mandatory for 'HEADER', 'PATH', 'QUERY', 'METHOD', 'HOST', and 'COOKIE' types. It must be 'null' if the type is 'SOURCE_IP'.
     attr_accessor :condition
 
 
-    # Specifies whether the condition is negated or not; the default is False.
-    attr_accessor :negate
-
-
-    # Must be null when type is PATH, METHOD, HOST, or SOURCE_IP. Key can only be set when type is COOKIES, HEADER, or QUERY.
+    # The key can only be set when the HTTP rule condition type is 'COOKIES', 'HEADER', or 'QUERY'. For the type 'PATH', 'METHOD', 'HOST', or 'SOURCE_IP' the value must be 'null'.
     attr_accessor :key
 
 
-    # Mandatory for conditions CONTAINS, EQUALS, MATCHES, STARTS_WITH, ENDS_WITH; must be null when condition is EXISTS; should be a valid CIDR if provided and if type is SOURCE_IP.
+    # Specifies whether the condition should be negated; the default value is 'FALSE'.
+    attr_accessor :negate
+
+
+    # The HTTP rule condition type.
+    attr_accessor :type
+
+
+    # This parameter is mandatory for the conditions 'CONTAINS', 'EQUALS', 'MATCHES', 'STARTS_WITH', 'ENDS_WITH', or if the type is 'SOURCE_IP'. Specify a valid CIDR. If the condition is 'EXISTS', the value must be 'null'.
     attr_accessor :value
 
     class EnumAttributeValidator
@@ -61,13 +61,13 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'type' => :'type',
-
         :'condition' => :'condition',
+
+        :'key' => :'key',
 
         :'negate' => :'negate',
 
-        :'key' => :'key',
+        :'type' => :'type',
 
         :'value' => :'value'
       }
@@ -82,13 +82,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'type' => :'String',
-
         :'condition' => :'String',
+
+        :'key' => :'String',
 
         :'negate' => :'Boolean',
 
-        :'key' => :'String',
+        :'type' => :'String',
 
         :'value' => :'String'
       }
@@ -121,13 +121,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'condition')
+        self.condition = attributes[:'condition']
       end
 
 
-      if attributes.key?(:'condition')
-        self.condition = attributes[:'condition']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
 
 
@@ -136,8 +136,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
 
@@ -151,16 +151,16 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
-
       if @condition.nil?
         invalid_properties.push('invalid value for "condition", condition cannot be nil.')
       end
 
 
+
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
 
 
       invalid_properties
@@ -170,31 +170,20 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["HEADER", "PATH", "QUERY", "METHOD", "HOST", "COOKIE", "SOURCE_IP"])
-      return false unless type_validator.valid?(@type)
-
       return false if @condition.nil?
       condition_validator = EnumAttributeValidator.new('String', ["EXISTS", "CONTAINS", "EQUALS", "MATCHES", "STARTS_WITH", "ENDS_WITH"])
       return false unless condition_validator.valid?(@condition)
 
 
 
+      return false if @type.nil?
+      type_validator = EnumAttributeValidator.new('String', ["HEADER", "PATH", "QUERY", "METHOD", "HOST", "COOKIE", "SOURCE_IP"])
+      return false unless type_validator.valid?(@type)
+
       true
     end
 
     
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ["HEADER", "PATH", "QUERY", "METHOD", "HOST", "COOKIE", "SOURCE_IP"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
-      end
-      @type = type
-    end
-
-
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] condition Object to be assigned
     def condition=(condition)
@@ -208,15 +197,26 @@ module Ionoscloud
 
 
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["HEADER", "PATH", "QUERY", "METHOD", "HOST", "COOKIE", "SOURCE_IP"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        type == o.type &&
         condition == o.condition &&
-        negate == o.negate &&
         key == o.key &&
+        negate == o.negate &&
+        type == o.type &&
         value == o.value
     end
 
@@ -229,7 +229,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, condition, negate, key, value].hash
+      [condition, key, negate, type, value].hash
     end
 
     # Builds the object from hash

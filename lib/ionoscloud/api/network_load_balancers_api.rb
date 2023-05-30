@@ -559,8 +559,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create NLB Flow Logs
-    # Add a new Flow Log for the Network Load Balancer.
+    # Create a NLB Flow Log
+    # Adds a new Flow Log for the Network Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param network_load_balancer_id [String] The unique ID of the Network Load Balancer.
     # @param network_load_balancer_flow_log [FlowLog] The Flow Log to create.
@@ -574,8 +574,8 @@ module Ionoscloud
       data
     end
 
-    # Create NLB Flow Logs
-    # Add a new Flow Log for the Network Load Balancer.
+    # Create a NLB Flow Log
+    # Adds a new Flow Log for the Network Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param network_load_balancer_id [String] The unique ID of the Network Load Balancer.
     # @param network_load_balancer_flow_log [FlowLog] The Flow Log to create.
@@ -1121,8 +1121,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create NLB forwarding rules
-    # Create a forwarding rule for the specified Network Load Balancer.
+    # Create a NLB Forwarding Rule
+    # Creates a forwarding rule for the specified Network Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param network_load_balancer_id [String] The unique ID of the Network Load Balancer.
     # @param network_load_balancer_forwarding_rule [NetworkLoadBalancerForwardingRule] The forwarding rule to create.
@@ -1136,8 +1136,8 @@ module Ionoscloud
       data
     end
 
-    # Create NLB forwarding rules
-    # Create a forwarding rule for the specified Network Load Balancer.
+    # Create a NLB Forwarding Rule
+    # Creates a forwarding rule for the specified Network Load Balancer.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param network_load_balancer_id [String] The unique ID of the Network Load Balancer.
     # @param network_load_balancer_forwarding_rule [NetworkLoadBalancerForwardingRule] The forwarding rule to create.
@@ -1505,8 +1505,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create Network Load Balancers
-    # Create a Network Load Balancer within the data center.
+    # Create a Network Load Balancer
+    # Creates a Network Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param network_load_balancer [NetworkLoadBalancer] The Network Load Balancer to create.
     # @param [Hash] opts the optional parameters
@@ -1519,8 +1519,8 @@ module Ionoscloud
       data
     end
 
-    # Create Network Load Balancers
-    # Create a Network Load Balancer within the data center.
+    # Create a Network Load Balancer
+    # Creates a Network Load Balancer within the data center.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param network_load_balancer [NetworkLoadBalancer] The Network Load Balancer to create.
     # @param [Hash] opts the optional parameters

@@ -16,10 +16,10 @@ require 'time'
 module Ionoscloud
   class RequestTarget
   
-    attr_accessor :target
-
-
     attr_accessor :status
+
+
+    attr_accessor :target
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -47,9 +47,9 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'target' => :'target',
+        :'status' => :'status',
 
-        :'status' => :'status'
+        :'target' => :'target'
       }
     end
 
@@ -62,9 +62,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'target' => :'ResourceReference',
+        :'status' => :'String',
 
-        :'status' => :'String'
+        :'target' => :'ResourceReference'
       }
     end
 
@@ -92,13 +92,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'target')
-        self.target = attributes[:'target']
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'target')
+        self.target = attributes[:'target']
       end
     end
 
@@ -115,14 +115,13 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-
       status_validator = EnumAttributeValidator.new('String', ["QUEUED", "RUNNING", "DONE", "FAILED"])
       return false unless status_validator.valid?(@status)
+
       true
     end
 
     
-
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
@@ -133,13 +132,14 @@ module Ionoscloud
       @status = status
     end
 
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        target == o.target &&
-        status == o.status
+        status == o.status &&
+        target == o.target
     end
 
     # @see the `==` method
@@ -151,7 +151,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [target, status].hash
+      [status, target].hash
     end
 
     # Builds the object from hash

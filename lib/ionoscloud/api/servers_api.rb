@@ -19,8 +19,8 @@ module Ionoscloud
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Detach CD-ROMs
-    # Detach the specified CD-ROM from the server.
+    # Detach a CD-ROM by ID
+    # Detachs the specified CD-ROM from the server.  Detaching a CD-ROM deletes the CD-ROM. The image will not be deleted.  Note that detaching a CD-ROM leads to a reset of the server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param cdrom_id [String] The unique ID of the CD-ROM.
@@ -34,8 +34,8 @@ module Ionoscloud
       nil
     end
 
-    # Detach CD-ROMs
-    # Detach the specified CD-ROM from the server.
+    # Detach a CD-ROM by ID
+    # Detachs the specified CD-ROM from the server.  Detaching a CD-ROM deletes the CD-ROM. The image will not be deleted.  Note that detaching a CD-ROM leads to a reset of the server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param cdrom_id [String] The unique ID of the CD-ROM.
@@ -111,8 +111,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve attached CD-ROMs
-    # Retrieve the properties of the CD-ROM, attached to the specified server.
+    # Get Attached CD-ROM by ID
+    # Retrieves the properties of the CD-ROM attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param cdrom_id [String] The unique ID of the CD-ROM.
@@ -126,8 +126,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve attached CD-ROMs
-    # Retrieve the properties of the CD-ROM, attached to the specified server.
+    # Get Attached CD-ROM by ID
+    # Retrieves the properties of the CD-ROM attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param cdrom_id [String] The unique ID of the CD-ROM.
@@ -203,8 +203,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List attached CD-ROMs 
-    # List all CD-ROMs, attached to the specified server.
+    # Get Attached CD-ROMs 
+    # Lists all CD-ROMs attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -219,8 +219,8 @@ module Ionoscloud
       data
     end
 
-    # List attached CD-ROMs 
-    # List all CD-ROMs, attached to the specified server.
+    # Get Attached CD-ROMs 
+    # Lists all CD-ROMs attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -307,8 +307,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Attach CD-ROMs
-    # Attach a CD-ROM to an existing server. Up to two CD-ROMs can be attached to the same server. 
+    # Attach a CD-ROM
+    # Attachs a CD-ROM to an existing server specified by its ID.   CD-ROMs cannot be created stand-alone like volumes. They are either attached to a server or do not exist. They always have an ISO-Image associated; empty CD-ROMs can not be provisioned. It is possible to attach up to two CD-ROMs to the same server.   Note that attaching a CD-ROM leads to a reset of the server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param cdrom [Image] The CD-ROM to be attached.
@@ -322,8 +322,8 @@ module Ionoscloud
       data
     end
 
-    # Attach CD-ROMs
-    # Attach a CD-ROM to an existing server. Up to two CD-ROMs can be attached to the same server. 
+    # Attach a CD-ROM
+    # Attachs a CD-ROM to an existing server specified by its ID.   CD-ROMs cannot be created stand-alone like volumes. They are either attached to a server or do not exist. They always have an ISO-Image associated; empty CD-ROMs can not be provisioned. It is possible to attach up to two CD-ROMs to the same server.   Note that attaching a CD-ROM leads to a reset of the server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param cdrom [Image] The CD-ROM to be attached.
@@ -402,7 +402,7 @@ module Ionoscloud
     end
 
     # Delete servers
-    # Delete the specified server in your data center. The attached storage volumes will not be removed — a separate API call must be made for these actions.
+    # Delete the specified server in your data center. The attached storage volumes will also be removed if the query parameter is set to true otherwise a separate API call must be made for these actions.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -417,7 +417,7 @@ module Ionoscloud
     end
 
     # Delete servers
-    # Delete the specified server in your data center. The attached storage volumes will not be removed — a separate API call must be made for these actions.
+    # Delete the specified server in your data center. The attached storage volumes will also be removed if the query parameter is set to true otherwise a separate API call must be made for these actions.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -771,8 +771,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create servers
-    # Create a server within the specified data center. You can also use this request to configure the boot volumes and connect to existing LANs at the same time.
+    # Create a Server
+    # Creates a server within the specified data center. You can also use this request to configure the boot volumes and connect to existing LANs at the same time.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server [Server] The server to create.
     # @param [Hash] opts the optional parameters
@@ -785,8 +785,8 @@ module Ionoscloud
       data
     end
 
-    # Create servers
-    # Create a server within the specified data center. You can also use this request to configure the boot volumes and connect to existing LANs at the same time.
+    # Create a Server
+    # Creates a server within the specified data center. You can also use this request to configure the boot volumes and connect to existing LANs at the same time.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server [Server] The server to create.
     # @param [Hash] opts the optional parameters
@@ -859,8 +859,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify servers
-    # Modify the properties of the specified server within the data center.  Starting with v5, the 'allowReboot' attribute is retired; while previously required for changing certain server properties, this behavior is now implicit, and the backend will perform this automatically. For example, in earlier versions, when the CPU family is changed, 'allowReboot' had to be set to 'true'; this is no longer required, the reboot will be performed automatically.
+    # Modify a Server by ID
+    # Modifies the properties of the specified server within the data center.  Starting with v5, the 'allowReboot' attribute is retired; while previously required for changing certain server properties, this behavior is now implicit, and the backend will perform this automatically. For example, in earlier versions, when the CPU family is changed, 'allowReboot' had to be set to 'true'; this is no longer required, the reboot will be performed automatically.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param server [Server] The modified server
@@ -874,8 +874,8 @@ module Ionoscloud
       data
     end
 
-    # Modify servers
-    # Modify the properties of the specified server within the data center.  Starting with v5, the &#39;allowReboot&#39; attribute is retired; while previously required for changing certain server properties, this behavior is now implicit, and the backend will perform this automatically. For example, in earlier versions, when the CPU family is changed, &#39;allowReboot&#39; had to be set to &#39;true&#39;; this is no longer required, the reboot will be performed automatically.
+    # Modify a Server by ID
+    # Modifies the properties of the specified server within the data center.  Starting with v5, the &#39;allowReboot&#39; attribute is retired; while previously required for changing certain server properties, this behavior is now implicit, and the backend will perform this automatically. For example, in earlier versions, when the CPU family is changed, &#39;allowReboot&#39; had to be set to &#39;true&#39;; this is no longer required, the reboot will be performed automatically.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param server [Server] The modified server
@@ -1125,8 +1125,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Resume Cubes instances
-    # Resume a suspended Cube instance; no billing event will be generated.  This operation is only supported for the Cubes.
+    # Resume a Cube Server by ID
+    # Resumes a suspended Cube Server specified by its ID.  Since the suspended instance was not deleted the allocated resources continue to be billed. You can perform this operation only for Cube Servers.  To check the status of the request, you can use the 'Location' HTTP header in the response (see 'Requests' for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1139,8 +1139,8 @@ module Ionoscloud
       nil
     end
 
-    # Resume Cubes instances
-    # Resume a suspended Cube instance; no billing event will be generated.  This operation is only supported for the Cubes.
+    # Resume a Cube Server by ID
+    # Resumes a suspended Cube Server specified by its ID.  Since the suspended instance was not deleted the allocated resources continue to be billed. You can perform this operation only for Cube Servers.  To check the status of the request, you can use the &#39;Location&#39; HTTP header in the response (see &#39;Requests&#39; for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1211,8 +1211,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Start servers
-    # Start the specified server within the data center; if the server's public IP address has been deallocated, a new IP address will be assigned.
+    # Start an Enterprise Server by ID
+    # Starts the Enterprise Server specified by its ID.  >Note that you cannot use this method to start a Cube Server.  By starting the Enterprise Server, cores and RAM are provisioned, and the billing continues.  If the server's public IPv4 address has been deallocated, a new IPv4 address will be assigned. IPv6 blocks and addresses will remain unchanged when stopping and starting a server.  To check the status of the request, you can use the 'Location' HTTP header in the response (see 'Requests' for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1225,8 +1225,8 @@ module Ionoscloud
       nil
     end
 
-    # Start servers
-    # Start the specified server within the data center; if the server&#39;s public IP address has been deallocated, a new IP address will be assigned.
+    # Start an Enterprise Server by ID
+    # Starts the Enterprise Server specified by its ID.  &gt;Note that you cannot use this method to start a Cube Server.  By starting the Enterprise Server, cores and RAM are provisioned, and the billing continues.  If the server&#39;s public IPv4 address has been deallocated, a new IPv4 address will be assigned. IPv6 blocks and addresses will remain unchanged when stopping and starting a server.  To check the status of the request, you can use the &#39;Location&#39; HTTP header in the response (see &#39;Requests&#39; for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1297,8 +1297,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Stop VMs
-    # Stop the specified server within the data center: the VM will be forcefully shut down, the billing will cease, and any allocated public IPs will be deallocated.  This operation is not supported for the Cubes.
+    # Stop an Enterprise Server by ID
+    # Stops the Enterprise Server specified by its ID.   >Note that you cannot use this method to stop a Cube Server.   By stopping the Enterprise Server, cores and RAM are freed and no longer charged.  Public IPv4 IPs that are not reserved are returned to the IPv4 pool. IPv6 blocks and addresses will remain unchanged when stopping and starting a server.  To check the status of the request, you can use the 'Location' HTTP header in the response (see 'Requests' for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1311,8 +1311,8 @@ module Ionoscloud
       nil
     end
 
-    # Stop VMs
-    # Stop the specified server within the data center: the VM will be forcefully shut down, the billing will cease, and any allocated public IPs will be deallocated.  This operation is not supported for the Cubes.
+    # Stop an Enterprise Server by ID
+    # Stops the Enterprise Server specified by its ID.   &gt;Note that you cannot use this method to stop a Cube Server.   By stopping the Enterprise Server, cores and RAM are freed and no longer charged.  Public IPv4 IPs that are not reserved are returned to the IPv4 pool. IPv6 blocks and addresses will remain unchanged when stopping and starting a server.  To check the status of the request, you can use the &#39;Location&#39; HTTP header in the response (see &#39;Requests&#39; for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1383,8 +1383,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Suspend Cubes instances
-    # Suspend the specified Cubes instance within the data center. The instance will not be deleted, and allocated resources will continue to be billed.  This operation is only supported for the Cubes.
+    # Suspend a Cube Server by ID
+    # Suspends the specified Cubes instance within the data center.   The instance is not deleted and allocated resources continue to be billed. You can perform this operation only for Cube Servers.  To check the status of the request, you can use the 'Location' HTTP header in the response (see 'Requests' for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1397,8 +1397,8 @@ module Ionoscloud
       nil
     end
 
-    # Suspend Cubes instances
-    # Suspend the specified Cubes instance within the data center. The instance will not be deleted, and allocated resources will continue to be billed.  This operation is only supported for the Cubes.
+    # Suspend a Cube Server by ID
+    # Suspends the specified Cubes instance within the data center.   The instance is not deleted and allocated resources continue to be billed. You can perform this operation only for Cube Servers.  To check the status of the request, you can use the &#39;Location&#39; HTTP header in the response (see &#39;Requests&#39; for more information).
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1555,8 +1555,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Upgrade servers
-    # Upgrade the server version, if needed. To determine if an upgrade is available, execute  the following call:  '/datacenters/{datacenterId}/servers?upgradeNeeded=true'
+    # Upgrade a Server by ID
+    # Upgrades the server version.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1569,8 +1569,8 @@ module Ionoscloud
       nil
     end
 
-    # Upgrade servers
-    # Upgrade the server version, if needed. To determine if an upgrade is available, execute  the following call:  &#39;/datacenters/{datacenterId}/servers?upgradeNeeded&#x3D;true&#39;
+    # Upgrade a Server by ID
+    # Upgrades the server version.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1641,8 +1641,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Detach volumes
-    # Detach the specified volume from the server without deleting it from the data center. A separate request must be made to perform the deletion.
+    # Detach a Volume by ID
+    # Detachs the specified volume from the server.  Note that only the volume's connection to the specified server is disconnected. If you want to delete the volume, you must submit a separate request to perform the deletion.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param volume_id [String] The unique ID of the volume.
@@ -1656,8 +1656,8 @@ module Ionoscloud
       nil
     end
 
-    # Detach volumes
-    # Detach the specified volume from the server without deleting it from the data center. A separate request must be made to perform the deletion.
+    # Detach a Volume by ID
+    # Detachs the specified volume from the server.  Note that only the volume&#39;s connection to the specified server is disconnected. If you want to delete the volume, you must submit a separate request to perform the deletion.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param volume_id [String] The unique ID of the volume.
@@ -1733,8 +1733,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Retrieve attached volumes
-    # Retrieve the properties of the volume, attached to the specified server.
+    # Get Attached Volume by ID
+    # Retrieves the properties of the volume attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param volume_id [String] The unique ID of the volume.
@@ -1748,8 +1748,8 @@ module Ionoscloud
       data
     end
 
-    # Retrieve attached volumes
-    # Retrieve the properties of the volume, attached to the specified server.
+    # Get Attached Volume by ID
+    # Retrieves the properties of the volume attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param volume_id [String] The unique ID of the volume.
@@ -1825,8 +1825,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List attached volumes
-    # List all volumes, attached to the specified server.
+    # Get Attached Volumes
+    # Lists all volumes attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1841,8 +1841,8 @@ module Ionoscloud
       data
     end
 
-    # List attached volumes
-    # List all volumes, attached to the specified server.
+    # Get Attached Volumes
+    # Lists all volumes attached to the specified server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param [Hash] opts the optional parameters
@@ -1929,8 +1929,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Attach volumes
-    # Attach an existing storage volume to the specified server.  A volume scan also be created and attached in one step by providing the new volume description as payload.  The combined total of attached volumes and NICs cannot exceed 24 per server.
+    # Attach a Volume to a Server
+    # Attachs an existing storage volume to the specified server.  You can attach an existing volume in the VDC to a server. To move a volume from one server to another, you must first detach the volume from the first server and attach it to the second server.  It is also possible to create and attach a volume in one step by simply providing a new volume description as a payload. The only difference is the URL; see 'Creating a Volume' for details about volumes.  Note that the combined total of attached volumes and NICs cannot exceed 24 per server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param volume [Volume] The volume to be attached (or created and attached).
@@ -1944,8 +1944,8 @@ module Ionoscloud
       data
     end
 
-    # Attach volumes
-    # Attach an existing storage volume to the specified server.  A volume scan also be created and attached in one step by providing the new volume description as payload.  The combined total of attached volumes and NICs cannot exceed 24 per server.
+    # Attach a Volume to a Server
+    # Attachs an existing storage volume to the specified server.  You can attach an existing volume in the VDC to a server. To move a volume from one server to another, you must first detach the volume from the first server and attach it to the second server.  It is also possible to create and attach a volume in one step by simply providing a new volume description as a payload. The only difference is the URL; see &#39;Creating a Volume&#39; for details about volumes.  Note that the combined total of attached volumes and NICs cannot exceed 24 per server.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param server_id [String] The unique ID of the server.
     # @param volume [Volume] The volume to be attached (or created and attached).

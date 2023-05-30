@@ -17,7 +17,7 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 | [**um_groups_shares_put**](UserManagementApi.md#um_groups_shares_put) | **PUT** /um/groups/{groupId}/shares/{resourceId} | Modify group share privileges |
 | [**um_groups_users_delete**](UserManagementApi.md#um_groups_users_delete) | **DELETE** /um/groups/{groupId}/users/{userId} | Remove users from groups |
 | [**um_groups_users_get**](UserManagementApi.md#um_groups_users_get) | **GET** /um/groups/{groupId}/users | List group members |
-| [**um_groups_users_post**](UserManagementApi.md#um_groups_users_post) | **POST** /um/groups/{groupId}/users | Add group members |
+| [**um_groups_users_post**](UserManagementApi.md#um_groups_users_post) | **POST** /um/groups/{groupId}/users | Add a Group Member |
 | [**um_resources_find_by_type**](UserManagementApi.md#um_resources_find_by_type) | **GET** /um/resources/{resourceType} | List resources by type |
 | [**um_resources_find_by_type_and_id**](UserManagementApi.md#um_resources_find_by_type_and_id) | **GET** /um/resources/{resourceType}/{resourceId} | Retrieve resources by type |
 | [**um_resources_get**](UserManagementApi.md#um_resources_get) | **GET** /um/resources | List all resources |
@@ -340,7 +340,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **group** | [**Group**](Group.md) | The group to create. |  |
+| **group** | [**Group**](../models/Group.md) | The group to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -425,7 +425,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **group_id** | **String** | The unique ID of the group. |  |
-| **group** | [**Group**](Group.md) | The modified group. |  |
+| **group** | [**Group**](../models/Group.md) | The modified group. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -847,7 +847,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **group_id** | **String** | The unique ID of the group. |  |
 | **resource_id** | **String** | The unique ID of the resource. |  |
-| **resource** | [**GroupShare**](GroupShare.md) | The resource to add. |  |
+| **resource** | [**GroupShare**](../models/GroupShare.md) | The resource to add. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -934,7 +934,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **group_id** | **String** | The unique ID of the group. |  |
 | **resource_id** | **String** | The unique ID of the resource. |  |
-| **resource** | [**GroupShare**](GroupShare.md) | The modified resource |  |
+| **resource** | [**GroupShare**](../models/GroupShare.md) | The modified resource |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1124,9 +1124,9 @@ Basic Authentication, Token Authentication
 
 > <User> um_groups_users_post(group_id, user, opts)
 
-Add group members
+Add a Group Member
 
-Add an existing user to the specified group. 
+Adds an existing user to the specified group. 
 
 ### Examples
 
@@ -1155,7 +1155,7 @@ opts = {
 }
 
 begin
-  # Add group members
+  # Add a Group Member
   result = api_instance.um_groups_users_post(group_id, user, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1171,7 +1171,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Add group members
+  # Add a Group Member
   data, status_code, headers = api_instance.um_groups_users_post_with_http_info(group_id, user, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1186,7 +1186,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **group_id** | **String** | The unique ID of the group. |  |
-| **user** | [**User**](User.md) | The user to add. |  |
+| **user** | [**User**](../models/User.md) | The user to add. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1934,7 +1934,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user** | [**UserPost**](UserPost.md) | The user to create. |  |
+| **user** | [**UserPost**](../models/UserPost.md) | The user to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -2019,7 +2019,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The unique ID of the user. |  |
-| **user** | [**UserPut**](UserPut.md) | The modified user |  |
+| **user** | [**UserPut**](../models/UserPut.md) | The modified user |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

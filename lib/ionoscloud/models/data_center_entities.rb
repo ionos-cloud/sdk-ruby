@@ -16,38 +16,38 @@ require 'time'
 module Ionoscloud
   class DataCenterEntities
   
-    attr_accessor :servers
-
-
-    attr_accessor :volumes
+    attr_accessor :lans
 
 
     attr_accessor :loadbalancers
 
 
-    attr_accessor :lans
+    attr_accessor :natgateways
 
 
     attr_accessor :networkloadbalancers
 
 
-    attr_accessor :natgateways
+    attr_accessor :servers
+
+
+    attr_accessor :volumes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'servers' => :'servers',
-
-        :'volumes' => :'volumes',
+        :'lans' => :'lans',
 
         :'loadbalancers' => :'loadbalancers',
 
-        :'lans' => :'lans',
+        :'natgateways' => :'natgateways',
 
         :'networkloadbalancers' => :'networkloadbalancers',
 
-        :'natgateways' => :'natgateways'
+        :'servers' => :'servers',
+
+        :'volumes' => :'volumes'
       }
     end
 
@@ -60,17 +60,17 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'servers' => :'Servers',
-
-        :'volumes' => :'Volumes',
+        :'lans' => :'Lans',
 
         :'loadbalancers' => :'Loadbalancers',
 
-        :'lans' => :'Lans',
+        :'natgateways' => :'NatGateways',
 
         :'networkloadbalancers' => :'NetworkLoadBalancers',
 
-        :'natgateways' => :'NatGateways'
+        :'servers' => :'Servers',
+
+        :'volumes' => :'Volumes'
       }
     end
 
@@ -102,13 +102,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'servers')
-        self.servers = attributes[:'servers']
-      end
-
-
-      if attributes.key?(:'volumes')
-        self.volumes = attributes[:'volumes']
+      if attributes.key?(:'lans')
+        self.lans = attributes[:'lans']
       end
 
 
@@ -117,8 +112,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'lans')
-        self.lans = attributes[:'lans']
+      if attributes.key?(:'natgateways')
+        self.natgateways = attributes[:'natgateways']
       end
 
 
@@ -127,8 +122,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'natgateways')
-        self.natgateways = attributes[:'natgateways']
+      if attributes.key?(:'servers')
+        self.servers = attributes[:'servers']
+      end
+
+
+      if attributes.key?(:'volumes')
+        self.volumes = attributes[:'volumes']
       end
     end
 
@@ -168,12 +168,12 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        servers == o.servers &&
-        volumes == o.volumes &&
-        loadbalancers == o.loadbalancers &&
         lans == o.lans &&
+        loadbalancers == o.loadbalancers &&
+        natgateways == o.natgateways &&
         networkloadbalancers == o.networkloadbalancers &&
-        natgateways == o.natgateways
+        servers == o.servers &&
+        volumes == o.volumes
     end
 
     # @see the `==` method
@@ -185,7 +185,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [servers, volumes, loadbalancers, lans, networkloadbalancers, natgateways].hash
+      [lans, loadbalancers, natgateways, networkloadbalancers, servers, volumes].hash
     end
 
     # Builds the object from hash

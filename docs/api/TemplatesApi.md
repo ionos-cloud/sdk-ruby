@@ -4,17 +4,17 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**templates_find_by_id**](TemplatesApi.md#templates_find_by_id) | **GET** /templates/{templateId} | Retrieve Cubes Templates |
-| [**templates_get**](TemplatesApi.md#templates_get) | **GET** /templates | List Cubes Templates |
+| [**templates_find_by_id**](TemplatesApi.md#templates_find_by_id) | **GET** /templates/{templateId} | Get Cubes Template by ID |
+| [**templates_get**](TemplatesApi.md#templates_get) | **GET** /templates | Get Cubes Templates |
 
 
 ## templates_find_by_id
 
 > <Template> templates_find_by_id(template_id, opts)
 
-Retrieve Cubes Templates
+Get Cubes Template by ID
 
-Retrieve the properties of the specified Cubes Template.  This operation is only supported for the Cubes.
+Retrieves the properties of the Cubes template specified by its ID.
 
 ### Examples
 
@@ -34,13 +34,13 @@ Ionoscloud.configure do |config|
 end
 
 api_instance = Ionoscloud::TemplatesApi.new
-template_id = 'template_id_example' # String | The unique Template ID.
+template_id = 'template_id_example' # String | The unique template ID.
 opts = {
   depth: 56 # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
 }
 
 begin
-  # Retrieve Cubes Templates
+  # Get Cubes Template by ID
   result = api_instance.templates_find_by_id(template_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -56,7 +56,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve Cubes Templates
+  # Get Cubes Template by ID
   data, status_code, headers = api_instance.templates_find_by_id_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -70,7 +70,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **template_id** | **String** | The unique Template ID. |  |
+| **template_id** | **String** | The unique template ID. |  |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 
 ### Return type
@@ -91,9 +91,9 @@ Basic Authentication, Token Authentication
 
 > <Templates> templates_get(opts)
 
-List Cubes Templates
+Get Cubes Templates
 
-List all of the available Cubes Templates.  This operation is only supported for the Cubes.
+Retrieves all available templates.  Templates provide a pre-defined configuration for Cube servers.    >Templates are read-only and cannot be created, modified, or deleted by users.
 
 ### Examples
 
@@ -118,7 +118,7 @@ opts = {
 }
 
 begin
-  # List Cubes Templates
+  # Get Cubes Templates
   result = api_instance.templates_get(opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -134,7 +134,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List Cubes Templates
+  # Get Cubes Templates
   data, status_code, headers = api_instance.templates_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }

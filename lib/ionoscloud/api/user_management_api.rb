@@ -1107,8 +1107,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Add group members
-    # Add an existing user to the specified group. 
+    # Add a Group Member
+    # Adds an existing user to the specified group. 
     # @param group_id [String] The unique ID of the group.
     # @param user [User] The user to add.
     # @param [Hash] opts the optional parameters
@@ -1121,8 +1121,8 @@ module Ionoscloud
       data
     end
 
-    # Add group members
-    # Add an existing user to the specified group. 
+    # Add a Group Member
+    # Adds an existing user to the specified group. 
     # @param group_id [String] The unique ID of the group.
     # @param user [User] The user to add.
     # @param [Hash] opts the optional parameters

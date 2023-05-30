@@ -341,8 +341,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify snapshots
-    # Modify the properties of the specified snapshot.
+    # Modify a Snapshot by ID
+    # Modifies the properties of the specified snapshot.
     # @param snapshot_id [String] The unique ID of the snapshot.
     # @param snapshot [Snapshot] The modified snapshot
     # @param [Hash] opts the optional parameters
@@ -355,8 +355,8 @@ module Ionoscloud
       data
     end
 
-    # Modify snapshots
-    # Modify the properties of the specified snapshot.
+    # Modify a Snapshot by ID
+    # Modifies the properties of the specified snapshot.
     # @param snapshot_id [String] The unique ID of the snapshot.
     # @param snapshot [Snapshot] The modified snapshot
     # @param [Hash] opts the optional parameters

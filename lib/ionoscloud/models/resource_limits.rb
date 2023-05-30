@@ -16,140 +16,140 @@ require 'time'
 module Ionoscloud
   class ResourceLimits
   
-    # The maximum number of cores per server.
-    attr_accessor :cores_per_server
-
-
-    # The maximum number of cores per contract.
+    # The maximum number of CPU cores per contract.
     attr_accessor :cores_per_contract
 
 
-    # The number of cores provisioned.
+    # The maximum number of CPU cores per server.
+    attr_accessor :cores_per_server
+
+
+    # The number of CPU cores provisioned.
     attr_accessor :cores_provisioned
 
 
-    # The maximum RAM per server.
-    attr_accessor :ram_per_server
-
-
-    # The maximum RAM per contract.
-    attr_accessor :ram_per_contract
-
-
-    # RAM provisioned.
-    attr_accessor :ram_provisioned
-
-
-    # HDD limit per volume.
-    attr_accessor :hdd_limit_per_volume
-
-
-    # HDD limit per contract.
-    attr_accessor :hdd_limit_per_contract
-
-
-    # HDD volume provisioned.
-    attr_accessor :hdd_volume_provisioned
-
-
-    # SSD limit per volume.
-    attr_accessor :ssd_limit_per_volume
-
-
-    # SSD limit per contract.
-    attr_accessor :ssd_limit_per_contract
-
-
-    # SSD volume provisioned.
-    attr_accessor :ssd_volume_provisioned
-
-
-    # DAS (Direct Attached Storage) volume provisioned.
+    # The amount of DAS disk space (in MB) in a Cube server that is currently provisioned.
     attr_accessor :das_volume_provisioned
 
 
-    # Total reservable IP limit for the customer.
-    attr_accessor :reservable_ips
+    # The maximum amount of disk space (in MB) that can be provided under this contract.
+    attr_accessor :hdd_limit_per_contract
 
 
-    # Reserved ips for the contract.
-    attr_accessor :reserved_ips_on_contract
+    # The maximum size (in MB) of an idividual hard disk volume.
+    attr_accessor :hdd_limit_per_volume
 
 
-    # Reserved ips in use.
-    attr_accessor :reserved_ips_in_use
+    # The amount of hard disk space (in MB) that is currently provisioned.
+    attr_accessor :hdd_volume_provisioned
 
 
-    # K8s clusters total limit.
+    # The maximum number of Kubernetes clusters that can be created under this contract.
     attr_accessor :k8s_cluster_limit_total
 
 
-    # K8s clusters provisioned.
+    # The amount of Kubernetes clusters that is currently provisioned.
     attr_accessor :k8s_clusters_provisioned
 
 
-    # NLB total limit.
-    attr_accessor :nlb_limit_total
-
-
-    # NLBs provisioned.
-    attr_accessor :nlb_provisioned
-
-
-    # NAT Gateway total limit.
+    # The NAT Gateway total limit.
     attr_accessor :nat_gateway_limit_total
 
 
-    # NAT Gateways provisioned.
+    # The NAT Gateways provisioned.
     attr_accessor :nat_gateway_provisioned
+
+
+    # The NLB total limit.
+    attr_accessor :nlb_limit_total
+
+
+    # The NLBs provisioned.
+    attr_accessor :nlb_provisioned
+
+
+    # The maximum amount of RAM (in MB) that can be provisioned under this contract.
+    attr_accessor :ram_per_contract
+
+
+    # The maximum amount of RAM (in MB) that can be provisioned for a particular server under this contract.
+    attr_accessor :ram_per_server
+
+
+    # The amount of RAM (in MB) provisioned under this contract.
+    attr_accessor :ram_provisioned
+
+
+    # The maximum number of static public IP addresses that can be reserved by this customer across contracts.
+    attr_accessor :reservable_ips
+
+
+    # The number of static public IP addresses in use.
+    attr_accessor :reserved_ips_in_use
+
+
+    # The maximum number of static public IP addresses that can be reserved for this contract.
+    attr_accessor :reserved_ips_on_contract
+
+
+    # The maximum amount of solid state disk space (in MB) that can be provisioned under this contract.
+    attr_accessor :ssd_limit_per_contract
+
+
+    # The maximum size (in MB) of an individual solid state disk volume.
+    attr_accessor :ssd_limit_per_volume
+
+
+    # The amount of solid state disk space (in MB) that is currently provisioned.
+    attr_accessor :ssd_volume_provisioned
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'cores_per_server' => :'coresPerServer',
-
         :'cores_per_contract' => :'coresPerContract',
+
+        :'cores_per_server' => :'coresPerServer',
 
         :'cores_provisioned' => :'coresProvisioned',
 
-        :'ram_per_server' => :'ramPerServer',
-
-        :'ram_per_contract' => :'ramPerContract',
-
-        :'ram_provisioned' => :'ramProvisioned',
-
-        :'hdd_limit_per_volume' => :'hddLimitPerVolume',
+        :'das_volume_provisioned' => :'dasVolumeProvisioned',
 
         :'hdd_limit_per_contract' => :'hddLimitPerContract',
 
+        :'hdd_limit_per_volume' => :'hddLimitPerVolume',
+
         :'hdd_volume_provisioned' => :'hddVolumeProvisioned',
-
-        :'ssd_limit_per_volume' => :'ssdLimitPerVolume',
-
-        :'ssd_limit_per_contract' => :'ssdLimitPerContract',
-
-        :'ssd_volume_provisioned' => :'ssdVolumeProvisioned',
-
-        :'das_volume_provisioned' => :'dasVolumeProvisioned',
-
-        :'reservable_ips' => :'reservableIps',
-
-        :'reserved_ips_on_contract' => :'reservedIpsOnContract',
-
-        :'reserved_ips_in_use' => :'reservedIpsInUse',
 
         :'k8s_cluster_limit_total' => :'k8sClusterLimitTotal',
 
         :'k8s_clusters_provisioned' => :'k8sClustersProvisioned',
 
+        :'nat_gateway_limit_total' => :'natGatewayLimitTotal',
+
+        :'nat_gateway_provisioned' => :'natGatewayProvisioned',
+
         :'nlb_limit_total' => :'nlbLimitTotal',
 
         :'nlb_provisioned' => :'nlbProvisioned',
 
-        :'nat_gateway_limit_total' => :'natGatewayLimitTotal',
+        :'ram_per_contract' => :'ramPerContract',
 
-        :'nat_gateway_provisioned' => :'natGatewayProvisioned'
+        :'ram_per_server' => :'ramPerServer',
+
+        :'ram_provisioned' => :'ramProvisioned',
+
+        :'reservable_ips' => :'reservableIps',
+
+        :'reserved_ips_in_use' => :'reservedIpsInUse',
+
+        :'reserved_ips_on_contract' => :'reservedIpsOnContract',
+
+        :'ssd_limit_per_contract' => :'ssdLimitPerContract',
+
+        :'ssd_limit_per_volume' => :'ssdLimitPerVolume',
+
+        :'ssd_volume_provisioned' => :'ssdVolumeProvisioned'
       }
     end
 
@@ -162,49 +162,49 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'cores_per_server' => :'Integer',
-
         :'cores_per_contract' => :'Integer',
+
+        :'cores_per_server' => :'Integer',
 
         :'cores_provisioned' => :'Integer',
 
-        :'ram_per_server' => :'Integer',
-
-        :'ram_per_contract' => :'Integer',
-
-        :'ram_provisioned' => :'Integer',
-
-        :'hdd_limit_per_volume' => :'Integer',
+        :'das_volume_provisioned' => :'Integer',
 
         :'hdd_limit_per_contract' => :'Integer',
 
+        :'hdd_limit_per_volume' => :'Integer',
+
         :'hdd_volume_provisioned' => :'Integer',
-
-        :'ssd_limit_per_volume' => :'Integer',
-
-        :'ssd_limit_per_contract' => :'Integer',
-
-        :'ssd_volume_provisioned' => :'Integer',
-
-        :'das_volume_provisioned' => :'Integer',
-
-        :'reservable_ips' => :'Integer',
-
-        :'reserved_ips_on_contract' => :'Integer',
-
-        :'reserved_ips_in_use' => :'Integer',
 
         :'k8s_cluster_limit_total' => :'Integer',
 
         :'k8s_clusters_provisioned' => :'Integer',
 
+        :'nat_gateway_limit_total' => :'Integer',
+
+        :'nat_gateway_provisioned' => :'Integer',
+
         :'nlb_limit_total' => :'Integer',
 
         :'nlb_provisioned' => :'Integer',
 
-        :'nat_gateway_limit_total' => :'Integer',
+        :'ram_per_contract' => :'Integer',
 
-        :'nat_gateway_provisioned' => :'Integer'
+        :'ram_per_server' => :'Integer',
+
+        :'ram_provisioned' => :'Integer',
+
+        :'reservable_ips' => :'Integer',
+
+        :'reserved_ips_in_use' => :'Integer',
+
+        :'reserved_ips_on_contract' => :'Integer',
+
+        :'ssd_limit_per_contract' => :'Integer',
+
+        :'ssd_limit_per_volume' => :'Integer',
+
+        :'ssd_volume_provisioned' => :'Integer'
       }
     end
 
@@ -252,13 +252,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'cores_per_server')
-        self.cores_per_server = attributes[:'cores_per_server']
+      if attributes.key?(:'cores_per_contract')
+        self.cores_per_contract = attributes[:'cores_per_contract']
       end
 
 
-      if attributes.key?(:'cores_per_contract')
-        self.cores_per_contract = attributes[:'cores_per_contract']
+      if attributes.key?(:'cores_per_server')
+        self.cores_per_server = attributes[:'cores_per_server']
       end
 
 
@@ -267,23 +267,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'ram_per_server')
-        self.ram_per_server = attributes[:'ram_per_server']
-      end
-
-
-      if attributes.key?(:'ram_per_contract')
-        self.ram_per_contract = attributes[:'ram_per_contract']
-      end
-
-
-      if attributes.key?(:'ram_provisioned')
-        self.ram_provisioned = attributes[:'ram_provisioned']
-      end
-
-
-      if attributes.key?(:'hdd_limit_per_volume')
-        self.hdd_limit_per_volume = attributes[:'hdd_limit_per_volume']
+      if attributes.key?(:'das_volume_provisioned')
+        self.das_volume_provisioned = attributes[:'das_volume_provisioned']
       end
 
 
@@ -292,43 +277,13 @@ module Ionoscloud
       end
 
 
+      if attributes.key?(:'hdd_limit_per_volume')
+        self.hdd_limit_per_volume = attributes[:'hdd_limit_per_volume']
+      end
+
+
       if attributes.key?(:'hdd_volume_provisioned')
         self.hdd_volume_provisioned = attributes[:'hdd_volume_provisioned']
-      end
-
-
-      if attributes.key?(:'ssd_limit_per_volume')
-        self.ssd_limit_per_volume = attributes[:'ssd_limit_per_volume']
-      end
-
-
-      if attributes.key?(:'ssd_limit_per_contract')
-        self.ssd_limit_per_contract = attributes[:'ssd_limit_per_contract']
-      end
-
-
-      if attributes.key?(:'ssd_volume_provisioned')
-        self.ssd_volume_provisioned = attributes[:'ssd_volume_provisioned']
-      end
-
-
-      if attributes.key?(:'das_volume_provisioned')
-        self.das_volume_provisioned = attributes[:'das_volume_provisioned']
-      end
-
-
-      if attributes.key?(:'reservable_ips')
-        self.reservable_ips = attributes[:'reservable_ips']
-      end
-
-
-      if attributes.key?(:'reserved_ips_on_contract')
-        self.reserved_ips_on_contract = attributes[:'reserved_ips_on_contract']
-      end
-
-
-      if attributes.key?(:'reserved_ips_in_use')
-        self.reserved_ips_in_use = attributes[:'reserved_ips_in_use']
       end
 
 
@@ -342,6 +297,16 @@ module Ionoscloud
       end
 
 
+      if attributes.key?(:'nat_gateway_limit_total')
+        self.nat_gateway_limit_total = attributes[:'nat_gateway_limit_total']
+      end
+
+
+      if attributes.key?(:'nat_gateway_provisioned')
+        self.nat_gateway_provisioned = attributes[:'nat_gateway_provisioned']
+      end
+
+
       if attributes.key?(:'nlb_limit_total')
         self.nlb_limit_total = attributes[:'nlb_limit_total']
       end
@@ -352,13 +317,48 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'nat_gateway_limit_total')
-        self.nat_gateway_limit_total = attributes[:'nat_gateway_limit_total']
+      if attributes.key?(:'ram_per_contract')
+        self.ram_per_contract = attributes[:'ram_per_contract']
       end
 
 
-      if attributes.key?(:'nat_gateway_provisioned')
-        self.nat_gateway_provisioned = attributes[:'nat_gateway_provisioned']
+      if attributes.key?(:'ram_per_server')
+        self.ram_per_server = attributes[:'ram_per_server']
+      end
+
+
+      if attributes.key?(:'ram_provisioned')
+        self.ram_provisioned = attributes[:'ram_provisioned']
+      end
+
+
+      if attributes.key?(:'reservable_ips')
+        self.reservable_ips = attributes[:'reservable_ips']
+      end
+
+
+      if attributes.key?(:'reserved_ips_in_use')
+        self.reserved_ips_in_use = attributes[:'reserved_ips_in_use']
+      end
+
+
+      if attributes.key?(:'reserved_ips_on_contract')
+        self.reserved_ips_on_contract = attributes[:'reserved_ips_on_contract']
+      end
+
+
+      if attributes.key?(:'ssd_limit_per_contract')
+        self.ssd_limit_per_contract = attributes[:'ssd_limit_per_contract']
+      end
+
+
+      if attributes.key?(:'ssd_limit_per_volume')
+        self.ssd_limit_per_volume = attributes[:'ssd_limit_per_volume']
+      end
+
+
+      if attributes.key?(:'ssd_volume_provisioned')
+        self.ssd_volume_provisioned = attributes[:'ssd_volume_provisioned']
       end
     end
 
@@ -367,13 +367,13 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @cores_per_server.nil?
-        invalid_properties.push('invalid value for "cores_per_server", cores_per_server cannot be nil.')
+      if @cores_per_contract.nil?
+        invalid_properties.push('invalid value for "cores_per_contract", cores_per_contract cannot be nil.')
       end
 
 
-      if @cores_per_contract.nil?
-        invalid_properties.push('invalid value for "cores_per_contract", cores_per_contract cannot be nil.')
+      if @cores_per_server.nil?
+        invalid_properties.push('invalid value for "cores_per_server", cores_per_server cannot be nil.')
       end
 
 
@@ -382,23 +382,8 @@ module Ionoscloud
       end
 
 
-      if @ram_per_server.nil?
-        invalid_properties.push('invalid value for "ram_per_server", ram_per_server cannot be nil.')
-      end
-
-
-      if @ram_per_contract.nil?
-        invalid_properties.push('invalid value for "ram_per_contract", ram_per_contract cannot be nil.')
-      end
-
-
-      if @ram_provisioned.nil?
-        invalid_properties.push('invalid value for "ram_provisioned", ram_provisioned cannot be nil.')
-      end
-
-
-      if @hdd_limit_per_volume.nil?
-        invalid_properties.push('invalid value for "hdd_limit_per_volume", hdd_limit_per_volume cannot be nil.')
+      if @das_volume_provisioned.nil?
+        invalid_properties.push('invalid value for "das_volume_provisioned", das_volume_provisioned cannot be nil.')
       end
 
 
@@ -407,43 +392,13 @@ module Ionoscloud
       end
 
 
+      if @hdd_limit_per_volume.nil?
+        invalid_properties.push('invalid value for "hdd_limit_per_volume", hdd_limit_per_volume cannot be nil.')
+      end
+
+
       if @hdd_volume_provisioned.nil?
         invalid_properties.push('invalid value for "hdd_volume_provisioned", hdd_volume_provisioned cannot be nil.')
-      end
-
-
-      if @ssd_limit_per_volume.nil?
-        invalid_properties.push('invalid value for "ssd_limit_per_volume", ssd_limit_per_volume cannot be nil.')
-      end
-
-
-      if @ssd_limit_per_contract.nil?
-        invalid_properties.push('invalid value for "ssd_limit_per_contract", ssd_limit_per_contract cannot be nil.')
-      end
-
-
-      if @ssd_volume_provisioned.nil?
-        invalid_properties.push('invalid value for "ssd_volume_provisioned", ssd_volume_provisioned cannot be nil.')
-      end
-
-
-      if @das_volume_provisioned.nil?
-        invalid_properties.push('invalid value for "das_volume_provisioned", das_volume_provisioned cannot be nil.')
-      end
-
-
-      if @reservable_ips.nil?
-        invalid_properties.push('invalid value for "reservable_ips", reservable_ips cannot be nil.')
-      end
-
-
-      if @reserved_ips_on_contract.nil?
-        invalid_properties.push('invalid value for "reserved_ips_on_contract", reserved_ips_on_contract cannot be nil.')
-      end
-
-
-      if @reserved_ips_in_use.nil?
-        invalid_properties.push('invalid value for "reserved_ips_in_use", reserved_ips_in_use cannot be nil.')
       end
 
 
@@ -457,6 +412,16 @@ module Ionoscloud
       end
 
 
+      if @nat_gateway_limit_total.nil?
+        invalid_properties.push('invalid value for "nat_gateway_limit_total", nat_gateway_limit_total cannot be nil.')
+      end
+
+
+      if @nat_gateway_provisioned.nil?
+        invalid_properties.push('invalid value for "nat_gateway_provisioned", nat_gateway_provisioned cannot be nil.')
+      end
+
+
       if @nlb_limit_total.nil?
         invalid_properties.push('invalid value for "nlb_limit_total", nlb_limit_total cannot be nil.')
       end
@@ -467,13 +432,48 @@ module Ionoscloud
       end
 
 
-      if @nat_gateway_limit_total.nil?
-        invalid_properties.push('invalid value for "nat_gateway_limit_total", nat_gateway_limit_total cannot be nil.')
+      if @ram_per_contract.nil?
+        invalid_properties.push('invalid value for "ram_per_contract", ram_per_contract cannot be nil.')
       end
 
 
-      if @nat_gateway_provisioned.nil?
-        invalid_properties.push('invalid value for "nat_gateway_provisioned", nat_gateway_provisioned cannot be nil.')
+      if @ram_per_server.nil?
+        invalid_properties.push('invalid value for "ram_per_server", ram_per_server cannot be nil.')
+      end
+
+
+      if @ram_provisioned.nil?
+        invalid_properties.push('invalid value for "ram_provisioned", ram_provisioned cannot be nil.')
+      end
+
+
+      if @reservable_ips.nil?
+        invalid_properties.push('invalid value for "reservable_ips", reservable_ips cannot be nil.')
+      end
+
+
+      if @reserved_ips_in_use.nil?
+        invalid_properties.push('invalid value for "reserved_ips_in_use", reserved_ips_in_use cannot be nil.')
+      end
+
+
+      if @reserved_ips_on_contract.nil?
+        invalid_properties.push('invalid value for "reserved_ips_on_contract", reserved_ips_on_contract cannot be nil.')
+      end
+
+
+      if @ssd_limit_per_contract.nil?
+        invalid_properties.push('invalid value for "ssd_limit_per_contract", ssd_limit_per_contract cannot be nil.')
+      end
+
+
+      if @ssd_limit_per_volume.nil?
+        invalid_properties.push('invalid value for "ssd_limit_per_volume", ssd_limit_per_volume cannot be nil.')
+      end
+
+
+      if @ssd_volume_provisioned.nil?
+        invalid_properties.push('invalid value for "ssd_volume_provisioned", ssd_volume_provisioned cannot be nil.')
       end
 
       invalid_properties
@@ -483,49 +483,49 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @cores_per_server.nil?
-
       return false if @cores_per_contract.nil?
+
+      return false if @cores_per_server.nil?
 
       return false if @cores_provisioned.nil?
 
-      return false if @ram_per_server.nil?
-
-      return false if @ram_per_contract.nil?
-
-      return false if @ram_provisioned.nil?
-
-      return false if @hdd_limit_per_volume.nil?
+      return false if @das_volume_provisioned.nil?
 
       return false if @hdd_limit_per_contract.nil?
 
+      return false if @hdd_limit_per_volume.nil?
+
       return false if @hdd_volume_provisioned.nil?
-
-      return false if @ssd_limit_per_volume.nil?
-
-      return false if @ssd_limit_per_contract.nil?
-
-      return false if @ssd_volume_provisioned.nil?
-
-      return false if @das_volume_provisioned.nil?
-
-      return false if @reservable_ips.nil?
-
-      return false if @reserved_ips_on_contract.nil?
-
-      return false if @reserved_ips_in_use.nil?
 
       return false if @k8s_cluster_limit_total.nil?
 
       return false if @k8s_clusters_provisioned.nil?
 
+      return false if @nat_gateway_limit_total.nil?
+
+      return false if @nat_gateway_provisioned.nil?
+
       return false if @nlb_limit_total.nil?
 
       return false if @nlb_provisioned.nil?
 
-      return false if @nat_gateway_limit_total.nil?
+      return false if @ram_per_contract.nil?
 
-      return false if @nat_gateway_provisioned.nil?
+      return false if @ram_per_server.nil?
+
+      return false if @ram_provisioned.nil?
+
+      return false if @reservable_ips.nil?
+
+      return false if @reserved_ips_in_use.nil?
+
+      return false if @reserved_ips_on_contract.nil?
+
+      return false if @ssd_limit_per_contract.nil?
+
+      return false if @ssd_limit_per_volume.nil?
+
+      return false if @ssd_volume_provisioned.nil?
       true
     end
 
@@ -556,28 +556,28 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        cores_per_server == o.cores_per_server &&
         cores_per_contract == o.cores_per_contract &&
+        cores_per_server == o.cores_per_server &&
         cores_provisioned == o.cores_provisioned &&
-        ram_per_server == o.ram_per_server &&
-        ram_per_contract == o.ram_per_contract &&
-        ram_provisioned == o.ram_provisioned &&
-        hdd_limit_per_volume == o.hdd_limit_per_volume &&
-        hdd_limit_per_contract == o.hdd_limit_per_contract &&
-        hdd_volume_provisioned == o.hdd_volume_provisioned &&
-        ssd_limit_per_volume == o.ssd_limit_per_volume &&
-        ssd_limit_per_contract == o.ssd_limit_per_contract &&
-        ssd_volume_provisioned == o.ssd_volume_provisioned &&
         das_volume_provisioned == o.das_volume_provisioned &&
-        reservable_ips == o.reservable_ips &&
-        reserved_ips_on_contract == o.reserved_ips_on_contract &&
-        reserved_ips_in_use == o.reserved_ips_in_use &&
+        hdd_limit_per_contract == o.hdd_limit_per_contract &&
+        hdd_limit_per_volume == o.hdd_limit_per_volume &&
+        hdd_volume_provisioned == o.hdd_volume_provisioned &&
         k8s_cluster_limit_total == o.k8s_cluster_limit_total &&
         k8s_clusters_provisioned == o.k8s_clusters_provisioned &&
+        nat_gateway_limit_total == o.nat_gateway_limit_total &&
+        nat_gateway_provisioned == o.nat_gateway_provisioned &&
         nlb_limit_total == o.nlb_limit_total &&
         nlb_provisioned == o.nlb_provisioned &&
-        nat_gateway_limit_total == o.nat_gateway_limit_total &&
-        nat_gateway_provisioned == o.nat_gateway_provisioned
+        ram_per_contract == o.ram_per_contract &&
+        ram_per_server == o.ram_per_server &&
+        ram_provisioned == o.ram_provisioned &&
+        reservable_ips == o.reservable_ips &&
+        reserved_ips_in_use == o.reserved_ips_in_use &&
+        reserved_ips_on_contract == o.reserved_ips_on_contract &&
+        ssd_limit_per_contract == o.ssd_limit_per_contract &&
+        ssd_limit_per_volume == o.ssd_limit_per_volume &&
+        ssd_volume_provisioned == o.ssd_volume_provisioned
     end
 
     # @see the `==` method
@@ -589,7 +589,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cores_per_server, cores_per_contract, cores_provisioned, ram_per_server, ram_per_contract, ram_provisioned, hdd_limit_per_volume, hdd_limit_per_contract, hdd_volume_provisioned, ssd_limit_per_volume, ssd_limit_per_contract, ssd_volume_provisioned, das_volume_provisioned, reservable_ips, reserved_ips_on_contract, reserved_ips_in_use, k8s_cluster_limit_total, k8s_clusters_provisioned, nlb_limit_total, nlb_provisioned, nat_gateway_limit_total, nat_gateway_provisioned].hash
+      [cores_per_contract, cores_per_server, cores_provisioned, das_volume_provisioned, hdd_limit_per_contract, hdd_limit_per_volume, hdd_volume_provisioned, k8s_cluster_limit_total, k8s_clusters_provisioned, nat_gateway_limit_total, nat_gateway_provisioned, nlb_limit_total, nlb_provisioned, ram_per_contract, ram_per_server, ram_provisioned, reservable_ips, reserved_ips_in_use, reserved_ips_on_contract, ssd_limit_per_contract, ssd_limit_per_volume, ssd_volume_provisioned].hash
     end
 
     # Builds the object from hash

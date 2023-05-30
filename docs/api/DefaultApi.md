@@ -4,16 +4,16 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**api_info_get**](DefaultApi.md#api_info_get) | **GET** / | Display API information |
+| [**api_info_get**](DefaultApi.md#api_info_get) | **GET** / | Get API information |
 
 
 ## api_info_get
 
 > <Info> api_info_get(opts)
 
-Display API information
+Get API information
 
-Display API information
+Retrieves the API information such as API version.
 
 ### Examples
 
@@ -29,7 +29,7 @@ opts = {
 }
 
 begin
-  # Display API information
+  # Get API information
   result = api_instance.api_info_get(opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -45,7 +45,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Display API information
+  # Get API information
   data, status_code, headers = api_instance.api_info_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }

@@ -16,20 +16,8 @@ require 'time'
 module Ionoscloud
   class ImageProperties
   
-    # The name of the  resource.
-    attr_accessor :name
-
-
-    # Human-readable description.
-    attr_accessor :description
-
-
-    # Location of that image/snapshot. 
-    attr_accessor :location
-
-
-    # The size of the image in GB.
-    attr_accessor :size
+    # Cloud init compatibility.
+    attr_accessor :cloud_init
 
 
     # Hot-plug capable CPU (no reboot required).
@@ -40,28 +28,8 @@ module Ionoscloud
     attr_accessor :cpu_hot_unplug
 
 
-    # Hot-plug capable RAM (no reboot required).
-    attr_accessor :ram_hot_plug
-
-
-    # Hot-unplug capable RAM (no reboot required).
-    attr_accessor :ram_hot_unplug
-
-
-    # Hot-plug capable NIC (no reboot required).
-    attr_accessor :nic_hot_plug
-
-
-    # Hot-unplug capable NIC (no reboot required).
-    attr_accessor :nic_hot_unplug
-
-
-    # Hot-plug capable Virt-IO drive (no reboot required).
-    attr_accessor :disc_virtio_hot_plug
-
-
-    # Hot-unplug capable Virt-IO drive (no reboot required). Not supported with Windows VMs.
-    attr_accessor :disc_virtio_hot_unplug
+    # Human-readable description.
+    attr_accessor :description
 
 
     # Hot-plug capable SCSI drive (no reboot required).
@@ -72,24 +40,56 @@ module Ionoscloud
     attr_accessor :disc_scsi_hot_unplug
 
 
-    # OS type for this image.
-    attr_accessor :licence_type
+    # Hot-plug capable Virt-IO drive (no reboot required).
+    attr_accessor :disc_virtio_hot_plug
+
+
+    # Hot-unplug capable Virt-IO drive (no reboot required). Not supported with Windows VMs.
+    attr_accessor :disc_virtio_hot_unplug
+
+
+    # List of image aliases mapped for this image
+    attr_accessor :image_aliases
 
 
     # The image type.
     attr_accessor :image_type
 
 
+    # The OS type of this image.
+    attr_accessor :licence_type
+
+
+    # The location of this image/snapshot.
+    attr_accessor :location
+
+
+    # The resource name.
+    attr_accessor :name
+
+
+    # Hot-plug capable NIC (no reboot required).
+    attr_accessor :nic_hot_plug
+
+
+    # Hot-unplug capable NIC (no reboot required).
+    attr_accessor :nic_hot_unplug
+
+
     # Indicates whether the image is part of a public repository.
     attr_accessor :public
 
 
-    # List of image aliases mapped for this Image
-    attr_accessor :image_aliases
+    # Hot-plug capable RAM (no reboot required).
+    attr_accessor :ram_hot_plug
 
 
-    # Cloud init compatibility.
-    attr_accessor :cloud_init
+    # Hot-unplug capable RAM (no reboot required).
+    attr_accessor :ram_hot_unplug
+
+
+    # The image size in GB.
+    attr_accessor :size
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -117,43 +117,43 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
-        :'description' => :'description',
-
-        :'location' => :'location',
-
-        :'size' => :'size',
+        :'cloud_init' => :'cloudInit',
 
         :'cpu_hot_plug' => :'cpuHotPlug',
 
         :'cpu_hot_unplug' => :'cpuHotUnplug',
 
-        :'ram_hot_plug' => :'ramHotPlug',
-
-        :'ram_hot_unplug' => :'ramHotUnplug',
-
-        :'nic_hot_plug' => :'nicHotPlug',
-
-        :'nic_hot_unplug' => :'nicHotUnplug',
-
-        :'disc_virtio_hot_plug' => :'discVirtioHotPlug',
-
-        :'disc_virtio_hot_unplug' => :'discVirtioHotUnplug',
+        :'description' => :'description',
 
         :'disc_scsi_hot_plug' => :'discScsiHotPlug',
 
         :'disc_scsi_hot_unplug' => :'discScsiHotUnplug',
 
-        :'licence_type' => :'licenceType',
+        :'disc_virtio_hot_plug' => :'discVirtioHotPlug',
 
-        :'image_type' => :'imageType',
-
-        :'public' => :'public',
+        :'disc_virtio_hot_unplug' => :'discVirtioHotUnplug',
 
         :'image_aliases' => :'imageAliases',
 
-        :'cloud_init' => :'cloudInit'
+        :'image_type' => :'imageType',
+
+        :'licence_type' => :'licenceType',
+
+        :'location' => :'location',
+
+        :'name' => :'name',
+
+        :'nic_hot_plug' => :'nicHotPlug',
+
+        :'nic_hot_unplug' => :'nicHotUnplug',
+
+        :'public' => :'public',
+
+        :'ram_hot_plug' => :'ramHotPlug',
+
+        :'ram_hot_unplug' => :'ramHotUnplug',
+
+        :'size' => :'size'
       }
     end
 
@@ -166,43 +166,43 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
-        :'description' => :'String',
-
-        :'location' => :'String',
-
-        :'size' => :'Float',
+        :'cloud_init' => :'String',
 
         :'cpu_hot_plug' => :'Boolean',
 
         :'cpu_hot_unplug' => :'Boolean',
 
-        :'ram_hot_plug' => :'Boolean',
-
-        :'ram_hot_unplug' => :'Boolean',
-
-        :'nic_hot_plug' => :'Boolean',
-
-        :'nic_hot_unplug' => :'Boolean',
-
-        :'disc_virtio_hot_plug' => :'Boolean',
-
-        :'disc_virtio_hot_unplug' => :'Boolean',
+        :'description' => :'String',
 
         :'disc_scsi_hot_plug' => :'Boolean',
 
         :'disc_scsi_hot_unplug' => :'Boolean',
 
-        :'licence_type' => :'String',
+        :'disc_virtio_hot_plug' => :'Boolean',
 
-        :'image_type' => :'String',
-
-        :'public' => :'Boolean',
+        :'disc_virtio_hot_unplug' => :'Boolean',
 
         :'image_aliases' => :'Array<String>',
 
-        :'cloud_init' => :'String'
+        :'image_type' => :'String',
+
+        :'licence_type' => :'String',
+
+        :'location' => :'String',
+
+        :'name' => :'String',
+
+        :'nic_hot_plug' => :'Boolean',
+
+        :'nic_hot_unplug' => :'Boolean',
+
+        :'public' => :'Boolean',
+
+        :'ram_hot_plug' => :'Boolean',
+
+        :'ram_hot_unplug' => :'Boolean',
+
+        :'size' => :'Float'
       }
     end
 
@@ -247,23 +247,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-
-      if attributes.key?(:'location')
-        self.location = attributes[:'location']
-      end
-
-
-      if attributes.key?(:'size')
-        self.size = attributes[:'size']
+      if attributes.key?(:'cloud_init')
+        self.cloud_init = attributes[:'cloud_init']
       end
 
 
@@ -277,33 +262,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'ram_hot_plug')
-        self.ram_hot_plug = attributes[:'ram_hot_plug']
-      end
-
-
-      if attributes.key?(:'ram_hot_unplug')
-        self.ram_hot_unplug = attributes[:'ram_hot_unplug']
-      end
-
-
-      if attributes.key?(:'nic_hot_plug')
-        self.nic_hot_plug = attributes[:'nic_hot_plug']
-      end
-
-
-      if attributes.key?(:'nic_hot_unplug')
-        self.nic_hot_unplug = attributes[:'nic_hot_unplug']
-      end
-
-
-      if attributes.key?(:'disc_virtio_hot_plug')
-        self.disc_virtio_hot_plug = attributes[:'disc_virtio_hot_plug']
-      end
-
-
-      if attributes.key?(:'disc_virtio_hot_unplug')
-        self.disc_virtio_hot_unplug = attributes[:'disc_virtio_hot_unplug']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
 
@@ -317,18 +277,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'licence_type')
-        self.licence_type = attributes[:'licence_type']
+      if attributes.key?(:'disc_virtio_hot_plug')
+        self.disc_virtio_hot_plug = attributes[:'disc_virtio_hot_plug']
       end
 
 
-      if attributes.key?(:'image_type')
-        self.image_type = attributes[:'image_type']
-      end
-
-
-      if attributes.key?(:'public')
-        self.public = attributes[:'public']
+      if attributes.key?(:'disc_virtio_hot_unplug')
+        self.disc_virtio_hot_unplug = attributes[:'disc_virtio_hot_unplug']
       end
 
 
@@ -337,8 +292,53 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'cloud_init')
-        self.cloud_init = attributes[:'cloud_init']
+      if attributes.key?(:'image_type')
+        self.image_type = attributes[:'image_type']
+      end
+
+
+      if attributes.key?(:'licence_type')
+        self.licence_type = attributes[:'licence_type']
+      end
+
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'nic_hot_plug')
+        self.nic_hot_plug = attributes[:'nic_hot_plug']
+      end
+
+
+      if attributes.key?(:'nic_hot_unplug')
+        self.nic_hot_unplug = attributes[:'nic_hot_unplug']
+      end
+
+
+      if attributes.key?(:'public')
+        self.public = attributes[:'public']
+      end
+
+
+      if attributes.key?(:'ram_hot_plug')
+        self.ram_hot_plug = attributes[:'ram_hot_plug']
+      end
+
+
+      if attributes.key?(:'ram_hot_unplug')
+        self.ram_hot_unplug = attributes[:'ram_hot_unplug']
+      end
+
+
+      if attributes.key?(:'size')
+        self.size = attributes[:'size']
       end
     end
 
@@ -357,13 +357,13 @@ module Ionoscloud
 
 
 
-
-
-
-
       if @licence_type.nil?
         invalid_properties.push('invalid value for "licence_type", licence_type cannot be nil.')
       end
+
+
+
+
 
 
 
@@ -376,6 +376,8 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+      cloud_init_validator = EnumAttributeValidator.new('String', ["NONE", "V1"])
+      return false unless cloud_init_validator.valid?(@cloud_init)
 
 
 
@@ -384,50 +386,42 @@ module Ionoscloud
 
 
 
-
-
-
-
-
-
-      return false if @licence_type.nil?
-      licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "LINUX", "OTHER"])
-      return false unless licence_type_validator.valid?(@licence_type)
 
       image_type_validator = EnumAttributeValidator.new('String', ["HDD", "CDROM", "UNKNOWN"])
       return false unless image_type_validator.valid?(@image_type)
 
+      return false if @licence_type.nil?
+      licence_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "RHEL", "LINUX", "OTHER"])
+      return false unless licence_type_validator.valid?(@licence_type)
 
 
-      cloud_init_validator = EnumAttributeValidator.new('String', ["NONE", "V1"])
-      return false unless cloud_init_validator.valid?(@cloud_init)
+
+
+
+
+
+
       true
     end
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] licence_type Object to be assigned
-    def licence_type=(licence_type)
-      validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "LINUX", "OTHER"])
-      unless validator.valid?(licence_type)
-        fail ArgumentError, "invalid value for \"licence_type\", must be one of #{validator.allowable_values}."
+    # @param [Object] cloud_init Object to be assigned
+    def cloud_init=(cloud_init)
+      validator = EnumAttributeValidator.new('String', ["NONE", "V1"])
+      unless validator.valid?(cloud_init)
+        fail ArgumentError, "invalid value for \"cloud_init\", must be one of #{validator.allowable_values}."
       end
-      @licence_type = licence_type
+      @cloud_init = cloud_init
     end
+
+
+
+
+
+
+
+
 
 
     # Custom attribute writer method checking allowed values (enum).
@@ -441,42 +435,48 @@ module Ionoscloud
     end
 
 
-
-
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] cloud_init Object to be assigned
-    def cloud_init=(cloud_init)
-      validator = EnumAttributeValidator.new('String', ["NONE", "V1"])
-      unless validator.valid?(cloud_init)
-        fail ArgumentError, "invalid value for \"cloud_init\", must be one of #{validator.allowable_values}."
+    # @param [Object] licence_type Object to be assigned
+    def licence_type=(licence_type)
+      validator = EnumAttributeValidator.new('String', ["UNKNOWN", "WINDOWS", "WINDOWS2016", "WINDOWS2022", "RHEL", "LINUX", "OTHER"])
+      unless validator.valid?(licence_type)
+        fail ArgumentError, "invalid value for \"licence_type\", must be one of #{validator.allowable_values}."
       end
-      @cloud_init = cloud_init
+      @licence_type = licence_type
     end
+
+
+
+
+
+
+
+
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
-        description == o.description &&
-        location == o.location &&
-        size == o.size &&
+        cloud_init == o.cloud_init &&
         cpu_hot_plug == o.cpu_hot_plug &&
         cpu_hot_unplug == o.cpu_hot_unplug &&
-        ram_hot_plug == o.ram_hot_plug &&
-        ram_hot_unplug == o.ram_hot_unplug &&
-        nic_hot_plug == o.nic_hot_plug &&
-        nic_hot_unplug == o.nic_hot_unplug &&
-        disc_virtio_hot_plug == o.disc_virtio_hot_plug &&
-        disc_virtio_hot_unplug == o.disc_virtio_hot_unplug &&
+        description == o.description &&
         disc_scsi_hot_plug == o.disc_scsi_hot_plug &&
         disc_scsi_hot_unplug == o.disc_scsi_hot_unplug &&
-        licence_type == o.licence_type &&
-        image_type == o.image_type &&
-        public == o.public &&
+        disc_virtio_hot_plug == o.disc_virtio_hot_plug &&
+        disc_virtio_hot_unplug == o.disc_virtio_hot_unplug &&
         image_aliases == o.image_aliases &&
-        cloud_init == o.cloud_init
+        image_type == o.image_type &&
+        licence_type == o.licence_type &&
+        location == o.location &&
+        name == o.name &&
+        nic_hot_plug == o.nic_hot_plug &&
+        nic_hot_unplug == o.nic_hot_unplug &&
+        public == o.public &&
+        ram_hot_plug == o.ram_hot_plug &&
+        ram_hot_unplug == o.ram_hot_unplug &&
+        size == o.size
     end
 
     # @see the `==` method
@@ -488,7 +488,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, location, size, cpu_hot_plug, cpu_hot_unplug, ram_hot_plug, ram_hot_unplug, nic_hot_plug, nic_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, disc_scsi_hot_plug, disc_scsi_hot_unplug, licence_type, image_type, public, image_aliases, cloud_init].hash
+      [cloud_init, cpu_hot_plug, cpu_hot_unplug, description, disc_scsi_hot_plug, disc_scsi_hot_unplug, disc_virtio_hot_plug, disc_virtio_hot_unplug, image_aliases, image_type, licence_type, location, name, nic_hot_plug, nic_hot_unplug, public, ram_hot_plug, ram_hot_unplug, size].hash
     end
 
     # Builds the object from hash

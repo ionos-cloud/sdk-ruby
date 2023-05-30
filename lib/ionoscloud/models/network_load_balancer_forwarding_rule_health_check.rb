@@ -24,12 +24,12 @@ module Ionoscloud
     attr_accessor :connect_timeout
 
 
-    # The maximum time in milliseconds that a target can remain inactive; default is 50,000 (50 seconds).
-    attr_accessor :target_timeout
-
-
     # The maximum number of attempts to reconnect to a target after a connection failure. Valid range is 0 to 65535 and default is three reconnection attempts.
     attr_accessor :retries
+
+
+    # The maximum time in milliseconds that a target can remain inactive; default is 50,000 (50 seconds).
+    attr_accessor :target_timeout
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -39,9 +39,9 @@ module Ionoscloud
 
         :'connect_timeout' => :'connectTimeout',
 
-        :'target_timeout' => :'targetTimeout',
+        :'retries' => :'retries',
 
-        :'retries' => :'retries'
+        :'target_timeout' => :'targetTimeout'
       }
     end
 
@@ -58,9 +58,9 @@ module Ionoscloud
 
         :'connect_timeout' => :'Integer',
 
-        :'target_timeout' => :'Integer',
+        :'retries' => :'Integer',
 
-        :'retries' => :'Integer'
+        :'target_timeout' => :'Integer'
       }
     end
 
@@ -100,13 +100,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'target_timeout')
-        self.target_timeout = attributes[:'target_timeout']
+      if attributes.key?(:'retries')
+        self.retries = attributes[:'retries']
       end
 
 
-      if attributes.key?(:'retries')
-        self.retries = attributes[:'retries']
+      if attributes.key?(:'target_timeout')
+        self.target_timeout = attributes[:'target_timeout']
       end
     end
 
@@ -142,8 +142,8 @@ module Ionoscloud
       self.class == o.class &&
         client_timeout == o.client_timeout &&
         connect_timeout == o.connect_timeout &&
-        target_timeout == o.target_timeout &&
-        retries == o.retries
+        retries == o.retries &&
+        target_timeout == o.target_timeout
     end
 
     # @see the `==` method
@@ -155,7 +155,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_timeout, connect_timeout, target_timeout, retries].hash
+      [client_timeout, connect_timeout, retries, target_timeout].hash
     end
 
     # Builds the object from hash

@@ -16,6 +16,10 @@ require 'time'
 module Ionoscloud
   class PaginationLinks
   
+    # URL (with offset and limit parameters) of the next page; only present if offset + limit is less than the total number of elements.
+    attr_accessor :_next
+
+
     # URL (with offset and limit parameters) of the previous page; only present if offset is greater than 0.
     attr_accessor :prev
 
@@ -23,19 +27,15 @@ module Ionoscloud
     # URL (with offset and limit parameters) of the current page.
     attr_accessor :_self
 
-
-    # URL (with offset and limit parameters) of the next page; only present if offset + limit is less than the total number of elements.
-    attr_accessor :_next
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'_next' => :'next',
+
         :'prev' => :'prev',
 
-        :'_self' => :'self',
-
-        :'_next' => :'next'
+        :'_self' => :'self'
       }
     end
 
@@ -48,11 +48,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'_next' => :'String',
+
         :'prev' => :'String',
 
-        :'_self' => :'String',
-
-        :'_next' => :'String'
+        :'_self' => :'String'
       }
     end
 
@@ -81,6 +81,11 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'_next')
+        self._next = attributes[:'_next']
+      end
+
+
       if attributes.key?(:'prev')
         self.prev = attributes[:'prev']
       end
@@ -88,11 +93,6 @@ module Ionoscloud
 
       if attributes.key?(:'_self')
         self._self = attributes[:'_self']
-      end
-
-
-      if attributes.key?(:'_next')
-        self._next = attributes[:'_next']
       end
     end
 
@@ -123,9 +123,9 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        _next == o._next &&
         prev == o.prev &&
-        _self == o._self &&
-        _next == o._next
+        _self == o._self
     end
 
     # @see the `==` method
@@ -137,7 +137,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [prev, _self, _next].hash
+      [_next, prev, _self].hash
     end
 
     # Builds the object from hash

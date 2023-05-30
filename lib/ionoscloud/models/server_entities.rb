@@ -19,10 +19,10 @@ module Ionoscloud
     attr_accessor :cdroms
 
 
-    attr_accessor :volumes
-
-
     attr_accessor :nics
+
+
+    attr_accessor :volumes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -30,9 +30,9 @@ module Ionoscloud
         
         :'cdroms' => :'cdroms',
 
-        :'volumes' => :'volumes',
+        :'nics' => :'nics',
 
-        :'nics' => :'nics'
+        :'volumes' => :'volumes'
       }
     end
 
@@ -47,9 +47,9 @@ module Ionoscloud
         
         :'cdroms' => :'Cdroms',
 
-        :'volumes' => :'AttachedVolumes',
+        :'nics' => :'Nics',
 
-        :'nics' => :'Nics'
+        :'volumes' => :'AttachedVolumes'
       }
     end
 
@@ -83,13 +83,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'volumes')
-        self.volumes = attributes[:'volumes']
+      if attributes.key?(:'nics')
+        self.nics = attributes[:'nics']
       end
 
 
-      if attributes.key?(:'nics')
-        self.nics = attributes[:'nics']
+      if attributes.key?(:'volumes')
+        self.volumes = attributes[:'volumes']
       end
     end
 
@@ -121,8 +121,8 @@ module Ionoscloud
       return true if self.equal?(o)
       self.class == o.class &&
         cdroms == o.cdroms &&
-        volumes == o.volumes &&
-        nics == o.nics
+        nics == o.nics &&
+        volumes == o.volumes
     end
 
     # @see the `==` method
@@ -134,7 +134,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cdroms, volumes, nics].hash
+      [cdroms, nics, volumes].hash
     end
 
     # Builds the object from hash

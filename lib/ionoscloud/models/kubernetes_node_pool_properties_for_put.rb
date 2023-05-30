@@ -16,58 +16,58 @@ require 'time'
 module Ionoscloud
   class KubernetesNodePoolPropertiesForPut
   
-    # A Kubernetes node pool name. Valid Kubernetes node pool name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
-    attr_accessor :name
-
-
-    # The number of nodes that make up the node pool.
-    attr_accessor :node_count
-
-
-    # The Kubernetes version the nodepool is running. This imposes restrictions on what Kubernetes versions can be run in a cluster's nodepools. Additionally, not all Kubernetes versions are viable upgrade targets for all prior versions.
-    attr_accessor :k8s_version
-
-
-    attr_accessor :maintenance_window
+    # The annotations attached to the node pool.
+    attr_accessor :annotations
 
 
     attr_accessor :auto_scaling
 
 
-    # array of additional LANs attached to worker nodes
-    attr_accessor :lans
+    # The Kubernetes version running in the node pool. Note that this imposes restrictions on which Kubernetes versions can run in the node pools of a cluster. Also, not all Kubernetes versions are suitable upgrade targets for all earlier versions.
+    attr_accessor :k8s_version
 
 
-    # map of labels attached to node pool.
+    # The labels attached to the node pool.
     attr_accessor :labels
 
 
-    # map of annotations attached to node pool.
-    attr_accessor :annotations
+    # The array of existing private LANs to attach to worker nodes.
+    attr_accessor :lans
 
 
-    # Optional array of reserved public IP addresses to be used by the nodes. IPs must be from same location as the data center used for the node pool. The array must contain one more IP than the maximum possible number of nodes (nodeCount+1 for fixed number of nodes or maxNodeCount+1 when auto scaling is used). The extra IP is used when the nodes are rebuilt.
+    attr_accessor :maintenance_window
+
+
+    # A Kubernetes node pool name. Valid Kubernetes node pool name must be 63 characters or less and must be empty or begin and end with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
+    attr_accessor :name
+
+
+    # The number of worker nodes of the node pool.
+    attr_accessor :node_count
+
+
+    # Optional array of reserved public IP addresses to be used by the nodes. The IPs must be from the exact location of the node pool's data center. If autoscaling is used, the array must contain one more IP than the maximum possible number of nodes (nodeCount+1 for a fixed number of nodes or maxNodeCount+1). The extra IP is used when the nodes are rebuilt.
     attr_accessor :public_ips
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
-        :'node_count' => :'nodeCount',
-
-        :'k8s_version' => :'k8sVersion',
-
-        :'maintenance_window' => :'maintenanceWindow',
+        :'annotations' => :'annotations',
 
         :'auto_scaling' => :'autoScaling',
 
-        :'lans' => :'lans',
+        :'k8s_version' => :'k8sVersion',
 
         :'labels' => :'labels',
 
-        :'annotations' => :'annotations',
+        :'lans' => :'lans',
+
+        :'maintenance_window' => :'maintenanceWindow',
+
+        :'name' => :'name',
+
+        :'node_count' => :'nodeCount',
 
         :'public_ips' => :'publicIps'
       }
@@ -82,21 +82,21 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
-        :'node_count' => :'Integer',
-
-        :'k8s_version' => :'String',
-
-        :'maintenance_window' => :'KubernetesMaintenanceWindow',
+        :'annotations' => :'Hash<String, String>',
 
         :'auto_scaling' => :'KubernetesAutoScaling',
 
-        :'lans' => :'Array<KubernetesNodePoolLan>',
+        :'k8s_version' => :'String',
 
         :'labels' => :'Hash<String, String>',
 
-        :'annotations' => :'Hash<String, String>',
+        :'lans' => :'Array<KubernetesNodePoolLan>',
+
+        :'maintenance_window' => :'KubernetesMaintenanceWindow',
+
+        :'name' => :'String',
+
+        :'node_count' => :'Integer',
 
         :'public_ips' => :'Array<String>'
       }
@@ -133,23 +133,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
-      if attributes.key?(:'node_count')
-        self.node_count = attributes[:'node_count']
-      end
-
-
-      if attributes.key?(:'k8s_version')
-        self.k8s_version = attributes[:'k8s_version']
-      end
-
-
-      if attributes.key?(:'maintenance_window')
-        self.maintenance_window = attributes[:'maintenance_window']
+      if attributes.key?(:'annotations') && (value = attributes[:'annotations']).is_a?(Hash)
+        self.annotations = value
       end
 
 
@@ -158,8 +143,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'lans') && (value = attributes[:'lans']).is_a?(Array)
-        self.lans = value
+      if attributes.key?(:'k8s_version')
+        self.k8s_version = attributes[:'k8s_version']
       end
 
 
@@ -168,8 +153,23 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'annotations') && (value = attributes[:'annotations']).is_a?(Hash)
-        self.annotations = value
+      if attributes.key?(:'lans') && (value = attributes[:'lans']).is_a?(Array)
+        self.lans = value
+      end
+
+
+      if attributes.key?(:'maintenance_window')
+        self.maintenance_window = attributes[:'maintenance_window']
+      end
+
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'node_count')
+        self.node_count = attributes[:'node_count']
       end
 
 
@@ -184,15 +184,15 @@ module Ionoscloud
       invalid_properties = Array.new
       
 
+
+
+
+
+
+
       if @node_count.nil?
         invalid_properties.push('invalid value for "node_count", node_count cannot be nil.')
       end
-
-
-
-
-
-
 
 
       invalid_properties
@@ -203,13 +203,13 @@ module Ionoscloud
     def valid?
       
 
+
+
+
+
+
+
       return false if @node_count.nil?
-
-
-
-
-
-
 
       true
     end
@@ -228,14 +228,14 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+        annotations == o.annotations &&
+        auto_scaling == o.auto_scaling &&
+        k8s_version == o.k8s_version &&
+        labels == o.labels &&
+        lans == o.lans &&
+        maintenance_window == o.maintenance_window &&
         name == o.name &&
         node_count == o.node_count &&
-        k8s_version == o.k8s_version &&
-        maintenance_window == o.maintenance_window &&
-        auto_scaling == o.auto_scaling &&
-        lans == o.lans &&
-        labels == o.labels &&
-        annotations == o.annotations &&
         public_ips == o.public_ips
     end
 
@@ -248,7 +248,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, node_count, k8s_version, maintenance_window, auto_scaling, lans, labels, annotations, public_ips].hash
+      [annotations, auto_scaling, k8s_version, labels, lans, maintenance_window, name, node_count, public_ips].hash
     end
 
     # Builds the object from hash

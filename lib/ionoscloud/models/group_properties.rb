@@ -16,36 +16,32 @@ require 'time'
 module Ionoscloud
   class GroupProperties
   
-    # The name of the  resource.
-    attr_accessor :name
+    # Activity log access privilege.
+    attr_accessor :access_activity_log
+
+
+    # Privilege for a group to access and manage certificates.
+    attr_accessor :access_and_manage_certificates
+
+
+    # Privilege for a group to access and manage dns records.
+    attr_accessor :access_and_manage_dns
+
+
+    # Privilege for a group to access and manage monitoring related functionality (access metrics, CRUD on alarms, alarm-actions etc) using Monotoring-as-a-Service (MaaS).
+    attr_accessor :access_and_manage_monitoring
+
+
+    # Create backup unit privilege.
+    attr_accessor :create_backup_unit
 
 
     # Create data center privilege.
     attr_accessor :create_data_center
 
 
-    # Create snapshot privilege.
-    attr_accessor :create_snapshot
-
-
-    # Reserve IP block privilege.
-    attr_accessor :reserve_ip
-
-
-    # Activity log access privilege.
-    attr_accessor :access_activity_log
-
-
-    # Create pcc privilege.
-    attr_accessor :create_pcc
-
-
-    # S3 privilege.
-    attr_accessor :s3_privilege
-
-
-    # Create backup unit privilege.
-    attr_accessor :create_backup_unit
+    # Create Flow Logs privilege.
+    attr_accessor :create_flow_log
 
 
     # Create internet access privilege.
@@ -56,52 +52,74 @@ module Ionoscloud
     attr_accessor :create_k8s_cluster
 
 
-    # Create Flow Logs privilege.
-    attr_accessor :create_flow_log
+    # Create pcc privilege.
+    attr_accessor :create_pcc
 
 
-    # Privilege for a group to access and manage monitoring related functionality (access metrics, CRUD on alarms, alarm-actions etc) using Monotoring-as-a-Service (MaaS).
-    attr_accessor :access_and_manage_monitoring
-
-
-    # Privilege for a group to access and manage certificates.
-    attr_accessor :access_and_manage_certificates
+    # Create snapshot privilege.
+    attr_accessor :create_snapshot
 
 
     # Privilege for a group to manage DBaaS related functionality.
-    attr_accessor :manage_dbaas
+    attr_accessor :manage_d_baa_s
+
+
+    # Privilege for a group to access and manage the Data Platform.
+    attr_accessor :manage_dataplatform
+
+
+    # Privilege for group accessing container registry related functionality.
+    attr_accessor :manage_registry
+
+
+    # The name of the resource.
+    attr_accessor :name
+
+
+    # Reserve IP block privilege.
+    attr_accessor :reserve_ip
+
+
+    # S3 privilege.
+    attr_accessor :s3_privilege
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'access_activity_log' => :'accessActivityLog',
+
+        :'access_and_manage_certificates' => :'accessAndManageCertificates',
+
+        :'access_and_manage_dns' => :'accessAndManageDns',
+
+        :'access_and_manage_monitoring' => :'accessAndManageMonitoring',
+
+        :'create_backup_unit' => :'createBackupUnit',
 
         :'create_data_center' => :'createDataCenter',
 
-        :'create_snapshot' => :'createSnapshot',
-
-        :'reserve_ip' => :'reserveIp',
-
-        :'access_activity_log' => :'accessActivityLog',
-
-        :'create_pcc' => :'createPcc',
-
-        :'s3_privilege' => :'s3Privilege',
-
-        :'create_backup_unit' => :'createBackupUnit',
+        :'create_flow_log' => :'createFlowLog',
 
         :'create_internet_access' => :'createInternetAccess',
 
         :'create_k8s_cluster' => :'createK8sCluster',
 
-        :'create_flow_log' => :'createFlowLog',
+        :'create_pcc' => :'createPcc',
 
-        :'access_and_manage_monitoring' => :'accessAndManageMonitoring',
+        :'create_snapshot' => :'createSnapshot',
 
-        :'access_and_manage_certificates' => :'accessAndManageCertificates',
+        :'manage_d_baa_s' => :'manageDBaaS',
 
-        :'manage_dbaas' => :'manageDbaas'
+        :'manage_dataplatform' => :'manageDataplatform',
+
+        :'manage_registry' => :'manageRegistry',
+
+        :'name' => :'name',
+
+        :'reserve_ip' => :'reserveIp',
+
+        :'s3_privilege' => :'s3Privilege'
       }
     end
 
@@ -114,33 +132,39 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'access_activity_log' => :'Boolean',
+
+        :'access_and_manage_certificates' => :'Boolean',
+
+        :'access_and_manage_dns' => :'Boolean',
+
+        :'access_and_manage_monitoring' => :'Boolean',
+
+        :'create_backup_unit' => :'Boolean',
 
         :'create_data_center' => :'Boolean',
 
-        :'create_snapshot' => :'Boolean',
-
-        :'reserve_ip' => :'Boolean',
-
-        :'access_activity_log' => :'Boolean',
-
-        :'create_pcc' => :'Boolean',
-
-        :'s3_privilege' => :'Boolean',
-
-        :'create_backup_unit' => :'Boolean',
+        :'create_flow_log' => :'Boolean',
 
         :'create_internet_access' => :'Boolean',
 
         :'create_k8s_cluster' => :'Boolean',
 
-        :'create_flow_log' => :'Boolean',
+        :'create_pcc' => :'Boolean',
 
-        :'access_and_manage_monitoring' => :'Boolean',
+        :'create_snapshot' => :'Boolean',
 
-        :'access_and_manage_certificates' => :'Boolean',
+        :'manage_d_baa_s' => :'Boolean',
 
-        :'manage_dbaas' => :'Boolean'
+        :'manage_dataplatform' => :'Boolean',
+
+        :'manage_registry' => :'Boolean',
+
+        :'name' => :'String',
+
+        :'reserve_ip' => :'Boolean',
+
+        :'s3_privilege' => :'Boolean'
       }
     end
 
@@ -148,6 +172,9 @@ module Ionoscloud
     def self.openapi_nullable
       Set.new([
         
+
+
+
 
 
 
@@ -180,8 +207,28 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'access_activity_log')
+        self.access_activity_log = attributes[:'access_activity_log']
+      end
+
+
+      if attributes.key?(:'access_and_manage_certificates')
+        self.access_and_manage_certificates = attributes[:'access_and_manage_certificates']
+      end
+
+
+      if attributes.key?(:'access_and_manage_dns')
+        self.access_and_manage_dns = attributes[:'access_and_manage_dns']
+      end
+
+
+      if attributes.key?(:'access_and_manage_monitoring')
+        self.access_and_manage_monitoring = attributes[:'access_and_manage_monitoring']
+      end
+
+
+      if attributes.key?(:'create_backup_unit')
+        self.create_backup_unit = attributes[:'create_backup_unit']
       end
 
 
@@ -190,33 +237,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'create_snapshot')
-        self.create_snapshot = attributes[:'create_snapshot']
-      end
-
-
-      if attributes.key?(:'reserve_ip')
-        self.reserve_ip = attributes[:'reserve_ip']
-      end
-
-
-      if attributes.key?(:'access_activity_log')
-        self.access_activity_log = attributes[:'access_activity_log']
-      end
-
-
-      if attributes.key?(:'create_pcc')
-        self.create_pcc = attributes[:'create_pcc']
-      end
-
-
-      if attributes.key?(:'s3_privilege')
-        self.s3_privilege = attributes[:'s3_privilege']
-      end
-
-
-      if attributes.key?(:'create_backup_unit')
-        self.create_backup_unit = attributes[:'create_backup_unit']
+      if attributes.key?(:'create_flow_log')
+        self.create_flow_log = attributes[:'create_flow_log']
       end
 
 
@@ -230,23 +252,43 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'create_flow_log')
-        self.create_flow_log = attributes[:'create_flow_log']
+      if attributes.key?(:'create_pcc')
+        self.create_pcc = attributes[:'create_pcc']
       end
 
 
-      if attributes.key?(:'access_and_manage_monitoring')
-        self.access_and_manage_monitoring = attributes[:'access_and_manage_monitoring']
+      if attributes.key?(:'create_snapshot')
+        self.create_snapshot = attributes[:'create_snapshot']
       end
 
 
-      if attributes.key?(:'access_and_manage_certificates')
-        self.access_and_manage_certificates = attributes[:'access_and_manage_certificates']
+      if attributes.key?(:'manage_d_baa_s')
+        self.manage_d_baa_s = attributes[:'manage_d_baa_s']
       end
 
 
-      if attributes.key?(:'manage_dbaas')
-        self.manage_dbaas = attributes[:'manage_dbaas']
+      if attributes.key?(:'manage_dataplatform')
+        self.manage_dataplatform = attributes[:'manage_dataplatform']
+      end
+
+
+      if attributes.key?(:'manage_registry')
+        self.manage_registry = attributes[:'manage_registry']
+      end
+
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'reserve_ip')
+        self.reserve_ip = attributes[:'reserve_ip']
+      end
+
+
+      if attributes.key?(:'s3_privilege')
+        self.s3_privilege = attributes[:'s3_privilege']
       end
     end
 
@@ -255,6 +297,9 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
+
+
 
 
 
@@ -288,10 +333,16 @@ module Ionoscloud
 
 
 
+
+
+
       true
     end
 
     
+
+
+
 
 
 
@@ -310,20 +361,23 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
-        create_data_center == o.create_data_center &&
-        create_snapshot == o.create_snapshot &&
-        reserve_ip == o.reserve_ip &&
         access_activity_log == o.access_activity_log &&
-        create_pcc == o.create_pcc &&
-        s3_privilege == o.s3_privilege &&
+        access_and_manage_certificates == o.access_and_manage_certificates &&
+        access_and_manage_dns == o.access_and_manage_dns &&
+        access_and_manage_monitoring == o.access_and_manage_monitoring &&
         create_backup_unit == o.create_backup_unit &&
+        create_data_center == o.create_data_center &&
+        create_flow_log == o.create_flow_log &&
         create_internet_access == o.create_internet_access &&
         create_k8s_cluster == o.create_k8s_cluster &&
-        create_flow_log == o.create_flow_log &&
-        access_and_manage_monitoring == o.access_and_manage_monitoring &&
-        access_and_manage_certificates == o.access_and_manage_certificates &&
-        manage_dbaas == o.manage_dbaas
+        create_pcc == o.create_pcc &&
+        create_snapshot == o.create_snapshot &&
+        manage_d_baa_s == o.manage_d_baa_s &&
+        manage_dataplatform == o.manage_dataplatform &&
+        manage_registry == o.manage_registry &&
+        name == o.name &&
+        reserve_ip == o.reserve_ip &&
+        s3_privilege == o.s3_privilege
     end
 
     # @see the `==` method
@@ -335,7 +389,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, create_data_center, create_snapshot, reserve_ip, access_activity_log, create_pcc, s3_privilege, create_backup_unit, create_internet_access, create_k8s_cluster, create_flow_log, access_and_manage_monitoring, access_and_manage_certificates, manage_dbaas].hash
+      [access_activity_log, access_and_manage_certificates, access_and_manage_dns, access_and_manage_monitoring, create_backup_unit, create_data_center, create_flow_log, create_internet_access, create_k8s_cluster, create_pcc, create_snapshot, manage_d_baa_s, manage_dataplatform, manage_registry, name, reserve_ip, s3_privilege].hash
     end
 
     # Builds the object from hash

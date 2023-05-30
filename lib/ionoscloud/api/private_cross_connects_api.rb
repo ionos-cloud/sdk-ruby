@@ -341,8 +341,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create private Cross-Connects
-    # Create a private Cross-Connect.
+    # Create a Private Cross-Connect
+    # Creates a private Cross-Connect.
     # @param pcc [PrivateCrossConnect] The private Cross-Connect to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -354,8 +354,8 @@ module Ionoscloud
       data
     end
 
-    # Create private Cross-Connects
-    # Create a private Cross-Connect.
+    # Create a Private Cross-Connect
+    # Creates a private Cross-Connect.
     # @param pcc [PrivateCrossConnect] The private Cross-Connect to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).

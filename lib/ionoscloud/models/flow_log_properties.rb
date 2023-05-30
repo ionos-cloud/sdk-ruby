@@ -16,20 +16,20 @@ require 'time'
 module Ionoscloud
   class FlowLogProperties
   
-    # The name of the  resource.
-    attr_accessor :name
-
-
     # Specifies the traffic action pattern.
     attr_accessor :action
+
+
+    # The S3 bucket name of an existing IONOS Cloud S3 bucket.
+    attr_accessor :bucket
 
 
     # Specifies the traffic direction pattern.
     attr_accessor :direction
 
 
-    # S3 bucket name of an existing IONOS Cloud S3 bucket.
-    attr_accessor :bucket
+    # The resource name.
+    attr_accessor :name
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -57,13 +57,13 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
         :'action' => :'action',
+
+        :'bucket' => :'bucket',
 
         :'direction' => :'direction',
 
-        :'bucket' => :'bucket'
+        :'name' => :'name'
       }
     end
 
@@ -76,13 +76,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
         :'action' => :'String',
+
+        :'bucket' => :'String',
 
         :'direction' => :'String',
 
-        :'bucket' => :'String'
+        :'name' => :'String'
       }
     end
 
@@ -112,13 +112,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'action')
+        self.action = attributes[:'action']
       end
 
 
-      if attributes.key?(:'action')
-        self.action = attributes[:'action']
+      if attributes.key?(:'bucket')
+        self.bucket = attributes[:'bucket']
       end
 
 
@@ -127,8 +127,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'bucket')
-        self.bucket = attributes[:'bucket']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -137,13 +137,13 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @action.nil?
+        invalid_properties.push('invalid value for "action", action cannot be nil.')
       end
 
 
-      if @action.nil?
-        invalid_properties.push('invalid value for "action", action cannot be nil.')
+      if @bucket.nil?
+        invalid_properties.push('invalid value for "bucket", bucket cannot be nil.')
       end
 
 
@@ -152,8 +152,8 @@ module Ionoscloud
       end
 
 
-      if @bucket.nil?
-        invalid_properties.push('invalid value for "bucket", bucket cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
       invalid_properties
@@ -163,22 +163,21 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @name.nil?
-
       return false if @action.nil?
       action_validator = EnumAttributeValidator.new('String', ["ACCEPTED", "REJECTED", "ALL"])
       return false unless action_validator.valid?(@action)
+
+      return false if @bucket.nil?
 
       return false if @direction.nil?
       direction_validator = EnumAttributeValidator.new('String', ["INGRESS", "EGRESS", "BIDIRECTIONAL"])
       return false unless direction_validator.valid?(@direction)
 
-      return false if @bucket.nil?
+      return false if @name.nil?
       true
     end
 
     
-
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] action Object to be assigned
     def action=(action)
@@ -188,6 +187,7 @@ module Ionoscloud
       end
       @action = action
     end
+
 
 
     # Custom attribute writer method checking allowed values (enum).
@@ -206,10 +206,10 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
         action == o.action &&
+        bucket == o.bucket &&
         direction == o.direction &&
-        bucket == o.bucket
+        name == o.name
     end
 
     # @see the `==` method
@@ -221,7 +221,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, action, direction, bucket].hash
+      [action, bucket, direction, name].hash
     end
 
     # Builds the object from hash

@@ -271,8 +271,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Partially modify data centers
-    # Update the properties of the specified data center, rename it, or change the description.
+    # Partially modify a Data Center by ID
+    # Updates the properties of the specified data center, rename it, or change the description.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param datacenter [DatacenterProperties] The properties of the data center to be updated.
     # @param [Hash] opts the optional parameters
@@ -285,8 +285,8 @@ module Ionoscloud
       data
     end
 
-    # Partially modify data centers
-    # Update the properties of the specified data center, rename it, or change the description.
+    # Partially modify a Data Center by ID
+    # Updates the properties of the specified data center, rename it, or change the description.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param datacenter [DatacenterProperties] The properties of the data center to be updated.
     # @param [Hash] opts the optional parameters
@@ -359,8 +359,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Create data centers
-    # Create new data centers, and data centers that already contain elements, such as servers and storage volumes.  Virtual data centers are the foundation of the platform; they act as logical containers for all other objects you create, such as servers and storage volumes. You can provision as many data centers as needed. Data centers have their own private networks and are logically segmented from each other to create isolation.
+    # Create a Data Center
+    # Creates new data centers, and data centers that already contain elements, such as servers and storage volumes.  Virtual data centers are the foundation of the platform; they act as logical containers for all other objects you create, such as servers and storage volumes. You can provision as many data centers as needed. Data centers have their own private networks and are logically segmented from each other to create isolation.
     # @param datacenter [Datacenter] The data center to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines). (default to true)
@@ -372,8 +372,8 @@ module Ionoscloud
       data
     end
 
-    # Create data centers
-    # Create new data centers, and data centers that already contain elements, such as servers and storage volumes.  Virtual data centers are the foundation of the platform; they act as logical containers for all other objects you create, such as servers and storage volumes. You can provision as many data centers as needed. Data centers have their own private networks and are logically segmented from each other to create isolation.
+    # Create a Data Center
+    # Creates new data centers, and data centers that already contain elements, such as servers and storage volumes.  Virtual data centers are the foundation of the platform; they act as logical containers for all other objects you create, such as servers and storage volumes. You can provision as many data centers as needed. Data centers have their own private networks and are logically segmented from each other to create isolation.
     # @param datacenter [Datacenter] The data center to create.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :pretty Controls whether the response is pretty-printed (with indentations and new lines).
@@ -441,8 +441,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # Modify data centers
-    # Modify the properties of the specified data center, rename it, or change the description.
+    # Modify a Data Center by ID
+    # Modifies the properties of the specified data center, rename it, or change the description.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param datacenter [Datacenter] The modified data center.
     # @param [Hash] opts the optional parameters
@@ -455,8 +455,8 @@ module Ionoscloud
       data
     end
 
-    # Modify data centers
-    # Modify the properties of the specified data center, rename it, or change the description.
+    # Modify a Data Center by ID
+    # Modifies the properties of the specified data center, rename it, or change the description.
     # @param datacenter_id [String] The unique ID of the data center.
     # @param datacenter [Datacenter] The modified data center.
     # @param [Hash] opts the optional parameters

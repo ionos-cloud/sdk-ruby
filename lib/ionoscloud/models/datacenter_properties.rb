@@ -16,50 +16,50 @@ require 'time'
 module Ionoscloud
   class DatacenterProperties
   
-    # The name of the  resource.
-    attr_accessor :name
+    # Array of features and CPU families available in a location
+    attr_accessor :cpu_architecture
 
 
     # A description for the datacenter, such as staging, production.
     attr_accessor :description
 
 
+    # List of features supported by the location where this data center is provisioned.
+    attr_accessor :features
+
+
     # The physical location where the datacenter will be created. This will be where all of your servers live. Property cannot be modified after datacenter creation (disallowed in update requests).
     attr_accessor :location
 
 
-    # The version of the data center; incremented with every change.
-    attr_accessor :version
-
-
-    # List of features supported by the location where this data center is provisioned.
-    attr_accessor :features
+    # The name of the  resource.
+    attr_accessor :name
 
 
     # Boolean value representing if the data center requires extra protection, such as two-step verification.
     attr_accessor :sec_auth_protection
 
 
-    # Array of features and CPU families available in a location
-    attr_accessor :cpu_architecture
+    # The version of the data center; incremented with every change.
+    attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'name' => :'name',
+        :'cpu_architecture' => :'cpuArchitecture',
 
         :'description' => :'description',
 
+        :'features' => :'features',
+
         :'location' => :'location',
 
-        :'version' => :'version',
-
-        :'features' => :'features',
+        :'name' => :'name',
 
         :'sec_auth_protection' => :'secAuthProtection',
 
-        :'cpu_architecture' => :'cpuArchitecture'
+        :'version' => :'version'
       }
     end
 
@@ -72,19 +72,19 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
+        :'cpu_architecture' => :'Array<CpuArchitectureProperties>',
 
         :'description' => :'String',
 
+        :'features' => :'Array<String>',
+
         :'location' => :'String',
 
-        :'version' => :'Integer',
-
-        :'features' => :'Array<String>',
+        :'name' => :'String',
 
         :'sec_auth_protection' => :'Boolean',
 
-        :'cpu_architecture' => :'Array<CpuArchitectureProperties>'
+        :'version' => :'Integer'
       }
     end
 
@@ -117,8 +117,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'cpu_architecture') && (value = attributes[:'cpu_architecture']).is_a?(Array)
+        self.cpu_architecture = value
       end
 
 
@@ -127,18 +127,18 @@ module Ionoscloud
       end
 
 
+      if attributes.key?(:'features') && (value = attributes[:'features']).is_a?(Array)
+        self.features = value
+      end
+
+
       if attributes.key?(:'location')
         self.location = attributes[:'location']
       end
 
 
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-
-      if attributes.key?(:'features') && (value = attributes[:'features']).is_a?(Array)
-        self.features = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
@@ -147,8 +147,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'cpu_architecture') && (value = attributes[:'cpu_architecture']).is_a?(Array)
-        self.cpu_architecture = value
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -159,10 +159,10 @@ module Ionoscloud
       
 
 
+
       if @location.nil?
         invalid_properties.push('invalid value for "location", location cannot be nil.')
       end
-
 
 
 
@@ -176,8 +176,8 @@ module Ionoscloud
       
 
 
-      return false if @location.nil?
 
+      return false if @location.nil?
 
 
 
@@ -196,13 +196,13 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
+        cpu_architecture == o.cpu_architecture &&
         description == o.description &&
-        location == o.location &&
-        version == o.version &&
         features == o.features &&
+        location == o.location &&
+        name == o.name &&
         sec_auth_protection == o.sec_auth_protection &&
-        cpu_architecture == o.cpu_architecture
+        version == o.version
     end
 
     # @see the `==` method
@@ -214,7 +214,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, location, version, features, sec_auth_protection, cpu_architecture].hash
+      [cpu_architecture, description, features, location, name, sec_auth_protection, version].hash
     end
 
     # Builds the object from hash

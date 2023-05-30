@@ -19,9 +19,9 @@ module Ionoscloud
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieve Cubes Templates
-    # Retrieve the properties of the specified Cubes Template.  This operation is only supported for the Cubes.
-    # @param template_id [String] The unique Template ID.
+    # Get Cubes Template by ID
+    # Retrieves the properties of the Cubes template specified by its ID.
+    # @param template_id [String] The unique template ID.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
     # @return [Template]
@@ -30,9 +30,9 @@ module Ionoscloud
       data
     end
 
-    # Retrieve Cubes Templates
-    # Retrieve the properties of the specified Cubes Template.  This operation is only supported for the Cubes.
-    # @param template_id [String] The unique Template ID.
+    # Get Cubes Template by ID
+    # Retrieves the properties of the Cubes template specified by its ID.
+    # @param template_id [String] The unique template ID.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
     # @return [Array<(Template, Integer, Hash)>] Template data, response status code and response headers
@@ -93,8 +93,8 @@ module Ionoscloud
       return data, status_code, headers
     end
 
-    # List Cubes Templates
-    # List all of the available Cubes Templates.  This operation is only supported for the Cubes.
+    # Get Cubes Templates
+    # Retrieves all available templates.  Templates provide a pre-defined configuration for Cube servers.    >Templates are read-only and cannot be created, modified, or deleted by users.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on (default to 0)
     # @return [Templates]
@@ -103,8 +103,8 @@ module Ionoscloud
       data
     end
 
-    # List Cubes Templates
-    # List all of the available Cubes Templates.  This operation is only supported for the Cubes.
+    # Get Cubes Templates
+    # Retrieves all available templates.  Templates provide a pre-defined configuration for Cube servers.    &gt;Templates are read-only and cannot be created, modified, or deleted by users.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :depth Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on
     # @return [Array<(Templates, Integer, Hash)>] Templates data, response status code and response headers

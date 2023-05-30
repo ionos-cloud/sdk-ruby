@@ -16,24 +16,24 @@ require 'time'
 module Ionoscloud
   class KubernetesNodeMetadata
   
-    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
-    attr_accessor :etag
-
-
-    # The last time the resource was created.
+    # The date the resource was created.
     attr_accessor :created_date
 
 
-    # The last time the resource was modified.
+    # The resource entity tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity tags are also added as 'ETag' response headers to requests that do not use the 'depth' parameter.
+    attr_accessor :etag
+
+
+    # The date the resource was last modified.
     attr_accessor :last_modified_date
 
 
-    # State of the resource.
-    attr_accessor :state
-
-
-    # The last time the software was updated on the node.
+    # The date when the software on the node was last updated.
     attr_accessor :last_software_updated_date
+
+
+    # The resource state.
+    attr_accessor :state
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -61,15 +61,15 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'etag' => :'etag',
-
         :'created_date' => :'createdDate',
+
+        :'etag' => :'etag',
 
         :'last_modified_date' => :'lastModifiedDate',
 
-        :'state' => :'state',
+        :'last_software_updated_date' => :'lastSoftwareUpdatedDate',
 
-        :'last_software_updated_date' => :'lastSoftwareUpdatedDate'
+        :'state' => :'state'
       }
     end
 
@@ -82,15 +82,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'etag' => :'String',
-
         :'created_date' => :'Time',
+
+        :'etag' => :'String',
 
         :'last_modified_date' => :'Time',
 
-        :'state' => :'String',
+        :'last_software_updated_date' => :'Time',
 
-        :'last_software_updated_date' => :'Time'
+        :'state' => :'String'
       }
     end
 
@@ -121,13 +121,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'etag')
-        self.etag = attributes[:'etag']
+      if attributes.key?(:'created_date')
+        self.created_date = attributes[:'created_date']
       end
 
 
-      if attributes.key?(:'created_date')
-        self.created_date = attributes[:'created_date']
+      if attributes.key?(:'etag')
+        self.etag = attributes[:'etag']
       end
 
 
@@ -136,13 +136,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
+      if attributes.key?(:'last_software_updated_date')
+        self.last_software_updated_date = attributes[:'last_software_updated_date']
       end
 
 
-      if attributes.key?(:'last_software_updated_date')
-        self.last_software_updated_date = attributes[:'last_software_updated_date']
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
     end
 
@@ -165,13 +165,14 @@ module Ionoscloud
 
 
 
+
       state_validator = EnumAttributeValidator.new('String', ["PROVISIONING", "PROVISIONED", "READY", "TERMINATING", "REBUILDING", "BUSY"])
       return false unless state_validator.valid?(@state)
-
       true
     end
 
     
+
 
 
 
@@ -185,17 +186,16 @@ module Ionoscloud
       @state = state
     end
 
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        etag == o.etag &&
         created_date == o.created_date &&
+        etag == o.etag &&
         last_modified_date == o.last_modified_date &&
-        state == o.state &&
-        last_software_updated_date == o.last_software_updated_date
+        last_software_updated_date == o.last_software_updated_date &&
+        state == o.state
     end
 
     # @see the `==` method
@@ -207,7 +207,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [etag, created_date, last_modified_date, state, last_software_updated_date].hash
+      [created_date, etag, last_modified_date, last_software_updated_date, state].hash
     end
 
     # Builds the object from hash

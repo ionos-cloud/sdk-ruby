@@ -20,27 +20,27 @@ module Ionoscloud
     attr_accessor :name
 
 
-    # Type of the NAT Gateway rule.
-    attr_accessor :type
-
-
     # Protocol of the NAT Gateway rule. Defaults to ALL. If protocol is 'ICMP' then targetPortRange start and end cannot be set.
     attr_accessor :protocol
-
-
-    # Source subnet of the NAT Gateway rule. For SNAT rules it specifies which packets this translation rule applies to based on the packets source IP address.
-    attr_accessor :source_subnet
 
 
     # Public IP address of the NAT Gateway rule. Specifies the address used for masking outgoing packets source address field. Should be one of the customer reserved IP address already configured on the NAT Gateway resource
     attr_accessor :public_ip
 
 
+    # Source subnet of the NAT Gateway rule. For SNAT rules it specifies which packets this translation rule applies to based on the packets source IP address.
+    attr_accessor :source_subnet
+
+
+    attr_accessor :target_port_range
+
+
     # Target or destination subnet of the NAT Gateway rule. For SNAT rules it specifies which packets this translation rule applies to based on the packets destination IP address. If none is provided, rule will match any address.
     attr_accessor :target_subnet
 
 
-    attr_accessor :target_port_range
+    # Type of the NAT Gateway rule.
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -48,17 +48,17 @@ module Ionoscloud
         
         :'name' => :'name',
 
-        :'type' => :'type',
-
         :'protocol' => :'protocol',
-
-        :'source_subnet' => :'sourceSubnet',
 
         :'public_ip' => :'publicIp',
 
+        :'source_subnet' => :'sourceSubnet',
+
+        :'target_port_range' => :'targetPortRange',
+
         :'target_subnet' => :'targetSubnet',
 
-        :'target_port_range' => :'targetPortRange'
+        :'type' => :'type'
       }
     end
 
@@ -73,17 +73,17 @@ module Ionoscloud
         
         :'name' => :'String',
 
-        :'type' => :'NatGatewayRuleType',
-
         :'protocol' => :'NatGatewayRuleProtocol',
-
-        :'source_subnet' => :'String',
 
         :'public_ip' => :'String',
 
+        :'source_subnet' => :'String',
+
+        :'target_port_range' => :'TargetPortRange',
+
         :'target_subnet' => :'String',
 
-        :'target_port_range' => :'TargetPortRange'
+        :'type' => :'NatGatewayRuleType'
       }
     end
 
@@ -121,18 +121,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-
       if attributes.key?(:'protocol')
         self.protocol = attributes[:'protocol']
-      end
-
-
-      if attributes.key?(:'source_subnet')
-        self.source_subnet = attributes[:'source_subnet']
       end
 
 
@@ -141,13 +131,23 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'target_subnet')
-        self.target_subnet = attributes[:'target_subnet']
+      if attributes.key?(:'source_subnet')
+        self.source_subnet = attributes[:'source_subnet']
       end
 
 
       if attributes.key?(:'target_port_range')
         self.target_port_range = attributes[:'target_port_range']
+      end
+
+
+      if attributes.key?(:'target_subnet')
+        self.target_subnet = attributes[:'target_subnet']
+      end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -162,15 +162,15 @@ module Ionoscloud
 
 
 
+      if @public_ip.nil?
+        invalid_properties.push('invalid value for "public_ip", public_ip cannot be nil.')
+      end
+
 
       if @source_subnet.nil?
         invalid_properties.push('invalid value for "source_subnet", source_subnet cannot be nil.')
       end
 
-
-      if @public_ip.nil?
-        invalid_properties.push('invalid value for "public_ip", public_ip cannot be nil.')
-      end
 
 
 
@@ -184,10 +184,10 @@ module Ionoscloud
       return false if @name.nil?
 
 
+      return false if @public_ip.nil?
 
       return false if @source_subnet.nil?
 
-      return false if @public_ip.nil?
 
 
       true
@@ -206,12 +206,12 @@ module Ionoscloud
       return true if self.equal?(o)
       self.class == o.class &&
         name == o.name &&
-        type == o.type &&
         protocol == o.protocol &&
-        source_subnet == o.source_subnet &&
         public_ip == o.public_ip &&
+        source_subnet == o.source_subnet &&
+        target_port_range == o.target_port_range &&
         target_subnet == o.target_subnet &&
-        target_port_range == o.target_port_range
+        type == o.type
     end
 
     # @see the `==` method
@@ -223,7 +223,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, type, protocol, source_subnet, public_ip, target_subnet, target_port_range].hash
+      [name, protocol, public_ip, source_subnet, target_port_range, target_subnet, type].hash
     end
 
     # Builds the object from hash

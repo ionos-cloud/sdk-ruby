@@ -10,17 +10,17 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 | [**datacenters_networkloadbalancers_flowlogs_find_by_flow_log_id**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_flowlogs_find_by_flow_log_id) | **GET** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/flowlogs/{flowLogId} | Retrieve NLB Flow Logs |
 | [**datacenters_networkloadbalancers_flowlogs_get**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_flowlogs_get) | **GET** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/flowlogs | List NLB Flow Logs |
 | [**datacenters_networkloadbalancers_flowlogs_patch**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_flowlogs_patch) | **PATCH** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/flowlogs/{flowLogId} | Partially modify NLB Flow Logs |
-| [**datacenters_networkloadbalancers_flowlogs_post**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_flowlogs_post) | **POST** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/flowlogs | Create NLB Flow Logs |
+| [**datacenters_networkloadbalancers_flowlogs_post**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_flowlogs_post) | **POST** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/flowlogs | Create a NLB Flow Log |
 | [**datacenters_networkloadbalancers_flowlogs_put**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_flowlogs_put) | **PUT** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/flowlogs/{flowLogId} | Modify NLB Flow Logs |
 | [**datacenters_networkloadbalancers_forwardingrules_delete**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_forwardingrules_delete) | **DELETE** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/forwardingrules/{forwardingRuleId} | Delete NLB forwarding rules |
 | [**datacenters_networkloadbalancers_forwardingrules_find_by_forwarding_rule_id**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_forwardingrules_find_by_forwarding_rule_id) | **GET** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/forwardingrules/{forwardingRuleId} | Retrieve NLB forwarding rules |
 | [**datacenters_networkloadbalancers_forwardingrules_get**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_forwardingrules_get) | **GET** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/forwardingrules | List NLB forwarding rules |
 | [**datacenters_networkloadbalancers_forwardingrules_patch**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_forwardingrules_patch) | **PATCH** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/forwardingrules/{forwardingRuleId} | Partially modify NLB forwarding rules |
-| [**datacenters_networkloadbalancers_forwardingrules_post**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_forwardingrules_post) | **POST** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/forwardingrules | Create NLB forwarding rules |
+| [**datacenters_networkloadbalancers_forwardingrules_post**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_forwardingrules_post) | **POST** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/forwardingrules | Create a NLB Forwarding Rule |
 | [**datacenters_networkloadbalancers_forwardingrules_put**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_forwardingrules_put) | **PUT** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId}/forwardingrules/{forwardingRuleId} | Modify NLB forwarding rules |
 | [**datacenters_networkloadbalancers_get**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_get) | **GET** /datacenters/{datacenterId}/networkloadbalancers | List Network Load Balancers |
 | [**datacenters_networkloadbalancers_patch**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_patch) | **PATCH** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId} | Partially modify Network Load Balancers |
-| [**datacenters_networkloadbalancers_post**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_post) | **POST** /datacenters/{datacenterId}/networkloadbalancers | Create Network Load Balancers |
+| [**datacenters_networkloadbalancers_post**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_post) | **POST** /datacenters/{datacenterId}/networkloadbalancers | Create a Network Load Balancer |
 | [**datacenters_networkloadbalancers_put**](NetworkLoadBalancersApi.md#datacenters_networkloadbalancers_put) | **PUT** /datacenters/{datacenterId}/networkloadbalancers/{networkLoadBalancerId} | Modify Network Load Balancers |
 
 
@@ -480,7 +480,7 @@ api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
 flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
-network_load_balancer_flow_log_properties = Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'}) # FlowLogProperties | The properties of the Flow Log to be updated.
+network_load_balancer_flow_log_properties = Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'}) # FlowLogProperties | The properties of the Flow Log to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -521,7 +521,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
 | **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
-| **network_load_balancer_flow_log_properties** | [**FlowLogProperties**](FlowLogProperties.md) | The properties of the Flow Log to be updated. |  |
+| **network_load_balancer_flow_log_properties** | [**FlowLogProperties**](../models/FlowLogProperties.md) | The properties of the Flow Log to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -544,9 +544,9 @@ Basic Authentication, Token Authentication
 
 > <FlowLog> datacenters_networkloadbalancers_flowlogs_post(datacenter_id, network_load_balancer_id, network_load_balancer_flow_log, opts)
 
-Create NLB Flow Logs
+Create a NLB Flow Log
 
-Add a new Flow Log for the Network Load Balancer.
+Adds a new Flow Log for the Network Load Balancer.
 
 ### Examples
 
@@ -568,7 +568,7 @@ end
 api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
-network_load_balancer_flow_log = Ionoscloud::FlowLog.new({properties: Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'})}) # FlowLog | The Flow Log to create.
+network_load_balancer_flow_log = Ionoscloud::FlowLog.new({properties: Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'})}) # FlowLog | The Flow Log to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -576,7 +576,7 @@ opts = {
 }
 
 begin
-  # Create NLB Flow Logs
+  # Create a NLB Flow Log
   result = api_instance.datacenters_networkloadbalancers_flowlogs_post(datacenter_id, network_load_balancer_id, network_load_balancer_flow_log, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -592,7 +592,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create NLB Flow Logs
+  # Create a NLB Flow Log
   data, status_code, headers = api_instance.datacenters_networkloadbalancers_flowlogs_post_with_http_info(datacenter_id, network_load_balancer_id, network_load_balancer_flow_log, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -608,7 +608,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
-| **network_load_balancer_flow_log** | [**FlowLog**](FlowLog.md) | The Flow Log to create. |  |
+| **network_load_balancer_flow_log** | [**FlowLog**](../models/FlowLog.md) | The Flow Log to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -656,7 +656,7 @@ api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
 flow_log_id = 'flow_log_id_example' # String | The unique ID of the Flow Log.
-network_load_balancer_flow_log = Ionoscloud::FlowLogPut.new({properties: Ionoscloud::FlowLogProperties.new({name: 'My resource', action: 'ACCEPTED', direction: 'INGRESS', bucket: 'bucketName/key'})}) # FlowLogPut | The modified NLB Flow Log.
+network_load_balancer_flow_log = Ionoscloud::FlowLogPut.new({properties: Ionoscloud::FlowLogProperties.new({action: 'ACCEPTED', bucket: 'bucketName/key', direction: 'INGRESS', name: 'My resource'})}) # FlowLogPut | The modified NLB Flow Log.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -697,7 +697,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
 | **flow_log_id** | **String** | The unique ID of the Flow Log. |  |
-| **network_load_balancer_flow_log** | [**FlowLogPut**](FlowLogPut.md) | The modified NLB Flow Log. |  |
+| **network_load_balancer_flow_log** | [**FlowLogPut**](../models/FlowLogPut.md) | The modified NLB Flow Log. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1003,7 +1003,7 @@ api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
 forwarding_rule_id = 'forwarding_rule_id_example' # String | The unique ID of the forwarding rule.
-network_load_balancer_forwarding_rule_properties = Ionoscloud::NetworkLoadBalancerForwardingRuleProperties.new({name: 'My Network Load Balancer forwarding rule', algorithm: 'ROUND_ROBIN', protocol: 'HTTP', listener_ip: '81.173.1.2', listener_port: 8080, targets: [Ionoscloud::NetworkLoadBalancerForwardingRuleTarget.new({ip: '22.231.2.2', port: 8080, weight: 123})]}) # NetworkLoadBalancerForwardingRuleProperties | The properties of the forwarding rule to be updated.
+network_load_balancer_forwarding_rule_properties = Ionoscloud::NetworkLoadBalancerForwardingRuleProperties.new({algorithm: 'ROUND_ROBIN', listener_ip: '81.173.1.2', listener_port: 8080, name: 'My Network Load Balancer forwarding rule', protocol: 'HTTP', targets: [Ionoscloud::NetworkLoadBalancerForwardingRuleTarget.new({ip: '22.231.2.2', port: 8080, weight: 123})]}) # NetworkLoadBalancerForwardingRuleProperties | The properties of the forwarding rule to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1044,7 +1044,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
 | **forwarding_rule_id** | **String** | The unique ID of the forwarding rule. |  |
-| **network_load_balancer_forwarding_rule_properties** | [**NetworkLoadBalancerForwardingRuleProperties**](NetworkLoadBalancerForwardingRuleProperties.md) | The properties of the forwarding rule to be updated. |  |
+| **network_load_balancer_forwarding_rule_properties** | [**NetworkLoadBalancerForwardingRuleProperties**](../models/NetworkLoadBalancerForwardingRuleProperties.md) | The properties of the forwarding rule to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1067,9 +1067,9 @@ Basic Authentication, Token Authentication
 
 > <NetworkLoadBalancerForwardingRule> datacenters_networkloadbalancers_forwardingrules_post(datacenter_id, network_load_balancer_id, network_load_balancer_forwarding_rule, opts)
 
-Create NLB forwarding rules
+Create a NLB Forwarding Rule
 
-Create a forwarding rule for the specified Network Load Balancer.
+Creates a forwarding rule for the specified Network Load Balancer.
 
 ### Examples
 
@@ -1091,7 +1091,7 @@ end
 api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
-network_load_balancer_forwarding_rule = Ionoscloud::NetworkLoadBalancerForwardingRule.new({properties: Ionoscloud::NetworkLoadBalancerForwardingRuleProperties.new({name: 'My Network Load Balancer forwarding rule', algorithm: 'ROUND_ROBIN', protocol: 'HTTP', listener_ip: '81.173.1.2', listener_port: 8080, targets: [Ionoscloud::NetworkLoadBalancerForwardingRuleTarget.new({ip: '22.231.2.2', port: 8080, weight: 123})]})}) # NetworkLoadBalancerForwardingRule | The forwarding rule to create.
+network_load_balancer_forwarding_rule = Ionoscloud::NetworkLoadBalancerForwardingRule.new({properties: Ionoscloud::NetworkLoadBalancerForwardingRuleProperties.new({algorithm: 'ROUND_ROBIN', listener_ip: '81.173.1.2', listener_port: 8080, name: 'My Network Load Balancer forwarding rule', protocol: 'HTTP', targets: [Ionoscloud::NetworkLoadBalancerForwardingRuleTarget.new({ip: '22.231.2.2', port: 8080, weight: 123})]})}) # NetworkLoadBalancerForwardingRule | The forwarding rule to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1099,7 +1099,7 @@ opts = {
 }
 
 begin
-  # Create NLB forwarding rules
+  # Create a NLB Forwarding Rule
   result = api_instance.datacenters_networkloadbalancers_forwardingrules_post(datacenter_id, network_load_balancer_id, network_load_balancer_forwarding_rule, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1115,7 +1115,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create NLB forwarding rules
+  # Create a NLB Forwarding Rule
   data, status_code, headers = api_instance.datacenters_networkloadbalancers_forwardingrules_post_with_http_info(datacenter_id, network_load_balancer_id, network_load_balancer_forwarding_rule, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1131,7 +1131,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
-| **network_load_balancer_forwarding_rule** | [**NetworkLoadBalancerForwardingRule**](NetworkLoadBalancerForwardingRule.md) | The forwarding rule to create. |  |
+| **network_load_balancer_forwarding_rule** | [**NetworkLoadBalancerForwardingRule**](../models/NetworkLoadBalancerForwardingRule.md) | The forwarding rule to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1179,7 +1179,7 @@ api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
 forwarding_rule_id = 'forwarding_rule_id_example' # String | The unique ID of the forwarding rule.
-network_load_balancer_forwarding_rule = Ionoscloud::NetworkLoadBalancerForwardingRulePut.new({properties: Ionoscloud::NetworkLoadBalancerForwardingRuleProperties.new({name: 'My Network Load Balancer forwarding rule', algorithm: 'ROUND_ROBIN', protocol: 'HTTP', listener_ip: '81.173.1.2', listener_port: 8080, targets: [Ionoscloud::NetworkLoadBalancerForwardingRuleTarget.new({ip: '22.231.2.2', port: 8080, weight: 123})]})}) # NetworkLoadBalancerForwardingRulePut | The modified NLB forwarding rule.
+network_load_balancer_forwarding_rule = Ionoscloud::NetworkLoadBalancerForwardingRulePut.new({properties: Ionoscloud::NetworkLoadBalancerForwardingRuleProperties.new({algorithm: 'ROUND_ROBIN', listener_ip: '81.173.1.2', listener_port: 8080, name: 'My Network Load Balancer forwarding rule', protocol: 'HTTP', targets: [Ionoscloud::NetworkLoadBalancerForwardingRuleTarget.new({ip: '22.231.2.2', port: 8080, weight: 123})]})}) # NetworkLoadBalancerForwardingRulePut | The modified NLB forwarding rule.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1220,7 +1220,7 @@ end
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
 | **forwarding_rule_id** | **String** | The unique ID of the forwarding rule. |  |
-| **network_load_balancer_forwarding_rule** | [**NetworkLoadBalancerForwardingRulePut**](NetworkLoadBalancerForwardingRulePut.md) | The modified NLB forwarding rule. |  |
+| **network_load_balancer_forwarding_rule** | [**NetworkLoadBalancerForwardingRulePut**](../models/NetworkLoadBalancerForwardingRulePut.md) | The modified NLB forwarding rule. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1354,7 +1354,7 @@ end
 api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
-network_load_balancer_properties = Ionoscloud::NetworkLoadBalancerProperties.new({name: 'My Network Load Balancer', listener_lan: 1, target_lan: 2}) # NetworkLoadBalancerProperties | The properties of the Network Load Balancer to be updated.
+network_load_balancer_properties = Ionoscloud::NetworkLoadBalancerProperties.new({listener_lan: 1, name: 'My Network Load Balancer', target_lan: 2}) # NetworkLoadBalancerProperties | The properties of the Network Load Balancer to be updated.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1394,7 +1394,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
-| **network_load_balancer_properties** | [**NetworkLoadBalancerProperties**](NetworkLoadBalancerProperties.md) | The properties of the Network Load Balancer to be updated. |  |
+| **network_load_balancer_properties** | [**NetworkLoadBalancerProperties**](../models/NetworkLoadBalancerProperties.md) | The properties of the Network Load Balancer to be updated. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1417,9 +1417,9 @@ Basic Authentication, Token Authentication
 
 > <NetworkLoadBalancer> datacenters_networkloadbalancers_post(datacenter_id, network_load_balancer, opts)
 
-Create Network Load Balancers
+Create a Network Load Balancer
 
-Create a Network Load Balancer within the data center.
+Creates a Network Load Balancer within the data center.
 
 ### Examples
 
@@ -1440,7 +1440,7 @@ end
 
 api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
-network_load_balancer = Ionoscloud::NetworkLoadBalancer.new({properties: Ionoscloud::NetworkLoadBalancerProperties.new({name: 'My Network Load Balancer', listener_lan: 1, target_lan: 2})}) # NetworkLoadBalancer | The Network Load Balancer to create.
+network_load_balancer = Ionoscloud::NetworkLoadBalancer.new({properties: Ionoscloud::NetworkLoadBalancerProperties.new({listener_lan: 1, name: 'My Network Load Balancer', target_lan: 2})}) # NetworkLoadBalancer | The Network Load Balancer to create.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1448,7 +1448,7 @@ opts = {
 }
 
 begin
-  # Create Network Load Balancers
+  # Create a Network Load Balancer
   result = api_instance.datacenters_networkloadbalancers_post(datacenter_id, network_load_balancer, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -1464,7 +1464,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create Network Load Balancers
+  # Create a Network Load Balancer
   data, status_code, headers = api_instance.datacenters_networkloadbalancers_post_with_http_info(datacenter_id, network_load_balancer, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1479,7 +1479,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
-| **network_load_balancer** | [**NetworkLoadBalancer**](NetworkLoadBalancer.md) | The Network Load Balancer to create. |  |
+| **network_load_balancer** | [**NetworkLoadBalancer**](../models/NetworkLoadBalancer.md) | The Network Load Balancer to create. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |
@@ -1526,7 +1526,7 @@ end
 api_instance = Ionoscloud::NetworkLoadBalancersApi.new
 datacenter_id = 'datacenter_id_example' # String | The unique ID of the data center.
 network_load_balancer_id = 'network_load_balancer_id_example' # String | The unique ID of the Network Load Balancer.
-network_load_balancer = Ionoscloud::NetworkLoadBalancerPut.new({properties: Ionoscloud::NetworkLoadBalancerProperties.new({name: 'My Network Load Balancer', listener_lan: 1, target_lan: 2})}) # NetworkLoadBalancerPut | The modified Network Load Balancer.
+network_load_balancer = Ionoscloud::NetworkLoadBalancerPut.new({properties: Ionoscloud::NetworkLoadBalancerProperties.new({listener_lan: 1, name: 'My Network Load Balancer', target_lan: 2})}) # NetworkLoadBalancerPut | The modified Network Load Balancer.
 opts = {
   pretty: true, # Boolean | Controls whether the response is pretty-printed (with indentations and new lines).
   depth: 56, # Integer | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth=0: Only direct properties are included; children (servers and other elements) are not included.  - depth=1: Direct properties and children references are included.  - depth=2: Direct properties and children properties are included.  - depth=3: Direct properties and children properties and children's children are included.  - depth=... and so on
@@ -1566,7 +1566,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **datacenter_id** | **String** | The unique ID of the data center. |  |
 | **network_load_balancer_id** | **String** | The unique ID of the Network Load Balancer. |  |
-| **network_load_balancer** | [**NetworkLoadBalancerPut**](NetworkLoadBalancerPut.md) | The modified Network Load Balancer. |  |
+| **network_load_balancer** | [**NetworkLoadBalancerPut**](../models/NetworkLoadBalancerPut.md) | The modified Network Load Balancer. |  |
 | **pretty** | **Boolean** | Controls whether the response is pretty-printed (with indentations and new lines). | [optional][default to true] |
 | **depth** | **Integer** | Controls the detail depth of the response objects.  GET /datacenters/[ID]  - depth&#x3D;0: Only direct properties are included; children (servers and other elements) are not included.  - depth&#x3D;1: Direct properties and children references are included.  - depth&#x3D;2: Direct properties and children properties are included.  - depth&#x3D;3: Direct properties and children properties and children&#39;s children are included.  - depth&#x3D;... and so on | [optional][default to 0] |
 | **x_contract_number** | **Integer** | Users with multiple contracts must provide the contract number, for which all API requests are to be executed. | [optional] |

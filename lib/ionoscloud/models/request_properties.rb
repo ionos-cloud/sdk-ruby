@@ -16,13 +16,13 @@ require 'time'
 module Ionoscloud
   class RequestProperties
   
-    attr_accessor :method
+    attr_accessor :body
 
 
     attr_accessor :headers
 
 
-    attr_accessor :body
+    attr_accessor :method
 
 
     attr_accessor :url
@@ -31,11 +31,11 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'method' => :'method',
+        :'body' => :'body',
 
         :'headers' => :'headers',
 
-        :'body' => :'body',
+        :'method' => :'method',
 
         :'url' => :'url'
       }
@@ -50,11 +50,11 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'method' => :'String',
+        :'body' => :'String',
 
         :'headers' => :'Hash<String, String>',
 
-        :'body' => :'String',
+        :'method' => :'String',
 
         :'url' => :'String'
       }
@@ -86,8 +86,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'method')
-        self.method = attributes[:'method']
+      if attributes.key?(:'body')
+        self.body = attributes[:'body']
       end
 
 
@@ -96,8 +96,8 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'body')
-        self.body = attributes[:'body']
+      if attributes.key?(:'method')
+        self.method = attributes[:'method']
       end
 
 
@@ -136,9 +136,9 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        method == o.method &&
-        headers == o.headers &&
         body == o.body &&
+        headers == o.headers &&
+        method == o.method &&
         url == o.url
     end
 
@@ -151,7 +151,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [method, headers, body, url].hash
+      [body, headers, method, url].hash
     end
 
     # Builds the object from hash

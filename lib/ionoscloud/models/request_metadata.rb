@@ -16,12 +16,12 @@ require 'time'
 module Ionoscloud
   class RequestMetadata
   
-    # The last time the resource was created.
-    attr_accessor :created_date
-
-
     # The user who created the resource.
     attr_accessor :created_by
+
+
+    # The last time the resource was created.
+    attr_accessor :created_date
 
 
     # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
@@ -34,9 +34,9 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'created_date' => :'createdDate',
-
         :'created_by' => :'createdBy',
+
+        :'created_date' => :'createdDate',
 
         :'etag' => :'etag',
 
@@ -53,9 +53,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'created_date' => :'Time',
-
         :'created_by' => :'String',
+
+        :'created_date' => :'Time',
 
         :'etag' => :'String',
 
@@ -89,13 +89,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'created_date')
-        self.created_date = attributes[:'created_date']
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
       end
 
 
-      if attributes.key?(:'created_by')
-        self.created_by = attributes[:'created_by']
+      if attributes.key?(:'created_date')
+        self.created_date = attributes[:'created_date']
       end
 
 
@@ -139,8 +139,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        created_date == o.created_date &&
         created_by == o.created_by &&
+        created_date == o.created_date &&
         etag == o.etag &&
         request_status == o.request_status
     end
@@ -154,7 +154,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_date, created_by, etag, request_status].hash
+      [created_by, created_date, etag, request_status].hash
     end
 
     # Builds the object from hash

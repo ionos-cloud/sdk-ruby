@@ -16,14 +16,6 @@ require 'time'
 module Ionoscloud
   class NoStateMetaData
   
-    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
-    attr_accessor :etag
-
-
-    # The time when the resource was created.
-    attr_accessor :created_date
-
-
     # The user who has created the resource.
     attr_accessor :created_by
 
@@ -32,8 +24,12 @@ module Ionoscloud
     attr_accessor :created_by_user_id
 
 
-    # The last time the resource was modified.
-    attr_accessor :last_modified_date
+    # The time when the resource was created.
+    attr_accessor :created_date
+
+
+    # Resource's Entity Tag as defined in http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.11  Entity Tag is also added as an 'ETag response header to requests which don't use 'depth' parameter. 
+    attr_accessor :etag
 
 
     # The user who last modified the resource.
@@ -43,23 +39,27 @@ module Ionoscloud
     # The unique ID of the user who last modified the resource.
     attr_accessor :last_modified_by_user_id
 
+
+    # The last time the resource was modified.
+    attr_accessor :last_modified_date
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'etag' => :'etag',
-
-        :'created_date' => :'createdDate',
-
         :'created_by' => :'createdBy',
 
         :'created_by_user_id' => :'createdByUserId',
 
-        :'last_modified_date' => :'lastModifiedDate',
+        :'created_date' => :'createdDate',
+
+        :'etag' => :'etag',
 
         :'last_modified_by' => :'lastModifiedBy',
 
-        :'last_modified_by_user_id' => :'lastModifiedByUserId'
+        :'last_modified_by_user_id' => :'lastModifiedByUserId',
+
+        :'last_modified_date' => :'lastModifiedDate'
       }
     end
 
@@ -72,19 +72,19 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'etag' => :'String',
-
-        :'created_date' => :'Time',
-
         :'created_by' => :'String',
 
         :'created_by_user_id' => :'String',
 
-        :'last_modified_date' => :'Time',
+        :'created_date' => :'Time',
+
+        :'etag' => :'String',
 
         :'last_modified_by' => :'String',
 
-        :'last_modified_by_user_id' => :'String'
+        :'last_modified_by_user_id' => :'String',
+
+        :'last_modified_date' => :'Time'
       }
     end
 
@@ -117,16 +117,6 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'etag')
-        self.etag = attributes[:'etag']
-      end
-
-
-      if attributes.key?(:'created_date')
-        self.created_date = attributes[:'created_date']
-      end
-
-
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
       end
@@ -137,8 +127,13 @@ module Ionoscloud
       end
 
 
-      if attributes.key?(:'last_modified_date')
-        self.last_modified_date = attributes[:'last_modified_date']
+      if attributes.key?(:'created_date')
+        self.created_date = attributes[:'created_date']
+      end
+
+
+      if attributes.key?(:'etag')
+        self.etag = attributes[:'etag']
       end
 
 
@@ -149,6 +144,11 @@ module Ionoscloud
 
       if attributes.key?(:'last_modified_by_user_id')
         self.last_modified_by_user_id = attributes[:'last_modified_by_user_id']
+      end
+
+
+      if attributes.key?(:'last_modified_date')
+        self.last_modified_date = attributes[:'last_modified_date']
       end
     end
 
@@ -191,13 +191,13 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        etag == o.etag &&
-        created_date == o.created_date &&
         created_by == o.created_by &&
         created_by_user_id == o.created_by_user_id &&
-        last_modified_date == o.last_modified_date &&
+        created_date == o.created_date &&
+        etag == o.etag &&
         last_modified_by == o.last_modified_by &&
-        last_modified_by_user_id == o.last_modified_by_user_id
+        last_modified_by_user_id == o.last_modified_by_user_id &&
+        last_modified_date == o.last_modified_date
     end
 
     # @see the `==` method
@@ -209,7 +209,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [etag, created_date, created_by, created_by_user_id, last_modified_date, last_modified_by, last_modified_by_user_id].hash
+      [created_by, created_by_user_id, created_date, etag, last_modified_by, last_modified_by_user_id, last_modified_date].hash
     end
 
     # Builds the object from hash

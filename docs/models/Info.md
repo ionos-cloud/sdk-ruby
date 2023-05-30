@@ -4,19 +4,25 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **href** | **String** | API entry point | [optional][readonly] |
-| **name** | **String** | Name of the API | [optional][readonly] |
-| **version** | **String** | Version of the API | [optional][readonly] |
+
+| **href** | **String** | The API entry point. | [optional][readonly] |
+
+| **name** | **String** | The API name. | [optional][readonly] |
+
+| **version** | **String** | The API version. | [optional][readonly] |
 
 ## Example
 
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::Info.new(
-  href: null,
+  href: https://api.ionos.com/cloudapi/v6/,
+
   name: CLOUD API,
-  version: 1.0
+
+  version: 6.0
 )
 ```
 

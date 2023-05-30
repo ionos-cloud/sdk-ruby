@@ -16,11 +16,11 @@ require 'time'
 module Ionoscloud
   class KubernetesMaintenanceWindow
   
-    # The day of the week for a maintenance window.
+    # The weekday for a maintenance window.
     attr_accessor :day_of_the_week
 
 
-    # The time to use for a maintenance window. Accepted formats are: HH:mm:ss; HH:mm:ss\"Z\"; HH:mm:ssZ. This time may varies by 15 minutes.
+    # The time to use for a maintenance window. Accepted formats are: HH:mm:ss; HH:mm:ss\"Z\"; HH:mm:ssZ. This time may vary by 15 minutes.
     attr_accessor :time
 
     class EnumAttributeValidator

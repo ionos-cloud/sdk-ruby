@@ -16,12 +16,12 @@ require 'time'
 module Ionoscloud
   class TemplateProperties
   
-    # The name of the  resource.
-    attr_accessor :name
-
-
     # The CPU cores count.
     attr_accessor :cores
+
+
+    # The resource name.
+    attr_accessor :name
 
 
     # The RAM size in MB.
@@ -35,9 +35,9 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'name' => :'name',
-
         :'cores' => :'cores',
+
+        :'name' => :'name',
 
         :'ram' => :'ram',
 
@@ -54,9 +54,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'name' => :'String',
-
         :'cores' => :'Float',
+
+        :'name' => :'String',
 
         :'ram' => :'Float',
 
@@ -90,13 +90,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'cores')
+        self.cores = attributes[:'cores']
       end
 
 
-      if attributes.key?(:'cores')
-        self.cores = attributes[:'cores']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
 
@@ -115,13 +115,13 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @cores.nil?
+        invalid_properties.push('invalid value for "cores", cores cannot be nil.')
       end
 
 
-      if @cores.nil?
-        invalid_properties.push('invalid value for "cores", cores cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
 
@@ -141,9 +141,9 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-      return false if @name.nil?
-
       return false if @cores.nil?
+
+      return false if @name.nil?
 
       return false if @ram.nil?
 
@@ -160,8 +160,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        name == o.name &&
         cores == o.cores &&
+        name == o.name &&
         ram == o.ram &&
         storage_size == o.storage_size
     end
@@ -175,7 +175,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, cores, ram, storage_size].hash
+      [cores, name, ram, storage_size].hash
     end
 
     # Builds the object from hash

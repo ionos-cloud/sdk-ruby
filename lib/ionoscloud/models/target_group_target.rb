@@ -16,38 +16,38 @@ require 'time'
 module Ionoscloud
   class TargetGroupTarget
   
-    # The IP of the balanced target VM.
-    attr_accessor :ip
-
-
-    # The port of the balanced target service; valid range is 1 to 65535.
-    attr_accessor :port
-
-
-    # Traffic is distributed in proportion to target weight, relative to the combined weight of all targets. A target with higher weight receives a greater share of traffic. Valid range is 0 to 256 and default is 1; targets with weight of 0 do not participate in load balancing but still accept persistent connections. It is best use values in the middle of the range to leave room for later adjustments.
-    attr_accessor :weight
-
-
     # When the health check is enabled, the target is available only when it accepts regular TCP or HTTP connection attempts for state checking. The state check consists of one connection attempt with the target's address and port. The default value is 'TRUE'.
     attr_accessor :health_check_enabled
+
+
+    # The IP address of the balanced target.
+    attr_accessor :ip
 
 
     # When the maintenance mode is enabled, the target is prevented from receiving traffic; the default value is 'FALSE'.
     attr_accessor :maintenance_enabled
 
+
+    # The port of the balanced target service; the valid range is 1 to 65535.
+    attr_accessor :port
+
+
+    # The traffic is distributed proportionally to target weight, which is the ratio of the total weight of all targets. A target with higher weight receives a larger share of traffic. The valid range is from 0 to 256; the default value is '1'. Targets with a weight of '0' do not participate in load balancing but still accept persistent connections. We recommend using values in the middle range to leave room for later adjustments.
+    attr_accessor :weight
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
+        :'health_check_enabled' => :'healthCheckEnabled',
+
         :'ip' => :'ip',
+
+        :'maintenance_enabled' => :'maintenanceEnabled',
 
         :'port' => :'port',
 
-        :'weight' => :'weight',
-
-        :'health_check_enabled' => :'healthCheckEnabled',
-
-        :'maintenance_enabled' => :'maintenanceEnabled'
+        :'weight' => :'weight'
       }
     end
 
@@ -60,15 +60,15 @@ module Ionoscloud
     def self.openapi_types
       {
         
+        :'health_check_enabled' => :'Boolean',
+
         :'ip' => :'String',
+
+        :'maintenance_enabled' => :'Boolean',
 
         :'port' => :'Integer',
 
-        :'weight' => :'Integer',
-
-        :'health_check_enabled' => :'Boolean',
-
-        :'maintenance_enabled' => :'Boolean'
+        :'weight' => :'Integer'
       }
     end
 
@@ -99,8 +99,18 @@ module Ionoscloud
       }
       
 
+      if attributes.key?(:'health_check_enabled')
+        self.health_check_enabled = attributes[:'health_check_enabled']
+      end
+
+
       if attributes.key?(:'ip')
         self.ip = attributes[:'ip']
+      end
+
+
+      if attributes.key?(:'maintenance_enabled')
+        self.maintenance_enabled = attributes[:'maintenance_enabled']
       end
 
 
@@ -112,16 +122,6 @@ module Ionoscloud
       if attributes.key?(:'weight')
         self.weight = attributes[:'weight']
       end
-
-
-      if attributes.key?(:'health_check_enabled')
-        self.health_check_enabled = attributes[:'health_check_enabled']
-      end
-
-
-      if attributes.key?(:'maintenance_enabled')
-        self.maintenance_enabled = attributes[:'maintenance_enabled']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -129,9 +129,11 @@ module Ionoscloud
     def list_invalid_properties
       invalid_properties = Array.new
       
+
       if @ip.nil?
         invalid_properties.push('invalid value for "ip", ip cannot be nil.')
       end
+
 
 
       if @port.nil?
@@ -143,8 +145,6 @@ module Ionoscloud
         invalid_properties.push('invalid value for "weight", weight cannot be nil.')
       end
 
-
-
       invalid_properties
     end
 
@@ -152,13 +152,13 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
+
       return false if @ip.nil?
+
 
       return false if @port.nil?
 
       return false if @weight.nil?
-
-
       true
     end
 
@@ -172,11 +172,11 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        ip == o.ip &&
-        port == o.port &&
-        weight == o.weight &&
         health_check_enabled == o.health_check_enabled &&
-        maintenance_enabled == o.maintenance_enabled
+        ip == o.ip &&
+        maintenance_enabled == o.maintenance_enabled &&
+        port == o.port &&
+        weight == o.weight
     end
 
     # @see the `==` method
@@ -188,7 +188,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ip, port, weight, health_check_enabled, maintenance_enabled].hash
+      [health_check_enabled, ip, maintenance_enabled, port, weight].hash
     end
 
     # Builds the object from hash

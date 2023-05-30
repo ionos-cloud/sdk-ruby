@@ -4,17 +4,21 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **flowlogs** | [**FlowLogs**](FlowLogs.md) |  | [optional] |
+
 | **firewallrules** | [**FirewallRules**](FirewallRules.md) |  | [optional] |
+
+| **flowlogs** | [**FlowLogs**](FlowLogs.md) |  | [optional] |
 
 ## Example
 
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::NicEntities.new(
-  flowlogs: null,
-  firewallrules: null
+  firewallrules: null,
+
+  flowlogs: null
 )
 ```
 

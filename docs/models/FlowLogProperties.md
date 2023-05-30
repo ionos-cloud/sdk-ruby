@@ -4,21 +4,29 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** | The name of the  resource. |  |
+
 | **action** | **String** | Specifies the traffic action pattern. |  |
+
+| **bucket** | **String** | The S3 bucket name of an existing IONOS Cloud S3 bucket. |  |
+
 | **direction** | **String** | Specifies the traffic direction pattern. |  |
-| **bucket** | **String** | S3 bucket name of an existing IONOS Cloud S3 bucket. |  |
+
+| **name** | **String** | The resource name. |  |
 
 ## Example
 
 ```ruby
 require 'ionoscloud'
 
+
 instance = Ionoscloud::FlowLogProperties.new(
-  name: My resource,
   action: ACCEPTED,
+
+  bucket: bucketName/key,
+
   direction: INGRESS,
-  bucket: bucketName/key
+
+  name: My resource
 )
 ```
 

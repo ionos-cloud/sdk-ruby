@@ -16,28 +16,8 @@ require 'time'
 module Ionoscloud
   class ServerProperties
   
-    # The ID of the template for creating a CUBE server; the available templates for CUBE servers can be found on the templates resource.
-    attr_accessor :template_uuid
-
-
-    # The name of the  resource.
-    attr_accessor :name
-
-
-    # The total number of cores for the server.
-    attr_accessor :cores
-
-
-    # The memory size for the server in MB, such as 2048. Size must be specified in multiples of 256 MB with a minimum of 256 MB; however, if you set ramHotPlug to TRUE then you must use a minimum of 1024 MB. If you set the RAM size more than 240GB, then ramHotPlug will be set to FALSE and can not be set to TRUE unless RAM size not set to less than 240GB.
-    attr_accessor :ram
-
-
     # The availability zone in which the server should be provisioned.
     attr_accessor :availability_zone
-
-
-    # Status of the virtual machine.
-    attr_accessor :vm_state
 
 
     attr_accessor :boot_cdrom
@@ -46,12 +26,32 @@ module Ionoscloud
     attr_accessor :boot_volume
 
 
-    # CPU architecture on which server gets provisioned; not all CPU architectures are available in all datacenter regions; available CPU architectures can be retrieved from the datacenter resource.
+    # The total number of cores for the enterprise server.
+    attr_accessor :cores
+
+
+    # CPU architecture on which server gets provisioned; not all CPU architectures are available in all datacenter regions; available CPU architectures can be retrieved from the datacenter resource; must not be provided for CUBE servers.
     attr_accessor :cpu_family
 
 
-    # server usages: ENTERPRISE or CUBE
+    # The name of the  resource.
+    attr_accessor :name
+
+
+    # The memory size for the enterprise server in MB, such as 2048. Size must be specified in multiples of 256 MB with a minimum of 256 MB; however, if you set ramHotPlug to TRUE then you must use a minimum of 1024 MB. If you set the RAM size more than 240GB, then ramHotPlug will be set to FALSE and can not be set to TRUE unless RAM size not set to less than 240GB.
+    attr_accessor :ram
+
+
+    # The ID of the template for creating a CUBE server; the available templates for CUBE servers can be found on the templates resource.
+    attr_accessor :template_uuid
+
+
+    # Server type: CUBE or ENTERPRISE.
     attr_accessor :type
+
+
+    # Status of the virtual machine.
+    attr_accessor :vm_state
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -79,25 +79,25 @@ module Ionoscloud
     def self.attribute_map
       {
         
-        :'template_uuid' => :'templateUuid',
-
-        :'name' => :'name',
-
-        :'cores' => :'cores',
-
-        :'ram' => :'ram',
-
         :'availability_zone' => :'availabilityZone',
-
-        :'vm_state' => :'vmState',
 
         :'boot_cdrom' => :'bootCdrom',
 
         :'boot_volume' => :'bootVolume',
 
+        :'cores' => :'cores',
+
         :'cpu_family' => :'cpuFamily',
 
-        :'type' => :'type'
+        :'name' => :'name',
+
+        :'ram' => :'ram',
+
+        :'template_uuid' => :'templateUuid',
+
+        :'type' => :'type',
+
+        :'vm_state' => :'vmState'
       }
     end
 
@@ -110,25 +110,25 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'template_uuid' => :'String',
-
-        :'name' => :'String',
-
-        :'cores' => :'Integer',
-
-        :'ram' => :'Integer',
-
         :'availability_zone' => :'String',
-
-        :'vm_state' => :'String',
 
         :'boot_cdrom' => :'ResourceReference',
 
         :'boot_volume' => :'ResourceReference',
 
+        :'cores' => :'Integer',
+
         :'cpu_family' => :'String',
 
-        :'type' => :'String'
+        :'name' => :'String',
+
+        :'ram' => :'Integer',
+
+        :'template_uuid' => :'String',
+
+        :'type' => :'String',
+
+        :'vm_state' => :'String'
       }
     end
 
@@ -164,33 +164,8 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'template_uuid')
-        self.template_uuid = attributes[:'template_uuid']
-      end
-
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-
-      if attributes.key?(:'cores')
-        self.cores = attributes[:'cores']
-      end
-
-
-      if attributes.key?(:'ram')
-        self.ram = attributes[:'ram']
-      end
-
-
       if attributes.key?(:'availability_zone')
         self.availability_zone = attributes[:'availability_zone']
-      end
-
-
-      if attributes.key?(:'vm_state')
-        self.vm_state = attributes[:'vm_state']
       end
 
 
@@ -204,13 +179,38 @@ module Ionoscloud
       end
 
 
+      if attributes.key?(:'cores')
+        self.cores = attributes[:'cores']
+      end
+
+
       if attributes.key?(:'cpu_family')
         self.cpu_family = attributes[:'cpu_family']
       end
 
 
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+
+      if attributes.key?(:'ram')
+        self.ram = attributes[:'ram']
+      end
+
+
+      if attributes.key?(:'template_uuid')
+        self.template_uuid = attributes[:'template_uuid']
+      end
+
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+
+      if attributes.key?(:'vm_state')
+        self.vm_state = attributes[:'vm_state']
       end
     end
 
@@ -221,14 +221,6 @@ module Ionoscloud
       
 
 
-      if @cores.nil?
-        invalid_properties.push('invalid value for "cores", cores cannot be nil.')
-      end
-
-
-      if @ram.nil?
-        invalid_properties.push('invalid value for "ram", ram cannot be nil.')
-      end
 
 
 
@@ -243,29 +235,23 @@ module Ionoscloud
     # @return true if the model is valid
     def valid?
       
-
-
-      return false if @cores.nil?
-
-      return false if @ram.nil?
-
       availability_zone_validator = EnumAttributeValidator.new('String', ["AUTO", "ZONE_1", "ZONE_2"])
       return false unless availability_zone_validator.valid?(@availability_zone)
 
+
+
+
+
+
+
+
+
       vm_state_validator = EnumAttributeValidator.new('String', ["NOSTATE", "RUNNING", "BLOCKED", "PAUSED", "SHUTDOWN", "SHUTOFF", "CRASHED", "SUSPENDED"])
       return false unless vm_state_validator.valid?(@vm_state)
-
-
-
-
       true
     end
 
     
-
-
-
-
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] availability_zone Object to be assigned
     def availability_zone=(availability_zone)
@@ -275,6 +261,14 @@ module Ionoscloud
       end
       @availability_zone = availability_zone
     end
+
+
+
+
+
+
+
+
 
 
     # Custom attribute writer method checking allowed values (enum).
@@ -287,25 +281,21 @@ module Ionoscloud
       @vm_state = vm_state
     end
 
-
-
-
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        template_uuid == o.template_uuid &&
-        name == o.name &&
-        cores == o.cores &&
-        ram == o.ram &&
         availability_zone == o.availability_zone &&
-        vm_state == o.vm_state &&
         boot_cdrom == o.boot_cdrom &&
         boot_volume == o.boot_volume &&
+        cores == o.cores &&
         cpu_family == o.cpu_family &&
-        type == o.type
+        name == o.name &&
+        ram == o.ram &&
+        template_uuid == o.template_uuid &&
+        type == o.type &&
+        vm_state == o.vm_state
     end
 
     # @see the `==` method
@@ -317,7 +307,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_uuid, name, cores, ram, availability_zone, vm_state, boot_cdrom, boot_volume, cpu_family, type].hash
+      [availability_zone, boot_cdrom, boot_volume, cores, cpu_family, name, ram, template_uuid, type, vm_state].hash
     end
 
     # Builds the object from hash

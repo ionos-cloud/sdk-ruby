@@ -4,18 +4,18 @@ All URIs are relative to *https://api.ionos.com/cloudapi/v6*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**locations_find_by_region_id**](LocationsApi.md#locations_find_by_region_id) | **GET** /locations/{regionId} | List locations within regions |
-| [**locations_find_by_region_id_and_id**](LocationsApi.md#locations_find_by_region_id_and_id) | **GET** /locations/{regionId}/{locationId} | Retrieve specified locations |
-| [**locations_get**](LocationsApi.md#locations_get) | **GET** /locations | List locations |
+| [**locations_find_by_region_id**](LocationsApi.md#locations_find_by_region_id) | **GET** /locations/{regionId} | Get Locations within a Region |
+| [**locations_find_by_region_id_and_id**](LocationsApi.md#locations_find_by_region_id_and_id) | **GET** /locations/{regionId}/{locationId} | Get Location by ID |
+| [**locations_get**](LocationsApi.md#locations_get) | **GET** /locations | Get Locations |
 
 
 ## locations_find_by_region_id
 
 > <Locations> locations_find_by_region_id(region_id, opts)
 
-List locations within regions
+Get Locations within a Region
 
-List locations by the region ID.
+Retrieves the available locations in a region specified by its ID. The 'regionId' consists of the two character identifier of the region (country), e.g., 'de'.
 
 ### Examples
 
@@ -43,7 +43,7 @@ opts = {
 }
 
 begin
-  # List locations within regions
+  # Get Locations within a Region
   result = api_instance.locations_find_by_region_id(region_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -59,7 +59,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List locations within regions
+  # Get Locations within a Region
   data, status_code, headers = api_instance.locations_find_by_region_id_with_http_info(region_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -96,9 +96,9 @@ Basic Authentication, Token Authentication
 
 > <Location> locations_find_by_region_id_and_id(region_id, location_id, opts)
 
-Retrieve specified locations
+Get Location by ID
 
-Retrieve the properties of the specified location
+Retrieves the information about the location specified by its ID. The 'locationId' consists of the three-digit identifier of the city according to the IATA code.
 
 ### Examples
 
@@ -127,7 +127,7 @@ opts = {
 }
 
 begin
-  # Retrieve specified locations
+  # Get Location by ID
   result = api_instance.locations_find_by_region_id_and_id(region_id, location_id, opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -143,7 +143,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve specified locations
+  # Get Location by ID
   data, status_code, headers = api_instance.locations_find_by_region_id_and_id_with_http_info(region_id, location_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -181,9 +181,9 @@ Basic Authentication, Token Authentication
 
 > <Locations> locations_get(opts)
 
-List locations
+Get Locations
 
-List the available locations for provisioning your virtual data centers.
+Retrieves the available physical locations where you can deploy cloud resources in a VDC.    A location is identified by a combination of the following characters:    * a two-character **regionId**, which represents a country (example: 'de')    * a three-character **locationId**, which represents a city. The 'locationId' is typically based on the IATA code of the city's airport (example: 'txl').    >Note that 'locations' are read-only and cannot be changed.
 
 ### Examples
 
@@ -210,7 +210,7 @@ opts = {
 }
 
 begin
-  # List locations
+  # Get Locations
   result = api_instance.locations_get(opts)
   p result
 rescue Ionoscloud::ApiError => e
@@ -226,7 +226,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List locations
+  # Get Locations
   data, status_code, headers = api_instance.locations_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }

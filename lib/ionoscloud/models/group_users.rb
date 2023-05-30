@@ -17,32 +17,32 @@ module Ionoscloud
   # Collection of the groups the user is a member of.
   class GroupUsers
   
-    # The resource's unique identifier.
-    attr_accessor :id
-
-
-    # The type of the resource.
-    attr_accessor :type
-
-
     # URL to the object representation (absolute path).
     attr_accessor :href
+
+
+    # The resource's unique identifier.
+    attr_accessor :id
 
 
     # Array of items in the collection.
     attr_accessor :items
 
+
+    # The type of the resource.
+    attr_accessor :type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'id' => :'id',
-
-        :'type' => :'type',
-
         :'href' => :'href',
 
-        :'items' => :'items'
+        :'id' => :'id',
+
+        :'items' => :'items',
+
+        :'type' => :'type'
       }
     end
 
@@ -55,13 +55,13 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'id' => :'String',
-
-        :'type' => :'Type',
-
         :'href' => :'String',
 
-        :'items' => :'Array<Group>'
+        :'id' => :'String',
+
+        :'items' => :'Array<Group>',
+
+        :'type' => :'Type'
       }
     end
 
@@ -91,23 +91,23 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-
       if attributes.key?(:'href')
         self.href = attributes[:'href']
       end
 
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+
       if attributes.key?(:'items') && (value = attributes[:'items']).is_a?(Array)
         self.items = value
+      end
+
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -141,10 +141,10 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        id == o.id &&
-        type == o.type &&
         href == o.href &&
-        items == o.items
+        id == o.id &&
+        items == o.items &&
+        type == o.type
     end
 
     # @see the `==` method
@@ -156,7 +156,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, href, items].hash
+      [href, id, items, type].hash
     end
 
     # Builds the object from hash

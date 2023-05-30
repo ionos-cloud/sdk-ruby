@@ -16,18 +16,18 @@ require 'time'
 module Ionoscloud
   class NatGatewayEntities
   
-    attr_accessor :rules
-
-
     attr_accessor :flowlogs
+
+
+    attr_accessor :rules
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         
-        :'rules' => :'rules',
+        :'flowlogs' => :'flowlogs',
 
-        :'flowlogs' => :'flowlogs'
+        :'rules' => :'rules'
       }
     end
 
@@ -40,9 +40,9 @@ module Ionoscloud
     def self.openapi_types
       {
         
-        :'rules' => :'NatGatewayRules',
+        :'flowlogs' => :'FlowLogs',
 
-        :'flowlogs' => :'FlowLogs'
+        :'rules' => :'NatGatewayRules'
       }
     end
 
@@ -70,13 +70,13 @@ module Ionoscloud
       }
       
 
-      if attributes.key?(:'rules')
-        self.rules = attributes[:'rules']
+      if attributes.key?(:'flowlogs')
+        self.flowlogs = attributes[:'flowlogs']
       end
 
 
-      if attributes.key?(:'flowlogs')
-        self.flowlogs = attributes[:'flowlogs']
+      if attributes.key?(:'rules')
+        self.rules = attributes[:'rules']
       end
     end
 
@@ -104,8 +104,8 @@ module Ionoscloud
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-        rules == o.rules &&
-        flowlogs == o.flowlogs
+        flowlogs == o.flowlogs &&
+        rules == o.rules
     end
 
     # @see the `==` method
@@ -117,7 +117,7 @@ module Ionoscloud
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rules, flowlogs].hash
+      [flowlogs, rules].hash
     end
 
     # Builds the object from hash
